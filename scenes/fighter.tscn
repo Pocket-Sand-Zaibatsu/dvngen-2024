@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://dkjunf5k7c26b"]
+
+[ext_resource type="Texture2D" uid="uid://docbpn4tykcci" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_d1.png" id="1_npwyx"]
+[ext_resource type="Texture2D" uid="uid://m7nia2rcvpla" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_d2.png" id="2_8qmr3"]
+[ext_resource type="Texture2D" uid="uid://blxvg1tfu67yt" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_l1.png" id="3_npp57"]
+[ext_resource type="Texture2D" uid="uid://csn1igsx0kk0q" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_l2.png" id="4_vskr4"]
+[ext_resource type="Texture2D" uid="uid://cp641tlr0kqhr" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_r1.png" id="5_cv4ex"]
+[ext_resource type="Texture2D" uid="uid://ckm2m0pqig1vq" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_r2.png" id="6_sdcc1"]
+[ext_resource type="Texture2D" uid="uid://bg77853lf1wxm" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_u1.png" id="7_40yh8"]
+[ext_resource type="Texture2D" uid="uid://y5blwda7j0wr" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_u2.png" id="8_m61ax"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1hk4o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_npwyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8qmr3")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_npp57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vskr4")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cv4ex")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sdcc1")
+}],
+"loop": true,
+"name": &"right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_40yh8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_m61ax")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0s64s"]
+size = Vector2(9, 13)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1hk4o")
+animation = &"down"
+frame_progress = 0.85792
+speed_scale = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-0.5, 1.5)
+shape = SubResource("RectangleShape2D_0s64s")

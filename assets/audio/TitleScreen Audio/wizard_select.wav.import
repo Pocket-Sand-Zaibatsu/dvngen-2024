@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://2ui2c8cnxnox"
+path="res://.godot/imported/wizard_select.wav-20cf0f4198b4118c8d88748ecc25f54e.sample"
+
+[deps]
+
+source_file="res://assets/audio/TitleScreen Audio/wizard_select.wav"
+dest_files=["res://.godot/imported/wizard_select.wav-20cf0f4198b4118c8d88748ecc25f54e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

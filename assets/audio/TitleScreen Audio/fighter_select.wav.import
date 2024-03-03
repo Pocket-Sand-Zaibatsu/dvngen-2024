@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://wpok1c3mgw7b"
+path="res://.godot/imported/fighter_select.wav-7dcdb5c927df8ca2d9a2b8179208c51a.sample"
+
+[deps]
+
+source_file="res://assets/audio/TitleScreen Audio/fighter_select.wav"
+dest_files=["res://.godot/imported/fighter_select.wav-7dcdb5c927df8ca2d9a2b8179208c51a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
