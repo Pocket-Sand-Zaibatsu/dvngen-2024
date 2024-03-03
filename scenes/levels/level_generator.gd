@@ -113,4 +113,7 @@ func _add_walls() -> void:
 
 func _paint_map() -> void:
 	for tile in map:
-		level.set_cell(0, tile, 0, map[tile], 0)
+		var layer := 0
+		if map[tile] in [WALL_EW, WALL_NS]:
+			layer = 1
+		level.set_cell(layer, tile, 0, map[tile], 0)

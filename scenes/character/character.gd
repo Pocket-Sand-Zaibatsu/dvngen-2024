@@ -1,17 +1,17 @@
 extends Area2D
 class_name Character
 
-@export var animation_speed := 2
+@export var animation_speed := 10
 @export var tile_size = 16
 var moving = false
 var inputs = {
-	"right": Vector2.RIGHT,
-	"left": Vector2.LEFT,
-	"up": Vector2.UP,
-	"down": Vector2.DOWN
+	"ui_right": Vector2.RIGHT,
+	"ui_left": Vector2.LEFT,
+	"ui_up": Vector2.UP,
+	"ui_down": Vector2.DOWN
 }
 
-@onready var ray = $RayCast2d
+@onready var ray = get_node("RayCast2D")
 
 func move(dir):
 	ray.target_position = inputs[dir] * tile_size
