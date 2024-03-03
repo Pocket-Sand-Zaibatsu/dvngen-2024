@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://bb3m5nvxl52ix"]
+[gd_scene load_steps=3 format=3 uid="uid://bb3m5nvxl52ix"]
+
+[ext_resource type="PackedScene" uid="uid://ctqmirip0ubsd" path="res://scenes/levels/base_level.tscn" id="1_avk2b"]
+[ext_resource type="PackedScene" uid="uid://jaj4q77h7clv" path="res://scenes/character/player/player.tscn" id="2_cabiy"]
 
 [node name="Game" type="Node2D"]
+
+[node name="Base Level" parent="." instance=ExtResource("1_avk2b")]
+
+[node name="Player" parent="Base Level" instance=ExtResource("2_cabiy")]
