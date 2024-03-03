@@ -5,7 +5,7 @@ extends Node2D
 @export var max_rooms := 20
 
 @onready var level: TileMap = $Level
-@onready var camera: Camera2D = $Camera2D
+#@onready var camera: Camera2D = $Camera2D
 @onready var player: Player = get_node("Player")
 @onready var map: Dictionary = {}
 
@@ -20,7 +20,7 @@ func _ready() -> void:
 	print("spawn position ", spawn_position)
 	_add_walls()
 	_paint_map()
-	camera.position = level.map_to_local(map_size / 2)
+	#camera.position = level.map_to_local(map_size / 2)
 	player.spawn(spawn_position)
 
 func _initialize_map() -> void:

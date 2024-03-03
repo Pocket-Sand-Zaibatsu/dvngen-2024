@@ -1,15 +1,93 @@
-[gd_scene load_steps=4 format=3 uid="uid://jaj4q77h7clv"]
+[gd_scene load_steps=14 format=3 uid="uid://jaj4q77h7clv"]
 
-[ext_resource type="PackedScene" uid="uid://dkin3dk5kt3im" path="res://scenes/character/character.tscn" id="1_8niam"]
 [ext_resource type="Script" path="res://scenes/character/player/player.gd" id="2_nmpkx"]
-[ext_resource type="Texture2D" uid="uid://c66c3ewh6x2m0" path="res://assets/sprites/heroes/knight/td_monsters_knight_d1.png" id="3_bhbf0"]
+[ext_resource type="Texture2D" uid="uid://docbpn4tykcci" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_d1.png" id="3_p26k0"]
+[ext_resource type="Texture2D" uid="uid://m7nia2rcvpla" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_d2.png" id="3_pq72e"]
+[ext_resource type="Texture2D" uid="uid://blxvg1tfu67yt" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_l1.png" id="4_nkexc"]
+[ext_resource type="Texture2D" uid="uid://csn1igsx0kk0q" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_l2.png" id="5_woxdy"]
+[ext_resource type="Texture2D" uid="uid://cp641tlr0kqhr" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_r1.png" id="6_07axo"]
+[ext_resource type="Texture2D" uid="uid://ckm2m0pqig1vq" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_r2.png" id="7_5ia83"]
+[ext_resource type="Texture2D" uid="uid://bg77853lf1wxm" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_u1.png" id="8_xujvp"]
+[ext_resource type="Texture2D" uid="uid://y5blwda7j0wr" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_u2.png" id="9_uiyna"]
 
-[node name="Player" instance=ExtResource("1_8niam")]
+[sub_resource type="SpriteFrames" id="SpriteFrames_4mhdp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_p26k0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pq72e")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_nkexc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_woxdy")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_07axo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5ia83")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_xujvp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uiyna")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivopj"]
+size = Vector2(10, 12)
+
+[sub_resource type="Animation" id="Animation_88h8g"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_airb6"]
+_data = {
+"new_animation": SubResource("Animation_88h8g")
+}
+
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("2_nmpkx")
 
-[node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("3_bhbf0")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4mhdp")
+animation = &"Down"
+frame_progress = 0.478525
 
-[node name="RayCast2D" parent="." index="2"]
-target_position = Vector2(0, 16)
-collide_with_areas = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ivopj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_airb6")
+}
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(10, 10)
+zoom = Vector2(6, 6)
+position_smoothing_enabled = true
