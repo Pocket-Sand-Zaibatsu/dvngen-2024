@@ -930,5 +930,7 @@ format = 2
 layer_0/name = "floor"
 layer_1/name = "walls"
 layer_1/tile_data = PackedInt32Array()
+layer_2/name = "objects"
+layer_2/tile_data = PackedInt32Array()
 
 [node name="Camera2D" type="Camera2D" parent="."]

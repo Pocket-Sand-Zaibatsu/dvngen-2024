@@ -6,6 +6,7 @@ extends Node2D
 
 @onready var level: TileMap = $Level
 @onready var camera: Camera2D = $Camera2D
+@onready var player: Player = get_node("Player")
 @onready var map: Dictionary = {}
 
 var BLACK_TILE := Vector2i(0, 6)
@@ -15,12 +16,12 @@ var FLOOR := Vector2i(0, 4)
 
 func _ready() -> void:
 	_initialize_map()
-	_build_rooms()
+	var spawn_position = _build_rooms()
+	print("spawn position ", spawn_position)
 	_add_walls()
 	_paint_map()
 	camera.position = level.map_to_local(map_size / 2)
-	#var z := 64 / maxf(map_size.x, map_size.y)
-	#camera.zoom = Vector2(z, z)
+	player.spawn(spawn_position)
 
 func _initialize_map() -> void:
 	for x in range(map_size.x):
@@ -57,7 +58,7 @@ func _add_connection(rng: RandomNumberGenerator, first: Rect2i, second: Rect2i) 
 		_add_floor(Vector2i(first_center.x, min(first_center.y, second_center.y)), Vector2i(first_center.x + 1, max(first_center.y, second_center.y) + 1))
 		_add_floor(Vector2i(min(first_center.x, second_center.x), second_center.y), Vector2i(max(first_center.x, second_center.x) + 1, second_center.y + 1))
 
-func _build_rooms() -> void:
+func _build_rooms() -> Vector2i:
 	var rng := RandomNumberGenerator.new()
 	# REMOVE FOR FINAL GAME
 	rng.seed = 0
@@ -71,6 +72,7 @@ func _build_rooms() -> void:
 		if 1 < rooms.size():
 			var previous: Rect2i = rooms[-2]
 			_add_connection(rng, room, previous)
+	return (rooms[0].position + rooms[0].end) / 2
 
 func _check_neighbor(coords: Vector2i) -> String:
 	if 0 <= coords.x && map_size.x > coords.x && 0 <= coords.y && map_size.y > coords.y:

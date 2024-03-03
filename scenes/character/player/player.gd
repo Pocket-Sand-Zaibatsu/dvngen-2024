@@ -1,8 +1,5 @@
 extends Character
-
-func _ready():
-	position = position.snapped(Vector2.ONE * tile_size)
-	position += Vector2.ONE * tile_size / 2
+class_name Player
 
 func _unhandled_input(event):
 	if moving:
