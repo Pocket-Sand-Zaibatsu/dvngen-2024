@@ -100,6 +100,16 @@ func _add_walls() -> void:
 			neighbors += _check_neighbor(Vector2i(x + 1, y + 1))
 			if neighbors.contains("1"):
 				map[coords] = WALL_NS
+	for x in range(map_size.x):
+		for y in range(map_size.y):
+			var coords = Vector2i(x, y)
+			if FLOOR == map[coords]:
+				continue
+			if WALL_NS == map[coords] && BLACK_TILE == map[Vector2i(x, y + 1)]:
+				map[coords] = WALL_EW
+			if WALL_EW == map[coords] && WALL_NS == map[Vector2i(x, y +1)]:
+				map[coords] = WALL_NS
+				
 
 func _paint_map() -> void:
 	for tile in map:
