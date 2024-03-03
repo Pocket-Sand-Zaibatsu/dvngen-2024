@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctqmirip0ubsd"]
+[gd_scene load_steps=5 format=3 uid="uid://ctqmirip0ubsd"]
 
 [ext_resource type="Texture2D" uid="uid://woe6u7ms2n4k" path="res://assets/sprites/tiny_dungeon_world.png" id="1_7e4et"]
+[ext_resource type="Script" path="res://scenes/levels/level_generator.gd" id="1_pr5if"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pwyav"]
 texture = ExtResource("1_7e4et")
@@ -312,7 +313,10 @@ texture = ExtResource("1_7e4et")
 sources/0 = SubResource("TileSetAtlasSource_pwyav")
 
 [node name="Base Level" type="Node2D"]
+script = ExtResource("1_pr5if")
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Level" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_vyqg4")
 format = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
