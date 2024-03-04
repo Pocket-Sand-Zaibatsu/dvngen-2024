@@ -1,13 +1,10 @@
 extends Character
 class_name Player
 
-func _unhandled_input(event):
+func _unhandled_input(event: InputEvent):
 	if moving:
 		return
-	for dir in inputs.keys():
-		if event.is_action_pressed(dir):
-			move(dir)
-			$AudioStreamPlayer2D.play()
-			
-
-
+	for direction in input_to_direction.keys():
+		if event.is_action_pressed(direction):
+			move(input_to_direction[direction])
+			audio_player.play()
