@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xrvr"]
 size = Vector2(8, 8)
 
-[node name="Character" type="Area2D"]
+[node name="Character" type="CharacterBody2D"]
 z_index = 10
 z_as_relative = false
 collision_layer = 2
