@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdvcvrnukjtfw"
-path="res://.godot/imported/tiny_dungeon_font.png-1f6585c23a549fc93e775e30438cb4ce.ctex"
+uid="uid://c24sk3dajpxhs"
+path="res://.godot/imported/TransparentBG_small.png-831547cc9a7eea4c3d8547ee68a417be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tilesets/tiny_dungeon_font.png"
-dest_files=["res://.godot/imported/tiny_dungeon_font.png-1f6585c23a549fc93e775e30438cb4ce.ctex"]
+source_file="res://addons/texture_fonts/Assets/TransparentBG_small.png"
+dest_files=["res://.godot/imported/TransparentBG_small.png-831547cc9a7eea4c3d8547ee68a417be.ctex"]
 
 [params]
 

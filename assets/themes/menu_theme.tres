@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bx30hgdcpfdve"]
+
+[ext_resource type="FontFile" uid="uid://c8vpxjen7xpab" path="res://assets/fonts/tiny_dungeon_font.tres" id="1_rbnq6"]
+
+[resource]
+default_font = ExtResource("1_rbnq6")

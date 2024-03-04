@@ -21,6 +21,10 @@ window/size/viewport_height=900
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/texture_fonts/plugin.cfg")
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

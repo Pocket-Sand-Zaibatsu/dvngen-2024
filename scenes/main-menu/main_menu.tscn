@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4ciguhuugsmo"]
+[gd_scene load_steps=5 format=3 uid="uid://c4ciguhuugsmo"]
 
 [ext_resource type="Script" path="res://scenes/main-menu/main_menu.gd" id="1_vm5rm"]
 [ext_resource type="AudioStream" uid="uid://cfqkwguxw4pwe" path="res://assets/audio/TitleScreen Audio/SynFantasy Depths Main.wav" id="2_q6gqm"]
+[ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="3_v77f4"]
 
 [sub_resource type="GDScript" id="GDScript_3qkge"]
 
@@ -32,20 +33,21 @@ scale = Vector2(2.89, 2.89)
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
-text = "Start Game"
+theme = ExtResource("3_v77f4")
+text = "START GAME"
 script = SubResource("GDScript_3qkge")
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Options
-"
+theme = ExtResource("3_v77f4")
+text = "OPTIONS"
 script = SubResource("GDScript_3qkge")
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../StartButton")
-text = "Quit
-"
+theme = ExtResource("3_v77f4")
+text = "QUIT"
 script = SubResource("GDScript_3qkge")
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
