@@ -5,7 +5,7 @@ extends Node2D
 @export var max_rooms := 20
 
 @onready var level: TileMap = $Level
-@onready var player: Player = get_node("Player")
+@onready var player: Player
 @onready var map: Dictionary = {}
 
 func _get_floor_tile(rng: RandomNumberGenerator) -> Vector2i:
@@ -18,12 +18,19 @@ func _get_wall_tile(rng: RandomNumberGenerator, is_ew: bool = true) -> Vector2i:
 	return Vector2i(rng.randi_range(0, 5), row)
 
 func _ready() -> void:
+	var player_scene = preload("res://scenes/character/player/player.tscn")
+	player = player_scene.instantiate()
+	add_child(player)
+	_create_level()
+
+func _create_level() -> void:
 	_initialize_map()
 	var spawn_position = _build_rooms()
 	print("spawn position ", spawn_position)
 	player.spawn(spawn_position)
 
 func _initialize_map() -> void:
+	level.clear()
 	for x in range(map_size.x):
 		for y in range(map_size.y):
 			map[Vector2i(x,y)] = "empty"
