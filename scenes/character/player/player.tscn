@@ -70,7 +70,6 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
-z_index = 1
 script = ExtResource("2_nmpkx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -91,9 +90,10 @@ libraries = {
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_o04yt")
-volume_db = 5.0
+volume_db = 15.0
 pitch_scale = 1.1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(10, 10)
+zoom = Vector2(6, 6)
 position_smoothing_enabled = true
