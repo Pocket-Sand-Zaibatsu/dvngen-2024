@@ -12,10 +12,11 @@ var inputs = {
 }
 
 @onready var ray = get_node("RayCast2D")
-@onready var _animated_sprite = $AnimatedSprite2D
+@onready var _animated_sprite = get_node("AnimatedSprite2D")
+@onready var audio_player = get_node("AudioStreamPlayer2D")
 
 func _ready():
-	position = Vector2i(100, 100)
+	_animated_sprite.play("Down")
 
 func spawn(spawn_position: Vector2i) -> void:
 	position = spawn_position * tile_size
