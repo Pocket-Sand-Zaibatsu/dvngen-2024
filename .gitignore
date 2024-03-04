@@ -1,3 +1,7 @@
+# Dvngeon ignores
+export/
+build/
+
 # Godot 4+ specific ignores
 .godot/
 
