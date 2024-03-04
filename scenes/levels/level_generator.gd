@@ -6,6 +6,7 @@ extends Node2D
 
 @onready var level: TileMap = $Level
 @onready var player: Player
+@onready var stairs
 @onready var map: Dictionary = {}
 
 func _get_floor_tile(rng: RandomNumberGenerator) -> Vector2i:
@@ -22,6 +23,9 @@ func _ready() -> void:
 	var player_scene = preload("res://scenes/character/player/player.tscn")
 	player = player_scene.instantiate()
 	add_child(player)
+	var stairs_scene = preload("res://scenes/world-object/stairs/stairs.tscn")
+	stairs = stairs_scene.instantiate()
+	add_child(stairs)
 	_create_level()
 
 func _create_level() -> void:
@@ -29,6 +33,7 @@ func _create_level() -> void:
 	var spawn_position = _build_rooms()
 	print("spawn position ", spawn_position)
 	player.spawn(spawn_position)
+	stairs.spawn(Vector2i(spawn_position.x + 2, spawn_position.y))
 
 func _initialize_map() -> void:
 	level.clear()
