@@ -93,9 +93,8 @@ func _build_rooms() -> void:
 			_add_connection(rng, room, previous)
 	_add_walls()
 	_paint_map(rng)
-	var spawn_position = (rooms[0].position + rooms[0].end) / 2
-	player.spawn(spawn_position)
-	stairs.spawn(Vector2i(spawn_position.x + 2, spawn_position.y))
+	player.spawn((rooms[0].position + rooms[0].end) / 2)
+	stairs.spawn((rooms[-1].position + rooms[-1].end) / 2)
 
 func _check_neighbor(coords: Vector2i) -> String:
 	if 0 <= coords.x && map_size.x > coords.x && 0 <= coords.y && map_size.y > coords.y:
