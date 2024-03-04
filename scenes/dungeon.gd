@@ -31,5 +31,4 @@ func _pass_dev_tools_stat_updates(stat_field: String, value: int) -> void:
 	dev_tools_stat_update.emit(stat_field, value)
 
 func _pass_player_position_updated(position: Vector2i) -> void:
-	print(position)
 	player_position_updated.emit(position)
