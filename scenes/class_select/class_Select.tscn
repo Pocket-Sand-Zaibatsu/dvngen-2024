@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvhaq8anokajp"]
+
+[ext_resource type="Texture2D" uid="uid://cmhnwgqgyp3da" path="res://assets/sprites/portraits/td_portrait_archer_1f.png" id="1_esr58"]
+[ext_resource type="Script" path="res://scenes/class_select/class_Select.gd" id="1_iee6x"]
+[ext_resource type="Texture2D" uid="uid://ik6t1irptg6s" path="res://assets/sprites/portraits/td_portrait_fighter_1m.png" id="2_vnnyp"]
+[ext_resource type="Texture2D" uid="uid://b4e0rmgpc66w4" path="res://assets/sprites/portraits/td_portrait_wizard_3m.png" id="3_2b24w"]
+[ext_resource type="AudioStream" uid="uid://uub4huchqb7m" path="res://assets/audio/TitleScreen Audio/ranger_select.wav" id="3_kxror"]
+[ext_resource type="AudioStream" uid="uid://wpok1c3mgw7b" path="res://assets/audio/TitleScreen Audio/fighter_select.wav" id="4_hnnul"]
+[ext_resource type="AudioStream" uid="uid://2ui2c8cnxnox" path="res://assets/audio/TitleScreen Audio/wizard_select.wav" id="7_2hscg"]
+
+[node name="ClassSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iee6x")
+
+[node name="ChooseYourHero" type="Label" parent="."]
+layout_mode = 0
+offset_left = 671.0
+offset_top = 394.0
+offset_right = 833.0
+offset_bottom = 417.0
+text = "CHOOSE YOUR HERO
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -20.0
+offset_right = 52.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RangerButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../WizardButton")
+icon = ExtResource("1_esr58")
+
+[node name="RangerAudio" type="AudioStreamPlayer2D" parent="HBoxContainer/RangerButton"]
+stream = ExtResource("3_kxror")
+
+[node name="FighterButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_vnnyp")
+
+[node name="FighterAudio" type="AudioStreamPlayer2D" parent="HBoxContainer/FighterButton"]
+stream = ExtResource("4_hnnul")
+
+[node name="WizardButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+focus_neighbor_right = NodePath("../RangerButton")
+icon = ExtResource("3_2b24w")
+
+[node name="WizardAudio" type="AudioStreamPlayer2D" parent="HBoxContainer/WizardButton"]
+stream = ExtResource("7_2hscg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(753, 451)
+zoom = Vector2(5, 5)
+
+[connection signal="pressed" from="HBoxContainer/RangerButton" to="." method="_on_ranger_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/FighterButton" to="." method="_on_fighter_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/WizardButton" to="." method="_on_wizard_button_pressed"]
