@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://by50temb4jfxf"]
+
+[ext_resource type="PackedScene" uid="uid://bk1cg2xypnud7" path="res://scenes/character/monsters/monster.tscn" id="1_oq4eq"]
+[ext_resource type="Script" path="res://scenes/character/monsters/minotaur/minotaur.gd" id="2_e5k2i"]
+[ext_resource type="Texture2D" uid="uid://dahmv4sb2gc33" path="res://assets/sprites/monsters/minotaur/td_monsters_minotaur_d1.png" id="3_ywpr4"]
+[ext_resource type="Texture2D" uid="uid://co0pc5kt7137o" path="res://assets/sprites/monsters/minotaur/td_monsters_minotaur_d2.png" id="4_ytrxb"]
+[ext_resource type="Texture2D" uid="uid://dmxvo2gtaqg7a" path="res://assets/sprites/monsters/minotaur/td_monsters_minotaur_l1.png" id="5_um3sp"]
+[ext_resource type="Texture2D" uid="uid://dx5rp6iy1bnuj" path="res://assets/sprites/monsters/minotaur/td_monsters_minotaur_l2.png" id="6_awi3c"]
+[ext_resource type="Texture2D" uid="uid://cmo4okht561fl" path="res://assets/sprites/monsters/minotaur/td_monsters_minotaur_r1.png" id="7_h2qx7"]
+[ext_resource type="Texture2D" uid="uid://bcethbugtdlax" path="res://assets/sprites/monsters/minotaur/td_monsters_minotaur_r2.png" id="8_2r7gq"]
+[ext_resource type="Texture2D" uid="uid://ce5lxb2uwqrnj" path="res://assets/sprites/monsters/minotaur/td_monsters_minotaur_u1.png" id="9_olscf"]
+[ext_resource type="Texture2D" uid="uid://bcy52yosbdn5d" path="res://assets/sprites/monsters/minotaur/td_monsters_minotaur_u2.png" id="10_4yms4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_21261"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ywpr4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ytrxb")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_um3sp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_awi3c")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_h2qx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2r7gq")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_olscf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4yms4")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[node name="Minotaur" instance=ExtResource("1_oq4eq")]
+script = ExtResource("2_e5k2i")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_21261")
+animation = &"Up"
