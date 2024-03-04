@@ -36,8 +36,4 @@ func move(direction: String):
 	ray.force_raycast_update()
 	animated_sprite.play(direction)
 	if !ray.is_colliding():
-		var tween = get_tree().create_tween()
-		tween.tween_property(self, "position", position + direction_vector[direction] * tile_size, 1.0 / animation_speed).set_trans(Tween.TRANS_SINE)
-		moving = true
-		await tween.finished
-		moving = false
+		position += direction_vector[direction] * tile_size
