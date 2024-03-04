@@ -1,13 +1,19 @@
 extends Node2D
+class_name LevelGenerator
 
 @export var map_size := Vector2i(100, 100)
 @export var room_size_range := Vector2i(8, 15)
 @export var max_rooms := 20
+@export var map_seed := 0
 
-@onready var level: TileMap = $Level
+@onready var level: TileMap = get_node("Level")
 @onready var player: Player
 @onready var stairs
 @onready var map: Dictionary = {}
+
+func _on_generate_level():
+	map_seed += 1
+	_create_level()
 
 func _get_floor_tile(rng: RandomNumberGenerator) -> Vector2i:
 	return Vector2i(rng.randi_range(0, 5), rng.randi_range(0, 1))
@@ -26,17 +32,17 @@ func _ready() -> void:
 	var stairs_scene = preload("res://scenes/world-object/stairs/stairs.tscn")
 	stairs = stairs_scene.instantiate()
 	add_child(stairs)
+	stairs.generate_level.connect(_on_generate_level)
 	_create_level()
 
 func _create_level() -> void:
 	_initialize_map()
-	var spawn_position = _build_rooms()
-	print("spawn position ", spawn_position)
-	player.spawn(spawn_position)
-	stairs.spawn(Vector2i(spawn_position.x + 2, spawn_position.y))
+	_build_rooms()
 
 func _initialize_map() -> void:
 	level.clear()
+	player.spawn(Vector2i.ZERO)
+	map.clear()
 	for x in range(map_size.x):
 		for y in range(map_size.y):
 			map[Vector2i(x,y)] = "empty"
@@ -71,10 +77,10 @@ func _add_connection(rng: RandomNumberGenerator, first: Rect2i, second: Rect2i) 
 		_add_floor(Vector2i(first_center.x, min(first_center.y, second_center.y)), Vector2i(first_center.x + 1, max(first_center.y, second_center.y) + 1))
 		_add_floor(Vector2i(min(first_center.x, second_center.x), second_center.y), Vector2i(max(first_center.x, second_center.x) + 1, second_center.y + 1))
 
-func _build_rooms() -> Vector2i:
+func _build_rooms() -> void:
 	var rng := RandomNumberGenerator.new()
 	# REMOVE FOR FINAL GAME
-	rng.seed = 0
+	rng.seed = map_seed
 	var rooms := []
 	for possible in range(max_rooms):
 		var room := _get_random_room(rng)
@@ -87,7 +93,9 @@ func _build_rooms() -> Vector2i:
 			_add_connection(rng, room, previous)
 	_add_walls()
 	_paint_map(rng)
-	return (rooms[0].position + rooms[0].end) / 2
+	var spawn_position = (rooms[0].position + rooms[0].end) / 2
+	player.spawn(spawn_position)
+	stairs.spawn(Vector2i(spawn_position.x + 2, spawn_position.y))
 
 func _check_neighbor(coords: Vector2i) -> String:
 	if 0 <= coords.x && map_size.x > coords.x && 0 <= coords.y && map_size.y > coords.y:
@@ -122,9 +130,9 @@ func _add_walls() -> void:
 			var coords = Vector2i(x, y)
 			if "floor" == map[coords]:
 				continue
-			if "ns" == map[coords] && "empty" == map[Vector2i(x, y + 1)]:
+			if y < map_size.y - 1 && "ns" == map[coords] && "empty" == map[Vector2i(x, y + 1)]:
 				map[coords] = "ew"
-			if "ew" == map[coords] && "ns" == map[Vector2i(x, y +1)]:
+			if y < map_size.y - 1 && "ew" == map[coords] && "ns" == map[Vector2i(x, y + 1)]:
 				map[coords] = "ns"
 				
 
