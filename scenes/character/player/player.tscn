@@ -96,4 +96,5 @@ pitch_scale = 1.1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(10, 10)
+zoom = Vector2(3, 3)
 position_smoothing_enabled = true
