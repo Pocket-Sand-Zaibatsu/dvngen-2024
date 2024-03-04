@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvhaq8anokajp"]
+[gd_scene load_steps=10 format=3 uid="uid://cvhaq8anokajp"]
 
 [ext_resource type="Texture2D" uid="uid://cmhnwgqgyp3da" path="res://assets/sprites/portraits/td_portrait_archer_1f.png" id="1_esr58"]
 [ext_resource type="Script" path="res://scenes/class_select/class_Select.gd" id="1_iee6x"]
 [ext_resource type="AudioStream" uid="uid://b41wxkklwrtku" path="res://assets/audio/TitleScreen Audio/SynFantasy Depths Intensity 2.wav" id="2_1jee1"]
 [ext_resource type="Texture2D" uid="uid://ik6t1irptg6s" path="res://assets/sprites/portraits/td_portrait_fighter_1m.png" id="2_vnnyp"]
 [ext_resource type="Texture2D" uid="uid://b4e0rmgpc66w4" path="res://assets/sprites/portraits/td_portrait_wizard_3m.png" id="3_2b24w"]
+[ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://scenes/main-menu/menu_theme.tres" id="3_86f0o"]
 [ext_resource type="AudioStream" uid="uid://uub4huchqb7m" path="res://assets/audio/TitleScreen Audio/ranger_select.wav" id="3_kxror"]
 [ext_resource type="AudioStream" uid="uid://wpok1c3mgw7b" path="res://assets/audio/TitleScreen Audio/fighter_select.wav" id="4_hnnul"]
 [ext_resource type="AudioStream" uid="uid://2ui2c8cnxnox" path="res://assets/audio/TitleScreen Audio/wizard_select.wav" id="7_2hscg"]
@@ -23,10 +24,12 @@ stream = ExtResource("2_1jee1")
 
 [node name="ChooseYourHero" type="Label" parent="."]
 layout_mode = 0
-offset_left = 671.0
-offset_top = 394.0
-offset_right = 833.0
-offset_bottom = 417.0
+offset_left = 664.0
+offset_top = 408.0
+offset_right = 836.0
+offset_bottom = 431.0
+theme = ExtResource("3_86f0o")
+theme_type_variation = &"HeaderMedium"
 text = "CHOOSE YOUR HERO
 "
 
