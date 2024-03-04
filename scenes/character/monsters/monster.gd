@@ -7,8 +7,11 @@ func _ready():
 	rng = RandomNumberGenerator.new()
 	rng.seed = 0
 
-func movement(event) -> void:
-	pass
+func handle_movement(event) -> void:
+	for direction in input_to_direction.keys():
+		if event.is_action_pressed(direction):
+			var monster_direction = rng.randi_range(0, direction_vector.keys().size() - 1)
+			move(monster_direction)
 
 func _unhandled_input(event):
-	movement(event)
+	handle_movement(event)
