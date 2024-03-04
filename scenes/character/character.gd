@@ -5,6 +5,11 @@ class_name Character
 @export var tile_size = 16
 @export var volume_db = 5
 
+@export var max_health = 100
+@export var current_health = 100
+
+signal health_changed
+
 @onready var ray = get_node("RayCast2D")
 @onready var animated_sprite = get_node("AnimatedSprite2D")
 @onready var audio_player = get_node("AudioStreamPlayer2D")
