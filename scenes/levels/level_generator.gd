@@ -36,8 +36,12 @@ func _ready() -> void:
 	_create_level()
 
 func _create_level() -> void:
+	player.hide()
+	level.hide()
 	_initialize_map()
 	_build_rooms()
+	level.show()
+	player.show()
 
 func _initialize_map() -> void:
 	level.clear()
