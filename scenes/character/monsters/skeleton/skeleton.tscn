@@ -1,7 +1,66 @@
-[gd_scene load_steps=3 format=3 uid="uid://cropvqotvmds5"]
+[gd_scene load_steps=12 format=3 uid="uid://cropvqotvmds5"]
 
 [ext_resource type="PackedScene" uid="uid://bk1cg2xypnud7" path="res://scenes/character/monsters/monster.tscn" id="1_iwfh3"]
 [ext_resource type="Script" path="res://scenes/character/monsters/skeleton/skeleton.gd" id="2_ujukn"]
+[ext_resource type="Texture2D" uid="uid://b1wkbewgn51db" path="res://assets/sprites/monsters/skeleton/td_monsters_skeleton_unarmed_d1.png" id="3_luakk"]
+[ext_resource type="Texture2D" uid="uid://bbpu4k2nt3o1o" path="res://assets/sprites/monsters/skeleton/td_monsters_skeleton_unarmed_d2.png" id="4_ajvb1"]
+[ext_resource type="Texture2D" uid="uid://bteywnkxaa3ba" path="res://assets/sprites/monsters/skeleton/td_monsters_skeleton_unarmed_l1.png" id="5_567l8"]
+[ext_resource type="Texture2D" uid="uid://xry8bxgeb8vv" path="res://assets/sprites/monsters/skeleton/td_monsters_skeleton_unarmed_l2.png" id="6_kuh17"]
+[ext_resource type="Texture2D" uid="uid://b6y50bmlmj045" path="res://assets/sprites/monsters/skeleton/td_monsters_skeleton_unarmed_r1.png" id="7_qb1lh"]
+[ext_resource type="Texture2D" uid="uid://t54l7ktkewli" path="res://assets/sprites/monsters/skeleton/td_monsters_skeleton_unarmed_r2.png" id="8_m1dxc"]
+[ext_resource type="Texture2D" uid="uid://70jroxelksha" path="res://assets/sprites/monsters/skeleton/td_monsters_skeleton_unarmed_u1.png" id="9_yld2s"]
+[ext_resource type="Texture2D" uid="uid://bpnhgai5584qw" path="res://assets/sprites/monsters/skeleton/td_monsters_skeleton_unarmed_u2.png" id="10_8r6hg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b1ax3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_luakk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ajvb1")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_567l8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kuh17")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_qb1lh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_m1dxc")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_yld2s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8r6hg")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
 
 [node name="Skeleton" instance=ExtResource("1_iwfh3")]
 script = ExtResource("2_ujukn")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_b1ax3")
+animation = &"Up"
