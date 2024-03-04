@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://ctqmirip0ubsd"]
 
-[ext_resource type="Texture2D" uid="uid://woe6u7ms2n4k" path="res://assets/sprites/tiny_dungeon_world.png" id="1_7e4et"]
-[ext_resource type="Script" path="res://scenes/levels/level_generator.gd" id="1_pr5if"]
-[ext_resource type="AudioStream" uid="uid://21oo71jmn1tb" path="res://assets/audio/TitleScreen Audio/SynFantasy Depths Intensity 1.wav" id="2_2137n"]
-[ext_resource type="Texture2D" uid="uid://ca7f63mphhxyc" path="res://assets/sprites/tilesets/stone_dungeon.png" id="3_vg1m8"]
-[ext_resource type="Texture2D" uid="uid://cg4jomw3dnax7" path="res://assets/sprites/world/td_world_floor_pit.png" id="4_kcscr"]
+[ext_resource type="Script" path="res://scenes/levels/level_generator.gd" id="1_pbglm"]
+[ext_resource type="AudioStream" uid="uid://21oo71jmn1tb" path="res://assets/audio/TitleScreen Audio/SynFantasy Depths Intensity 1.wav" id="2_36dj4"]
+[ext_resource type="Texture2D" uid="uid://woe6u7ms2n4k" path="res://assets/sprites/tiny_dungeon_world.png" id="3_0ql10"]
+[ext_resource type="Texture2D" uid="uid://ca7f63mphhxyc" path="res://assets/sprites/tilesets/stone_dungeon.png" id="4_ex4vd"]
+[ext_resource type="Texture2D" uid="uid://cg4jomw3dnax7" path="res://assets/sprites/world/td_world_floor_pit.png" id="5_junio"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pwyav"]
-texture = ExtResource("1_7e4et")
+texture = ExtResource("3_0ql10")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -968,7 +968,7 @@ texture = ExtResource("1_7e4et")
 15:18/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wvxoe"]
-texture = ExtResource("3_vg1m8")
+texture = ExtResource("4_ex4vd")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -1055,7 +1055,7 @@ texture = ExtResource("3_vg1m8")
 5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rydpu"]
-texture = ExtResource("4_kcscr")
+texture = ExtResource("5_junio")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -1068,10 +1068,10 @@ sources/26 = SubResource("TileSetAtlasSource_rydpu")
 tile_proxies/coords_level = [[1, Vector2i(0, 0)], [25, Vector2i(0, 0)], [2, Vector2i(0, 0)], [25, Vector2i(1, 0)], [3, Vector2i(0, 0)], [25, Vector2i(2, 0)], [4, Vector2i(0, 0)], [25, Vector2i(3, 0)], [5, Vector2i(0, 0)], [25, Vector2i(4, 0)], [6, Vector2i(0, 0)], [25, Vector2i(5, 0)], [7, Vector2i(0, 0)], [25, Vector2i(0, 1)], [8, Vector2i(0, 0)], [25, Vector2i(1, 1)], [9, Vector2i(0, 0)], [25, Vector2i(2, 1)], [10, Vector2i(0, 0)], [25, Vector2i(3, 1)], [11, Vector2i(0, 0)], [25, Vector2i(4, 1)], [12, Vector2i(0, 0)], [25, Vector2i(5, 1)], [13, Vector2i(0, 0)], [25, Vector2i(0, 2)], [14, Vector2i(0, 0)], [25, Vector2i(1, 2)], [15, Vector2i(0, 0)], [25, Vector2i(2, 2)], [16, Vector2i(0, 0)], [25, Vector2i(3, 2)], [17, Vector2i(0, 0)], [25, Vector2i(4, 2)], [18, Vector2i(0, 0)], [25, Vector2i(5, 2)], [19, Vector2i(0, 0)], [25, Vector2i(0, 3)], [20, Vector2i(0, 0)], [25, Vector2i(1, 3)], [21, Vector2i(0, 0)], [25, Vector2i(2, 3)], [22, Vector2i(0, 0)], [25, Vector2i(3, 3)], [23, Vector2i(0, 0)], [25, Vector2i(4, 3)], [24, Vector2i(0, 0)], [25, Vector2i(5, 3)]]
 
 [node name="Base Level" type="Node2D"]
-script = ExtResource("1_pr5if")
+script = ExtResource("1_pbglm")
 
 [node name="Level1Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_2137n")
+stream = ExtResource("2_36dj4")
 
 [node name="Level" type="TileMap" parent="."]
 z_as_relative = false
