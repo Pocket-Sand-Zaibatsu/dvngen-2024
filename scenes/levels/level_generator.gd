@@ -5,28 +5,28 @@ extends Node2D
 @export var max_rooms := 20
 
 @onready var level: TileMap = $Level
-#@onready var camera: Camera2D = $Camera2D
 @onready var player: Player = get_node("Player")
 @onready var map: Dictionary = {}
 
-var BLACK_TILE := Vector2i(0, 6)
-var WALL_EW := Vector2i(0, 0)
-var WALL_NS := Vector2i(6, 0)
-var FLOOR := Vector2i(0, 4)
+func _get_floor_tile(rng: RandomNumberGenerator) -> Vector2i:
+	return Vector2i(rng.randi_range(0, 5), rng.randi_range(0, 1))
+
+func _get_wall_tile(rng: RandomNumberGenerator, is_ew: bool = true) -> Vector2i:
+	var row := 2
+	if not is_ew:
+		row = 3
+	return Vector2i(rng.randi_range(0, 5), row)
 
 func _ready() -> void:
 	_initialize_map()
 	var spawn_position = _build_rooms()
 	print("spawn position ", spawn_position)
-	_add_walls()
-	_paint_map()
-	#camera.position = level.map_to_local(map_size / 2)
 	player.spawn(spawn_position)
 
 func _initialize_map() -> void:
 	for x in range(map_size.x):
 		for y in range(map_size.y):
-			map[Vector2i(x,y)] = BLACK_TILE
+			map[Vector2i(x,y)] = "empty"
 
 func _get_random_room(rng: RandomNumberGenerator) -> Rect2i:
 	var width := rng.randi_range(room_size_range.x, room_size_range.y)
@@ -46,7 +46,7 @@ func _intersects(rooms: Array, room: Rect2i) -> bool:
 func _add_floor(initial: Vector2i, final: Vector2i) -> void:
 	for x in range(initial.x, final.x):
 		for y in range(initial.y, final.y):
-			map[Vector2i(x, y)] = FLOOR
+			map[Vector2i(x, y)] = "floor"
 
 func _add_connection(rng: RandomNumberGenerator, first: Rect2i, second: Rect2i) -> void:
 	var first_center := (first.position + first.end) / 2
@@ -72,13 +72,15 @@ func _build_rooms() -> Vector2i:
 		if 1 < rooms.size():
 			var previous: Rect2i = rooms[-2]
 			_add_connection(rng, room, previous)
+	_add_walls()
+	_paint_map(rng)
 	return (rooms[0].position + rooms[0].end) / 2
 
 func _check_neighbor(coords: Vector2i) -> String:
 	if 0 <= coords.x && map_size.x > coords.x && 0 <= coords.y && map_size.y > coords.y:
-		if FLOOR == map[coords]:
+		if "floor" == map[coords]:
 			return "1"
-		elif BLACK_TILE == map[coords]:
+		elif "empty" == map[coords]:
 			return "2"
 	return "0" 
 
@@ -86,13 +88,13 @@ func _add_walls() -> void:
 	for x in range(map_size.x):
 		for y in range(map_size.y):
 			var coords = Vector2i(x, y)
-			if FLOOR == map[coords]:
+			if "floor" == map[coords]:
 				continue
 			var neighbors := ""
 			neighbors += _check_neighbor(Vector2i(x,     y - 1))
 			neighbors += _check_neighbor(Vector2i(x,     y + 1))
 			if neighbors in ["01", "10", "12", "21"]:
-				map[coords] = WALL_EW
+				map[coords] = "ew"
 				continue
 			neighbors += _check_neighbor(Vector2i(x - 1, y - 1))
 			neighbors += _check_neighbor(Vector2i(x + 1, y - 1))
@@ -101,21 +103,25 @@ func _add_walls() -> void:
 			neighbors += _check_neighbor(Vector2i(x - 1, y + 1))
 			neighbors += _check_neighbor(Vector2i(x + 1, y + 1))
 			if neighbors.contains("1"):
-				map[coords] = WALL_NS
+				map[coords] = "ns"
 	for x in range(map_size.x):
 		for y in range(map_size.y):
 			var coords = Vector2i(x, y)
-			if FLOOR == map[coords]:
+			if "floor" == map[coords]:
 				continue
-			if WALL_NS == map[coords] && BLACK_TILE == map[Vector2i(x, y + 1)]:
-				map[coords] = WALL_EW
-			if WALL_EW == map[coords] && WALL_NS == map[Vector2i(x, y +1)]:
-				map[coords] = WALL_NS
+			if "ns" == map[coords] && "empty" == map[Vector2i(x, y + 1)]:
+				map[coords] = "ew"
+			if "ew" == map[coords] && "ns" == map[Vector2i(x, y +1)]:
+				map[coords] = "ns"
 				
 
-func _paint_map() -> void:
+func _paint_map(rng: RandomNumberGenerator) -> void:
 	for tile in map:
 		var layer := 0
-		if map[tile] in [WALL_EW, WALL_NS]:
+		if map[tile] in ["ew", "ns"]:
 			layer = 1
-		level.set_cell(layer, tile, 0, map[tile], 0)
+		match map[tile]:
+			"floor": level.set_cell(layer, tile, 25, _get_floor_tile(rng))
+			"empty": level.set_cell(layer, tile, 26, Vector2i.ZERO)
+			"ew": level.set_cell(layer, tile, 25, _get_wall_tile(rng))
+			"ns": level.set_cell(layer, tile, 25, _get_wall_tile(rng, false))
