@@ -18,8 +18,6 @@ func _process_dev_tools(stat_field: String, value: int) -> void:
 			health_changed.emit()
 
 func _unhandled_input(event: InputEvent):
-	if moving:
-		return
 	for direction in input_to_direction.keys():
 		if event.is_action_pressed(direction):
 			move(input_to_direction[direction])

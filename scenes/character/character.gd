@@ -14,7 +14,6 @@ signal health_changed
 @onready var animated_sprite = get_node("AnimatedSprite2D")
 @onready var audio_player = get_node("AudioStreamPlayer2D")
 
-var moving = false
 var direction_vector = {
 	"Right": Vector2.RIGHT,
 	"Left": Vector2.LEFT,
