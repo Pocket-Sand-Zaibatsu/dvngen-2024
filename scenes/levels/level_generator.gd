@@ -26,9 +26,6 @@ func _get_wall_tile(rng: RandomNumberGenerator, is_ew: bool = true) -> Vector2i:
 
 func _ready() -> void:
 	$Level1Music.play()
-	var player_scene = preload("res://scenes/character/player/player.tscn")
-	player = player_scene.instantiate()
-	add_child(player)
 	var stairs_scene = preload("res://scenes/world-object/stairs/stairs.tscn")
 	stairs = stairs_scene.instantiate()
 	add_child(stairs)
@@ -36,6 +33,7 @@ func _ready() -> void:
 	_create_level()
 
 func _create_level() -> void:
+	player = get_parent().get_node("Player")
 	player.hide()
 	level.hide()
 	_initialize_map()
