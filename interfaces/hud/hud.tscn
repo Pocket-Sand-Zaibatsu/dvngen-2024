@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://p6nnokp0w23o"]
+[gd_scene load_steps=7 format=3 uid="uid://p6nnokp0w23o"]
 
 [ext_resource type="Texture2D" uid="uid://borbpogvyri8g" path="res://assets/sprites/tilesets/tiny_dungeon_interface.png" id="1_3rjoo"]
+[ext_resource type="Script" path="res://interfaces/hud/hud.gd" id="1_07xmy"]
 [ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="2_utsmw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vxf4a"]
@@ -16,10 +17,9 @@ texture = ExtResource("1_3rjoo")
 region_rect = Rect2(1, 1, 46, 47)
 
 [node name="Hud" type="Node"]
+script = ExtResource("1_07xmy")
 
-[node name="CanvasGroup" type="CanvasGroup" parent="."]
-z_index = 200
-z_as_relative = false
+[node name="CanvasGroup" type="CanvasLayer" parent="."]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasGroup"]
 offset_left = 1280.0
