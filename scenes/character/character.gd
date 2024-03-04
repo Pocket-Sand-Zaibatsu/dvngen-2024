@@ -3,6 +3,7 @@ class_name Character
 
 @export var animation_speed := 10
 @export var tile_size = 16
+@export var volume_db = 5
 
 @onready var ray = get_node("RayCast2D")
 @onready var animated_sprite = get_node("AnimatedSprite2D")
@@ -23,6 +24,7 @@ var input_to_direction = {
 }
 
 func _ready() -> void:
+	audio_player.set_volume_db(volume_db)
 	animated_sprite.play("Down")
 
 func spawn(spawn_position: Vector2i) -> void:
