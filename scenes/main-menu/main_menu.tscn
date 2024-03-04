@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/main-menu/main_menu.gd" id="1_vm5rm"]
 [ext_resource type="AudioStream" uid="uid://cfqkwguxw4pwe" path="res://assets/audio/TitleScreen Audio/SynFantasy Depths Main.wav" id="2_q6gqm"]
-[ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://scenes/main-menu/menu_theme.tres" id="3_8am58"]
+[ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="3_v77f4"]
 
 [sub_resource type="GDScript" id="GDScript_3qkge"]
 
@@ -33,20 +33,20 @@ scale = Vector2(2.89, 2.89)
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
-theme = ExtResource("3_8am58")
+theme = ExtResource("3_v77f4")
 text = "START GAME"
 script = SubResource("GDScript_3qkge")
 
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_8am58")
+theme = ExtResource("3_v77f4")
 text = "OPTIONS"
 script = SubResource("GDScript_3qkge")
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../StartButton")
-theme = ExtResource("3_8am58")
+theme = ExtResource("3_v77f4")
 text = "QUIT"
 script = SubResource("GDScript_3qkge")
 

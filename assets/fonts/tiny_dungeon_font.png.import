@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdvcvrnukjtfw"
-path="res://.godot/imported/tiny_dungeon_font.png-1f6585c23a549fc93e775e30438cb4ce.ctex"
+path="res://.godot/imported/tiny_dungeon_font.png-a3a1b2abc63cb71c2fbf6c353f9ac110.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tilesets/tiny_dungeon_font.png"
-dest_files=["res://.godot/imported/tiny_dungeon_font.png-1f6585c23a549fc93e775e30438cb4ce.ctex"]
+source_file="res://assets/fonts/tiny_dungeon_font.png"
+dest_files=["res://.godot/imported/tiny_dungeon_font.png-a3a1b2abc63cb71c2fbf6c353f9ac110.ctex"]
 
 [params]
 
