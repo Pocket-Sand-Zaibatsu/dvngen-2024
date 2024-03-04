@@ -18,6 +18,7 @@ func _get_wall_tile(rng: RandomNumberGenerator, is_ew: bool = true) -> Vector2i:
 	return Vector2i(rng.randi_range(0, 5), row)
 
 func _ready() -> void:
+	$Level1Music.play()
 	var player_scene = preload("res://scenes/character/player/player.tscn")
 	player = player_scene.instantiate()
 	add_child(player)

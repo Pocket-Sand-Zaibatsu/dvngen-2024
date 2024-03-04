@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	$ClassMusic.play()
 	$HBoxContainer/FighterButton.grab_focus()
 
 
