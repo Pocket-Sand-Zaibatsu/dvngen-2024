@@ -3,6 +3,11 @@ class_name Character
 
 @export var animation_speed := 10
 @export var tile_size = 16
+
+@onready var ray = get_node("RayCast2D")
+@onready var animated_sprite = get_node("AnimatedSprite2D")
+@onready var audio_player = get_node("AudioStreamPlayer2D")
+
 var moving = false
 var direction_vector = {
 	"Right": Vector2.RIGHT,
@@ -16,10 +21,6 @@ var input_to_direction = {
 	"ui_up": "Up",
 	"ui_down": "Down"
 }
-
-@onready var ray = get_node("RayCast2D")
-@onready var animated_sprite = get_node("AnimatedSprite2D")
-@onready var audio_player = get_node("AudioStreamPlayer2D")
 
 func _ready() -> void:
 	animated_sprite.play("Down")
