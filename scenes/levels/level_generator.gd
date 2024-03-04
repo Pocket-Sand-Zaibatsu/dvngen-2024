@@ -119,7 +119,7 @@ func _check_neighbor(coords: Vector2i) -> String:
 			return "1"
 		elif "empty" == map[coords]:
 			return "2"
-	return "0" 
+	return "0"
 
 func _add_walls() -> void:
 	for x in range(map_size.x):
@@ -150,7 +150,7 @@ func _add_walls() -> void:
 				map[coords] = "ew"
 			if y < map_size.y - 1 && "ew" == map[coords] && "ns" == map[Vector2i(x, y + 1)]:
 				map[coords] = "ns"
-				
+
 
 func _paint_map(rng: RandomNumberGenerator) -> void:
 	for tile in map:
