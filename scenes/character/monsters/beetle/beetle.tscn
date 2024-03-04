@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://ce5xlv3dthnd"]
+
+[ext_resource type="PackedScene" uid="uid://bk1cg2xypnud7" path="res://scenes/character/monsters/monster.tscn" id="1_ayhkh"]
+[ext_resource type="Script" path="res://scenes/character/monsters/beetle/beetle.gd" id="2_a1ov7"]
+[ext_resource type="Texture2D" uid="uid://bj1dsttuwwnnt" path="res://assets/sprites/monsters/beetle/td_monsters_beetle_d1.png" id="3_0hktn"]
+[ext_resource type="Texture2D" uid="uid://dbouswsmhsqtn" path="res://assets/sprites/monsters/beetle/td_monsters_beetle_d2.png" id="4_ybib0"]
+[ext_resource type="Texture2D" uid="uid://barpnbtswgmdg" path="res://assets/sprites/monsters/beetle/td_monsters_beetle_l1.png" id="5_vitmx"]
+[ext_resource type="Texture2D" uid="uid://b22761knl4qop" path="res://assets/sprites/monsters/beetle/td_monsters_beetle_l2.png" id="6_3vq4o"]
+[ext_resource type="Texture2D" uid="uid://doby8v7yvxc4h" path="res://assets/sprites/monsters/beetle/td_monsters_beetle_r1.png" id="7_wrlcv"]
+[ext_resource type="Texture2D" uid="uid://1gi7245egujj" path="res://assets/sprites/monsters/beetle/td_monsters_beetle_r2.png" id="8_pw2ib"]
+[ext_resource type="Texture2D" uid="uid://kxkjct6nfgp1" path="res://assets/sprites/monsters/beetle/td_monsters_beetle_u1.png" id="9_gdds2"]
+[ext_resource type="Texture2D" uid="uid://i7bwucn02udh" path="res://assets/sprites/monsters/beetle/td_monsters_beetle_u2.png" id="10_xfg1u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6f7fi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0hktn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ybib0")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_vitmx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3vq4o")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_wrlcv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pw2ib")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_gdds2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xfg1u")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[node name="Beetle" instance=ExtResource("1_ayhkh")]
+script = ExtResource("2_a1ov7")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_6f7fi")
+animation = &"Up"
