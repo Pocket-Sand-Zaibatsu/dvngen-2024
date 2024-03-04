@@ -2,6 +2,7 @@ extends Node2D
 class_name LevelGenerator
 
 var skeleton_scene = preload("res://scenes/character/monsters/skeleton/skeleton.tscn")
+var minotaur_scene = preload("res://scenes/character/monsters/minotaur/minotaur.tscn")
 
 @export var map_size := Vector2i(100, 100)
 @export var room_size_range := Vector2i(8, 15)
@@ -105,6 +106,12 @@ func _build_rooms() -> void:
 	var skeleton2 = skeleton_scene.instantiate()
 	skeleton2.spawn(Vector2i(player.get_grid().x + 1, player.get_grid().y))
 	add_child(skeleton2)
+	var minotaur1 = minotaur_scene.instantiate()
+	minotaur1.spawn(Vector2i(player.get_grid().x + 1, player.get_grid().y - 2))
+	add_child(minotaur1)
+	var minotaur2 = minotaur_scene.instantiate()
+	minotaur2.spawn(Vector2i(player.get_grid().x + 1, player.get_grid().y - 1))
+	add_child(minotaur2)
 
 func _check_neighbor(coords: Vector2i) -> String:
 	if 0 <= coords.x && map_size.x > coords.x && 0 <= coords.y && map_size.y > coords.y:
