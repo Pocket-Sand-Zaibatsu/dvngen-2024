@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://deebdh2tlmaga"]
+
+[ext_resource type="PackedScene" uid="uid://bk1cg2xypnud7" path="res://scenes/character/monsters/monster.tscn" id="1_i7613"]
+[ext_resource type="Script" path="res://scenes/character/monsters/bat/bat.gd" id="2_wv261"]
+[ext_resource type="Texture2D" uid="uid://bkxg1hnj67fio" path="res://assets/sprites/monsters/bat/td_monsters_bat_d1.png" id="3_0861y"]
+[ext_resource type="Texture2D" uid="uid://b0apjb5bih3jb" path="res://assets/sprites/monsters/bat/td_monsters_bat_d2.png" id="4_a5oub"]
+[ext_resource type="Texture2D" uid="uid://2aw1vbqym8px" path="res://assets/sprites/monsters/bat/td_monsters_bat_l1.png" id="5_mmgff"]
+[ext_resource type="Texture2D" uid="uid://cy2q7ty072b4o" path="res://assets/sprites/monsters/bat/td_monsters_bat_l2.png" id="6_yqeru"]
+[ext_resource type="Texture2D" uid="uid://bynkefjvcg21u" path="res://assets/sprites/monsters/bat/td_monsters_bat_r1.png" id="7_itave"]
+[ext_resource type="Texture2D" uid="uid://rfxh7akaab13" path="res://assets/sprites/monsters/bat/td_monsters_bat_r2.png" id="8_mis1r"]
+[ext_resource type="Texture2D" uid="uid://t10m4ahdln8x" path="res://assets/sprites/monsters/bat/td_monsters_bat_u1.png" id="9_y6xtw"]
+[ext_resource type="Texture2D" uid="uid://mfj7yfi3rlef" path="res://assets/sprites/monsters/bat/td_monsters_bat_u2.png" id="10_hgqql"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rhnwi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0861y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a5oub")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_mmgff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yqeru")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_itave")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mis1r")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_y6xtw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hgqql")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[node name="Bat" instance=ExtResource("1_i7613")]
+script = ExtResource("2_wv261")
+uuid = ""
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_rhnwi")
+animation = &"Down"
+frame_progress = 0.915004
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 1)

@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://chd2fekvh4t8v"]
+
+[ext_resource type="PackedScene" uid="uid://bk1cg2xypnud7" path="res://scenes/character/monsters/monster.tscn" id="1_wqhlq"]
+[ext_resource type="Script" path="res://scenes/character/monsters/demon/demon.gd" id="2_2ghxf"]
+[ext_resource type="Texture2D" uid="uid://bpery7ewreqt0" path="res://assets/sprites/monsters/demon/td_monsters_demon_d1.png" id="3_7ewdj"]
+[ext_resource type="Texture2D" uid="uid://bkhdppryt1nm1" path="res://assets/sprites/monsters/demon/td_monsters_demon_d2.png" id="4_y0e1f"]
+[ext_resource type="Texture2D" uid="uid://c0j8cp16fgefb" path="res://assets/sprites/monsters/demon/td_monsters_demon_l1.png" id="5_gthj4"]
+[ext_resource type="Texture2D" uid="uid://c41v3o10buqkl" path="res://assets/sprites/monsters/demon/td_monsters_demon_l2.png" id="6_preny"]
+[ext_resource type="Texture2D" uid="uid://casnp5wxly8j3" path="res://assets/sprites/monsters/demon/td_monsters_demon_r1.png" id="7_2sg3q"]
+[ext_resource type="Texture2D" uid="uid://oyc3ma4hh6i" path="res://assets/sprites/monsters/demon/td_monsters_demon_r2.png" id="8_adtvl"]
+[ext_resource type="Texture2D" uid="uid://bfp06h2fp00v4" path="res://assets/sprites/monsters/demon/td_monsters_demon_u1.png" id="9_r2n6m"]
+[ext_resource type="Texture2D" uid="uid://crdexmtv4cdph" path="res://assets/sprites/monsters/demon/td_monsters_demon_u2.png" id="10_1536k"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fvdb0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_7ewdj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y0e1f")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gthj4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_preny")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_2sg3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_adtvl")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_r2n6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1536k")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[node name="Demon" instance=ExtResource("1_wqhlq")]
+script = ExtResource("2_2ghxf")
+uuid = ""
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_fvdb0")
+animation = &"Down"
+frame_progress = 0.258014
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 0.5)

@@ -64,4 +64,8 @@ uuid = ""
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_6f7fi")
-animation = &"Up"
+animation = &"Down"
+frame_progress = 0.468298
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 2.5)

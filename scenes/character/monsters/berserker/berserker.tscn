@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://byj00m0jlxa3o"]
+
+[ext_resource type="PackedScene" uid="uid://bk1cg2xypnud7" path="res://scenes/character/monsters/monster.tscn" id="1_hnr3v"]
+[ext_resource type="Script" path="res://scenes/character/monsters/berserker/berserker.gd" id="2_lxf42"]
+[ext_resource type="Texture2D" uid="uid://c30ivvibp5ljt" path="res://assets/sprites/monsters/berserker/td_monsters_berserker_d1.png" id="3_sp32e"]
+[ext_resource type="Texture2D" uid="uid://gd7ihhafivbf" path="res://assets/sprites/monsters/berserker/td_monsters_berserker_d2.png" id="4_amf3n"]
+[ext_resource type="Texture2D" uid="uid://dnjyf5qvbjvdx" path="res://assets/sprites/monsters/berserker/td_monsters_berserker_l1.png" id="5_a8whb"]
+[ext_resource type="Texture2D" uid="uid://bagk10d7qeg6h" path="res://assets/sprites/monsters/berserker/td_monsters_berserker_l2.png" id="6_2wu3w"]
+[ext_resource type="Texture2D" uid="uid://ciis6m7pljfsx" path="res://assets/sprites/monsters/berserker/td_monsters_berserker_r1.png" id="7_467lc"]
+[ext_resource type="Texture2D" uid="uid://cymecyie8wwxo" path="res://assets/sprites/monsters/berserker/td_monsters_berserker_r2.png" id="8_donyd"]
+[ext_resource type="Texture2D" uid="uid://bpjmda2xgpbbk" path="res://assets/sprites/monsters/berserker/td_monsters_berserker_u1.png" id="9_oqo6j"]
+[ext_resource type="Texture2D" uid="uid://cwt7tbytsgbbc" path="res://assets/sprites/monsters/berserker/td_monsters_berserker_u2.png" id="10_6ruvp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_43brt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sp32e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_amf3n")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_a8whb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2wu3w")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_467lc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_donyd")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_oqo6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_6ruvp")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[node name="Berserker" instance=ExtResource("1_hnr3v")]
+script = ExtResource("2_lxf42")
+uuid = ""
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_43brt")
+animation = &"Down"
+frame_progress = 0.751692
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(0, 1.25)

@@ -1,0 +1,71 @@
+[gd_scene load_steps=12 format=3 uid="uid://dnuvnmgvtteqc"]
+
+[ext_resource type="PackedScene" uid="uid://bk1cg2xypnud7" path="res://scenes/character/monsters/monster.tscn" id="1_dfm46"]
+[ext_resource type="Script" path="res://scenes/character/monsters/centaur/centaur.gd" id="2_d8jb6"]
+[ext_resource type="Texture2D" uid="uid://d0g41vrdv1v03" path="res://assets/sprites/monsters/centaur/td_monsters_centaur_d1.png" id="3_wjklt"]
+[ext_resource type="Texture2D" uid="uid://dv12xsmx50sl8" path="res://assets/sprites/monsters/centaur/td_monsters_centaur_d2.png" id="4_5bttn"]
+[ext_resource type="Texture2D" uid="uid://bc50j0uah5s30" path="res://assets/sprites/monsters/centaur/td_monsters_centaur_l1.png" id="5_rm6dp"]
+[ext_resource type="Texture2D" uid="uid://1pgxlwcgfsva" path="res://assets/sprites/monsters/centaur/td_monsters_centaur_l2.png" id="6_f84vo"]
+[ext_resource type="Texture2D" uid="uid://y0qd0r4vdc1g" path="res://assets/sprites/monsters/centaur/td_monsters_centaur_r1.png" id="7_mp543"]
+[ext_resource type="Texture2D" uid="uid://coba8tsbscmlb" path="res://assets/sprites/monsters/centaur/td_monsters_centaur_r2.png" id="8_mid5o"]
+[ext_resource type="Texture2D" uid="uid://cbxjxamfkj5vd" path="res://assets/sprites/monsters/centaur/td_monsters_centaur_u1.png" id="9_xi6la"]
+[ext_resource type="Texture2D" uid="uid://cugbh7055extl" path="res://assets/sprites/monsters/centaur/td_monsters_centaur_u2.png" id="10_qjkqj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qua38"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wjklt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5bttn")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_rm6dp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_f84vo")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_mp543")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mid5o")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_xi6la")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_qjkqj")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[node name="Centaur" instance=ExtResource("1_dfm46")]
+script = ExtResource("2_d8jb6")
+uuid = ""
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_qua38")
+animation = &"Down"
+frame_progress = 0.335335
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1.25, 0.5)
