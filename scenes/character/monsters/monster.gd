@@ -3,6 +3,8 @@ class_name Monster
 
 const uuid_util = preload("res://addons/uuid/uuid.gd")
 
+signal enemy_died
+
 @onready var rng: RandomNumberGenerator
 @onready var uuid = uuid_util.v4()
 
@@ -18,6 +20,10 @@ func handle_movement(event) -> void:
 		if event.is_action_pressed(direction):
 			var monster_direction = rng.randi_range(0, direction_vector.keys().size() - 1)
 			move(direction_vector.keys()[monster_direction])
+
+func die() -> void:
+	enemy_died.emit()
+	despawn()
 
 func despawn() -> void:
 	LevelGrid.despawn_actor(position)
