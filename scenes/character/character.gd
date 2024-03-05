@@ -41,3 +41,7 @@ func spawn(spawn_grid: Vector2i) -> void:
 
 func move(direction: String):
 	position = LevelGrid.request_move(position, direction)
+
+func _on_damage_sent(target_grid: Vector2i, amount: int) -> void:
+	if get_grid() == target_grid:
+		print("Receiving ", amount, " damage")
