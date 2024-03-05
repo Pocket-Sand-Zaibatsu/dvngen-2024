@@ -4,15 +4,15 @@ class_name LevelGenerator
 var skeleton_scene = preload("res://scenes/character/monsters/skeleton/skeleton.tscn")
 var minotaur_scene = preload("res://scenes/character/monsters/minotaur/minotaur.tscn")
 
-@export var map_size := Vector2i(100, 100)
-@export var room_size_range := Vector2i(8, 15)
-@export var max_rooms := 20
+@export var map_size := Vector2i(30, 30)
+@export var room_size_range := Vector2i(5, 10)
+@export var max_rooms := 2
 @export var map_seed := 0
 
 @onready var level: TileMap = get_node("Level")
 @onready var stairs
 @onready var map: Dictionary = {}
-@onready var grid: LevelGrid
+@onready var enemy_manager: EnemyManager = EnemyManager.new()
 
 func _on_generate_level():
 	map_seed += 1
@@ -28,6 +28,7 @@ func _get_wall_tile(rng: RandomNumberGenerator, is_ew: bool = true) -> Vector2i:
 	return Vector2i(rng.randi_range(0, 5), row)
 
 func _ready() -> void:
+	add_child(enemy_manager)
 	$Level1Music.play()
 	var stairs_scene = preload("res://scenes/world-object/stairs/stairs.tscn")
 	stairs = stairs_scene.instantiate()
@@ -36,6 +37,7 @@ func _ready() -> void:
 	_create_level()
 
 func _create_level() -> void:
+	enemy_manager.reset()
 	Player.hide()
 	level.hide()
 	_initialize_map()
@@ -99,19 +101,23 @@ func _build_rooms() -> void:
 	_add_walls()
 	_paint_map(rng)
 	Player.spawn((rooms[0].position + rooms[0].end) / 2)
-	stairs.spawn((rooms[-1].position + rooms[-1].end) / 2)
-	var skeleton1 = skeleton_scene.instantiate()
-	skeleton1.spawn(Vector2i(Player.get_grid().x + 2, Player.get_grid().y))
-	add_child(skeleton1)
-	var skeleton2 = skeleton_scene.instantiate()
-	skeleton2.spawn(Vector2i(Player.get_grid().x + 1, Player.get_grid().y))
-	add_child(skeleton2)
-	var minotaur1 = minotaur_scene.instantiate()
-	minotaur1.spawn(Vector2i(Player.get_grid().x + 1, Player.get_grid().y - 2))
-	add_child(minotaur1)
-	var minotaur2 = minotaur_scene.instantiate()
-	minotaur2.spawn(Vector2i(Player.get_grid().x + 1, Player.get_grid().y - 1))
-	add_child(minotaur2)
+	var stair_position = (rooms[-1].position + rooms[-1].end) / 2
+	stairs.spawn(Vector2i(stair_position.x + 1, stair_position.y))
+	enemy_manager.spawn_random_enemy(Vector2i(Player.get_grid().x + 2, Player.get_grid().y))
+	#enemy_manager.spawn_enemy(EnemyManager.ENEMY_TYPE.SKELETON, Vector2i(Player.get_grid().x + 2, Player.get_grid().y))
+	#var skeleton1 = skeleton_scene.instantiate()
+	#skeleton1.spawn(Vector2i(Player.get_grid().x + 2, Player.get_grid().y))
+	#add_child(skeleton1)
+	#var skeleton2 = skeleton_scene.instantiate()
+	#skeleton2.spawn(Vector2i(Player.get_grid().x + 1, Player.get_grid().y))
+	#add_child(skeleton2)
+	#var minotaur1 = minotaur_scene.instantiate()
+	#minotaur1.spawn(Vector2i(Player.get_grid().x + 1, Player.get_grid().y - 2))
+	#add_child(minotaur1)
+	#var minotaur2 = minotaur_scene.instantiate()
+	#minotaur2.spawn(Vector2i(Player.get_grid().x + 1, Player.get_grid().y - 1))
+	#add_child(minotaur2)
+	#skeleton2.despawn()
 
 func _check_neighbor(coords: Vector2i) -> String:
 	if 0 <= coords.x && map_size.x > coords.x && 0 <= coords.y && map_size.y > coords.y:

@@ -63,3 +63,6 @@ func request_move(start_position: Vector2, direction: String) -> Vector2:
 
 func spawn_actor(spawn_grid: Vector2i) -> void:
 	grid[spawn_grid] = CELL_TYPE.ACTOR
+
+func despawn_actor(despawn_position: Vector2) -> void:
+	grid[LevelGrid.position_to_grid(despawn_position)] = CELL_TYPE.EMPTY

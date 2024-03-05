@@ -11,7 +11,6 @@ class_name Character
 signal actor_spawned(grid: Vector2i)
 signal health_changed
 
-@onready var ray = get_node("RayCast2D")
 @onready var animated_sprite = get_node("AnimatedSprite2D")
 @onready var audio_player = get_node("AudioStreamPlayer2D")
 
@@ -41,8 +40,3 @@ func spawn(spawn_grid: Vector2i) -> void:
 
 func move(direction: String):
 	position = LevelGrid.request_move(position, direction)
-	#ray.target_position = direction_vector[direction] * tile_size
-	#ray.force_raycast_update()
-	#animated_sprite.play(direction)
-	#if !ray.is_colliding():
-		#position += direction_vector[direction] * tile_size
