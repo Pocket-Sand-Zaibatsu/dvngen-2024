@@ -45,7 +45,6 @@ func reset() -> void:
 func construct(new_size: Vector2i) -> void:
 	grid_size = new_size
 	reset()
-	print("Grid has been reset with ", grid[Vector2i.ZERO])
 
 func get_cell(position: Vector2i) -> CELL_TYPE:
 	return grid[position]
