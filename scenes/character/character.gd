@@ -43,15 +43,14 @@ func move(direction: String):
 	position = LevelGrid.request_move(position, direction)
 
 func change_health(amount: int) -> void:
-	var new_health = current_health + amount
-	if max_health < new_health:
+	current_health += amount
+	if max_health < current_health:
 		current_health = max_health
-	elif new_health < 0:
+	elif current_health < 0:
 		current_health = 0
-	else:
-		current_health = new_health
 	health_changed.emit()
 
 func _on_damage_sent(target_grid: Vector2i, amount: int) -> void:
 	if get_grid() == target_grid:
 		print("Receiving ", amount, " damage")
+		change_health(-1 * amount)
