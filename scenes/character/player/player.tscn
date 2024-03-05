@@ -70,6 +70,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+visible = false
 show_behind_parent = true
 z_index = 1
 script = ExtResource("2_nmpkx")
@@ -96,7 +97,8 @@ stream = ExtResource("10_o04yt")
 volume_db = 5.0
 pitch_scale = 1.1
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="PlayerCamera" type="Camera2D" parent="."]
 offset = Vector2(10, 10)
+enabled = false
 zoom = Vector2(3, 3)
 position_smoothing_enabled = true

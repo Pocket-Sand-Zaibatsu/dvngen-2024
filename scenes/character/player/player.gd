@@ -4,8 +4,9 @@ class_name PlayerCharacter
 signal player_ready
 signal player_position_updated(position: Vector2i)
 
+@onready var camera = get_node("PlayerCamera")
+
 func _ready() -> void:
-	#visible = false
 	player_ready.emit()
 
 func _on_dev_tools_stat_update(stat_field: String, value: int) -> void:
@@ -17,6 +18,11 @@ func _on_dev_tools_stat_update(stat_field: String, value: int) -> void:
 		"current_health":
 			current_health = value
 			health_changed.emit()
+
+func spawn(spawn_grid: Vector2i) -> void:
+	super(spawn_grid)
+	camera.set_enabled(true)
+	camera.make_current()
 
 func _unhandled_input(event: InputEvent):
 	if not visible:
