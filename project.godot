@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 
 LevelGrid="*res://scenes/levels/level_grid.gd"
 Player="*res://scenes/character/player/player.tscn"
+GameLogTransport="*res://interfaces/hud/game_log_transport.gd"
 
 [display]
 
