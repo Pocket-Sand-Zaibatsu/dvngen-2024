@@ -40,5 +40,6 @@ func spawn_random_enemy(spawn_grid: Vector2i) -> void:
 func spawn_enemy(enemy_type: ENEMY_TYPE, spawn_grid: Vector2i) -> void:
 	var enemy = loader[enemy_type]["scene"].instantiate()
 	enemy.spawn(spawn_grid)
-	call_deferred("add_child", enemy)
+	Player.damage_sent.connect(enemy._on_damage_sent)
 	enemies[enemy.uuid] = enemy
+	call_deferred("add_child", enemy)
