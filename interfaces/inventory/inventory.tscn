@@ -1,0 +1,259 @@
+[gd_scene load_steps=5 format=3 uid="uid://drcophnpcvkyx"]
+
+[ext_resource type="Texture2D" uid="uid://ivatf2ktybyt" path="res://assets/sprites/inventory/inv_bg.png" id="1_ei4nf"]
+[ext_resource type="Texture2D" uid="uid://cbpw27few6uj8" path="res://assets/sprites/inventory/item_slot_default.png" id="2_a5s1b"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7lvlw"]
+texture = ExtResource("2_a5s1b")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6d45c"]
+texture = ExtResource("2_a5s1b")
+
+[node name="Inventory" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ei4nf")
+
+[node name="InvGrid" type="GridContainer" parent="TextureRect"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 43.0
+offset_right = 275.0
+offset_bottom = 136.0
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+columns = 5
+
+[node name="InvSlot1" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot2" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot3" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot4" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot5" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot6" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot7" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot8" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot9" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot10" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot11" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot12" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot13" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot14" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot15" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot16" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot17" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot18" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot19" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="InvSlot20" type="Panel" parent="TextureRect/InvGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
+
+[node name="EquipGrid" type="GridContainer" parent="TextureRect"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 43.0
+offset_right = 114.0
+offset_bottom = 133.0
+theme_override_constants/h_separation = 34
+theme_override_constants/v_separation = 6
+columns = 2
+
+[node name="EquipSlot1" type="Panel" parent="TextureRect/EquipGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6d45c")
+
+[node name="Head" type="Label" parent="TextureRect/EquipGrid/EquipSlot1"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 44.0
+offset_bottom = 29.0
+scale = Vector2(0.29, 0.29)
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 1)
+text = "Head"
+
+[node name="EquipSlot2" type="Panel" parent="TextureRect/EquipGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6d45c")
+
+[node name="Neck" type="Label" parent="TextureRect/EquipGrid/EquipSlot2"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 43.0
+offset_bottom = 29.0
+scale = Vector2(0.29, 0.29)
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 1)
+text = "Neck"
+
+[node name="EquipSlot3" type="Panel" parent="TextureRect/EquipGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6d45c")
+
+[node name="Body" type="Label" parent="TextureRect/EquipGrid/EquipSlot3"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 43.0
+offset_bottom = 29.0
+scale = Vector2(0.29, 0.29)
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 1)
+text = "Body"
+
+[node name="EquipSlot4" type="Panel" parent="TextureRect/EquipGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6d45c")
+
+[node name="Arms" type="Label" parent="TextureRect/EquipGrid/EquipSlot4"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 44.0
+offset_bottom = 29.0
+scale = Vector2(0.29, 0.29)
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 1)
+text = "Arms
+"
+
+[node name="EquipSlot5" type="Panel" parent="TextureRect/EquipGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6d45c")
+
+[node name="Legs" type="Label" parent="TextureRect/EquipGrid/EquipSlot5"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 44.0
+offset_bottom = 29.0
+scale = Vector2(0.29, 0.29)
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 1)
+text = "Legs"
+
+[node name="EquipSlot6" type="Panel" parent="TextureRect/EquipGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6d45c")
+
+[node name="Feet" type="Label" parent="TextureRect/EquipGrid/EquipSlot6"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 6.0
+offset_right = 44.0
+offset_bottom = 29.0
+scale = Vector2(0.29, 0.29)
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 1)
+text = "Feet"
+
+[node name="EquipSlot7" type="Panel" parent="TextureRect/EquipGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6d45c")
+
+[node name="R_Hand" type="Label" parent="TextureRect/EquipGrid/EquipSlot7"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 45.0
+offset_bottom = 29.0
+scale = Vector2(0.29, 0.29)
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 1)
+text = "Hand"
+
+[node name="EquipSlot8" type="Panel" parent="TextureRect/EquipGrid"]
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_6d45c")
+
+[node name="L_Hand" type="Label" parent="TextureRect/EquipGrid/EquipSlot8"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 45.0
+offset_bottom = 29.0
+scale = Vector2(0.29, 0.29)
+theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 1)
+text = "Hand
+"
