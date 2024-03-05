@@ -17,8 +17,10 @@ var level: int = 1
 var hit_dice: DicePool = DicePool.new([Dice.new(8)], 0)
 var current_health: int = 0
 var max_health: int = 0
-var base_armor_class: int = 0
+var base_armor_class: int = 10
 var base_attack_bonus: int = 0
+var attack_dice: Dice = Dice.new(20, 1)
+var unarmed_damage_dice: DicePool = DicePool.new([Dice.new(3)], 0)
 
 var direction_vector = {
 	"Right": Vector2.RIGHT,
@@ -50,6 +52,9 @@ func compute_attack_bonus() -> int:
 func compute_armor_class() -> int:
 	return base_armor_class
 
+func roll_attack() -> int:
+	return attack_dice.roll() + compute_attack_bonus()
+
 func get_grid() -> Vector2i:
 	return LevelGrid.position_to_grid(position)
 
@@ -59,7 +64,7 @@ func spawn(spawn_grid: Vector2i) -> void:
 
 func move(direction: String):
 	position = LevelGrid.request_move(position, direction)
-	damage_sent.emit(get_grid() + Vector2i(direction_vector[direction]), 1)
+	damage_sent.emit(get_grid() + Vector2i(direction_vector[direction]), roll_attack(), unarmed_damage_dice.roll())
 
 func change_health(amount: int) -> void:
 	current_health += amount
@@ -70,8 +75,8 @@ func change_health(amount: int) -> void:
 		current_health = 0
 		die()
 
-func _on_damage_sent(target_grid: Vector2i, amount: int) -> void:
-	if get_grid() == target_grid:
+func _on_damage_sent(target_grid: Vector2i, attack_roll: int, amount: int) -> void:
+	if get_grid() == target_grid && attack_roll >= compute_armor_class():
 		change_health(-1 * amount)
 
 func die() -> void:
