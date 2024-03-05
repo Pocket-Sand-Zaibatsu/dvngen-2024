@@ -4,6 +4,7 @@ class_name Hud
 signal dev_tools_stat_update(stat_field: String, value: int)
 
 @onready var HealthBar = get_node("HealthBar")
+@onready var GameLog = get_node("GameLog")
 
 func _set_up_dev_tools() -> void:
 	$DevTools/Health/HBoxContainer/Max.dev_tools_stat_update.connect(Player._on_dev_tools_stat_update)
