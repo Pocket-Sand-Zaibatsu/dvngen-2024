@@ -17,7 +17,4 @@ script = ExtResource("1_o00ej")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2xrvr")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-collision_mask = 23
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
