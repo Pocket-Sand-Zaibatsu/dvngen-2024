@@ -80,8 +80,6 @@ func get_player_grid() -> Vector2i:
 func a_star_to_player(start_position: Vector2) -> String:
 	var start_grid = LevelGrid.position_to_grid(start_position)
 	var next_grid = a_star(start_grid, get_player_grid())
-	print("Start: ", start_grid)
-	print("Next: ", next_grid)
 	return vector_to_direction.get(next_grid - start_grid, "")
 
 func a_star(start_grid: Vector2i, goal_grid: Vector2i) -> Vector2i:
