@@ -8,7 +8,14 @@ enum CELL_TYPE {
 	OBJECT
 }
 
-var direction_vector = {
+var vector_to_direction = {
+	Vector2i.RIGHT: "Right",
+	Vector2i.LEFT: "Left",
+	Vector2i.UP: "Up",
+	Vector2i.DOWN: "Down"
+}
+
+var direction_to_vector = {
 	"Right": Vector2i.RIGHT,
 	"Left": Vector2i.LEFT,
 	"Up": Vector2i.UP,
@@ -55,7 +62,7 @@ func update_grid_position(start: Vector2i, target: Vector2i) -> Vector2:
 
 func request_move(start_position: Vector2, direction: String) -> Vector2:
 	var start_grid = LevelGrid.position_to_grid(start_position)
-	var target_grid = start_grid + direction_vector[direction]
+	var target_grid = start_grid + direction_to_vector.get(direction, Vector2i.ZERO)
 	match get_cell(target_grid):
 		CELL_TYPE.EMPTY:
 			return update_grid_position(start_grid, target_grid)
@@ -66,3 +73,43 @@ func spawn_actor(spawn_grid: Vector2i) -> void:
 
 func despawn_actor(despawn_position: Vector2) -> void:
 	grid[LevelGrid.position_to_grid(despawn_position)] = CELL_TYPE.EMPTY
+
+func get_player_grid() -> Vector2i:
+	return LevelGrid.position_to_grid(Player.position)
+
+func a_star_to_player(start_position: Vector2) -> String:
+	var start_grid = LevelGrid.position_to_grid(start_position)
+	var next_grid = a_star(start_grid, get_player_grid())
+	return vector_to_direction.get(next_grid - start_grid, "")
+
+func a_star(start_grid: Vector2i, goal_grid: Vector2i) -> Vector2i:
+	var open = BinaryManhattanHeap.new()
+	open.set_target(goal_grid)
+	open.insert(start_grid)
+	var came_from = {}
+	var g_score = {}
+	g_score[start_grid] = 0
+	var f_score = {}
+	f_score[start_grid] = get_manhattan_distance(start_grid, goal_grid)
+	while 0 < open.size():
+		var current = open.extract()
+		if goal_grid == current:
+			var previous = current
+			while current in came_from:
+				previous = current
+				current = came_from[current]
+			return previous
+		for x in [-1, 0, 1]:
+			for y in [-1, 0, 1]:
+				if abs(x) == abs(y):
+					continue
+				var neighbor = Vector2i(current.x + x, current.y + y)
+				if CELL_TYPE.OBSTACLE == get_cell(neighbor):
+					continue
+				var tentative_g_score = g_score[current] + 1
+				if tentative_g_score < g_score.get(neighbor, 1000000):
+					came_from[neighbor] = current
+					g_score[neighbor] = tentative_g_score
+					f_score[neighbor] = get_manhattan_distance(neighbor, goal_grid)
+					open.insert(neighbor)
+	return goal_grid
