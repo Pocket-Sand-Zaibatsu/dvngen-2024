@@ -14,7 +14,8 @@ signal damage_sent(target_grid: Vector2i, amount: int)
 
 @onready var animated_sprite = get_node("AnimatedSprite2D")
 @onready var audio_player = get_node("AudioStreamPlayer2D")
-@onready var stat_block: StatBlock = StatBlock.new()
+
+var stat_block: StatBlock = StatBlock.new()
 
 var direction_vector = {
 	"Right": Vector2.RIGHT,
