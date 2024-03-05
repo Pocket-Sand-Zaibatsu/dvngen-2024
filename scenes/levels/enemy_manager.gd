@@ -20,14 +20,25 @@ var loader: Dictionary = {
 }
 
 @onready var enemies: Dictionary = {}
+@onready var rng: RandomNumberGenerator
+
+func _ready():
+	rng = RandomNumberGenerator.new()
+	rng.randomize()
 
 func reset():
 	for monster in enemies:
 		enemies[monster].despawn()
 	enemies.clear()
 
-func spawn_enemy(enemy_type: ENEMY_TYPE, position: Vector2i) -> void:
+func spawn_random_enemy(spawn_grid: Vector2i) -> void:
+	spawn_enemy(
+		ENEMY_TYPE.values()[rng.randi() % ENEMY_TYPE.values().size()],
+		spawn_grid
+	)
+
+func spawn_enemy(enemy_type: ENEMY_TYPE, spawn_grid: Vector2i) -> void:
 	var enemy = loader[enemy_type]["scene"].instantiate()
-	enemy.spawn(position)
+	enemy.spawn(spawn_grid)
 	call_deferred("add_child", enemy)
 	enemies[enemy.uuid] = enemy
