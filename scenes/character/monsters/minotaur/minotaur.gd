@@ -4,7 +4,12 @@ class_name Minotaur
 
 func _init():
 	super()
+	hit_dice = DicePool.new([Dice.new(12)], 4)
 	stat_block.update_stat_block([8, 15, 10, 7, 19, 10])
+
+func _ready():
+	super()
+	print("Minotaur health ", max_health)
 
 func handle_movement(event) -> void:
 	for direction in input_to_direction.keys():
