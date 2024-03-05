@@ -4,7 +4,7 @@ class_name DicePool
 var dice: Array[Dice] = []
 var bonus: int = 0
 
-func _init(new_dice: Array[Dice], new_bonus: int) -> void:
+func _init(new_dice: Array[Dice], new_bonus: int = 0) -> void:
 	dice = new_dice
 	bonus = new_bonus
 
