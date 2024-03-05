@@ -3,17 +3,15 @@ class_name Hud
 
 signal dev_tools_stat_update(stat_field: String, value: int)
 
-@onready var player: Player
 @onready var HealthBar = get_node("HealthBar")
 
 func _set_up_dev_tools() -> void:
-	$DevTools/Health/HBoxContainer/Max.dev_tools_stat_update.connect(_pass_dev_tools_stat_updates)
-	$DevTools/Health/HBoxContainer2/Current.dev_tools_stat_update.connect(_pass_dev_tools_stat_updates)
+	$DevTools/Health/HBoxContainer/Max.dev_tools_stat_update.connect(Player._on_dev_tools_stat_update)
+	$DevTools/Health/HBoxContainer2/Current.dev_tools_stat_update.connect(Player._on_dev_tools_stat_update)
 
 func _ready():
 	_set_up_dev_tools()
-	player = get_parent().get_node("Player")
-	player.health_changed.connect(_player_health_changed)
+	Player.health_changed.connect(_player_health_changed)
 	_player_health_changed()
 
 func _pass_dev_tools_stat_updates(stat_field: String, value: int):
@@ -21,4 +19,4 @@ func _pass_dev_tools_stat_updates(stat_field: String, value: int):
 	dev_tools_stat_update.emit(stat_field, value)
 
 func _player_health_changed() -> void:
-	HealthBar.value = int(float(player.current_health * 100) / float(player.max_health))
+	HealthBar.value = int(float(Player.current_health * 100) / float(Player.max_health))
