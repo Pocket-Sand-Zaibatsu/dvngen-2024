@@ -5,9 +5,6 @@ class_name Character
 @export var tile_size = 16
 @export var volume_db = 5
 
-@export var max_health = 10
-@export var current_health = 10
-
 signal actor_spawned(grid: Vector2i)
 signal health_changed
 signal damage_sent(target_grid: Vector2i, amount: int)
@@ -16,6 +13,10 @@ signal damage_sent(target_grid: Vector2i, amount: int)
 @onready var audio_player = get_node("AudioStreamPlayer2D")
 
 var stat_block: StatBlock = StatBlock.new()
+var level: int = 1
+var hit_dice: DicePool = DicePool.new([Dice.new(8)], 0)
+var current_health: int = 0
+var max_health: int = 0
 
 var direction_vector = {
 	"Right": Vector2.RIGHT,
@@ -33,6 +34,13 @@ var input_to_direction = {
 func _ready() -> void:
 	audio_player.set_volume_db(volume_db)
 	animated_sprite.play("Down")
+
+func update_max_health(levels_gained: int = 0) -> void:
+	if 0 < levels_gained:
+		for _index in range(levels_gained):
+			max_health += hit_dice.roll()
+	if current_health > max_health:
+		current_health = max_health
 
 func get_grid() -> Vector2i:
 	return LevelGrid.position_to_grid(position)
