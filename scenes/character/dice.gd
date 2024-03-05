@@ -2,15 +2,17 @@ extends Node
 class_name Dice
 
 var sides: int = 6
-var roll_bonus: int = 0
+var count: int = 1
 
 @onready var rng: RandomNumberGenerator
 
-func _init(new_sides: int = 6, new_roll_bonus: int = 0) -> void:
+func _init(new_sides: int = 6, count: int = 1) -> void:
 	update_sides(new_sides)
-	update_roll_bonus(new_roll_bonus)
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
+
+func get_max() -> int:
+	return count * sides
 
 func get_sides() -> int:
 	return sides
@@ -21,34 +23,34 @@ func update_sides(new_sides: int) -> void:
 	else:
 		sides = new_sides
 
-func get_roll_bonus() -> int:
-	return roll_bonus
+func get_count() -> int:
+	return count
 
-func update_roll_bonus(new_roll_bonus: int) -> void:
-	roll_bonus = new_roll_bonus
+func update_count(new_count: int) -> void:
+	if 0 < new_count:
+		count = new_count
 
 func seed_rng(new_seed: int) -> void:
 	rng.seed = new_seed
 
-func roll(with_bonus: bool = true) -> int:
-	return rng.randi_range(1, sides) + (roll_bonus if with_bonus else 0)
+func roll_single() -> int:
+	return rng.randi_range(1, sides)
 
-# Does it make sense to apply the bonus to all rolls by default?
-func roll_count(count: int, with_bonus: bool = true) -> Array[int]:
+func roll_all() -> Array[int]:
 	var results: Array[int] = []
 	for _index in range(count):
-		results.push_back(roll(with_bonus))
+		results.push_back(roll_single())
 	return results
 
 func sum(accumulator: int, number: int) -> int:
 	return accumulator + number
 
-func roll_count_sum(count: int) -> int:
-	return roll_count(count, false).reduce(sum, 0) + roll_bonus
+func roll() -> int:
+	return roll_all().reduce(sum, 0)
 
-func roll_count_sum_drop_lowest(count: int, drop_count: int = 1) -> int:
+func roll_drop_lowest(count: int, drop_count: int = 1) -> int:
 	if drop_count >= count:
 		return 0
-	var rolls = roll_count(count, false)
+	var rolls = roll_all()
 	rolls.sort()
-	return rolls.slice(drop_count, count).reduce(sum, 0) + roll_bonus
+	return rolls.slice(drop_count, count).reduce(sum, 0)
