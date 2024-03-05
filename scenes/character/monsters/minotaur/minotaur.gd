@@ -2,9 +2,8 @@
 extends Monster
 class_name Minotaur
 
-func spawn(spawn_grid: Vector2i) -> void:
-	super(spawn_grid)
-	print("Minotaur spawning at ", spawn_grid)
+func _init():
+	stat_block.update_stat_block([8, 15, 10, 7, 19, 10])
 
 func handle_movement(event) -> void:
 	for direction in input_to_direction.keys():
