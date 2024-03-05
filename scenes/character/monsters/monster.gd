@@ -7,8 +7,11 @@ const uuid_util = preload("res://addons/uuid/uuid.gd")
 @onready var uuid = uuid_util.v4()
 
 func _ready():
+	super()
 	rng = RandomNumberGenerator.new()
 	rng.seed = 0
+	damage_sent.connect(Player._on_damage_sent)
+	Player.damage_sent.connect(_on_damage_sent)
 
 func handle_movement(event) -> void:
 	for direction in input_to_direction.keys():
