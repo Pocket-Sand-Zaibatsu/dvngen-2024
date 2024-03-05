@@ -53,5 +53,4 @@ func change_health(amount: int) -> void:
 
 func _on_damage_sent(target_grid: Vector2i, amount: int) -> void:
 	if get_grid() == target_grid:
-		print("Receiving ", amount, " damage")
 		change_health(-1 * amount)
