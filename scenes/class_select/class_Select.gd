@@ -1,6 +1,7 @@
-extends Control
+extends CanvasLayer
 
 func _ready():
+	$Camera2D.make_current()
 	$ClassMusic.play()
 	$HBoxContainer/FighterButton.grab_focus()
 

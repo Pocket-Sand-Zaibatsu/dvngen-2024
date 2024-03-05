@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 [autoload]
 
 LevelGrid="*res://scenes/levels/level_grid.gd"
+Player="*res://scenes/character/player/player.tscn"
 
 [display]
 

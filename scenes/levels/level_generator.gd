@@ -10,7 +10,6 @@ var minotaur_scene = preload("res://scenes/character/monsters/minotaur/minotaur.
 @export var map_seed := 0
 
 @onready var level: TileMap = get_node("Level")
-@onready var player: Player
 @onready var stairs
 @onready var map: Dictionary = {}
 @onready var grid: LevelGrid
@@ -37,18 +36,16 @@ func _ready() -> void:
 	_create_level()
 
 func _create_level() -> void:
-	player = get_parent().get_node("Player")
-	player.hide()
+	Player.hide()
 	level.hide()
 	_initialize_map()
 	_build_rooms()
 	level.show()
-	player.show()
+	Player.show()
 
 func _initialize_map() -> void:
 	LevelGrid.construct(map_size)
 	level.clear()
-	player.spawn(Vector2i.ZERO)
 	map.clear()
 	for x in range(map_size.x):
 		for y in range(map_size.y):
@@ -101,19 +98,19 @@ func _build_rooms() -> void:
 			_add_connection(rng, room, previous)
 	_add_walls()
 	_paint_map(rng)
-	player.spawn((rooms[0].position + rooms[0].end) / 2)
+	Player.spawn((rooms[0].position + rooms[0].end) / 2)
 	stairs.spawn((rooms[-1].position + rooms[-1].end) / 2)
 	var skeleton1 = skeleton_scene.instantiate()
-	skeleton1.spawn(Vector2i(player.get_grid().x + 2, player.get_grid().y))
+	skeleton1.spawn(Vector2i(Player.get_grid().x + 2, Player.get_grid().y))
 	add_child(skeleton1)
 	var skeleton2 = skeleton_scene.instantiate()
-	skeleton2.spawn(Vector2i(player.get_grid().x + 1, player.get_grid().y))
+	skeleton2.spawn(Vector2i(Player.get_grid().x + 1, Player.get_grid().y))
 	add_child(skeleton2)
 	var minotaur1 = minotaur_scene.instantiate()
-	minotaur1.spawn(Vector2i(player.get_grid().x + 1, player.get_grid().y - 2))
+	minotaur1.spawn(Vector2i(Player.get_grid().x + 1, Player.get_grid().y - 2))
 	add_child(minotaur1)
 	var minotaur2 = minotaur_scene.instantiate()
-	minotaur2.spawn(Vector2i(player.get_grid().x + 1, player.get_grid().y - 1))
+	minotaur2.spawn(Vector2i(Player.get_grid().x + 1, Player.get_grid().y - 1))
 	add_child(minotaur2)
 
 func _check_neighbor(coords: Vector2i) -> String:

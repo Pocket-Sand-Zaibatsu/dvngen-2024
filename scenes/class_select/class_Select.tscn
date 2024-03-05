@@ -10,24 +10,13 @@
 [ext_resource type="AudioStream" uid="uid://wpok1c3mgw7b" path="res://assets/audio/TitleScreen Audio/fighter_select.wav" id="4_hnnul"]
 [ext_resource type="AudioStream" uid="uid://2ui2c8cnxnox" path="res://assets/audio/TitleScreen Audio/wizard_select.wav" id="7_2hscg"]
 
-[node name="ClassSelect" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 101.0
-offset_top = -7.0
-offset_right = 101.0
-offset_bottom = -7.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ClassSelect" type="CanvasLayer"]
 script = ExtResource("1_iee6x")
 
 [node name="ClassMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_1jee1")
 
 [node name="ChooseYourHero" type="Label" parent="."]
-layout_mode = 0
 offset_left = 664.0
 offset_top = 408.0
 offset_right = 836.0
@@ -38,7 +27,6 @@ text = "CHOOSE YOUR HERO
 "
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
