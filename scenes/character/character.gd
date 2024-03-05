@@ -45,11 +45,12 @@ func move(direction: String):
 
 func change_health(amount: int) -> void:
 	current_health += amount
+	health_changed.emit()
 	if max_health < current_health:
 		current_health = max_health
 	elif current_health < 0:
 		current_health = 0
-	health_changed.emit()
+		die()
 
 func _on_damage_sent(target_grid: Vector2i, amount: int) -> void:
 	if get_grid() == target_grid:
