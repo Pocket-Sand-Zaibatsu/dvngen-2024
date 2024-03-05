@@ -8,6 +8,7 @@ class_name Character
 @export var max_health = 100
 @export var current_health = 100
 
+signal actor_spawned(grid: Vector2i)
 signal health_changed
 
 @onready var ray = get_node("RayCast2D")
@@ -31,24 +32,17 @@ func _ready() -> void:
 	audio_player.set_volume_db(volume_db)
 	animated_sprite.play("Down")
 
-func get_manhattan_distance(grid1: Vector2i, grid2: Vector2i) -> int:
-	return abs(grid1.x - grid2.x) + abs(grid1.y - grid2.y)
-
-func grid_to_position(convert: Vector2i) -> Vector2:
-	return Vector2(convert * tile_size) + (Vector2.ONE * tile_size) / 2
-
-func position_to_grid(convert: Vector2) -> Vector2i:
-	return Vector2i(convert - (Vector2.ONE * tile_size) / 2) / tile_size
-
 func get_grid() -> Vector2i:
-	return position_to_grid(position)
+	return LevelGrid.position_to_grid(position)
 
 func spawn(spawn_grid: Vector2i) -> void:
-	position = grid_to_position(spawn_grid)
+	position = LevelGrid.grid_to_position(spawn_grid)
+	LevelGrid.spawn_actor(spawn_grid)
 
 func move(direction: String):
-	ray.target_position = direction_vector[direction] * tile_size
-	ray.force_raycast_update()
-	animated_sprite.play(direction)
-	if !ray.is_colliding():
-		position += direction_vector[direction] * tile_size
+	position = LevelGrid.request_move(position, direction)
+	#ray.target_position = direction_vector[direction] * tile_size
+	#ray.force_raycast_update()
+	#animated_sprite.play(direction)
+	#if !ray.is_colliding():
+		#position += direction_vector[direction] * tile_size
