@@ -56,7 +56,7 @@ func update_stat(stat: Stat, new_value: int) -> void:
 
 func update_stat_block(stat_block: Array[int]) -> void:
 	if 6 == stat_block.size():
-		for stat in Stat:
+		for stat in Stat.values():
 			stats[stat]["value"] = stat_block[stat]
 
 func _to_string():
