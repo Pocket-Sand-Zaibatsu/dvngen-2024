@@ -21,4 +21,4 @@ func _pass_dev_tools_stat_updates(stat_field: String, value: int):
 	dev_tools_stat_update.emit(stat_field, value)
 
 func _player_health_changed() -> void:
-	HealthBar.value = player.current_health * 100 / player.max_health
+	HealthBar.value = int(float(player.current_health * 100) / float(player.max_health))

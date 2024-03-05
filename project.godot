@@ -14,6 +14,10 @@ config/name="Dvngeon-2024"
 run/main_scene="res://scenes/main-menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 
+[autoload]
+
+LevelGrid="*res://scenes/levels/level_grid.gd"
+
 [display]
 
 window/size/viewport_width=1280
@@ -32,6 +36,7 @@ enabled=PackedStringArray("res://addons/texture_fonts/plugin.cfg")
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="Item"
+2d_physics/layer_5="Projectiles"
 
 [rendering]
 
