@@ -31,7 +31,7 @@ func seed_rng(new_seed: int) -> void:
 	rng.seed = new_seed
 
 func roll() -> int:
-	return rng.randi_range(1, sides)
+	return rng.randi_range(1, sides) + roll_bonus
 
 func roll_count(count: int) -> Array[int]:
 	var results: Array[int] = []
