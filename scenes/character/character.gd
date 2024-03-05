@@ -41,6 +41,7 @@ func spawn(spawn_grid: Vector2i) -> void:
 
 func move(direction: String):
 	position = LevelGrid.request_move(position, direction)
+	damage_sent.emit(get_grid() + Vector2i(direction_vector[direction]), 1)
 
 func change_health(amount: int) -> void:
 	current_health += amount
