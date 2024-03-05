@@ -5,11 +5,12 @@ class_name Character
 @export var tile_size = 16
 @export var volume_db = 5
 
-@export var max_health = 100
-@export var current_health = 100
+@export var max_health = 10
+@export var current_health = 10
 
 signal actor_spawned(grid: Vector2i)
 signal health_changed
+signal damage_sent(target_grid: Vector2i, amount: int)
 
 @onready var animated_sprite = get_node("AnimatedSprite2D")
 @onready var audio_player = get_node("AudioStreamPlayer2D")
@@ -40,3 +41,20 @@ func spawn(spawn_grid: Vector2i) -> void:
 
 func move(direction: String):
 	position = LevelGrid.request_move(position, direction)
+	damage_sent.emit(get_grid() + Vector2i(direction_vector[direction]), 1)
+
+func change_health(amount: int) -> void:
+	current_health += amount
+	health_changed.emit()
+	if max_health < current_health:
+		current_health = max_health
+	elif current_health < 0:
+		current_health = 0
+		die()
+
+func _on_damage_sent(target_grid: Vector2i, amount: int) -> void:
+	if get_grid() == target_grid:
+		change_health(-1 * amount)
+
+func die() -> void:
+	pass

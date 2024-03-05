@@ -7,6 +7,8 @@ signal player_position_updated(position: Vector2i)
 @onready var camera = get_node("PlayerCamera")
 
 func _ready() -> void:
+	max_health = 100
+	current_health = 100
 	player_ready.emit()
 
 func _on_dev_tools_stat_update(stat_field: String, value: int) -> void:
