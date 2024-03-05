@@ -46,7 +46,7 @@ var stats = {
 func _init() -> void:
 	var dice = Dice.new(6)
 	for stat in Stat.values():
-		stats[stat].value = dice.roll_count_sum_drop_lowest_x(5, 2)
+		stats[stat].value = dice.roll_count_sum_drop_lowest(5, 2)
 
 func get_stat(stat: Stat) -> int:
 	return stats[stat]["value"]
@@ -58,3 +58,13 @@ func update_stat_block(stat_block: Array[int]) -> void:
 	if 6 == stat_block.size():
 		for stat in Stat:
 			stats[stat]["value"] = stat_block[stat]
+
+func _to_string():
+	return "CHA: %d, CON: %d, DEX: %d, INT: %d, STR: %d, WIS: %d" % [
+		stats[Stat.CHA]["value"],
+		stats[Stat.CON]["value"],
+		stats[Stat.DEX]["value"],
+		stats[Stat.INT]["value"],
+		stats[Stat.STR]["value"],
+		stats[Stat.WIS]["value"],
+	]
