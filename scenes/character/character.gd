@@ -17,6 +17,8 @@ var level: int = 1
 var hit_dice: DicePool = DicePool.new([Dice.new(8)], 0)
 var current_health: int = 0
 var max_health: int = 0
+var base_armor_class: int = 0
+var base_attack_bonus: int = 0
 
 var direction_vector = {
 	"Right": Vector2.RIGHT,
@@ -41,6 +43,12 @@ func update_max_health(levels_gained: int = 0) -> void:
 			max_health += hit_dice.roll()
 	if current_health > max_health:
 		current_health = max_health
+
+func compute_attack_bonus() -> int:
+	return base_attack_bonus
+
+func compute_armor_class() -> int:
+	return base_armor_class
 
 func get_grid() -> Vector2i:
 	return LevelGrid.position_to_grid(position)
