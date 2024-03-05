@@ -5,8 +5,8 @@ class_name Character
 @export var tile_size = 16
 @export var volume_db = 5
 
-@export var max_health = 100
-@export var current_health = 100
+@export var max_health = 10
+@export var current_health = 10
 
 signal actor_spawned(grid: Vector2i)
 signal health_changed
