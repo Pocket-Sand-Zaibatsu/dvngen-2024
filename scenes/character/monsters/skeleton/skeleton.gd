@@ -3,6 +3,7 @@ extends Monster
 class_name Skeleton
 
 func _init():
+	super()
 	stat_block.update_stat_block([1, 0, 13, 0, 13, 10])
 
 func handle_movement(event) -> void:

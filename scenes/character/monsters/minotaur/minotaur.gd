@@ -3,6 +3,7 @@ extends Monster
 class_name Minotaur
 
 func _init():
+	super()
 	stat_block.update_stat_block([8, 15, 10, 7, 19, 10])
 
 func handle_movement(event) -> void:
