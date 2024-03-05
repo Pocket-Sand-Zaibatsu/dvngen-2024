@@ -60,6 +60,7 @@ animations = [{
 
 [node name="Minotaur" instance=ExtResource("1_oq4eq")]
 script = ExtResource("2_e5k2i")
+uuid = ""
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_21261")
