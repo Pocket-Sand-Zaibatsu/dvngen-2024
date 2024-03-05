@@ -30,24 +30,25 @@ func update_roll_bonus(new_roll_bonus: int) -> void:
 func seed_rng(new_seed: int) -> void:
 	rng.seed = new_seed
 
-func roll() -> int:
-	return rng.randi_range(1, sides) + roll_bonus
+func roll(with_bonus: bool = true) -> int:
+	return rng.randi_range(1, sides) + (roll_bonus if with_bonus else 0)
 
-func roll_count(count: int) -> Array[int]:
+# Does it make sense to apply the bonus to all rolls by default?
+func roll_count(count: int, with_bonus: bool = true) -> Array[int]:
 	var results: Array[int] = []
 	for _index in range(count):
-		results.push_back(roll())
+		results.push_back(roll(with_bonus))
 	return results
 
 func sum(accumulator: int, number: int) -> int:
 	return accumulator + number
 
 func roll_count_sum(count: int) -> int:
-	return roll_count(count).reduce(sum, 0)
+	return roll_count(count, false).reduce(sum, 0) + roll_bonus
 
 func roll_count_sum_drop_lowest(count: int, drop_count: int = 1) -> int:
 	if drop_count >= count:
 		return 0
-	var rolls = roll_count(count)
+	var rolls = roll_count(count, false)
 	rolls.sort()
-	return rolls.slice(drop_count, count).reduce(sum, 0)
+	return rolls.slice(drop_count, count).reduce(sum, 0) + roll_bonus
