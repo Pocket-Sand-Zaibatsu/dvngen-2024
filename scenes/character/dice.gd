@@ -1,39 +1,56 @@
 extends Node
 class_name Dice
 
-@export var sides: int
+var sides: int = 6
+var count: int = 1
 
 @onready var rng: RandomNumberGenerator
 
-func _init(new_sides: int) -> void:
+func _init(new_sides: int = 6, count: int = 1) -> void:
+	update_sides(new_sides)
+	rng = RandomNumberGenerator.new()
+	rng.randomize()
+
+func get_max() -> int:
+	return count * sides
+
+func get_sides() -> int:
+	return sides
+
+func update_sides(new_sides: int) -> void:
 	if new_sides < 1:
 		sides = 1
 	else:
 		sides = new_sides
-	rng = RandomNumberGenerator.new()
-	rng.randomize()
+
+func get_count() -> int:
+	return count
+
+func update_count(new_count: int) -> void:
+	if 0 < new_count:
+		count = new_count
 
 func seed_rng(new_seed: int) -> void:
 	rng.seed = new_seed
 
-func roll() -> int:
+func roll_single() -> int:
 	return rng.randi_range(1, sides)
 
-func roll_count(count: int) -> Array[int]:
+func roll_all() -> Array[int]:
 	var results: Array[int] = []
 	for _index in range(count):
-		results.push_back(roll())
+		results.push_back(roll_single())
 	return results
 
 func sum(accumulator: int, number: int) -> int:
 	return accumulator + number
 
-func roll_count_sum(count: int) -> int:
-	return roll_count(count).reduce(sum, 0)
+func roll() -> int:
+	return roll_all().reduce(sum, 0)
 
-func roll_count_sum_drop_lowest(count: int, drop_count: int = 1) -> int:
+func roll_drop_lowest(count: int, drop_count: int = 1) -> int:
 	if drop_count >= count:
 		return 0
-	var rolls = roll_count(count)
+	var rolls = roll_all()
 	rolls.sort()
 	return rolls.slice(drop_count, count).reduce(sum, 0)

@@ -5,9 +5,6 @@ class_name Character
 @export var tile_size = 16
 @export var volume_db = 5
 
-@export var max_health = 10
-@export var current_health = 10
-
 signal actor_spawned(grid: Vector2i)
 signal health_changed
 signal damage_sent(target_grid: Vector2i, amount: int)
@@ -16,6 +13,14 @@ signal damage_sent(target_grid: Vector2i, amount: int)
 @onready var audio_player = get_node("AudioStreamPlayer2D")
 
 var stat_block: StatBlock = StatBlock.new()
+var level: int = 1
+var hit_dice: DicePool = DicePool.new([Dice.new(8)], 0)
+var current_health: int = 0
+var max_health: int = 0
+var base_armor_class: int = 10
+var base_attack_bonus: int = 0
+var attack_dice: Dice = Dice.new(20, 1)
+var unarmed_damage_dice: DicePool = DicePool.new([Dice.new(3)], 0)
 
 var direction_vector = {
 	"Right": Vector2.RIGHT,
@@ -34,6 +39,22 @@ func _ready() -> void:
 	audio_player.set_volume_db(volume_db)
 	animated_sprite.play("Down")
 
+func update_max_health(levels_gained: int = 0) -> void:
+	if 0 < levels_gained:
+		for _index in range(levels_gained):
+			max_health += hit_dice.roll()
+	if current_health > max_health:
+		current_health = max_health
+
+func compute_attack_bonus() -> int:
+	return base_attack_bonus
+
+func compute_armor_class() -> int:
+	return base_armor_class
+
+func roll_attack() -> int:
+	return attack_dice.roll() + compute_attack_bonus()
+
 func get_grid() -> Vector2i:
 	return LevelGrid.position_to_grid(position)
 
@@ -43,7 +64,7 @@ func spawn(spawn_grid: Vector2i) -> void:
 
 func move(direction: String):
 	position = LevelGrid.request_move(position, direction)
-	damage_sent.emit(get_grid() + Vector2i(direction_vector[direction]), 1)
+	damage_sent.emit(get_grid() + Vector2i(direction_vector[direction]), roll_attack(), unarmed_damage_dice.roll())
 
 func change_health(amount: int) -> void:
 	current_health += amount
@@ -54,8 +75,8 @@ func change_health(amount: int) -> void:
 		current_health = 0
 		die()
 
-func _on_damage_sent(target_grid: Vector2i, amount: int) -> void:
-	if get_grid() == target_grid:
+func _on_damage_sent(target_grid: Vector2i, attack_roll: int, amount: int) -> void:
+	if get_grid() == target_grid && attack_roll >= compute_armor_class():
 		change_health(-1 * amount)
 
 func die() -> void:
