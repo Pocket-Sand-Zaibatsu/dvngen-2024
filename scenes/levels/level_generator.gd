@@ -103,7 +103,8 @@ func _build_rooms() -> void:
 	Player.spawn((rooms[0].position + rooms[0].end) / 2)
 	var stair_position = (rooms[-1].position + rooms[-1].end) / 2
 	stairs.spawn(Vector2i(stair_position.x + 1, stair_position.y))
-	enemy_manager.spawn_enemy(EnemyManager.ENEMY_TYPE.SKELETON, Vector2i(Player.get_grid().x + 2, Player.get_grid().y))
+	enemy_manager.spawn_random_enemy(Vector2i(Player.get_grid().x + 2, Player.get_grid().y))
+	#enemy_manager.spawn_enemy(EnemyManager.ENEMY_TYPE.SKELETON, Vector2i(Player.get_grid().x + 2, Player.get_grid().y))
 	#var skeleton1 = skeleton_scene.instantiate()
 	#skeleton1.spawn(Vector2i(Player.get_grid().x + 2, Player.get_grid().y))
 	#add_child(skeleton1)
