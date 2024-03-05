@@ -13,6 +13,7 @@ var minotaur_scene = preload("res://scenes/character/monsters/minotaur/minotaur.
 @onready var player: Player
 @onready var stairs
 @onready var map: Dictionary = {}
+@onready var grid: LevelGrid
 
 func _on_generate_level():
 	map_seed += 1
@@ -45,6 +46,7 @@ func _create_level() -> void:
 	player.show()
 
 func _initialize_map() -> void:
+	LevelGrid.construct(map_size)
 	level.clear()
 	player.spawn(Vector2i.ZERO)
 	map.clear()
@@ -68,6 +70,7 @@ func _intersects(rooms: Array, room: Rect2i) -> bool:
 	return intersects
 
 func _add_floor(initial: Vector2i, final: Vector2i) -> void:
+	LevelGrid.paint_cells_rectangle(initial, final, LevelGrid.CELL_TYPE.EMPTY)
 	for x in range(initial.x, final.x):
 		for y in range(initial.y, final.y):
 			map[Vector2i(x, y)] = "floor"
