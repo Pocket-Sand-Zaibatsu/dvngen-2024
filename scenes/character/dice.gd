@@ -6,8 +6,9 @@ var count: int = 1
 
 @onready var rng: RandomNumberGenerator
 
-func _init(new_sides: int = 6, count: int = 1) -> void:
+func _init(new_sides: int = 6, new_count: int = 1) -> void:
 	update_sides(new_sides)
+	update_count(new_count)
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
 
