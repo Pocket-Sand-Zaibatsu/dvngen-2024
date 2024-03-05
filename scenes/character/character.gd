@@ -11,7 +11,6 @@ class_name Character
 signal actor_spawned(grid: Vector2i)
 signal health_changed
 
-@onready var ray = get_node("RayCast2D")
 @onready var animated_sprite = get_node("AnimatedSprite2D")
 @onready var audio_player = get_node("AudioStreamPlayer2D")
 
