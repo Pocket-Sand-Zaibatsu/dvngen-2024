@@ -18,6 +18,12 @@ func _ready():
 	rng.seed = 0
 	damage_sent.connect(Player._on_damage_sent)
 	Player.damage_sent.connect(_on_damage_sent)
+	initialize_health()
+
+func initialize_health() -> void:
+	for _index in range(level):
+		max_health += hit_dice.roll()
+	current_health = max_health
 
 func handle_movement(event) -> void:
 	for direction in input_to_direction.keys():
