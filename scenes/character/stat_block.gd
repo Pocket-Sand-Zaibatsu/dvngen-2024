@@ -44,9 +44,9 @@ var stats = {
 }
 
 func _init() -> void:
-	var dice = Dice.new(6)
+	var dice = Dice.new(6, 5)
 	for stat in Stat.values():
-		stats[stat].value = dice.roll_drop_lowest(5, 2)
+		stats[stat].value = dice.roll_drop_lowest(2)
 
 func get_stat(stat: Stat) -> int:
 	return stats[stat]["value"]

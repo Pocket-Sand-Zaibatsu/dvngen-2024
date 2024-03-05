@@ -49,7 +49,7 @@ func sum(accumulator: int, number: int) -> int:
 func roll() -> int:
 	return roll_all().reduce(sum, 0)
 
-func roll_drop_lowest(count: int, drop_count: int = 1) -> int:
+func roll_drop_lowest(drop_count: int = 1) -> int:
 	if drop_count >= count:
 		return 0
 	var rolls = roll_all()
