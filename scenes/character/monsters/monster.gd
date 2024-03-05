@@ -1,7 +1,10 @@
 extends Character
 class_name Monster
 
+const uuid_util = preload("res://addons/uuid/uuid.gd")
+
 @onready var rng: RandomNumberGenerator
+@onready var uuid = uuid_util.v4()
 
 func _ready():
 	rng = RandomNumberGenerator.new()
@@ -12,6 +15,11 @@ func handle_movement(event) -> void:
 		if event.is_action_pressed(direction):
 			var monster_direction = rng.randi_range(0, direction_vector.keys().size() - 1)
 			move(direction_vector.keys()[monster_direction])
+
+func despawn() -> void:
+	LevelGrid.despawn_actor(position)
+	get_parent().enemies.erase(uuid)
+	self.queue_free()
 
 func _unhandled_input(event):
 	handle_movement(event)

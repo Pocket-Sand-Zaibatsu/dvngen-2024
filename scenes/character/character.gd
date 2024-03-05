@@ -38,9 +38,5 @@ func spawn(spawn_grid: Vector2i) -> void:
 	position = LevelGrid.grid_to_position(spawn_grid)
 	LevelGrid.spawn_actor(spawn_grid)
 
-func despawn() -> void:
-	LevelGrid.despawn_actor(position)
-	self.queue_free()
-
 func move(direction: String):
 	position = LevelGrid.request_move(position, direction)

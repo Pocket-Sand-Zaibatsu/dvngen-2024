@@ -19,15 +19,15 @@ var loader: Dictionary = {
 	}
 }
 
-@onready var enemies: Array[Monster] = []
+@onready var enemies: Dictionary = {}
 
 func reset():
 	for monster in enemies:
-		monster.despawn()
+		enemies[monster].despawn()
 	enemies.clear()
 
 func spawn_enemy(enemy_type: ENEMY_TYPE, position: Vector2i) -> void:
 	var enemy = loader[enemy_type]["scene"].instantiate()
 	enemy.spawn(position)
 	call_deferred("add_child", enemy)
-	enemies.push_back(enemy)
+	enemies[enemy.uuid] = enemy
