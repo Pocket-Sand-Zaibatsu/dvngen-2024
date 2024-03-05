@@ -1,17 +1,31 @@
 extends Node
 class_name Dice
 
-@export var sides: int
+var sides: int = 6
+var roll_bonus: int = 0
 
 @onready var rng: RandomNumberGenerator
 
-func _init(new_sides: int) -> void:
+func _init(new_sides: int = 6, new_roll_bonus: int = 0) -> void:
+	update_sides(new_sides)
+	update_roll_bonus(new_roll_bonus)
+	rng = RandomNumberGenerator.new()
+	rng.randomize()
+
+func get_sides() -> int:
+	return sides
+
+func update_sides(new_sides: int) -> void:
 	if new_sides < 1:
 		sides = 1
 	else:
 		sides = new_sides
-	rng = RandomNumberGenerator.new()
-	rng.randomize()
+
+func get_roll_bonus() -> int:
+	return roll_bonus
+
+func update_roll_bonus(new_roll_bonus: int) -> void:
+	roll_bonus = new_roll_bonus
 
 func seed_rng(new_seed: int) -> void:
 	rng.seed = new_seed
