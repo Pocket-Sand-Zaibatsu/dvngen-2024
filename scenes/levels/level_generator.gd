@@ -1,9 +1,6 @@
 extends Node2D
 class_name LevelGenerator
 
-var skeleton_scene = preload("res://scenes/character/monsters/skeleton/skeleton.tscn")
-var minotaur_scene = preload("res://scenes/character/monsters/minotaur/minotaur.tscn")
-
 @export var map_size := Vector2i(30, 30)
 @export var room_size_range := Vector2i(5, 10)
 @export var max_rooms := 2
@@ -13,6 +10,7 @@ var minotaur_scene = preload("res://scenes/character/monsters/minotaur/minotaur.
 @onready var stairs
 @onready var map: Dictionary = {}
 @onready var enemy_manager: EnemyManager = EnemyManager.new()
+@onready var world_object_manager: WorldObjectManager = WorldObjectManager.new()
 
 func _on_generate_level():
 	map_seed += 1
@@ -29,6 +27,7 @@ func _get_wall_tile(rng: RandomNumberGenerator, is_ew: bool = true) -> Vector2i:
 
 func _ready() -> void:
 	add_child(enemy_manager)
+	add_child(world_object_manager)
 	$Level1Music.play()
 	var stairs_scene = preload("res://scenes/world-object/stairs/stairs.tscn")
 	stairs = stairs_scene.instantiate()
@@ -38,6 +37,7 @@ func _ready() -> void:
 
 func _create_level() -> void:
 	enemy_manager.reset()
+	world_object_manager.reset()
 	Player.hide()
 	level.hide()
 	_initialize_map()
@@ -169,3 +169,6 @@ func _paint_map(rng: RandomNumberGenerator) -> void:
 			"empty": level.set_cell(layer, tile, 26, Vector2i.ZERO)
 			"ew": level.set_cell(layer, tile, 25, _get_wall_tile(rng))
 			"ns": level.set_cell(layer, tile, 25, _get_wall_tile(rng, false))
+
+func _on_enemy_died(_uuid: String, location_grid: Vector2i) -> void:
+	world_object_manager.spawn_object(WorldObjectManager.OBJECT_TYPE.BONES, location_grid)

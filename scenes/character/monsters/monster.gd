@@ -3,10 +3,14 @@ class_name Monster
 
 const uuid_util = preload("res://addons/uuid/uuid.gd")
 
-signal enemy_died
+signal enemy_died(uuid: String, location_grid: Vector2i)
+
+@export var uuid: String
 
 @onready var rng: RandomNumberGenerator
-@onready var uuid = uuid_util.v4()
+
+func _init():
+	uuid = uuid_util.v4()
 
 func _ready():
 	super()
@@ -22,7 +26,7 @@ func handle_movement(event) -> void:
 			move(direction_vector.keys()[monster_direction])
 
 func die() -> void:
-	enemy_died.emit()
+	enemy_died.emit(uuid, get_grid())
 	despawn()
 
 func despawn() -> void:

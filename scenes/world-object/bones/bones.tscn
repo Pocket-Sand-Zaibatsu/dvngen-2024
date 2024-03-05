@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://uswfopw5c8cj"]
+
+[ext_resource type="PackedScene" uid="uid://bqftv5dmv4522" path="res://scenes/world-object/world_object.tscn" id="1_5wupp"]
+[ext_resource type="Script" path="res://scenes/world-object/bones/bones.gd" id="2_vyp55"]
+
+[node name="Bones" instance=ExtResource("1_5wupp")]
+script = ExtResource("2_vyp55")
