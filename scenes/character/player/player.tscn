@@ -70,6 +70,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+show_behind_parent = true
 z_index = 1
 script = ExtResource("2_nmpkx")
 
