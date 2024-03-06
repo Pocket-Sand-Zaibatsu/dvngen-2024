@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0c3nenxj3uuu"]
+
+[ext_resource type="FontFile" uid="uid://c8vpxjen7xpab" path="res://assets/fonts/tiny_dungeon_font.tres" id="1_71yyr"]
+[ext_resource type="Script" path="res://scenes/class_select/class_button.gd" id="1_lai1e"]
+[ext_resource type="Texture2D" uid="uid://clevjs4wgx14k" path="res://assets/sprites/portraits/td_portrait_paladin_2m.png" id="2_qpn2p"]
+
+[node name="ClassButton" type="Button"]
+theme_override_fonts/font = ExtResource("1_71yyr")
+theme_override_font_sizes/font_size = 32
+text = "
+"
+icon = ExtResource("2_qpn2p")
+icon_alignment = 1
+vertical_icon_alignment = 0
+script = ExtResource("1_lai1e")
+
+[node name="ClassButtonAudio" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

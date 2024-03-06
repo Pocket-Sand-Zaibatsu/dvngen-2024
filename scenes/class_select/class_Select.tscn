@@ -1,14 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvhaq8anokajp"]
+[gd_scene load_steps=11 format=3 uid="uid://cvhaq8anokajp"]
 
-[ext_resource type="Texture2D" uid="uid://cmhnwgqgyp3da" path="res://assets/sprites/portraits/td_portrait_archer_1f.png" id="1_esr58"]
 [ext_resource type="Script" path="res://scenes/class_select/class_Select.gd" id="1_iee6x"]
 [ext_resource type="AudioStream" uid="uid://b41wxkklwrtku" path="res://assets/audio/TitleScreen Audio/SynFantasy Depths Intensity 2.wav" id="2_1jee1"]
-[ext_resource type="Texture2D" uid="uid://ik6t1irptg6s" path="res://assets/sprites/portraits/td_portrait_fighter_1m.png" id="2_vnnyp"]
-[ext_resource type="Texture2D" uid="uid://b4e0rmgpc66w4" path="res://assets/sprites/portraits/td_portrait_wizard_3m.png" id="3_2b24w"]
 [ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="3_86f0o"]
 [ext_resource type="AudioStream" uid="uid://uub4huchqb7m" path="res://assets/audio/TitleScreen Audio/ranger_select.wav" id="3_kxror"]
 [ext_resource type="AudioStream" uid="uid://wpok1c3mgw7b" path="res://assets/audio/TitleScreen Audio/fighter_select.wav" id="4_hnnul"]
+[ext_resource type="Texture2D" uid="uid://cudop8swk00q7" path="res://assets/sprites/scaled_portraits/fighter.png" id="5_5ck18"]
 [ext_resource type="AudioStream" uid="uid://2ui2c8cnxnox" path="res://assets/audio/TitleScreen Audio/wizard_select.wav" id="7_2hscg"]
+[ext_resource type="Texture2D" uid="uid://dk7ybjrd6hdr2" path="res://assets/sprites/scaled_portraits/wizard.png" id="7_75ove"]
+[ext_resource type="Texture2D" uid="uid://nhhvugc3h4la" path="res://assets/sprites/scaled_portraits/ranger.png" id="9_1puvd"]
+[ext_resource type="PackedScene" uid="uid://b0c3nenxj3uuu" path="res://scenes/class_select/class_button.tscn" id="10_f0wc8"]
 
 [node name="ClassSelect" type="CanvasLayer"]
 script = ExtResource("1_iee6x")
@@ -16,56 +17,46 @@ script = ExtResource("1_iee6x")
 [node name="ClassMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_1jee1")
 
-[node name="ChooseYourHero" type="Label" parent="."]
-offset_left = 664.0
-offset_top = 408.0
-offset_right = 836.0
-offset_bottom = 431.0
-theme = ExtResource("3_86f0o")
-theme_type_variation = &"HeaderMedium"
-text = "CHOOSE YOUR HERO
-"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 43.0
-offset_top = -49.0
-offset_right = 171.0
-offset_bottom = -9.0
+[node name="Center" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="RangerButton" type="Button" parent="HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Center"]
 layout_mode = 2
-focus_neighbor_left = NodePath("../WizardButton")
-icon = ExtResource("1_esr58")
+theme_override_constants/separation = 32
 
-[node name="RangerAudio" type="AudioStreamPlayer2D" parent="HBoxContainer/RangerButton"]
-stream = ExtResource("3_kxror")
-
-[node name="FighterButton" type="Button" parent="HBoxContainer"]
+[node name="ChooseYourHero" type="Label" parent="Center/VBoxContainer"]
 layout_mode = 2
-icon = ExtResource("2_vnnyp")
+theme = ExtResource("3_86f0o")
+theme_type_variation = &"HeaderMedium"
+theme_override_font_sizes/font_size = 128
+text = "CHOOSE YOUR HERO
+"
 
-[node name="FighterAudio" type="AudioStreamPlayer2D" parent="HBoxContainer/FighterButton"]
-stream = ExtResource("4_hnnul")
-
-[node name="WizardButton" type="Button" parent="HBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Center/VBoxContainer"]
 layout_mode = 2
-focus_neighbor_right = NodePath("../RangerButton")
-icon = ExtResource("3_2b24w")
+alignment = 1
 
-[node name="WizardAudio" type="AudioStreamPlayer2D" parent="HBoxContainer/WizardButton"]
-stream = ExtResource("7_2hscg")
+[node name="HBoxContainer" type="GridContainer" parent="Center/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+columns = 3
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(753, 451)
-zoom = Vector2(5, 5)
+[node name="FIGHTER" parent="Center/VBoxContainer/HBoxContainer2/HBoxContainer" instance=ExtResource("10_f0wc8")]
+layout_mode = 2
+texture = ExtResource("5_5ck18")
+audio = ExtResource("4_hnnul")
 
-[connection signal="pressed" from="HBoxContainer/RangerButton" to="." method="_on_ranger_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/FighterButton" to="." method="_on_fighter_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/WizardButton" to="." method="_on_wizard_button_pressed"]
+[node name="WIZARD" parent="Center/VBoxContainer/HBoxContainer2/HBoxContainer" instance=ExtResource("10_f0wc8")]
+layout_mode = 2
+texture = ExtResource("7_75ove")
+audio = ExtResource("7_2hscg")
+
+[node name="RANGER" parent="Center/VBoxContainer/HBoxContainer2/HBoxContainer" instance=ExtResource("10_f0wc8")]
+layout_mode = 2
+texture = ExtResource("9_1puvd")
+audio = ExtResource("3_kxror")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Center/VBoxContainer/HBoxContainer2/HBoxContainer"]
