@@ -17,7 +17,6 @@ script = ExtResource("1_7u5wm")
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-scale = Vector2(2, 2)
 texture = ExtResource("1_ei4nf")
 
 [node name="InvGrid" type="GridContainer" parent="TextureRect"]
@@ -281,3 +280,7 @@ scale = Vector2(0.29, 0.29)
 theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 1)
 text = "Hand
 "
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(149, 73)
+zoom = Vector2(4, 4)

@@ -1,0 +1,18 @@
+{
+ "Coins": {
+   "ItemCategory": "Resource",
+   "StackSize": 99,
+   "Description": "Its money, stupid. Use it to buy goods and services."
+ },
+ "Health Potion": {
+  "ItemCategory": "Consumable",
+  "AddHealth": 5,
+  "StackSize": 10,
+  "Description": "Made from monster blood. It smells like cough syrup."
+ },
+ "Iron Sword": {
+ "ItemAttack": 3,
+ "StackSize": 1,
+ "Description": "A basic sword, forged to cut, stab, and slash."
+ }
+}

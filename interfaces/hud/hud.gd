@@ -14,6 +14,7 @@ func _set_up_dev_tools() -> void:
 	$DevTools/Health/HBoxContainer/Max.dev_tools_stat_update.connect(Player._on_dev_tools_stat_update)
 	$DevTools/Health/HBoxContainer2/Current.dev_tools_stat_update.connect(Player._on_dev_tools_stat_update)
 
+
 func _ready():
 	_set_up_dev_tools()
 	Player.health_changed.connect(_player_health_changed)
@@ -40,3 +41,7 @@ func _on_game_log_messaged(contents: String) -> void:
 	game_log_messages = game_log_messages.slice(0, MAX_MESSAGES)
 	GameLog.clear()
 	GameLog.add_text(reverse_newline_join(game_log_messages))
+	
+func _input(event):
+	if event.is_action_pressed("Inventory"):
+		$Inventory.visible = !$Inventory.visible

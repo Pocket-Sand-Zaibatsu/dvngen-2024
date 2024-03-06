@@ -6,7 +6,7 @@ var empty_texture = preload("res://assets/sprites/inventory/item_slot_empty.png"
 var default_style: StyleBoxTexture = null
 var empty_style: StyleBoxTexture = null
 
-var ItemClass = preload("res://scenes/Items/coins/coins.tscn")
+var ItemClass = preload("res://scenes/Items/items/items.tscn")
 var item = null
 
 func _ready():

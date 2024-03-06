@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://p6nnokp0w23o"]
+[gd_scene load_steps=11 format=3 uid="uid://p6nnokp0w23o"]
 
 [ext_resource type="Texture2D" uid="uid://borbpogvyri8g" path="res://assets/sprites/tilesets/tiny_dungeon_interface.png" id="1_3rjoo"]
 [ext_resource type="Script" path="res://interfaces/hud/hud.gd" id="1_07xmy"]
@@ -7,6 +7,7 @@
 [ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="2_utsmw"]
 [ext_resource type="Texture2D" uid="uid://dkc0kcm7ryol" path="res://assets/sprites/tilesets/nine_patch_health_bar.png" id="3_xvofm"]
 [ext_resource type="Script" path="res://interfaces/hud/number_field.gd" id="4_7wp03"]
+[ext_resource type="PackedScene" uid="uid://drcophnpcvkyx" path="res://interfaces/inventory/inventory.tscn" id="8_ghnld"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5b06b"]
 texture = ExtResource("1_3rjoo")
@@ -131,3 +132,7 @@ text = "100"
 placeholder_text = "100"
 script = ExtResource("4_7wp03")
 stat_field = "current_health"
+
+[node name="Inventory" parent="." instance=ExtResource("8_ghnld")]
+visible = false
+position = Vector2(-7, 475)
