@@ -104,7 +104,7 @@ func _build_rooms() -> void:
 		if 1 < rooms.size():
 			_add_connection(rng, rooms[-1], rooms[-2])
 	_add_walls()
-	for room in rooms:
+	for room in rooms.slice(1, rooms.size()):
 		room.update_doors()
 		room.spawn_doors()
 	_paint_map(rng)
