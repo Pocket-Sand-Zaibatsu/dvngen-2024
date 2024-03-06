@@ -56,8 +56,8 @@ func spawn_doors() -> void:
 		return
 	var manager = get_parent().world_object_manager
 	for door in doors:
-		var uuid = manager.spawn_object(WorldObjectManager.OBJECT_TYPE.DOOR_EW, door)
-		manager.objects[uuid].player_entered.connect(_on_player_entered)
+		var door_uuid = manager.spawn_object(WorldObjectManager.OBJECT_TYPE.DOOR_EW, door)
+		manager.objects[door_uuid].player_entered.connect(_on_player_entered)
 
 func _on_player_entered() -> void:
 	room_activated.emit()
