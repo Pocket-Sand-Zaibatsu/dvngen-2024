@@ -1,6 +1,24 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bx30hgdcpfdve"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bx30hgdcpfdve"]
 
+[ext_resource type="Texture2D" uid="uid://daximlrw2n7lx" path="res://assets/sprites/tilesets/button_normal.png" id="1_qaycg"]
 [ext_resource type="FontFile" uid="uid://c8vpxjen7xpab" path="res://assets/fonts/tiny_dungeon_font.tres" id="1_rbnq6"]
+[ext_resource type="Texture2D" uid="uid://cu1ak5fl6cmyd" path="res://assets/sprites/tilesets/button_pressed.png" id="2_f7tyi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_67qtp"]
+texture = ExtResource("1_qaycg")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w0s3b"]
+texture = ExtResource("2_f7tyi")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
 
 [resource]
 default_font = ExtResource("1_rbnq6")
+Button/styles/normal = SubResource("StyleBoxTexture_67qtp")
+Button/styles/pressed = SubResource("StyleBoxTexture_w0s3b")
