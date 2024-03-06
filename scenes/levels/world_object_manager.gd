@@ -27,8 +27,9 @@ func reset():
 		objects[item].despawn()
 	objects.clear()
 
-func spawn_object(object_type: OBJECT_TYPE, spawn_grid: Vector2i) -> void:
+func spawn_object(object_type: OBJECT_TYPE, spawn_grid: Vector2i) -> String:
 	var item = loader[object_type]["scene"].instantiate()
 	item.spawn(spawn_grid)
 	objects[item.uuid] = item
 	call_deferred("add_child", item)
+	return item.uuid
