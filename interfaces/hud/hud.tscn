@@ -41,6 +41,12 @@ theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_5b06b")
 text = "MENU"
 
+[node name="GameLog" type="RichTextLabel" parent="."]
+offset_top = 704.0
+offset_right = 768.0
+offset_bottom = 960.0
+scroll_following = true
+
 [node name="DevTools" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 100)
 offset_left = 8.0

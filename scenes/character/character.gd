@@ -7,11 +7,14 @@ class_name Character
 
 signal actor_spawned(grid: Vector2i)
 signal health_changed
-signal damage_sent(target_grid: Vector2i, amount: int)
+signal damage_sent(target_grid: Vector2i, actor: String, attack_roll: int, amount: int)
+signal log_messaged(contents: String)
+signal position_changed
 
 @onready var animated_sprite = get_node("AnimatedSprite2D")
 @onready var audio_player = get_node("AudioStreamPlayer2D")
 
+var log_name: String = "character"
 var stat_block: StatBlock = StatBlock.new()
 var level: int = 1
 var hit_dice: DicePool = DicePool.new([Dice.new(8)], 0)
@@ -36,6 +39,7 @@ var input_to_direction = {
 }
 
 func _ready() -> void:
+	log_messaged.connect(GameLogTransport._on_log_messaged)
 	audio_player.set_volume_db(volume_db)
 	animated_sprite.play("Down")
 
@@ -63,8 +67,9 @@ func spawn(spawn_grid: Vector2i) -> void:
 	LevelGrid.spawn_actor(spawn_grid)
 
 func move(direction: String):
+	damage_sent.emit(get_grid() + Vector2i(direction_vector[direction]), log_name, roll_attack(), unarmed_damage_dice.roll())
 	position = LevelGrid.request_move(position, direction)
-	damage_sent.emit(get_grid() + Vector2i(direction_vector[direction]), roll_attack(), unarmed_damage_dice.roll())
+	
 
 func change_health(amount: int) -> void:
 	current_health += amount
@@ -75,9 +80,13 @@ func change_health(amount: int) -> void:
 		current_health = 0
 		die()
 
-func _on_damage_sent(target_grid: Vector2i, attack_roll: int, amount: int) -> void:
-	if get_grid() == target_grid && attack_roll >= compute_armor_class():
-		change_health(-1 * amount)
+func _on_damage_sent(target_grid: Vector2i, actor: String, attack_roll: int, amount: int) -> void:
+	if get_grid() == target_grid:
+		if attack_roll >= compute_armor_class():
+			change_health(-1 * amount)
+			log_messaged.emit("%s takes %d damage from %s" % [log_name, amount, actor])
+		else:
+			log_messaged.emit("%s dodges an attack from %s" % [log_name, actor])
 
 func die() -> void:
 	pass
