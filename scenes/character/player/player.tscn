@@ -69,8 +69,7 @@ script = ExtResource("2_nmpkx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4mhdp")
-animation = &"Down"
-frame_progress = 0.604381
+animation = &"Up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
