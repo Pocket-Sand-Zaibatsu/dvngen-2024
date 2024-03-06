@@ -27,7 +27,7 @@ func _ready():
 	rng.randomize()
 
 func reset():
-	for monster in enemies:
+	for monster in enemies.keys():
 		enemies[monster].despawn()
 	enemies.clear()
 
