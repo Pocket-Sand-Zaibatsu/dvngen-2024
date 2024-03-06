@@ -4,5 +4,5 @@ class_name Stairs
 signal generate_level
 
 func _on_body_entered(body: Variant):
-	if "Player" == body.name:
+	if is_body_player(body):
 		generate_level.emit()
