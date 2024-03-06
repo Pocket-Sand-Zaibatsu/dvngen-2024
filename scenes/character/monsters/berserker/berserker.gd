@@ -2,29 +2,9 @@
 extends Monster
 class_name Berserker
 
-
-var hp = 20
-var def = 10
-var hit = 5
-var xp = 10
-
-
-var dmg_roll = RandomNumberGenerator.new()
-var atk_roll = RandomNumberGenerator.new()
-
-
-func _ready():
-	var attack = atk_roll.randf_range(1,20) + hit
-	var damage = dmg_roll.randf_range(1,4) + 1
-	if attack >= Player.ac:
-		Player.current_health = Player.current_health - damage
-	
-
-	
-func handle_movement(event) -> void:
-	for direction in input_to_direction.keys():
-		if event.is_action_pressed(direction):
-			move(LevelGrid.a_star_to_player(position))
-
-	
-	
+func _init():
+	super()
+	log_name = "berserker"
+	hit_dice = DicePool.new([Dice.new(8)], 4)
+	unarmed_damage_dice = DicePool.new([Dice.new(3)], 0)
+	stat_block.update_stat_block([9, 17, 12, 9, 16, 11])

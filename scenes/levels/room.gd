@@ -2,20 +2,30 @@ extends Node
 class_name Room
 
 const uuid_util = preload("res://addons/uuid/uuid.gd")
+const AREA_PER_ENEMY = 15
 
 signal room_activated
+
+@export var parent: LevelGenerator
 
 var boundary: Rect2i
 var uuid: String
 var doors: Array[Vector2i] = []
 var longest_continuous_door_length: int = 0
+var rng: RandomNumberGenerator
+var max_possible_enemies: int = 10
+var enemy_type: EnemyManager.ENEMY_TYPE
 
 func _init(new_boundary: Rect2i) -> void:
 	boundary = new_boundary
 	uuid = uuid_util.v4()
+	rng = RandomNumberGenerator.new()
+	rng.randomize()
 
 func _ready() -> void:
 	room_activated.connect(_on_room_activated)
+	parent = get_parent()
+	enemy_type = parent.enemy_manager.get_random_enemy_type()
 
 func get_center() -> Vector2i:
 	return (boundary.position + boundary.end) / 2
@@ -59,14 +69,18 @@ func update_doors() -> void:
 func spawn_doors() -> void:
 	if is_open():
 		return
-	var manager = get_parent().world_object_manager
 	for door in doors:
-		var door_uuid = manager.spawn_object(WorldObjectManager.OBJECT_TYPE.DOOR_EW, door)
-		manager.objects[door_uuid].player_entered.connect(_on_player_entered)
+		var door_uuid = parent.world_object_manager.spawn_object(WorldObjectManager.OBJECT_TYPE.DOOR_EW, door)
+		parent.world_object_manager.objects[door_uuid].player_entered.connect(_on_player_entered)
 
 func _on_player_entered() -> void:
 	room_activated.emit()
 
 func _on_room_activated() -> void:
 	room_activated.disconnect(_on_room_activated)
-	get_parent().enemy_manager.spawn_enemy(EnemyManager.ENEMY_TYPE.MINOTAUR, get_center())
+	var max_enemies = rng.randi_range(1, min(int(float(boundary.get_area()) / AREA_PER_ENEMY), max_possible_enemies))
+	var enemy_positions: Dictionary = {}
+	for _index in range(max_enemies):
+		enemy_positions[Vector2i(rng.randi_range(boundary.position.x, boundary.end.x - 1), rng.randi_range(boundary.position.y, boundary.end.y - 1))] = null
+	for target_grid in enemy_positions.keys():
+		parent.enemy_manager.spawn_enemy(enemy_type, target_grid)
