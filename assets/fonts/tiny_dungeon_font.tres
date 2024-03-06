@@ -1,4 +1,4 @@
-[gd_resource type="FontFile" script_class="TextureFont" load_steps=8 format=3 uid="uid://c8vpxjen7xpab"]
+[gd_resource type="FontFile" script_class="TextureFont" load_steps=7 format=3 uid="uid://c8vpxjen7xpab"]
 
 [ext_resource type="Script" path="res://addons/texture_fonts/Classes/TextureFontSettings.gd" id="1_8jtg6"]
 [ext_resource type="Script" path="res://addons/texture_fonts/Classes/TextureFont.gd" id="2_8kmt6"]
