@@ -11,6 +11,7 @@ class_name LevelGenerator
 @onready var map: Dictionary = {}
 @onready var enemy_manager: EnemyManager = EnemyManager.new()
 @onready var world_object_manager: WorldObjectManager = WorldObjectManager.new()
+@onready var rooms: Array[Room] = []
 
 var dungeon_level: int = 0
 
@@ -63,13 +64,11 @@ func _get_random_room(rng: RandomNumberGenerator) -> Rect2i:
 	var y := rng.randi_range(0, map_size.y - height - 1)
 	return Rect2i(x, y, width, height)
 
-func _intersects(rooms: Array, room: Rect2i) -> bool:
-	var intersects := false
+func _intersects(room: Rect2i) -> bool:
 	for other_room in rooms:
-		if room.intersects(other_room):
-			intersects = true
-			break
-	return intersects
+		if room.intersects(other_room.boundary):
+			return true
+	return false
 
 func _add_floor(initial: Vector2i, final: Vector2i) -> void:
 	LevelGrid.paint_cells_rectangle(initial, final, LevelGrid.CELL_TYPE.EMPTY)
@@ -77,9 +76,9 @@ func _add_floor(initial: Vector2i, final: Vector2i) -> void:
 		for y in range(initial.y, final.y):
 			map[Vector2i(x, y)] = "floor"
 
-func _add_connection(rng: RandomNumberGenerator, first: Rect2i, second: Rect2i) -> void:
-	var first_center := (first.position + first.end) / 2
-	var second_center := (second.position + second.end) / 2
+func _add_connection(rng: RandomNumberGenerator, first: Room, second: Room) -> void:
+	var first_center := first.get_center()
+	var second_center := second.get_center()
 	if 0 == rng.randi_range(0, 1):
 		_add_floor(Vector2i(min(first_center.x, second_center.x), first_center.y), Vector2i(max(first_center.x, second_center.x) + 1, first_center.y + 1))
 		_add_floor(Vector2i(second_center.x, min(first_center.y, second_center.y)), Vector2i(second_center.x + 1, max(first_center.y, second_center.y) + 1))
@@ -88,40 +87,30 @@ func _add_connection(rng: RandomNumberGenerator, first: Rect2i, second: Rect2i) 
 		_add_floor(Vector2i(min(first_center.x, second_center.x), second_center.y), Vector2i(max(first_center.x, second_center.x) + 1, second_center.y + 1))
 
 func _build_rooms() -> void:
+	for room in rooms:
+		room.queue_free()
+	rooms.clear()
 	var rng := RandomNumberGenerator.new()
 	# REMOVE FOR FINAL GAME
 	rng.seed = map_seed
-	var rooms := []
 	for possible in range(max_rooms):
-		var room := _get_random_room(rng)
-		if _intersects(rooms, room):
+		var room_boundary := _get_random_room(rng)
+		if _intersects(room_boundary):
 			continue
+		_add_floor(room_boundary.position, room_boundary.end)
+		var room = Room.new(room_boundary)
 		rooms.push_back(room)
-		_add_floor(room.position, room.end)
+		add_child(room)
 		if 1 < rooms.size():
-			var previous: Rect2i = rooms[-2]
-			_add_connection(rng, room, previous)
+			_add_connection(rng, rooms[-1], rooms[-2])
 	_add_walls()
+	for room in rooms.slice(1, rooms.size()):
+		room.update_doors()
+		room.spawn_doors()
 	_paint_map(rng)
-	Player.spawn((rooms[0].position + rooms[0].end) / 2)
-	var stair_position = (rooms[-1].position + rooms[-1].end) / 2
+	Player.spawn(rooms[0].get_center())
+	var stair_position = rooms[-1].get_center()
 	stairs.spawn(Vector2i(stair_position.x + 1, stair_position.y))
-	#enemy_manager.spawn_random_enemy(Vector2i(Player.get_grid().x + 2, Player.get_grid().y))
-	enemy_manager.spawn_enemy(EnemyManager.ENEMY_TYPE.MINOTAUR, Vector2i(Player.get_grid().x + 2, Player.get_grid().y))
-	#enemy_manager.spawn_enemy(EnemyManager.ENEMY_TYPE.SKELETON, Vector2i(Player.get_grid().x + 2, Player.get_grid().y))
-	#var skeleton1 = skeleton_scene.instantiate()
-	#skeleton1.spawn(Vector2i(Player.get_grid().x + 2, Player.get_grid().y))
-	#add_child(skeleton1)
-	#var skeleton2 = skeleton_scene.instantiate()
-	#skeleton2.spawn(Vector2i(Player.get_grid().x + 1, Player.get_grid().y))
-	#add_child(skeleton2)
-	#var minotaur1 = minotaur_scene.instantiate()
-	#minotaur1.spawn(Vector2i(Player.get_grid().x + 1, Player.get_grid().y - 2))
-	#add_child(minotaur1)
-	#var minotaur2 = minotaur_scene.instantiate()
-	#minotaur2.spawn(Vector2i(Player.get_grid().x + 1, Player.get_grid().y - 1))
-	#add_child(minotaur2)
-	#skeleton2.despawn()
 
 func _check_neighbor(coords: Vector2i) -> String:
 	if 0 <= coords.x && map_size.x > coords.x && 0 <= coords.y && map_size.y > coords.y:

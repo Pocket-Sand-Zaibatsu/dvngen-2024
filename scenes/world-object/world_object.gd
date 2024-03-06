@@ -29,5 +29,11 @@ func despawn() -> void:
 	get_parent().objects.erase(uuid)
 	self.queue_free()
 
+func is_body_player(body: Variant) -> bool:
+	return "Player" == body.name
+
 func _on_body_entered(_body: Variant):
+	pass
+
+func _on_body_exited(_body: Variant):
 	pass
