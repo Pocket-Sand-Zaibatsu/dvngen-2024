@@ -6,7 +6,7 @@ const MAX_MESSAGES = 50
 signal dev_tools_stat_update(stat_field: String, value: int)
 
 @onready var HealthBar = get_node("HealthBar")
-@onready var GameLog: RichTextLabel = get_node("GameLog")
+@onready var GameLog: RichTextLabel = get_node("GameLogControl").get_node("GameLog")
 
 var game_log_messages: Array[String] = []
 
@@ -26,6 +26,8 @@ func _pass_dev_tools_stat_updates(stat_field: String, value: int):
 
 func _player_health_changed() -> void:
 	HealthBar.value = int(float(Player.current_health * 100) / float(Player.max_health))
+	$DevTools/Health/HBoxContainer/Max.text = str(Player.max_health)
+	$DevTools/Health/HBoxContainer2/Current.text = str(Player.current_health)
 
 func reverse_newline_join(input: Array[String]) -> String:
 	var result = ""
