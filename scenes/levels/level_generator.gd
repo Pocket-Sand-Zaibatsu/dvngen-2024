@@ -1,9 +1,9 @@
 extends Node2D
 class_name LevelGenerator
 
-@export var map_size := Vector2i(30, 30)
+@export var map_size := Vector2i(100, 100)
 @export var room_size_range := Vector2i(5, 10)
-@export var max_rooms := 2
+@export var max_rooms := 30
 @export var map_seed := 0
 
 @onready var level: TileMap = get_node("Level")

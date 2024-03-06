@@ -39,6 +39,9 @@ func update_doors() -> void:
 				if current_continuous_door_length > new_longest_continuous_door_length:
 					new_longest_continuous_door_length = current_continuous_door_length
 				current_continuous_door_length = 0
+	if current_continuous_door_length > new_longest_continuous_door_length:
+		new_longest_continuous_door_length = current_continuous_door_length
+	current_continuous_door_length = 0
 	for y in [boundary.position.y - 1, boundary.end.y]:
 		for x in range(boundary.position.x, boundary.end.x):
 			if check_floor(Vector2i(x, y)):
@@ -48,6 +51,8 @@ func update_doors() -> void:
 				if current_continuous_door_length > new_longest_continuous_door_length:
 					new_longest_continuous_door_length = current_continuous_door_length
 				current_continuous_door_length = 0
+	if current_continuous_door_length > new_longest_continuous_door_length:
+		new_longest_continuous_door_length = current_continuous_door_length
 	doors = new_doors
 	longest_continuous_door_length = new_longest_continuous_door_length
 
