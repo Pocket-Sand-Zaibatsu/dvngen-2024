@@ -5,6 +5,7 @@ signal player_ready
 signal player_position_updated(position: Vector2i)
 
 @onready var camera = get_node("PlayerCamera")
+@onready var player_class: String
 
 func _ready() -> void:
 	super()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c4ciguhuugsmo"]
+[gd_scene load_steps=6 format=3 uid="uid://c4ciguhuugsmo"]
 
 [ext_resource type="Script" path="res://scenes/main-menu/main_menu.gd" id="1_vm5rm"]
 [ext_resource type="AudioStream" uid="uid://cfqkwguxw4pwe" path="res://assets/audio/TitleScreen Audio/SynFantasy Depths Main.wav" id="2_q6gqm"]
+[ext_resource type="FontFile" uid="uid://c8vpxjen7xpab" path="res://assets/fonts/tiny_dungeon_font.tres" id="3_a4hwk"]
 [ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="3_v77f4"]
 
 [sub_resource type="GDScript" id="GDScript_3qkge"]
@@ -12,36 +13,47 @@ script = ExtResource("1_vm5rm")
 [node name="TitleMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_q6gqm")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchors_preset = -1
-anchor_top = 0.992
-anchor_bottom = 0.992
-offset_left = 18.21
-offset_top = -314.83
-offset_right = 114.21
-offset_bottom = -209.83
-grow_vertical = 0
-scale = Vector2(2.89, 2.89)
+[node name="Center" type="CenterContainer" parent="."]
+offset_right = 1280.0
+offset_bottom = 960.0
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
+[node name="MainColumn" type="VBoxContainer" parent="Center"]
+layout_mode = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Label" type="Label" parent="Center/MainColumn"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_a4hwk")
+theme_override_font_sizes/font_size = 160
+text = "DVNGEON"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuVBox" type="VBoxContainer" parent="Center/MainColumn"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="StartButton" type="Button" parent="Center/MainColumn/MenuVBox"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
 theme = ExtResource("3_v77f4")
 text = "START GAME"
 script = SubResource("GDScript_3qkge")
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="Center/MainColumn/MenuVBox"]
+visible = false
 layout_mode = 2
 theme = ExtResource("3_v77f4")
 text = "OPTIONS"
 script = SubResource("GDScript_3qkge")
 
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
+[node name="QuitButton" type="Button" parent="Center/MainColumn/MenuVBox"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../StartButton")
 theme = ExtResource("3_v77f4")
 text = "QUIT"
 script = SubResource("GDScript_3qkge")
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Center/MainColumn/MenuVBox/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Center/MainColumn/MenuVBox/QuitButton" to="." method="_on_quit_button_pressed"]

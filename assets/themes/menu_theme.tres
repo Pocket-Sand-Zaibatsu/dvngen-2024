@@ -20,5 +20,6 @@ texture_margin_bottom = 4.0
 
 [resource]
 default_font = ExtResource("1_rbnq6")
+default_font_size = 64
 Button/styles/normal = SubResource("StyleBoxTexture_67qtp")
 Button/styles/pressed = SubResource("StyleBoxTexture_w0s3b")
