@@ -1,16 +1,11 @@
 extends Character
 class_name Monster
 
-const uuid_util = preload("res://addons/uuid/uuid.gd")
-
 signal enemy_died(uuid: String, location_grid: Vector2i)
-
-@export var uuid: String
 
 @onready var rng: RandomNumberGenerator
 
 func _init():
-	uuid = uuid_util.v4()
 	log_name = "monster"
 
 func _ready():
@@ -43,3 +38,6 @@ func despawn() -> void:
 
 func _unhandled_input(event):
 	handle_movement(event)
+
+func _to_string():
+	print("log name: ", log_name)

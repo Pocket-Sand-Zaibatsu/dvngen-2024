@@ -14,6 +14,8 @@ signal position_changed
 @onready var animated_sprite = get_node("AnimatedSprite2D")
 @onready var audio_player = get_node("AudioStreamPlayer2D")
 
+var uuid: String
+
 var log_name: String = "character"
 var stat_block: StatBlock = StatBlock.new()
 var level: int = 1
@@ -67,8 +69,9 @@ func spawn(spawn_grid: Vector2i) -> void:
 	LevelGrid.spawn_actor(spawn_grid)
 
 func move(direction: String):
-	damage_sent.emit(get_grid() + Vector2i(direction_vector[direction]), log_name, roll_attack(), unarmed_damage_dice.roll())
-	position = LevelGrid.request_move(position, direction)
+	if direction:
+		damage_sent.emit(get_grid() + Vector2i(direction_vector[direction]), log_name, roll_attack(), unarmed_damage_dice.roll())
+		position = LevelGrid.request_move(position, direction)
 	
 
 func change_health(amount: int) -> void:
