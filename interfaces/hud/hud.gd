@@ -27,14 +27,14 @@ func _pass_dev_tools_stat_updates(stat_field: String, value: int):
 func _player_health_changed() -> void:
 	HealthBar.value = int(float(Player.current_health * 100) / float(Player.max_health))
 
-func newline_join(input: Array[String]) -> String:
+func reverse_newline_join(input: Array[String]) -> String:
 	var result = ""
 	for line in input:
-		result += "%s\n" % line
+		result = "%s\n%s" % [line, result]
 	return result.trim_suffix("\n")
 
 func _on_game_log_messaged(contents: String) -> void:
-	game_log_messages.append(contents)
+	game_log_messages.push_front(contents)
 	game_log_messages = game_log_messages.slice(0, MAX_MESSAGES)
 	GameLog.clear()
-	GameLog.add_text(newline_join(game_log_messages))
+	GameLog.add_text(reverse_newline_join(game_log_messages))
