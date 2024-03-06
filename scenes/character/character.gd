@@ -11,7 +11,7 @@ signal damage_sent(target_grid: Vector2i, actor: String, attack_roll: int, amoun
 signal log_messaged(contents: String)
 signal position_changed
 
-@onready var animated_sprite = get_node("AnimatedSprite2D")
+@onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var audio_player = get_node("AudioStreamPlayer2D")
 
 var uuid: String
@@ -70,6 +70,7 @@ func spawn(spawn_grid: Vector2i) -> void:
 
 func move(direction: String):
 	if direction:
+		animated_sprite.play(direction)
 		damage_sent.emit(get_grid() + Vector2i(direction_vector[direction]), log_name, roll_attack(), unarmed_damage_dice.roll())
 		position = LevelGrid.request_move(position, direction)
 	
