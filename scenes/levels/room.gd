@@ -9,10 +9,14 @@ var boundary: Rect2i
 var uuid: String
 var doors: Array[Vector2i] = []
 var longest_continuous_door_length: int = 0
+var rng: RandomNumberGenerator
+var max_possible_enemies: int = 10
 
 func _init(new_boundary: Rect2i) -> void:
 	boundary = new_boundary
 	uuid = uuid_util.v4()
+	rng = RandomNumberGenerator.new()
+	rng.randomize()
 
 func _ready() -> void:
 	room_activated.connect(_on_room_activated)
@@ -69,4 +73,9 @@ func _on_player_entered() -> void:
 
 func _on_room_activated() -> void:
 	room_activated.disconnect(_on_room_activated)
-	get_parent().enemy_manager.spawn_enemy(EnemyManager.ENEMY_TYPE.MINOTAUR, get_center())
+	var max_enemies = rng.randi_range(1, min(int(float(boundary.get_area()) / 25), max_possible_enemies))
+	var enemy_positions: Dictionary = {}
+	for _index in range(max_enemies):
+		enemy_positions[Vector2i(rng.randi_range(boundary.position.x, boundary.end.x - 1), rng.randi_range(boundary.position.y, boundary.end.y - 1))] = null
+	for target_grid in enemy_positions.keys():
+		get_parent().enemy_manager.spawn_enemy(EnemyManager.ENEMY_TYPE.MINOTAUR, target_grid)
