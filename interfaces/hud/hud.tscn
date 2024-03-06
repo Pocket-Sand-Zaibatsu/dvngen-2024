@@ -2,16 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://borbpogvyri8g" path="res://assets/sprites/tilesets/tiny_dungeon_interface.png" id="1_3rjoo"]
 [ext_resource type="Script" path="res://interfaces/hud/hud.gd" id="1_07xmy"]
+[ext_resource type="Texture2D" uid="uid://dtnl811kxhdnk" path="res://assets/sprites/tilesets/nine_patch_empty_bar.png" id="2_8td0o"]
 [ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="2_utsmw"]
+[ext_resource type="Texture2D" uid="uid://dkc0kcm7ryol" path="res://assets/sprites/tilesets/nine_patch_health_bar.png" id="3_xvofm"]
 [ext_resource type="Script" path="res://interfaces/hud/number_field.gd" id="4_7wp03"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vxf4a"]
-atlas = ExtResource("1_3rjoo")
-region = Rect2(1, 163, 46, 10)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c1yh8"]
-atlas = ExtResource("1_3rjoo")
-region = Rect2(1, 179, 45, 10)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5b06b"]
 texture = ExtResource("1_3rjoo")
@@ -28,8 +22,12 @@ rotation = -4.71239
 value = 60.0
 fill_mode = 1
 nine_patch_stretch = true
-texture_under = SubResource("AtlasTexture_vxf4a")
-texture_progress = SubResource("AtlasTexture_c1yh8")
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+texture_under = ExtResource("2_8td0o")
+texture_progress = ExtResource("3_xvofm")
 
 [node name="Menu" type="Button" parent="."]
 offset_left = 8.0
