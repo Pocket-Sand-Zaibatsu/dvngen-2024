@@ -12,6 +12,8 @@ class_name LevelGenerator
 @onready var enemy_manager: EnemyManager = EnemyManager.new()
 @onready var world_object_manager: WorldObjectManager = WorldObjectManager.new()
 
+var dungeon_level: int = 0
+
 func _on_generate_level():
 	map_seed += 1
 	_create_level()
@@ -33,9 +35,9 @@ func _ready() -> void:
 	stairs = stairs_scene.instantiate()
 	add_child(stairs)
 	stairs.generate_level.connect(_on_generate_level)
-	_create_level()
 
 func _create_level() -> void:
+	dungeon_level += 1
 	enemy_manager.reset()
 	world_object_manager.reset()
 	Player.hide()
@@ -44,6 +46,7 @@ func _create_level() -> void:
 	_build_rooms()
 	level.show()
 	Player.show()
+	GameLogTransport.game_log_messaged.emit("Entering dungeon level %d" % dungeon_level)
 
 func _initialize_map() -> void:
 	LevelGrid.construct(map_size)

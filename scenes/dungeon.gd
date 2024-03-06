@@ -17,3 +17,4 @@ func _ready() -> void:
 	hud = hud_scene.instantiate()
 	hud.name = "Hud"
 	add_child(hud)
+	level_generator.stairs.generate_level.emit()
