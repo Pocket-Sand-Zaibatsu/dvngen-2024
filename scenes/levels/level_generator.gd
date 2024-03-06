@@ -106,6 +106,7 @@ func _build_rooms() -> void:
 	_add_walls()
 	for room in rooms:
 		room.update_doors()
+		room.spawn_doors()
 	_paint_map(rng)
 	Player.spawn(rooms[0].get_center())
 	var stair_position = rooms[-1].get_center()
