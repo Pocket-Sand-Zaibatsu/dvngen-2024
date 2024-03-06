@@ -4,14 +4,34 @@ class_name EnemyManager
 const uuid_util = preload("res://addons/uuid/uuid.gd")
 
 enum ENEMY_TYPE {
+	BAT,
 	BEETLE,
+	BERSERKER,
+	CAT,
+	CENTAUR,
+	DEMON,
 	MINOTAUR,
 	SKELETON,
 }
 
 var loader: Dictionary = {
+	ENEMY_TYPE.BAT: {
+		"scene": preload("res://scenes/character/monsters/bat/bat.tscn")
+	},
 	ENEMY_TYPE.BEETLE: {
 		"scene": preload("res://scenes/character/monsters/beetle/beetle.tscn")
+	},
+	ENEMY_TYPE.BERSERKER: {
+		"scene": preload("res://scenes/character/monsters/berserker/berserker.tscn")
+	},
+	ENEMY_TYPE.CAT: {
+		"scene": preload("res://scenes/character/monsters/cat/cat.tscn")
+	},
+	ENEMY_TYPE.CENTAUR: {
+		"scene": preload("res://scenes/character/monsters/centaur/centaur.tscn")
+	},
+	ENEMY_TYPE.DEMON: {
+		"scene": preload("res://scenes/character/monsters/demon/demon.tscn")
 	},
 	ENEMY_TYPE.MINOTAUR: {
 		"scene": preload("res://scenes/character/monsters/minotaur/minotaur.tscn")
