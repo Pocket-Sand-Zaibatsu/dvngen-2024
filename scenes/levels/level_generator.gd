@@ -111,7 +111,6 @@ func _build_rooms() -> void:
 	Player.spawn(rooms[0].get_center())
 	var stair_position = rooms[-1].get_center()
 	stairs.spawn(Vector2i(stair_position.x + 1, stair_position.y))
-	enemy_manager.spawn_enemy(EnemyManager.ENEMY_TYPE.MINOTAUR, Vector2i(Player.get_grid().x + 2, Player.get_grid().y))
 
 func _check_neighbor(coords: Vector2i) -> String:
 	if 0 <= coords.x && map_size.x > coords.x && 0 <= coords.y && map_size.y > coords.y:
