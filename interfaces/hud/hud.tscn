@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://p6nnokp0w23o"]
+[gd_scene load_steps=10 format=3 uid="uid://p6nnokp0w23o"]
 
 [ext_resource type="Texture2D" uid="uid://borbpogvyri8g" path="res://assets/sprites/tilesets/tiny_dungeon_interface.png" id="1_3rjoo"]
 [ext_resource type="Script" path="res://interfaces/hud/hud.gd" id="1_07xmy"]
 [ext_resource type="Texture2D" uid="uid://dtnl811kxhdnk" path="res://assets/sprites/tilesets/nine_patch_empty_bar.png" id="2_8td0o"]
+[ext_resource type="Texture2D" uid="uid://bsko0mjf65eyn" path="res://assets/sprites/tilesets/hud_window.png" id="2_tnxsa"]
 [ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="2_utsmw"]
 [ext_resource type="Texture2D" uid="uid://dkc0kcm7ryol" path="res://assets/sprites/tilesets/nine_patch_health_bar.png" id="3_xvofm"]
 [ext_resource type="Script" path="res://interfaces/hud/number_field.gd" id="4_7wp03"]
@@ -11,13 +12,31 @@
 texture = ExtResource("1_3rjoo")
 region_rect = Rect2(1, 1, 46, 47)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_71ml4"]
+atlas = ExtResource("1_3rjoo")
+region = Rect2(144, 0, 48, 48)
+
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_07xmy")
 
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_top = 768.0
+offset_right = 1280.0
+offset_bottom = 960.0
+texture = ExtResource("2_tnxsa")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+metadata/_edit_group_ = true
+
 [node name="HealthBar" type="TextureProgressBar" parent="."]
-offset_left = 1280.0
-offset_right = 2240.0
-offset_bottom = 32.0
+offset_left = 1272.0
+offset_top = 776.0
+offset_right = 1448.0
+offset_bottom = 808.0
 rotation = -4.71239
 value = 60.0
 fill_mode = 1
@@ -30,27 +49,51 @@ texture_under = ExtResource("2_8td0o")
 texture_progress = ExtResource("3_xvofm")
 
 [node name="Menu" type="Button" parent="."]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 80.0
-offset_bottom = 32.0
+offset_left = 552.0
+offset_top = 912.0
+offset_right = 624.0
+offset_bottom = 936.0
 theme = ExtResource("2_utsmw")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_5b06b")
 text = "MENU"
 
-[node name="GameLog" type="RichTextLabel" parent="."]
-offset_top = 704.0
-offset_right = 768.0
-offset_bottom = 960.0
+[node name="GameLogControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 784.0
+offset_right = 528.0
+offset_bottom = 944.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="GameLogControl"]
+y_sort_enabled = true
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 160.0
+texture = SubResource("AtlasTexture_71ml4")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="GameLog" type="RichTextLabel" parent="GameLogControl"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 504.0
+offset_bottom = 152.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
 scroll_following = true
 
 [node name="DevTools" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 100)
 offset_left = 8.0
-offset_top = 40.0
+offset_top = 8.0
 offset_right = 139.0
-offset_bottom = 144.0
+offset_bottom = 112.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
