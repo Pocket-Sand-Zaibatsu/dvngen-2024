@@ -31,3 +31,6 @@ func despawn() -> void:
 
 func _on_body_entered(_body: Variant):
 	pass
+
+func _on_body_exited(_body: Variant):
+	pass
