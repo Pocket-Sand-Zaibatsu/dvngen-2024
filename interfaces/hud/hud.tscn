@@ -45,13 +45,7 @@ text = "MENU"
 offset_top = 704.0
 offset_right = 768.0
 offset_bottom = 960.0
-text = "hello
-world
-this
-is
-the
-combat
-log"
+scroll_following = true
 
 [node name="DevTools" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 100)
