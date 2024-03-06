@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://83xhpbma376e"]
+
+[ext_resource type="Texture2D" uid="uid://dc3vy4cky8e0c" path="res://assets/sprites/items/td_items_coins_gold.png" id="1_3twth"]
+[ext_resource type="Script" path="res://scenes/Items/coins/coins.gd" id="1_ry7ko"]
+
+[node name="Coins" type="Node2D"]
+z_index = 1
+script = ExtResource("1_ry7ko")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 18.0
+offset_bottom = 18.0
+mouse_filter = 2
+texture = ExtResource("1_3twth")
