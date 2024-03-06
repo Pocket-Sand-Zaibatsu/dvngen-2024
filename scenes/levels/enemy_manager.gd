@@ -33,9 +33,12 @@ func reset():
 		enemies[monster].despawn()
 	enemies.clear()
 
+func get_random_enemy_type() -> ENEMY_TYPE:
+	return ENEMY_TYPE.values()[rng.randi() % ENEMY_TYPE.values().size()]
+
 func spawn_random_enemy(spawn_grid: Vector2i) -> void:
 	spawn_enemy(
-		ENEMY_TYPE.values()[rng.randi() % ENEMY_TYPE.values().size()],
+		get_random_enemy_type(),
 		spawn_grid
 	)
 
