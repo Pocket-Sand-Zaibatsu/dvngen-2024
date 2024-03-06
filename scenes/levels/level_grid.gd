@@ -47,7 +47,7 @@ func construct(new_size: Vector2i) -> void:
 	reset()
 
 func get_cell(position: Vector2i) -> CELL_TYPE:
-	return grid[position]
+	return grid.get(position, CELL_TYPE.OBSTACLE)
 
 func paint_cells_rectangle(initial: Vector2i, final: Vector2i, cell_type: CELL_TYPE) -> void:
 	for x in range(initial.x, final.x):
