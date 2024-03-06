@@ -8,6 +8,7 @@ signal player_position_updated(position: Vector2i)
 
 func _ready() -> void:
 	super()
+	log_name = "player"
 	max_health = 100
 	current_health = 100
 	player_ready.emit()

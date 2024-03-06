@@ -11,6 +11,7 @@ signal enemy_died(uuid: String, location_grid: Vector2i)
 
 func _init():
 	uuid = uuid_util.v4()
+	log_name = "monster"
 
 func _ready():
 	super()
