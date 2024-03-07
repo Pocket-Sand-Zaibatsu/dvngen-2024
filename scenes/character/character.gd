@@ -13,12 +13,13 @@ signal position_changed
 
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var audio_player = get_node("AudioStreamPlayer2D")
+@onready var level: CharacterLevel = CharacterLevel.new()
 
 var uuid: String
 
+var desired_level: int = 1
 var log_name: String = "character"
 var stat_block: StatBlock = StatBlock.new()
-var level: int = 1
 var hit_dice: DicePool = DicePool.new([Dice.new(8)], 0)
 var current_health: int = 0
 var max_health: int = 0
@@ -26,6 +27,7 @@ var base_armor_class: int = 10
 var base_attack_bonus: int = 0
 var attack_dice: Dice = Dice.new(20, 1)
 var unarmed_damage_dice: DicePool = DicePool.new([Dice.new(3)], 0)
+
 var action_mapping: Dictionary = {
 	"ui_right": move,
 	"ui_left": move,
@@ -51,13 +53,9 @@ func _ready() -> void:
 	audio_player.set_volume_db(volume_db)
 	animated_sprite.play("Down")
 	Player.input_received.connect(_on_input_received)
-
-func update_max_health(levels_gained: int=0) -> void:
-	if 0 < levels_gained:
-		for _index in range(levels_gained):
-			max_health += hit_dice.roll()
-	if current_health > max_health:
-		current_health = max_health
+	add_child(level)
+	level.level_increased.connect(_on_level_increased)
+	level.set_level(desired_level)
 
 func compute_attack_bonus() -> int:
 	return base_attack_bonus
@@ -103,3 +101,8 @@ func die() -> void:
 
 func _on_input_received(action: String) -> void:
 	action_mapping.get(action, func(): pass).call(action)
+
+func _on_level_increased() -> void:
+	var new_health = hit_dice.roll()
+	max_health += new_health
+	change_health(new_health)

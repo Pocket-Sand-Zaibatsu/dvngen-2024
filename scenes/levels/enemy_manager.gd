@@ -67,5 +67,6 @@ func spawn_enemy(enemy_type: ENEMY_TYPE, spawn_grid: Vector2i) -> void:
 	enemy.spawn(spawn_grid)
 	enemy.enemy_died.connect(get_parent()._on_enemy_died)
 	enemy.set("uuid", uuid_util.v4())
+	enemy.set("desired_level", int(float(get_parent().dungeon_level) / 5) + 1)
 	enemies[enemy.uuid] = enemy
 	await call_deferred("add_child", enemy)
