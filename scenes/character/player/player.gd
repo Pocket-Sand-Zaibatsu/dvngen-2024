@@ -4,6 +4,7 @@ class_name PlayerCharacter
 signal player_ready
 signal player_position_updated(position: Vector2i)
 signal input_received(action: String)
+signal player_died
 
 const FRAMES_PER_ACTION: int = 10
 
@@ -14,9 +15,19 @@ const FRAMES_PER_ACTION: int = 10
 func _ready() -> void:
 	super()
 	log_name = "player"
-	max_health = 100
+
+func reset() -> void:
+	desired_level = 1
+	stat_block = StatBlock.new()
+	hit_dice = DicePool.new([Dice.new(8)], 0)
 	current_health = 100
+	max_health = 100
+	base_armor_class = 10
+	base_attack_bonus = 0
+	attack_dice = Dice.new(20, 1)
+	unarmed_damage_dice = DicePool.new([Dice.new(3)], 0)
 	player_ready.emit()
+	health_changed.emit()
 
 func _on_dev_tools_stat_update(stat_field: String, value: int) -> void:
 	print("Player dev tools: ", stat_field, ":", value)
@@ -27,6 +38,11 @@ func _on_dev_tools_stat_update(stat_field: String, value: int) -> void:
 		"current_health":
 			current_health = value
 			health_changed.emit()
+
+func change_health(amount: int) -> void:
+	super(amount)
+	if 0 >= current_health:
+		player_died.emit()
 
 func spawn(spawn_grid: Vector2i) -> void:
 	position = LevelGrid.grid_to_position(spawn_grid)
