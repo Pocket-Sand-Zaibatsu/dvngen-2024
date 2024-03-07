@@ -8,11 +8,11 @@ enum CELL_TYPE {
 	OBJECT
 }
 
-var vector_to_direction = {
-	Vector2i.RIGHT: "Right",
-	Vector2i.LEFT: "Left",
-	Vector2i.UP: "Up",
-	Vector2i.DOWN: "Down"
+var vector_to_input_direction = {
+	Vector2i.RIGHT: "ui_right",
+	Vector2i.LEFT: "ui_left",
+	Vector2i.UP: "ui_up",
+	Vector2i.DOWN: "ui_down"
 }
 
 var direction_to_vector = {
@@ -79,7 +79,7 @@ func get_player_grid() -> Vector2i:
 func a_star_to_player(start_position: Vector2) -> String:
 	var start_grid = LevelGrid.position_to_grid(start_position)
 	var next_grid = a_star(start_grid, get_player_grid())
-	return vector_to_direction.get(next_grid - start_grid, "")
+	return vector_to_input_direction.get(next_grid - start_grid, "")
 
 func a_star(start_grid: Vector2i, goal_grid: Vector2i) -> Vector2i:
 	var open = BinaryManhattanHeap.new()
