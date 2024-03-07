@@ -2,10 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bqftv5dmv4522" path="res://scenes/world-object/world_object.tscn" id="1_16pn5"]
 [ext_resource type="Script" path="res://scenes/world-object/stairs/stairs.gd" id="2_45pwq"]
-[ext_resource type="Texture2D" uid="uid://ihi1xw4sypf0" path="res://assets/sprites/world/td_world_wall_stone_stair_down.png" id="3_hidnq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxhus"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qrex"]
-atlas = ExtResource("3_hidnq")
+atlas = SubResource("AtlasTexture_qxhus")
 region = Rect2(0, 0, 16, 16)
 
 [node name="Stairs" instance=ExtResource("1_16pn5")]
