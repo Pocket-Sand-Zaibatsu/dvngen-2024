@@ -9,3 +9,5 @@ script = ExtResource("2_bjqwf")
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("3_83afg")
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

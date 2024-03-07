@@ -71,6 +71,7 @@ func spawn_doors() -> void:
 		return
 	for door in doors:
 		var door_uuid = parent.world_object_manager.spawn_object(WorldObjectManager.OBJECT_TYPE.DOOR_EW, door)
+		parent.world_object_manager.objects[door_uuid].set_biome(parent.biome)
 		parent.world_object_manager.objects[door_uuid].player_entered.connect(_on_player_entered)
 
 func _on_player_entered() -> void:
