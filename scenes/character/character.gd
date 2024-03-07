@@ -71,7 +71,7 @@ func roll_attack() -> int:
 func get_grid() -> Vector2i:
 	return LevelGrid.position_to_grid(position)
 
-func spawn(spawn_grid: Vector2i) -> void:
+func spawn(_spawn_grid: Vector2i) -> void:
 	pass
 
 func move(ui_action: String):
