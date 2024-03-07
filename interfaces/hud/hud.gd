@@ -7,7 +7,8 @@ signal dev_tools_stat_update(stat_field: String, value: int)
 
 @onready var HealthBar = get_node("HealthBar")
 @onready var GameLog: RichTextLabel = get_node("GameLogControl").get_node("GameLog")
-@onready var Minimap: TileMap = get_node("Minimap")
+@onready var Minimap: TileMap = get_node("MinimapContainer/MinimapViewportContainer/MinimapViewport/Minimap")
+@onready var MinimapCamera = get_node("MinimapContainer/MinimapViewportContainer/MinimapViewport/MinimapCamera")
 
 var game_log_messages: Array[String] = []
 
@@ -47,5 +48,7 @@ func _input(event):
 	if event.is_action_pressed("Inventory"):
 		$Inventory.visible = !$Inventory.visible
 
-func _on_cell_painted(cell_grid: Vector2i) -> void:
-	pass
+func _on_cell_painted(cell_grid: Vector2i, cell_type: LevelGrid.CELL_TYPE) -> void:
+	if LevelGrid.CELL_TYPE.PLAYER == cell_type:
+		MinimapCamera.position = LevelGrid.grid_to_position(cell_grid) / 4
+	Minimap.set_cell(0, cell_grid, 0, Vector2i(cell_type, 0))
