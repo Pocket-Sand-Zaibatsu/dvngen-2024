@@ -1,7 +1,8 @@
 extends Character
 class_name Monster
 
-signal enemy_died(uuid: String, location_grid: Vector2i, xp: int)
+signal enemy_died(uuid: String, location_grid: Vector2i)
+signal xp_dropped(amount: int)
 
 @onready var rng: RandomNumberGenerator
 var xp_dice: DicePool
@@ -15,13 +16,15 @@ func _ready():
 	rng.seed = 0
 	damage_sent.connect(Player._on_damage_sent)
 	Player.damage_sent.connect(_on_damage_sent)
+	xp_dropped.connect(Player._on_xp_dropped)
 	xp_dice = DicePool.new([Dice.new(10, 2 * level.level)])
 
 func move(_ui_action: String) -> void:
 	super(LevelGrid.a_star_to_player(position))
 
 func die() -> void:
-	enemy_died.emit(uuid, get_grid(), xp_dice.roll())
+	enemy_died.emit(uuid, get_grid())
+	xp_dropped.emit(xp_dice.roll())
 	despawn()
 
 func spawn(spawn_grid: Vector2i) -> void:
