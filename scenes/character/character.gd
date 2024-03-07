@@ -72,8 +72,7 @@ func get_grid() -> Vector2i:
 	return LevelGrid.position_to_grid(position)
 
 func spawn(spawn_grid: Vector2i) -> void:
-	position = LevelGrid.grid_to_position(spawn_grid)
-	LevelGrid.spawn_actor(spawn_grid)
+	pass
 
 func move(ui_action: String):
 	if ui_action:

@@ -29,7 +29,8 @@ func _on_dev_tools_stat_update(stat_field: String, value: int) -> void:
 			health_changed.emit()
 
 func spawn(spawn_grid: Vector2i) -> void:
-	super(spawn_grid)
+	position = LevelGrid.grid_to_position(spawn_grid)
+	LevelGrid.spawn(LevelGrid.CELL_TYPE.PLAYER, spawn_grid)
 	camera.set_enabled(true)
 	camera.make_current()
 
