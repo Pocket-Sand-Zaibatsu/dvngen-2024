@@ -1,17 +1,26 @@
 extends Node2D
 class_name LevelGenerator
 
-@export var map_size := Vector2i(30, 30)
+@export var map_size := Vector2i(32, 32)
 @export var room_size_range := Vector2i(5, 10)
 @export var max_rooms := 2
 @export var map_seed := 0
 
+@onready var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var level: TileMap = get_node("Level")
 @onready var stairs
 @onready var map: Dictionary = {}
 @onready var enemy_manager: EnemyManager = EnemyManager.new()
 @onready var world_object_manager: WorldObjectManager = WorldObjectManager.new()
 @onready var rooms: Array[Room] = []
+@onready var biome: DungeonBiome = DungeonBiome.STONE
+
+enum DungeonBiome {
+	STONE = 25,
+	CAVE = 27,
+	CRYPT = 52,
+	SEWER = 79,
+}
 
 var dungeon_level: int = 0
 
@@ -36,9 +45,15 @@ func _ready() -> void:
 	stairs = stairs_scene.instantiate()
 	add_child(stairs)
 	stairs.generate_level.connect(_on_generate_level)
+	# REMOVE FOR FINAL GAME
+	rng.seed = map_seed
+
+func pick_biome() -> DungeonBiome:
+	return DungeonBiome.values()[rng.randi() % DungeonBiome.values().size()]
 
 func _create_level() -> void:
 	dungeon_level += 1
+	biome = pick_biome()
 	enemy_manager.reset()
 	world_object_manager.reset()
 	Player.hide()
@@ -60,8 +75,8 @@ func _initialize_map() -> void:
 func _get_random_room(rng: RandomNumberGenerator) -> Rect2i:
 	var width := rng.randi_range(room_size_range.x, room_size_range.y)
 	var height := rng.randi_range(room_size_range.x, room_size_range.y)
-	var x := rng.randi_range(0, map_size.x - width - 1)
-	var y := rng.randi_range(0, map_size.y - height - 1)
+	var x := rng.randi_range(1, map_size.x - width - 2)
+	var y := rng.randi_range(1, map_size.y - height - 2)
 	return Rect2i(x, y, width, height)
 
 func _intersects(room: Rect2i) -> bool:
@@ -90,9 +105,6 @@ func _build_rooms() -> void:
 	for room in rooms:
 		room.queue_free()
 	rooms.clear()
-	var rng := RandomNumberGenerator.new()
-	# REMOVE FOR FINAL GAME
-	rng.seed = map_seed
 	for possible in range(max_rooms):
 		var room_boundary := _get_random_room(rng)
 		if _intersects(room_boundary):
@@ -110,7 +122,7 @@ func _build_rooms() -> void:
 	_paint_map(rng)
 	Player.spawn(rooms[0].get_center())
 	var stair_position = rooms[-1].get_center()
-	stairs.spawn(Vector2i(stair_position.x + 1, stair_position.y))
+	stairs.spawn_with_biome(biome, Vector2i(stair_position.x + 1, stair_position.y))
 
 func _check_neighbor(coords: Vector2i) -> String:
 	if 0 <= coords.x && map_size.x > coords.x && 0 <= coords.y && map_size.y > coords.y:
@@ -157,10 +169,10 @@ func _paint_map(rng: RandomNumberGenerator) -> void:
 		if map[tile] in ["ew", "ns"]:
 			layer = 1
 		match map[tile]:
-			"floor": level.set_cell(layer, tile, 25, _get_floor_tile(rng))
+			"floor": level.set_cell(layer, tile, biome, _get_floor_tile(rng))
 			"empty": level.set_cell(layer, tile, 26, Vector2i.ZERO)
-			"ew": level.set_cell(layer, tile, 25, _get_wall_tile(rng))
-			"ns": level.set_cell(layer, tile, 25, _get_wall_tile(rng, false))
+			"ew": level.set_cell(layer, tile, biome, _get_wall_tile(rng))
+			"ns": level.set_cell(layer, tile, biome, _get_wall_tile(rng, false))
 
 func _on_enemy_died(_uuid: String, location_grid: Vector2i) -> void:
 	world_object_manager.spawn_object(WorldObjectManager.OBJECT_TYPE.BONES, location_grid)
