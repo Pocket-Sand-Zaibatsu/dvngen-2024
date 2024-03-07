@@ -70,7 +70,7 @@ func _initialize_map() -> void:
 	map.clear()
 	for x in range(map_size.x):
 		for y in range(map_size.y):
-			map[Vector2i(x,y)] = "empty"
+			map[Vector2i(x, y)] = "empty"
 
 func _get_random_room() -> Rect2i:
 	var width := rng.randi_range(room_size_range.x, room_size_range.y)
@@ -123,9 +123,10 @@ func _build_rooms() -> void:
 	Player.spawn(rooms[0].get_center())
 	var stair_position = rooms[-1].get_center()
 	stairs.spawn_with_biome(biome, Vector2i(stair_position.x + 1, stair_position.y))
+	world_object_manager.spawn_object(WorldObjectManager.OBJECT_TYPE.ITEMDROP, rooms[0].get_center() + Vector2i.ONE)
 
 func _check_neighbor(coords: Vector2i) -> String:
-	if 0 <= coords.x && map_size.x > coords.x && 0 <= coords.y && map_size.y > coords.y:
+	if 0 <= coords.x&&map_size.x > coords.x&&0 <= coords.y&&map_size.y > coords.y:
 		if "floor" == map[coords]:
 			return "1"
 		elif "empty" == map[coords]:
@@ -139,15 +140,15 @@ func _add_walls() -> void:
 			if "floor" == map[coords]:
 				continue
 			var neighbors := ""
-			neighbors += _check_neighbor(Vector2i(x,     y - 1))
-			neighbors += _check_neighbor(Vector2i(x,     y + 1))
+			neighbors += _check_neighbor(Vector2i(x, y - 1))
+			neighbors += _check_neighbor(Vector2i(x, y + 1))
 			if neighbors in ["01", "10", "12", "21"]:
 				map[coords] = "ew"
 				continue
 			neighbors += _check_neighbor(Vector2i(x - 1, y - 1))
 			neighbors += _check_neighbor(Vector2i(x + 1, y - 1))
-			neighbors += _check_neighbor(Vector2i(x - 1, y    ))
-			neighbors += _check_neighbor(Vector2i(x + 1, y    ))
+			neighbors += _check_neighbor(Vector2i(x - 1, y))
+			neighbors += _check_neighbor(Vector2i(x + 1, y))
 			neighbors += _check_neighbor(Vector2i(x - 1, y + 1))
 			neighbors += _check_neighbor(Vector2i(x + 1, y + 1))
 			if neighbors.contains("1"):
@@ -161,7 +162,6 @@ func _add_walls() -> void:
 				map[coords] = "ew"
 			if y < map_size.y - 1 && "ew" == map[coords] && "ns" == map[Vector2i(x, y + 1)]:
 				map[coords] = "ns"
-
 
 func _paint_map() -> void:
 	for tile in map:
