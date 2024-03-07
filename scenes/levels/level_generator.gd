@@ -1,6 +1,8 @@
 extends Node2D
 class_name LevelGenerator
 
+signal bottom_reached
+
 @export var map_size := Vector2i(32, 32)
 @export var room_size_range := Vector2i(5, 10)
 @export var max_rooms := 2
@@ -53,6 +55,10 @@ func pick_biome() -> DungeonBiome:
 
 func _create_level() -> void:
 	dungeon_level += 1
+	if 100 < dungeon_level:
+		Player.you_won = true
+		bottom_reached.emit()
+		return
 	biome = pick_biome()
 	enemy_manager.reset()
 	world_object_manager.reset()

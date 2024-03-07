@@ -7,9 +7,10 @@ var death_stats: Array[String] = []
 
 func _ready():
 	$CenterContainer/VBoxContainer/MainMenuButton.grab_focus()
+	if Player.you_won:
+		$CenterContainer/VBoxContainer/Label.text = "YOU WON"
 	for stat in death_stats:
 		var label = Label.new()
-		print("Font: ", label_theme.default_font.get_font_name())
 		label.text = stat
 		label.set_theme(label_theme)
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER

@@ -14,6 +14,7 @@ func _ready() -> void:
 	level_generator = level_generator_scene.instantiate()
 	level_generator.name = "LevelGenerator"
 	add_child(level_generator)
+	level_generator.bottom_reached.connect(_on_player_died)
 	hud = hud_scene.instantiate()
 	hud.name = "Hud"
 	LevelGrid.cell_painted.connect(hud._on_cell_painted)

@@ -1,6 +1,8 @@
 extends Character
 class_name PlayerCharacter
 
+var you_won: bool = false
+
 signal player_ready
 signal player_position_updated(position: Vector2i)
 signal input_received(action: String)
@@ -17,6 +19,7 @@ func _ready() -> void:
 	log_name = "player"
 
 func reset() -> void:
+	you_won = false
 	desired_level = 1
 	stat_block = StatBlock.new()
 	hit_dice = DicePool.new([Dice.new(8)], 0)
