@@ -21,10 +21,8 @@ func initialize_health() -> void:
 		max_health += hit_dice.roll()
 	current_health = max_health
 
-func handle_movement(event) -> void:
-	for direction in input_to_direction.keys():
-		if event.is_action_pressed(direction):
-			move(LevelGrid.a_star_to_player(position))
+func move(ui_action: String) -> void:
+	super(LevelGrid.a_star_to_player(position))
 
 func die() -> void:
 	enemy_died.emit(uuid, get_grid())
@@ -34,9 +32,3 @@ func despawn() -> void:
 	LevelGrid.despawn_actor(position)
 	get_parent().enemies.erase(uuid)
 	self.queue_free()
-
-func _unhandled_input(event):
-	handle_movement(event)
-
-func _to_string():
-	print("log name: ", log_name)

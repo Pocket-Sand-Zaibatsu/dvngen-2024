@@ -26,6 +26,12 @@ var base_armor_class: int = 10
 var base_attack_bonus: int = 0
 var attack_dice: Dice = Dice.new(20, 1)
 var unarmed_damage_dice: DicePool = DicePool.new([Dice.new(3)], 0)
+var action_mapping: Dictionary = {
+	"ui_right": move,
+	"ui_left": move,
+	"ui_down": move,
+	"ui_up": move,
+}
 
 var direction_vector = {
 	"Right": Vector2.RIGHT,
@@ -44,6 +50,7 @@ func _ready() -> void:
 	log_messaged.connect(GameLogTransport._on_log_messaged)
 	audio_player.set_volume_db(volume_db)
 	animated_sprite.play("Down")
+	Player.input_received.connect(_on_input_received)
 
 func update_max_health(levels_gained: int=0) -> void:
 	if 0 < levels_gained:
@@ -68,8 +75,9 @@ func spawn(spawn_grid: Vector2i) -> void:
 	position = LevelGrid.grid_to_position(spawn_grid)
 	LevelGrid.spawn_actor(spawn_grid)
 
-func move(direction: String):
-	if direction:
+func move(ui_action: String):
+	if ui_action:
+		var direction = input_to_direction[ui_action]
 		animated_sprite.play(direction)
 		damage_sent.emit(get_grid() + Vector2i(direction_vector[direction]), log_name, roll_attack(), unarmed_damage_dice.roll())
 		position = LevelGrid.request_move(position, direction)
@@ -93,3 +101,6 @@ func _on_damage_sent(target_grid: Vector2i, actor: String, attack_roll: int, amo
 
 func die() -> void:
 	pass
+
+func _on_input_received(action: String) -> void:
+	action_mapping.get(action, func(): pass).call(action)
