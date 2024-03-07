@@ -13,12 +13,13 @@ signal position_changed
 
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var audio_player = get_node("AudioStreamPlayer2D")
+@onready var level: CharacterLevel = CharacterLevel.new()
 
 var uuid: String
 
+var desired_level: int = 1
 var log_name: String = "character"
 var stat_block: StatBlock = StatBlock.new()
-var level: CharacterLevel = CharacterLevel.new(1)
 var hit_dice: DicePool = DicePool.new([Dice.new(8)], 0)
 var current_health: int = 0
 var max_health: int = 0
@@ -52,10 +53,9 @@ func _ready() -> void:
 	audio_player.set_volume_db(volume_db)
 	animated_sprite.play("Down")
 	Player.input_received.connect(_on_input_received)
+	add_child(level)
 	level.level_increased.connect(_on_level_increased)
-
-func set_level(new_level: int) -> void:
-	level = CharacterLevel.new(new_level)
+	level.set_level(desired_level)
 
 func update_max_health(levels_gained: int=0) -> void:
 	if 0 < levels_gained:
