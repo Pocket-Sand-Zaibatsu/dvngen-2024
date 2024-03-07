@@ -2,6 +2,7 @@ extends Node
 class_name CharacterLevel
 
 const EXPERIENCE_TABLE = [
+	-1,
 	0,
 	1000,
 	3000,
@@ -32,16 +33,18 @@ signal level_increased
 @export var level: int = 0
 var current_experience: int = 0
 
-func _init(new_level: int) -> void:
+func set_level(new_level: int) -> void:
 	if 1 > new_level:
 		new_level = 1
 	if 20 < new_level:
 		new_level = 20
-	current_experience = EXPERIENCE_TABLE[new_level]
-	level = new_level
+	add_experience(EXPERIENCE_TABLE[new_level])
 
 func add_experience(added_experience: int) -> void:
 	current_experience += added_experience
-	while current_experience > EXPERIENCE_TABLE[level + 1]:
+	while current_experience >= EXPERIENCE_TABLE[level + 1]:
 		level += 1
 		level_increased.emit()
+
+func _to_string() -> String:
+	return "%d XP, %d level" % [current_experience, level]
