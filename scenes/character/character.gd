@@ -18,7 +18,7 @@ var uuid: String
 
 var log_name: String = "character"
 var stat_block: StatBlock = StatBlock.new()
-var level: int = 1
+var level: CharacterLevel = CharacterLevel.new(1)
 var hit_dice: DicePool = DicePool.new([Dice.new(8)], 0)
 var current_health: int = 0
 var max_health: int = 0
@@ -26,6 +26,7 @@ var base_armor_class: int = 10
 var base_attack_bonus: int = 0
 var attack_dice: Dice = Dice.new(20, 1)
 var unarmed_damage_dice: DicePool = DicePool.new([Dice.new(3)], 0)
+
 var action_mapping: Dictionary = {
 	"ui_right": move,
 	"ui_left": move,
@@ -51,6 +52,9 @@ func _ready() -> void:
 	audio_player.set_volume_db(volume_db)
 	animated_sprite.play("Down")
 	Player.input_received.connect(_on_input_received)
+
+func set_level(new_level: int) -> void:
+	level = CharacterLevel.new(new_level)
 
 func update_max_health(levels_gained: int=0) -> void:
 	if 0 < levels_gained:
