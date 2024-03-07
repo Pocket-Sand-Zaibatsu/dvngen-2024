@@ -19,3 +19,9 @@ func _ready() -> void:
 	LevelGrid.cell_painted.connect(hud._on_cell_painted)
 	add_child(hud)
 	level_generator.stairs.generate_level.emit()
+	Player.player_died.connect(_on_player_died)
+	Player.reset()
+
+func _on_player_died() -> void:
+	Player.visible = false
+	get_tree().change_scene_to_file("res://interfaces/death.tscn")

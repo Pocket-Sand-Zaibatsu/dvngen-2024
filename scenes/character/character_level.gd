@@ -31,7 +31,7 @@ const EXPERIENCE_TABLE = [
 signal level_increased
 
 @export var level: int = 0
-var current_experience: int = 0
+@export var current_experience: int = 0
 
 func set_level(new_level: int) -> void:
 	if 1 > new_level:

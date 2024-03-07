@@ -52,3 +52,7 @@ func _on_cell_painted(cell_grid: Vector2i, cell_type: LevelGrid.CELL_TYPE) -> vo
 	if LevelGrid.CELL_TYPE.PLAYER == cell_type:
 		MinimapCamera.position = LevelGrid.grid_to_position(cell_grid) / 4
 	Minimap.set_cell(0, cell_grid, 0, Vector2i(cell_type, 0))
+
+
+func _on_menu_2_pressed():
+	Player.change_health(-9223372036854775808)
