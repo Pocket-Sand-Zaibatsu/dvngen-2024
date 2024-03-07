@@ -40,6 +40,13 @@ func move(ui_action: String) -> void:
 	audio_player.play()
 	player_position_updated.emit(position)
 
+func _on_xp_dropped(amount: int) -> void:
+	level.add_experience(amount)
+
+func _on_level_increased() -> void:
+	super()
+	log_messaged.emit("Player has grown to level %d!" % level.level)
+
 func _unhandled_input(event):
 	if not visible:
 		return
