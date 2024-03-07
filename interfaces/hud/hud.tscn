@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://p6nnokp0w23o"]
+[gd_scene load_steps=15 format=3 uid="uid://p6nnokp0w23o"]
 
 [ext_resource type="Texture2D" uid="uid://borbpogvyri8g" path="res://assets/sprites/tilesets/tiny_dungeon_interface.png" id="1_3rjoo"]
 [ext_resource type="Script" path="res://interfaces/hud/hud.gd" id="1_07xmy"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dkc0kcm7ryol" path="res://assets/sprites/tilesets/nine_patch_health_bar.png" id="3_xvofm"]
 [ext_resource type="Script" path="res://interfaces/hud/number_field.gd" id="4_7wp03"]
 [ext_resource type="PackedScene" uid="uid://drcophnpcvkyx" path="res://interfaces/inventory/inventory.tscn" id="8_ghnld"]
+[ext_resource type="Texture2D" uid="uid://7vlaawci157j" path="res://assets/sprites/tilesets/minimap.png" id="9_rwquv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5b06b"]
 texture = ExtResource("1_3rjoo")
@@ -16,6 +17,22 @@ region_rect = Rect2(1, 1, 46, 47)
 [sub_resource type="AtlasTexture" id="AtlasTexture_71ml4"]
 atlas = ExtResource("1_3rjoo")
 region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11gjw"]
+atlas = ExtResource("1_3rjoo")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t631j"]
+texture = ExtResource("9_rwquv")
+texture_region_size = Vector2i(4, 4)
+1:0/0 = 0
+0:0/0 = 0
+3:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_h4po4"]
+tile_size = Vector2i(4, 4)
+sources/0 = SubResource("TileSetAtlasSource_t631j")
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_07xmy")
@@ -50,10 +67,10 @@ texture_under = ExtResource("2_8td0o")
 texture_progress = ExtResource("3_xvofm")
 
 [node name="Menu" type="Button" parent="."]
-offset_left = 552.0
-offset_top = 912.0
-offset_right = 624.0
-offset_bottom = 936.0
+offset_left = 1160.0
+offset_top = 920.0
+offset_right = 1232.0
+offset_bottom = 944.0
 theme = ExtResource("2_utsmw")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_5b06b")
@@ -136,3 +153,35 @@ stat_field = "current_health"
 [node name="Inventory" parent="." instance=ExtResource("8_ghnld")]
 visible = false
 position = Vector2(-7, 475)
+
+[node name="MinimapContainer" type="CanvasGroup" parent="."]
+position = Vector2(544, 784)
+
+[node name="MinimapBackground" type="NinePatchRect" parent="MinimapContainer"]
+offset_right = 160.0
+offset_bottom = 160.0
+texture = SubResource("AtlasTexture_11gjw")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="MinimapViewportContainer" type="SubViewportContainer" parent="MinimapContainer"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 152.0
+offset_bottom = 152.0
+
+[node name="MinimapViewport" type="SubViewport" parent="MinimapContainer/MinimapViewportContainer"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(144, 144)
+render_target_update_mode = 4
+
+[node name="Minimap" type="TileMap" parent="MinimapContainer/MinimapViewportContainer/MinimapViewport"]
+tile_set = SubResource("TileSet_h4po4")
+format = 2
+
+[node name="MinimapCamera" type="Camera2D" parent="MinimapContainer/MinimapViewportContainer/MinimapViewport"]

@@ -2,10 +2,10 @@ extends Node
 #class_name LevelGrid
 
 enum CELL_TYPE {
-	EMPTY = -1,
-	PLAYER,
-	ENEMY,
-	OBSTACLE,
+	EMPTY = 0,
+	PLAYER = 1,
+	ENEMY = 2,
+	OBSTACLE = -1,
 	OBJECT
 }
 
@@ -25,6 +25,8 @@ var direction_to_vector = {
 
 var tile_size = 16
 
+signal cell_painted(cell_grid: Vector2i)
+
 @onready var grid: Dictionary = {}
 @onready var grid_size: Vector2i = Vector2i.ZERO
 
@@ -37,11 +39,15 @@ func grid_to_position(grid_to_convert: Vector2i) -> Vector2:
 func position_to_grid(position_to_convert: Vector2) -> Vector2i:
 	return Vector2i(position_to_convert - (Vector2.ONE * tile_size) / 2) / tile_size
 
+func paint_single_cell(cell_grid: Vector2i, cell_type: CELL_TYPE) -> void:
+	grid[cell_grid] = cell_type
+	cell_painted.emit(cell_grid, cell_type)
+
 func reset() -> void:
 	grid.clear()
 	for x in range(grid_size.x):
 		for y in range(grid_size.y):
-			grid[Vector2i(x, y)] = CELL_TYPE.OBSTACLE
+			paint_single_cell(Vector2i(x, y), CELL_TYPE.OBSTACLE)
 
 func construct(new_size: Vector2i) -> void:
 	grid_size = new_size
@@ -53,11 +59,11 @@ func get_cell(position: Vector2i) -> CELL_TYPE:
 func paint_cells_rectangle(initial: Vector2i, final: Vector2i, cell_type: CELL_TYPE) -> void:
 	for x in range(initial.x, final.x):
 		for y in range(initial.y, final.y):
-			grid[Vector2i(x, y)] = cell_type
+			paint_single_cell(Vector2i(x, y), cell_type)
 
 func update_grid_position(start: Vector2i, target: Vector2i) -> Vector2:
-	grid[target] = grid[start]
-	grid[start] = CELL_TYPE.EMPTY
+	paint_single_cell(target, grid.get(start, CELL_TYPE.OBSTACLE))
+	paint_single_cell(start, CELL_TYPE.EMPTY)
 	return LevelGrid.grid_to_position(target)
 
 func request_move(start_position: Vector2, direction: String) -> Vector2:
@@ -69,13 +75,13 @@ func request_move(start_position: Vector2, direction: String) -> Vector2:
 	return LevelGrid.grid_to_position(start_grid)
 
 func spawn(cell_type: CELL_TYPE, spawn_grid: Vector2i) -> void:
-	grid[spawn_grid] = cell_type
+	paint_single_cell(spawn_grid, cell_type)
 
 func spawn_enemy(spawn_grid: Vector2i) -> void:
 	spawn(CELL_TYPE.ENEMY, spawn_grid)
 
 func despawn_actor(despawn_position: Vector2) -> void:
-	grid[LevelGrid.position_to_grid(despawn_position)] = CELL_TYPE.EMPTY
+	paint_single_cell(LevelGrid.position_to_grid(despawn_position), CELL_TYPE.EMPTY)
 
 func get_player_grid() -> Vector2i:
 	return LevelGrid.position_to_grid(Player.position)

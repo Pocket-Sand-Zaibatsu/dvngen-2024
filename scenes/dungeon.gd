@@ -16,5 +16,6 @@ func _ready() -> void:
 	add_child(level_generator)
 	hud = hud_scene.instantiate()
 	hud.name = "Hud"
+	LevelGrid.cell_painted.connect(hud._on_cell_painted)
 	add_child(hud)
 	level_generator.stairs.generate_level.emit()
