@@ -8,7 +8,6 @@ var being_picked_up
 func _ready():
 	item_name = "td_items_potion_red"
 
-
 func _on_body_entered(_body):
 	PlayerInventory.add_item(item_name, 1)
 	despawn()

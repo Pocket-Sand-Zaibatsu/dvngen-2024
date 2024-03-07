@@ -11,8 +11,24 @@
 	"Description": "Made from monster blood. It smells like cough syrup."
   },
   "td_items_weapon_sword": {
+	"ItemCategory": "Sword",
 	"ItemAttack": 3,
 	"StackSize": 1,
 	"Description": "A basic sword, forged to cut, stab, and slash."
+  },
+  "td_items_leather_helm": {
+	"ItemCategory": "Helmet",
+	"StackSize": 1,
+	"Description": "A leather helmet, good for protecting your head."
+  },
+  "td_items_leather_pant": {
+	"ItemCategory": "Pants",
+	"StackSize": 1,
+	"Description": "Leather pants, they make your butt look great!"
+  },
+ "td_items_leather_boot": {
+	"ItemCategory": "Boots",
+	"StackSize": 1,
+	"Description": "Boots made from leatther and cloth."
   }
 }

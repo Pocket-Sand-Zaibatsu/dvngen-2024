@@ -8,6 +8,19 @@ var empty_style: StyleBoxTexture = null
 
 var ItemClass = preload("res://scenes/Items/items/items.tscn")
 var item = null
+var slot_index
+
+enum SlotType{
+	INVENTORY,
+	HEAD,
+	NECK,
+	BODY,
+	ARMS,
+	LEGS,
+	FEET,
+	RHAND,
+	LHAND,
+}
 
 func _ready():
 	default_style = StyleBoxTexture.new()
