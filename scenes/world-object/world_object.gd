@@ -22,6 +22,9 @@ func choose_and_set_random_texture() -> void:
 	var texture_index = rng.randi_range(0, available_textures.size() - 1)
 	sprite.texture = load(available_textures[texture_index])
 
+func spawn_with_biome(_biome: LevelGenerator.DungeonBiome, spawn_grid: Vector2i):
+	spawn(spawn_grid)
+
 func spawn(spawn_grid: Vector2i) -> void:
 	position = LevelGrid.grid_to_position(spawn_grid)
 
