@@ -28,6 +28,7 @@ chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
 !@#$%^&*()-+=:;,\"<>.?/\\[]_|"
 
 [resource]
+resource_name = "font"
 fixed_size = 12
 fixed_size_scale_mode = 2
 cache/0/12/0/ascent = 0.0
