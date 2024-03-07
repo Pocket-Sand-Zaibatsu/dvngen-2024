@@ -52,6 +52,7 @@ func _ready() -> void:
 	audio_player.set_volume_db(volume_db)
 	animated_sprite.play("Down")
 	Player.input_received.connect(_on_input_received)
+	level.level_increased.connect(_on_level_increased)
 
 func set_level(new_level: int) -> void:
 	level = CharacterLevel.new(new_level)
@@ -107,3 +108,8 @@ func die() -> void:
 
 func _on_input_received(action: String) -> void:
 	action_mapping.get(action, func(): pass).call(action)
+
+func _on_level_increased() -> void:
+	var new_health = hit_dice.roll()
+	max_health += new_health
+	current_health += new_health
