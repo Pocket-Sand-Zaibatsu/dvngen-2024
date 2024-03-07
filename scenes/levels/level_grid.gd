@@ -85,20 +85,19 @@ func a_star_to_player(start_position: Vector2) -> String:
 	var next_grid = a_star(start_grid, get_player_grid())
 	return vector_to_input_direction.get(next_grid - start_grid, "")
 
+# https://www.redblobgames.com/pathfinding/a-star/introduction.html
 func a_star(start_grid: Vector2i, goal_grid: Vector2i) -> Vector2i:
-	var open = BinaryManhattanHeap.new()
-	open.set_target(goal_grid)
-	open.insert(start_grid)
+	var frontier = BinaryHeap.new()
+	frontier.insert(start_grid, 0)
 	var came_from = {}
-	var g_score = {}
-	g_score[start_grid] = 0
-	var f_score = {}
-	f_score[start_grid] = get_manhattan_distance(start_grid, goal_grid)
-	while 0 < open.size():
-		var current = open.extract()
+	came_from[start_grid] = null
+	var cost_so_far = {}
+	cost_so_far[start_grid] = 0
+	while 0 < frontier.size():
+		var current = frontier.extract()
 		if goal_grid == current:
 			var previous = current
-			while current in came_from:
+			while current in came_from.keys() && came_from[current]:
 				previous = current
 				current = came_from[current]
 			return previous
@@ -106,15 +105,14 @@ func a_star(start_grid: Vector2i, goal_grid: Vector2i) -> Vector2i:
 			for y in [-1, 0, 1]:
 				if abs(x) == abs(y):
 					continue
-				var neighbor = Vector2i(current.x + x, current.y + y)
-				if CELL_TYPE.OBSTACLE == get_cell(neighbor):
+				var next_grid = Vector2i(current.x + x, current.y + y)
+				if CELL_TYPE.OBSTACLE == get_cell(next_grid):
 					continue
-				var tentative_g_score = g_score[current] + 1
-				if CELL_TYPE.ENEMY == get_cell(neighbor):
-					tentative_g_score += 1
-				if tentative_g_score < g_score.get(neighbor, 1000000):
-					came_from[neighbor] = current
-					g_score[neighbor] = tentative_g_score
-					f_score[neighbor] = get_manhattan_distance(neighbor, goal_grid)
-					open.insert(neighbor)
+				var new_cost = cost_so_far[current]
+				if CELL_TYPE.ENEMY == get_cell(next_grid):
+					new_cost += 2
+				if next_grid not in cost_so_far.keys() or new_cost < cost_so_far[next_grid]:
+					cost_so_far[next_grid] = new_cost
+					frontier.insert(next_grid, new_cost + get_manhattan_distance(goal_grid, next_grid))
+					came_from[next_grid] = current
 	return goal_grid
