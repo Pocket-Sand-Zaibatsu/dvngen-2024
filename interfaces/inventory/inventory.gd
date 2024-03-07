@@ -39,6 +39,6 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 				slot.pickFromSlot()
 				holding_item.global_position = get_global_mouse_position()
 
-func _input(Event):
+func _input(_event):
 	if holding_item:
 		holding_item.global_position = get_global_mouse_position()

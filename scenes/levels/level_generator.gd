@@ -28,10 +28,10 @@ func _on_generate_level():
 	map_seed += 1
 	_create_level()
 
-func _get_floor_tile(rng: RandomNumberGenerator) -> Vector2i:
+func _get_floor_tile() -> Vector2i:
 	return Vector2i(rng.randi_range(0, 5), rng.randi_range(0, 1))
 
-func _get_wall_tile(rng: RandomNumberGenerator, is_ew: bool = true) -> Vector2i:
+func _get_wall_tile(is_ew: bool = true) -> Vector2i:
 	var row := 2
 	if not is_ew:
 		row = 3
