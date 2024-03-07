@@ -3,6 +3,7 @@ class_name Dungeon
 
 var level_generator_scene = preload("res://scenes/levels/level_generator.tscn")
 var hud_scene = preload("res://interfaces/hud/hud.tscn")
+var death_scene = preload("res://interfaces/death.tscn")
 
 signal player_ready
 signal player_position_updated(position: Vector2i)
@@ -25,4 +26,6 @@ func _ready() -> void:
 
 func _on_player_died() -> void:
 	Player.visible = false
-	get_tree().change_scene_to_file("res://interfaces/death.tscn")
+	await level_generator.enemy_manager.reset()
+	await level_generator.world_object_manager.reset()
+	SceneChanger.change_scene(SceneChanger.PossibleScene.DEATH)

@@ -20,7 +20,7 @@ func _ready() -> void:
 
 func reset() -> void:
 	you_won = false
-	desired_level = 1
+	level.reset()
 	stat_block = StatBlock.new()
 	hit_dice = DicePool.new([Dice.new(8)], 0)
 	current_health = 100

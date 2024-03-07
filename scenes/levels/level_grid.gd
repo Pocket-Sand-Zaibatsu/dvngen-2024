@@ -116,7 +116,7 @@ func a_star(start_grid: Vector2i, goal_grid: Vector2i) -> Vector2i:
 					continue
 				var new_cost = cost_so_far[current]
 				if CELL_TYPE.ENEMY == get_cell(next_grid):
-					new_cost += 2
+					new_cost += 5
 				if next_grid not in cost_so_far.keys() or new_cost < cost_so_far[next_grid]:
 					cost_so_far[next_grid] = new_cost
 					frontier.insert(next_grid, new_cost + get_manhattan_distance(goal_grid, next_grid))

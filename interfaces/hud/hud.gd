@@ -17,6 +17,7 @@ func _set_up_dev_tools() -> void:
 	$DevTools/Health/HBoxContainer2/Current.dev_tools_stat_update.connect(Player._on_dev_tools_stat_update)
 
 func _ready():
+	GameLog.clear()
 	_set_up_dev_tools()
 	Player.health_changed.connect(_player_health_changed)
 	_player_health_changed()

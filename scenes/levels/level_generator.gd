@@ -3,6 +3,9 @@ class_name LevelGenerator
 
 signal bottom_reached
 
+#@export var map_size := Vector2i(102, 102)
+#@export var room_size_range := Vector2i(5, 15)
+#@export var max_rooms := 30
 @export var map_size := Vector2i(32, 32)
 @export var room_size_range := Vector2i(5, 10)
 @export var max_rooms := 2
