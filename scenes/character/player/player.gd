@@ -3,9 +3,13 @@ class_name PlayerCharacter
 
 signal player_ready
 signal player_position_updated(position: Vector2i)
+signal input_received(action: String)
+
+const FRAMES_PER_ACTION: int = 10
 
 @onready var camera = get_node("PlayerCamera")
 @onready var player_class: String
+@onready var frames_since_last_action: int = 0
 
 func _ready() -> void:
 	super()
@@ -29,11 +33,26 @@ func spawn(spawn_grid: Vector2i) -> void:
 	camera.set_enabled(true)
 	camera.make_current()
 
-func _unhandled_input(event: InputEvent):
+func move(ui_action: String) -> void:
+	frames_since_last_action = 0
+	super(ui_action)
+	audio_player.play()
+	player_position_updated.emit(position)
+
+func _unhandled_input(event):
 	if not visible:
 		return
 	for direction in input_to_direction.keys():
 		if event.is_action_pressed(direction):
-			move(input_to_direction[direction])
-			audio_player.play()
-			player_position_updated.emit(position)
+			input_received.emit(direction)
+
+func _physics_process(delta):
+	if not visible:
+		return
+	frames_since_last_action += 1
+	if 0 != frames_since_last_action % FRAMES_PER_ACTION:
+		return
+	frames_since_last_action -= FRAMES_PER_ACTION
+	for direction in input_to_direction.keys():
+		if Input.is_action_pressed(direction):
+			input_received.emit(direction)
