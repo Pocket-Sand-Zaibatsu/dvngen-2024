@@ -28,6 +28,10 @@ func die() -> void:
 	enemy_died.emit(uuid, get_grid())
 	despawn()
 
+func spawn(spawn_grid: Vector2i) -> void:
+	position = LevelGrid.grid_to_position(spawn_grid)
+	LevelGrid.spawn_enemy(spawn_grid)
+
 func despawn() -> void:
 	LevelGrid.despawn_actor(position)
 	get_parent().enemies.erase(uuid)
