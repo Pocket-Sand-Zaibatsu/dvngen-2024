@@ -1,14 +1,7 @@
 extends Node
-class_name BinaryManhattanHeap
+class_name BinaryHeap
 
 var _contents: Array[Vector3i] = []
-var target: Vector2i = Vector2i.ZERO
-
-func get_manhattan_distance(start: Vector2i) -> int:
-	return abs(start.x - target.x) + abs(start.y - target.y)
-
-func set_target(new_target: Vector2i) -> void:
-	target = new_target
 
 func size() -> int:
 	return _contents.size()
@@ -16,8 +9,8 @@ func size() -> int:
 func clear():
 	_contents.clear()
 
-func insert(item: Vector2i) -> void:
-	_contents.push_back(Vector3i(item.x, item.y, get_manhattan_distance(item)))
+func insert(item: Vector2i, priority: int) -> void:
+	_contents.push_back(Vector3i(item.x, item.y, priority))
 	_up_heap(_contents.size() - 1)
 
 func extract():
