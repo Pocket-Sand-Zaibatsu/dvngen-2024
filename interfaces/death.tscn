@@ -30,4 +30,5 @@ size_flags_horizontal = 4
 theme = ExtResource("2_tkrpe")
 text = "MAIN MENU"
 
+[connection signal="tree_entered" from="CenterContainer/VBoxContainer/VBoxContainer" to="." method="_on_v_box_container_tree_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
