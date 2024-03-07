@@ -2,10 +2,10 @@ extends Node
 #class_name LevelGrid
 
 enum CELL_TYPE {
-	EMPTY = -1,
-	PLAYER,
-	ENEMY,
-	OBSTACLE,
+	EMPTY = 0,
+	PLAYER = 1,
+	ENEMY = 2,
+	OBSTACLE = -1,
 	OBJECT
 }
 
@@ -41,13 +41,13 @@ func position_to_grid(position_to_convert: Vector2) -> Vector2i:
 
 func paint_single_cell(cell_grid: Vector2i, cell_type: CELL_TYPE) -> void:
 	grid[cell_grid] = cell_type
-	cell_painted.emit(cell_grid)
+	cell_painted.emit(cell_grid, cell_type)
 
 func reset() -> void:
 	grid.clear()
 	for x in range(grid_size.x):
 		for y in range(grid_size.y):
-			grid[Vector2i(x, y)] = CELL_TYPE.OBSTACLE
+			paint_single_cell(Vector2i(x, y), CELL_TYPE.OBSTACLE)
 
 func construct(new_size: Vector2i) -> void:
 	grid_size = new_size
