@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgvc3b74di1pu"]
+[gd_scene load_steps=3 format=3 uid="uid://eyxj7oykv8le"]
 
 [ext_resource type="Script" path="res://interfaces/death.gd" id="1_4hksk"]
 [ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="2_tkrpe"]
 
-[node name="Death" type="Node2D"]
+[node name="Death" type="CanvasLayer"]
 script = ExtResource("1_4hksk")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]

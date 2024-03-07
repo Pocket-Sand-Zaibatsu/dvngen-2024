@@ -1,4 +1,4 @@
-extends Node2D
+extends CanvasLayer
 
 var death_stats: Array[String] = []
 
