@@ -7,6 +7,7 @@ signal dev_tools_stat_update(stat_field: String, value: int)
 
 @onready var HealthBar = get_node("HealthBar")
 @onready var GameLog: RichTextLabel = get_node("GameLogControl").get_node("GameLog")
+@onready var Minimap: TileMap = get_node("Minimap")
 
 var game_log_messages: Array[String] = []
 

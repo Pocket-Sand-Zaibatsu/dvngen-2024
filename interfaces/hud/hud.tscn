@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://p6nnokp0w23o"]
+[gd_scene load_steps=14 format=3 uid="uid://p6nnokp0w23o"]
 
 [ext_resource type="Texture2D" uid="uid://borbpogvyri8g" path="res://assets/sprites/tilesets/tiny_dungeon_interface.png" id="1_3rjoo"]
 [ext_resource type="Script" path="res://interfaces/hud/hud.gd" id="1_07xmy"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dkc0kcm7ryol" path="res://assets/sprites/tilesets/nine_patch_health_bar.png" id="3_xvofm"]
 [ext_resource type="Script" path="res://interfaces/hud/number_field.gd" id="4_7wp03"]
 [ext_resource type="PackedScene" uid="uid://drcophnpcvkyx" path="res://interfaces/inventory/inventory.tscn" id="8_ghnld"]
+[ext_resource type="Texture2D" uid="uid://7vlaawci157j" path="res://assets/sprites/tilesets/minimap.png" id="9_rwquv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5b06b"]
 texture = ExtResource("1_3rjoo")
@@ -16,6 +17,18 @@ region_rect = Rect2(1, 1, 46, 47)
 [sub_resource type="AtlasTexture" id="AtlasTexture_71ml4"]
 atlas = ExtResource("1_3rjoo")
 region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t631j"]
+texture = ExtResource("9_rwquv")
+texture_region_size = Vector2i(4, 4)
+1:0/0 = 0
+0:0/0 = 0
+3:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_h4po4"]
+tile_size = Vector2i(4, 4)
+sources/0 = SubResource("TileSetAtlasSource_t631j")
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_07xmy")
@@ -136,3 +149,9 @@ stat_field = "current_health"
 [node name="Inventory" parent="." instance=ExtResource("8_ghnld")]
 visible = false
 position = Vector2(-7, 475)
+
+[node name="Minimap" type="TileMap" parent="."]
+position = Vector2(656, 800)
+tile_set = SubResource("TileSet_h4po4")
+format = 2
+layer_0/tile_data = PackedInt32Array(1, 196608, 0, 0, 196608, 0, 65535, 196608, 0, 65536, 196608, 0, 65537, 196608, 0, 131071, 196608, 0, 131070, 196608, 0, 262145, 196608, 0)
