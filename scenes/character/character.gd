@@ -57,13 +57,6 @@ func _ready() -> void:
 	level.level_increased.connect(_on_level_increased)
 	level.set_level(desired_level)
 
-func update_max_health(levels_gained: int=0) -> void:
-	if 0 < levels_gained:
-		for _index in range(levels_gained):
-			max_health += hit_dice.roll()
-	if current_health > max_health:
-		current_health = max_health
-
 func compute_attack_bonus() -> int:
 	return base_attack_bonus
 
@@ -112,4 +105,4 @@ func _on_input_received(action: String) -> void:
 func _on_level_increased() -> void:
 	var new_health = hit_dice.roll()
 	max_health += new_health
-	current_health += new_health
+	change_health(new_health)
