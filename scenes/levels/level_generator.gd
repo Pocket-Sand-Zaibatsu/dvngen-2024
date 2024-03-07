@@ -72,7 +72,7 @@ func _initialize_map() -> void:
 		for y in range(map_size.y):
 			map[Vector2i(x,y)] = "empty"
 
-func _get_random_room(rng: RandomNumberGenerator) -> Rect2i:
+func _get_random_room() -> Rect2i:
 	var width := rng.randi_range(room_size_range.x, room_size_range.y)
 	var height := rng.randi_range(room_size_range.x, room_size_range.y)
 	var x := rng.randi_range(1, map_size.x - width - 2)
@@ -91,7 +91,7 @@ func _add_floor(initial: Vector2i, final: Vector2i) -> void:
 		for y in range(initial.y, final.y):
 			map[Vector2i(x, y)] = "floor"
 
-func _add_connection(rng: RandomNumberGenerator, first: Room, second: Room) -> void:
+func _add_connection(first: Room, second: Room) -> void:
 	var first_center := first.get_center()
 	var second_center := second.get_center()
 	if 0 == rng.randi_range(0, 1):
@@ -106,7 +106,7 @@ func _build_rooms() -> void:
 		room.queue_free()
 	rooms.clear()
 	for possible in range(max_rooms):
-		var room_boundary := _get_random_room(rng)
+		var room_boundary := _get_random_room()
 		if _intersects(room_boundary):
 			continue
 		_add_floor(room_boundary.position, room_boundary.end)
@@ -114,12 +114,12 @@ func _build_rooms() -> void:
 		rooms.push_back(room)
 		add_child(room)
 		if 1 < rooms.size():
-			_add_connection(rng, rooms[-1], rooms[-2])
+			_add_connection(rooms[-1], rooms[-2])
 	_add_walls()
 	for room in rooms.slice(1, rooms.size()):
 		room.update_doors()
 		room.spawn_doors()
-	_paint_map(rng)
+	_paint_map()
 	Player.spawn(rooms[0].get_center())
 	var stair_position = rooms[-1].get_center()
 	stairs.spawn_with_biome(biome, Vector2i(stair_position.x + 1, stair_position.y))
@@ -163,16 +163,16 @@ func _add_walls() -> void:
 				map[coords] = "ns"
 
 
-func _paint_map(rng: RandomNumberGenerator) -> void:
+func _paint_map() -> void:
 	for tile in map:
 		var layer := 0
 		if map[tile] in ["ew", "ns"]:
 			layer = 1
 		match map[tile]:
-			"floor": level.set_cell(layer, tile, biome, _get_floor_tile(rng))
+			"floor": level.set_cell(layer, tile, biome, _get_floor_tile())
 			"empty": level.set_cell(layer, tile, 26, Vector2i.ZERO)
-			"ew": level.set_cell(layer, tile, biome, _get_wall_tile(rng))
-			"ns": level.set_cell(layer, tile, biome, _get_wall_tile(rng, false))
+			"ew": level.set_cell(layer, tile, biome, _get_wall_tile())
+			"ns": level.set_cell(layer, tile, biome, _get_wall_tile(false))
 
 func _on_enemy_died(_uuid: String, location_grid: Vector2i) -> void:
 	world_object_manager.spawn_object(WorldObjectManager.OBJECT_TYPE.BONES, location_grid)
