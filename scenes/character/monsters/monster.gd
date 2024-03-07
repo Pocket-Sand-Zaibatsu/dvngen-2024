@@ -21,7 +21,7 @@ func initialize_health() -> void:
 		max_health += hit_dice.roll()
 	current_health = max_health
 
-func move(ui_action: String) -> void:
+func move(_ui_action: String) -> void:
 	super(LevelGrid.a_star_to_player(position))
 
 func die() -> void:

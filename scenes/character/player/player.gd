@@ -47,7 +47,7 @@ func _unhandled_input(event):
 		if event.is_action_pressed(direction):
 			input_received.emit(direction)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if not visible:
 		return
 	frames_since_last_action += 1
