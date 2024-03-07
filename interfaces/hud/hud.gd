@@ -45,3 +45,6 @@ func _on_game_log_messaged(contents: String) -> void:
 func _input(event):
 	if event.is_action_pressed("Inventory"):
 		$Inventory.visible = !$Inventory.visible
+
+func _on_cell_painted(cell_grid: Vector2i) -> void:
+	pass
