@@ -9,10 +9,9 @@ func _ready():
 	item_name = "td_items_potion_red"
 
 
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	PlayerInventory.add_item(item_name, 1)
-	queue_free()
-	GameLogTransport._on_log_messaged("rad")
+	despawn()
 
 func pick_up_item(body):
 	player = body
