@@ -3,7 +3,8 @@ extends Node
 
 enum CELL_TYPE {
 	EMPTY = -1,
-	ACTOR,
+	PLAYER,
+	ENEMY,
 	OBSTACLE,
 	OBJECT
 }
@@ -67,8 +68,11 @@ func request_move(start_position: Vector2, direction: String) -> Vector2:
 			return update_grid_position(start_grid, target_grid)
 	return LevelGrid.grid_to_position(start_grid)
 
-func spawn_actor(spawn_grid: Vector2i) -> void:
-	grid[spawn_grid] = CELL_TYPE.ACTOR
+func spawn(cell_type: CELL_TYPE, spawn_grid: Vector2i) -> void:
+	grid[spawn_grid] = cell_type
+
+func spawn_enemy(spawn_grid: Vector2i) -> void:
+	spawn(CELL_TYPE.ENEMY, spawn_grid)
 
 func despawn_actor(despawn_position: Vector2) -> void:
 	grid[LevelGrid.position_to_grid(despawn_position)] = CELL_TYPE.EMPTY
@@ -106,6 +110,8 @@ func a_star(start_grid: Vector2i, goal_grid: Vector2i) -> Vector2i:
 				if CELL_TYPE.OBSTACLE == get_cell(neighbor):
 					continue
 				var tentative_g_score = g_score[current] + 1
+				if CELL_TYPE.ENEMY == get_cell(neighbor):
+					tentative_g_score += 1
 				if tentative_g_score < g_score.get(neighbor, 1000000):
 					came_from[neighbor] = current
 					g_score[neighbor] = tentative_g_score
