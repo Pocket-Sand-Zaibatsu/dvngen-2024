@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://b3fj13mx0tn52"]
+
+[ext_resource type="PackedScene" uid="uid://bqftv5dmv4522" path="res://scenes/world-object/world_object.tscn" id="1_8lqvp"]
+[ext_resource type="Script" path="res://scenes/world-object/item_drop/item_drop.gd" id="2_7ebt6"]
+[ext_resource type="Texture2D" uid="uid://71qd84xor8fy" path="res://assets/sprites/items/td_items_potion_red.png" id="3_qxkdg"]
+
+[sub_resource type="Animation" id="Animation_386hq"]
+resource_name = "Float"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_5g2aw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0lm8y"]
+_data = {
+"Float": SubResource("Animation_386hq"),
+"RESET": SubResource("Animation_5g2aw")
+}
+
+[node name="ItemDrop" instance=ExtResource("1_8lqvp")]
+scale = Vector2(0.5, 0.5)
+collision_layer = 8
+script = ExtResource("2_7ebt6")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(0.5, 0)
+
+[node name="Sprite2D" parent="." index="1"]
+z_index = 1
+texture = ExtResource("3_qxkdg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_0lm8y")
+}
+autoplay = "Float"
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="3"]
+amount = 5
+lifetime = 0.7
+gravity = Vector2(0, -30)
+tangential_accel_min = 0.7
+tangential_accel_max = 0.7

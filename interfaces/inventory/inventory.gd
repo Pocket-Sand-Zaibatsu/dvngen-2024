@@ -4,9 +4,20 @@ const SlotClass =  preload("res://interfaces/inventory/InvSlot.gd")
 @onready var inventory_slots = $TextureRect/InvGrid
 var holding_item = null
 
+
 func _ready():
 	for inv_slot in inventory_slots.get_children():
 		inv_slot.gui_input.connect(slot_gui_input.bind(inv_slot))
+		initialize_inventory()
+
+
+func initialize_inventory():
+	var slots = inventory_slots.get_children()
+	for i in range(slots.size()):
+		if PlayerInventory.inventory.has(i):
+			slots[i].initialize_item(PlayerInventory.inventory[i][0], PlayerInventory.inventory[i])
+
+
 
 func slot_gui_input(event: InputEvent, slot: SlotClass):
 	if event is InputEventMouseButton:
@@ -15,7 +26,7 @@ func slot_gui_input(event: InputEvent, slot: SlotClass):
 				if !slot.item: #Place holding item to slot
 					slot.putIntoSlot(holding_item)
 					holding_item = null
-				else: #Swap holding item with item in 
+				else: #Swap holding item with item in
 					if holding_item.item_name != slot.item.item_name:
 						var temp_item = slot.item
 						slot.pickFromSlot()

@@ -15,7 +15,7 @@ var loader: Dictionary = {
 		"scene": preload ("res://scenes/world-object/doors/doors_ew.tscn"),
 	},
 	OBJECT_TYPE.ITEMDROP: {
-		"scene": preload ("res://scenes/Items/item-drops/ItemDrop.tscn")
+		"scene": preload ("res://scenes/world-object/item_drop/item_drop.tscn")
 	}
 }
 
