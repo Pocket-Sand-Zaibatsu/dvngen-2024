@@ -45,7 +45,7 @@ func _ready() -> void:
 	audio_player.set_volume_db(volume_db)
 	animated_sprite.play("Down")
 
-func update_max_health(levels_gained: int = 0) -> void:
+func update_max_health(levels_gained: int=0) -> void:
 	if 0 < levels_gained:
 		for _index in range(levels_gained):
 			max_health += hit_dice.roll()
@@ -73,7 +73,6 @@ func move(direction: String):
 		animated_sprite.play(direction)
 		damage_sent.emit(get_grid() + Vector2i(direction_vector[direction]), log_name, roll_attack(), unarmed_damage_dice.roll())
 		position = LevelGrid.request_move(position, direction)
-	
 
 func change_health(amount: int) -> void:
 	current_health += amount
@@ -87,7 +86,7 @@ func change_health(amount: int) -> void:
 func _on_damage_sent(target_grid: Vector2i, actor: String, attack_roll: int, amount: int) -> void:
 	if get_grid() == target_grid:
 		if attack_roll >= compute_armor_class():
-			change_health(-1 * amount)
+			change_health( - 1 * amount)
 			log_messaged.emit("%s takes %d damage from %s" % [log_name, amount, actor])
 		else:
 			log_messaged.emit("%s dodges an attack from %s" % [log_name, actor])

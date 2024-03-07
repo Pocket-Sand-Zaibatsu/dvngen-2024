@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://83xhpbma376e"]
+
+[ext_resource type="Script" path="res://scenes/Items/items/items.gd" id="1_y73jl"]
+[ext_resource type="Texture2D" uid="uid://dc3vy4cky8e0c" path="res://assets/sprites/items/td_items_coins_gold.png" id="2_es2jm"]
+[ext_resource type="FontFile" uid="uid://c8vpxjen7xpab" path="res://assets/fonts/tiny_dungeon_font.tres" id="3_0ll0u"]
+
+[node name="Coins" type="Node2D"]
+z_index = 1
+script = ExtResource("1_y73jl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 18.0
+offset_bottom = 18.0
+mouse_filter = 2
+texture = ExtResource("2_es2jm")
+
+[node name="QuantityLabel" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 13.0
+offset_right = 32.0
+offset_bottom = 23.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("3_0ll0u")
+text = "99"

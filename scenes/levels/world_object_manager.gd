@@ -4,15 +4,19 @@ class_name WorldObjectManager
 enum OBJECT_TYPE {
 	BONES,
 	DOOR_EW,
+	ITEMDROP,
 }
 
 var loader: Dictionary = {
 	OBJECT_TYPE.BONES: {
-		"scene": preload("res://scenes/world-object/bones/bones.tscn"),
+		"scene": preload ("res://scenes/world-object/bones/bones.tscn"),
 	},
 	OBJECT_TYPE.DOOR_EW: {
-		"scene": preload("res://scenes/world-object/doors/doors_ew.tscn"),
+		"scene": preload ("res://scenes/world-object/doors/doors_ew.tscn"),
 	},
+	OBJECT_TYPE.ITEMDROP: {
+		"scene": preload ("res://scenes/Items/item-drops/ItemDrop.tscn")
+	}
 }
 
 @onready var objects: Dictionary = {}
