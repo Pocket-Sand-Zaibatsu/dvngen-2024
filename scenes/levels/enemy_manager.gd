@@ -69,7 +69,7 @@ func spawn_enemy(enemy_type: ENEMY_TYPE, spawn_grid: Vector2i) -> void:
 	var enemy = loader[enemy_type]["scene"].instantiate()
 	enemy.spawn(spawn_grid)
 	enemy.enemy_died.connect(get_parent()._on_enemy_died)
-	enemy.items_dropped.connect(world_object_manager.spawn_items)
+	enemy.items_dropped.connect(world_object_manager.spawn_item_drops)
 	enemy.set("uuid", uuid_util.v4())
 	enemy.set("desired_level", int(float(get_parent().dungeon_level) / 5) + 1)
 	enemies[enemy.uuid] = enemy
