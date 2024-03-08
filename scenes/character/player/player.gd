@@ -100,6 +100,12 @@ func move(ui_action: String) -> void:
 	audio_player.play()
 	player_position_updated.emit(position)
 
+func compute_attack_bonus() -> int:
+	return base_attack_bonus + PlayerInventory.get_equipped_attack_bonus()
+
+func compute_armor_class() -> int:
+	return base_armor_class + PlayerInventory.get_equipped_armor_class()
+
 func _on_xp_dropped(amount: int) -> void:
 	level.add_experience(amount)
 
