@@ -6,6 +6,8 @@ signal xp_dropped(amount: int)
 
 @onready var rng: RandomNumberGenerator
 var xp_dice: DicePool
+var armor_class_bonus: int = 0
+var extra_attack_bonus: int = 0
 
 func _init():
 	log_name = "monster"
@@ -19,6 +21,12 @@ func _ready():
 	xp_dropped.connect(Player._on_xp_dropped)
 	xp_dice = DicePool.new([Dice.new(10, 2 * level.level)])
 	spawn_projectile.connect(get_parent().get_parent().projectile_manager.spawn_projectile)
+
+func compute_attack_bonus() -> int:
+	return base_attack_bonus + extra_attack_bonus
+
+func compute_armor_class() -> int:
+	return base_armor_class + armor_class_bonus
 
 func move(_ui_action: String) -> void:
 	var adjacent_player_direction = Player.get_grid() - get_grid()
