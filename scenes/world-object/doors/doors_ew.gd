@@ -17,6 +17,7 @@ func set_biome(new_biome: LevelGenerator.DungeonBiome) -> void:
 
 func _ready() -> void:
 	super()
+	does_block_projectiles = true
 	sprite.texture = load("res://assets/sprites/world/td_world_door_%s_h_closed.png" % biome_texture.get(biome, "stone"))
 
 func _on_body_entered(body: Variant):

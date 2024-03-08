@@ -5,6 +5,7 @@ const uuid_util = preload("res://addons/uuid/uuid.gd")
 
 @export var tile_size = 16
 @export var uuid: String
+@export var does_block_projectiles: bool = false
 
 @onready var rng: RandomNumberGenerator
 @onready var collision_shape = get_node("CollisionShape2D")
@@ -34,6 +35,9 @@ func despawn() -> void:
 
 func is_body_player(body: Variant) -> bool:
 	return "Player" == body.name
+
+func blocks_projectiles() -> bool:
+	return does_block_projectiles
 
 func _on_body_entered(_body: Variant):
 	pass
