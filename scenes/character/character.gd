@@ -10,7 +10,7 @@ signal health_changed
 signal damage_sent(target_grid: Vector2i, actor: String, attack_roll: int, amount: int)
 signal log_messaged(contents: String)
 signal position_changed
-signal spawn_projectile(spawn_grid: Vector2i, velocity: Vector2i)
+signal spawn_projectile(spawn_grid: Vector2i, velocity: Vector2i, projectile_type: String)
 
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var audio_player = get_node("AudioStreamPlayer2D")
