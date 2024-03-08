@@ -80,17 +80,25 @@ func roll_attack() -> int:
 func get_grid() -> Vector2i:
 	return LevelGrid.position_to_grid(position)
 
-func fire_projectile(_action: String) -> void:
-	pass
+func fire_projectile(action: String) -> void:
+	if action.begins_with("attack"):
+		animated_sprite.play(attack_to_direction[action])
+		spawn_projectile.emit(
+			get_grid(),
+			direction_vector[attack_to_direction[action]],
+			"bash",
+			log_name,
+			roll_attack(),
+			unarmed_damage_dice.roll()
+		)
 
 func spawn(_spawn_grid: Vector2i) -> void:
 	pass
 
 func move(ui_action: String):
-	if ui_action:
+	if ui_action in input_to_direction.keys():
 		var direction = input_to_direction[ui_action]
 		animated_sprite.play(direction)
-		damage_sent.emit(get_grid() + Vector2i(direction_vector[direction]), log_name, roll_attack(), unarmed_damage_dice.roll())
 		position = LevelGrid.request_move(position, direction)
 
 func change_health(amount: int) -> void:
@@ -102,13 +110,12 @@ func change_health(amount: int) -> void:
 		current_health = 0
 		die()
 
-func _on_damage_sent(target_grid: Vector2i, actor: String, attack_roll: int, amount: int) -> void:
-	if get_grid() == target_grid:
-		if attack_roll >= compute_armor_class():
-			change_health( - 1 * amount)
-			log_messaged.emit("%s takes %d damage from %s" % [log_name, amount, actor])
-		else:
-			log_messaged.emit("%s dodges an attack from %s" % [log_name, actor])
+func _on_damage_sent(actor: String, attack_roll: int, amount: int) -> void:
+	if attack_roll >= compute_armor_class():
+		change_health( - 1 * amount)
+		log_messaged.emit("%s takes %d damage from %s" % [log_name, amount, actor])
+	else:
+		log_messaged.emit("%s dodges an attack from %s" % [log_name, actor])
 
 func die() -> void:
 	pass
