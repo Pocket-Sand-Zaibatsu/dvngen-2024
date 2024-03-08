@@ -68,4 +68,7 @@ func _on_input_received(_action: String) -> void:
 		despawn()
 	else:
 		position = LevelGrid.grid_to_position(next_grid)
-	
+
+func _on_area_entered(area):
+	if area.has_method("blocks_projectiles") && area.blocks_projectiles():
+		despawn()
