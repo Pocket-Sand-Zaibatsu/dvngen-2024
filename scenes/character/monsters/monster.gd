@@ -3,7 +3,7 @@ class_name Monster
 
 signal enemy_died(uuid: String, location_grid: Vector2i)
 signal xp_dropped(amount: int)
-signal items_dropped(items: Array[String])
+signal items_dropped(target_grid: Vector2i, items: Array[String])
 
 @onready var rng: RandomNumberGenerator
 
@@ -62,7 +62,7 @@ func die() -> void:
 	enemy_died.emit(uuid, get_grid())
 	var xp = xp_dice.roll()
 	xp_dropped.emit(xp)
-	items_dropped.emit(roll_drop_table())
+	items_dropped.emit(get_grid(), roll_drop_table())
 	log_messaged.emit("%s died and gave %d XP" % [log_name, xp])
 	despawn()
 
