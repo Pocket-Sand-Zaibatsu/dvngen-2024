@@ -54,3 +54,4 @@ func add_item_quantity(slot: SlotClass, quantity_to_add: int):
 		_:
 			equips[slot.slot_index][1] += quantity_to_add
 	
+	
