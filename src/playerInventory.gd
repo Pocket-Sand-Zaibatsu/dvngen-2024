@@ -35,7 +35,7 @@ func add_item(item_name, item_quantity):
 				inventory[item][1] += item_quantity
 				return
 			else:
-				inventory[item][1] +- able_to_add
+				inventory[item][1] -= able_to_add
 				item_quantity = item_quantity - able_to_add
 
 	#Item doesn't exist in inventory yet, so add it to an empty slot.
@@ -65,5 +65,11 @@ func add_item_quantity(slot: SlotClass, quantity_to_add: int):
 			inventory[slot.slot_index][1] += quantity_to_add
 		_:
 			equips[slot.slot_index][1] += quantity_to_add
-	
-	
+
+func get_item_in_slot(equip_slot: EquipSlots):
+	var possible_item = equips.get(equip_slot, [])
+	if 0 < possible_item.size():
+		var item = Item.new()
+		item.set_item_data(possible_item[Item.ItemComponents.NAME], possible_item[Item.ItemComponents.QUANTITY])
+		return item
+	return null
