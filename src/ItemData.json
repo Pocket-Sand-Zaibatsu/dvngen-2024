@@ -134,19 +134,19 @@
 	"ItemCategory": "Consumable",
 	"StackSize": 10,
 	"Description": "",
-	"AddHealth": 10
+	"con_change": 10
   },
   "td_items_flask_green": {
 	"ItemCategory": "Consumable",
 	"StackSize": 10,
 	"Description": "",
-	"AddHealth": 10
+	"con_change": 10
   },
   "td_items_flask_red": {
 	"ItemCategory": "Consumable",
 	"StackSize": 10,
 	"Description": "",
-	"AddHealth": 10
+	"con_change": 10
   },
   "td_items_gem_amethyst": {
 	"ItemCategory": "",
@@ -205,19 +205,19 @@
 	"ItemCategory": "Consumable",
 	"StackSize": 99,
 	"Description": "",
-	"AddHealth": 10
+	"con_change": 10
   },
   "td_items_herb_green": {
 	"ItemCategory": "Consumable",
 	"StackSize": 99,
 	"Description": "",
-	"AddHealth": 10
+	"con_change": 10
   },
   "td_items_herb_red": {
 	"ItemCategory": "Consumable",
 	"StackSize": 99,
 	"Description": "",
-	"AddHealth": 10
+	"con_change": 10
   },
   "td_items_key_gold": {
 	"ItemCategory": "",
@@ -303,31 +303,31 @@
 	"ItemCategory": "Consumable",
 	"StackSize": 10,
 	"Description": "",
-	"AddHealth": 10
+	"con_change": 10
   },
   "td_items_potion_blue": {
 	"ItemCategory": "Consumable",
 	"StackSize": 10,
 	"Description": "",
-	"AddHealth": 10
+	"con_change": 10
   },
   "td_items_potion_green": {
 	"ItemCategory": "Consumable",
 	"StackSize": 10,
 	"Description": "",
-	"AddHealth": 10
+	"con_change": 10
   },
   "td_items_potion_red": {
 	"ItemCategory": "Consumable",
 	"StackSize": 10,
 	"Description": "Made from monster blood. It smells like cough syrup.",
-	"AddHealth": 10
+	"con_change": 10
   },
   "td_items_potion_yellow": {
 	"ItemCategory": "Consumable",
 	"StackSize": 10,
 	"Description": "",
-	"AddHealth": 10
+	"con_change": 10
   },
   "td_items_quiver": {
 	"ItemCategory": "",

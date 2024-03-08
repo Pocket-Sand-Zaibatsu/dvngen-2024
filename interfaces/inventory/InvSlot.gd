@@ -57,6 +57,12 @@ func pickFromSlot():
 	item = null
 	refresh_style()
 	
+	
+func removeFromSlot():
+	remove_child(item)
+	item = null
+	refresh_style()
+
 func putIntoSlot(new_item):
 	item = new_item
 	item.position = Vector2(0,0)
