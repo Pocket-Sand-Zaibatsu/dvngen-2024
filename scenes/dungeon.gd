@@ -3,7 +3,6 @@ class_name Dungeon
 
 var level_generator_scene = preload("res://scenes/levels/level_generator.tscn")
 var hud_scene = preload("res://interfaces/hud/hud.tscn")
-var death_scene = preload("res://interfaces/death.tscn")
 
 signal player_ready
 signal player_position_updated(position: Vector2i)
@@ -22,6 +21,7 @@ func _ready() -> void:
 	add_child(hud)
 	level_generator.stairs.generate_level.emit()
 	Player.player_died.connect(_on_player_died)
+	Player.spawn_projectile.connect(level_generator.projectile_manager.spawn_projectile)
 	Player.reset()
 
 func _on_player_died() -> void:
