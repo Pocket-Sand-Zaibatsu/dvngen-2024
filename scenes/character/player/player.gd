@@ -18,6 +18,9 @@ func _ready() -> void:
 	super()
 	log_name = "player"
 	action_mapping["attack_down"] = fire_projectile
+	action_mapping["attack_left"] = fire_projectile
+	action_mapping["attack_right"] = fire_projectile
+	action_mapping["attack_up"] = fire_projectile
 
 func reset() -> void:
 	you_won = false
@@ -53,6 +56,10 @@ func spawn(spawn_grid: Vector2i) -> void:
 	LevelGrid.spawn(LevelGrid.CELL_TYPE.PLAYER, spawn_grid)
 	camera.set_enabled(true)
 	camera.make_current()
+
+func fire_projectile(action: String) -> void:
+	if action.begins_with("attack"):
+		spawn_projectile.emit(get_grid(), direction_vector[input_to_direction[action]])
 
 func move(ui_action: String) -> void:
 	frames_since_last_action = 0
