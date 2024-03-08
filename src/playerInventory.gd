@@ -19,6 +19,10 @@ var inventory = {}
 
 var equips = {}
 
+func reset():
+	inventory.clear()
+	equips.clear()
+
 func add_item(item_name, item_quantity):
 	for item in inventory:
 		if inventory[item][0] == item_name:
