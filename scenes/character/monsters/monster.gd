@@ -21,7 +21,18 @@ func _ready():
 	spawn_projectile.connect(get_parent().get_parent().projectile_manager.spawn_projectile)
 
 func move(_ui_action: String) -> void:
-	super(LevelGrid.a_star_to_player(position))
+	var adjacent_player_direction = Player.get_grid() - get_grid()
+	match adjacent_player_direction:
+		Vector2i.LEFT:
+			fire_projectile("attack_left")
+		Vector2i.RIGHT:
+			fire_projectile("attack_right")
+		Vector2i.UP:
+			fire_projectile("attack_up")
+		Vector2i.DOWN:
+			fire_projectile("attack_down")
+		_:
+			super(LevelGrid.a_star_to_player(position))
 
 func die() -> void:
 	enemy_died.emit(uuid, get_grid())
