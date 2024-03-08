@@ -1,0 +1,592 @@
+{
+  "td_items_amulet_gold.png": {
+    "ItemCategory": "Amulet",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_amulet_magic.png": {
+    "ItemCategory": "Amulet",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_amulet_silver.png": {
+    "ItemCategory": "Amulet",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_arrow.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_bandage.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_bolt.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_book_black.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_book_brown.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_book_green.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_caltrops.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_cape_leather.png": {
+    "ItemCategory": "Cape",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_cape_magic.png": {
+    "ItemCategory": "Cape",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_cape_purple.png": {
+    "ItemCategory": "Cape",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_coins_copper.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_coins_gold.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_coins_silver.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_compass.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_cross.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_crown_evil.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_crown_gold.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_crown_silver.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_crystal_empty.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_crystal_full.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_darts.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_feather.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_flask_blue.png": {
+    "ItemCategory": "Consumable",
+    "StackSize": 99,
+    "Description": "",
+    "AddHealth": 10
+  },
+  "td_items_flask_green.png": {
+    "ItemCategory": "Consumable",
+    "StackSize": 99,
+    "Description": "",
+    "AddHealth": 10
+  },
+  "td_items_flask_red.png": {
+    "ItemCategory": "Consumable",
+    "StackSize": 99,
+    "Description": "",
+    "AddHealth": 10
+  },
+  "td_items_gem_amethyst.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_gem_garnet.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_gem_jade.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_gem_ruby.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_gem_sapphire.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_hat_leather.png": {
+    "ItemCategory": "Hat",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_hat_magic.png": {
+    "ItemCategory": "Hat",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_hat_purple.png": {
+    "ItemCategory": "Hat",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_heart_empty.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_heart_full.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_herb_gold.png": {
+    "ItemCategory": "Consumable",
+    "StackSize": 99,
+    "Description": "",
+    "AddHealth": 10
+  },
+  "td_items_herb_green.png": {
+    "ItemCategory": "Consumable",
+    "StackSize": 99,
+    "Description": "",
+    "AddHealth": 10
+  },
+  "td_items_herb_red.png": {
+    "ItemCategory": "Consumable",
+    "StackSize": 99,
+    "Description": "",
+    "AddHealth": 10
+  },
+  "td_items_key_gold.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_key_magic.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_key_skeleton.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_leather_boot.png": {
+    "ItemCategory": "Boot",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_leather_chest.png": {
+    "ItemCategory": "Chest",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_leather_glove.png": {
+    "ItemCategory": "Glove",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_leather_helm.png": {
+    "ItemCategory": "Helm",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_leather_pant.png": {
+    "ItemCategory": "Pant",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_magic_boot.png": {
+    "ItemCategory": "Boot",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_magic_chest.png": {
+    "ItemCategory": "Chest",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_magic_glove.png": {
+    "ItemCategory": "Glove",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_magic_helm.png": {
+    "ItemCategory": "Helm",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_magic_pant.png": {
+    "ItemCategory": "Pant",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_map.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_potion_black.png": {
+    "ItemCategory": "Consumable",
+    "StackSize": 99,
+    "Description": "",
+    "AddHealth": 10
+  },
+  "td_items_potion_blue.png": {
+    "ItemCategory": "Consumable",
+    "StackSize": 99,
+    "Description": "",
+    "AddHealth": 10
+  },
+  "td_items_potion_green.png": {
+    "ItemCategory": "Consumable",
+    "StackSize": 99,
+    "Description": "",
+    "AddHealth": 10
+  },
+  "td_items_potion_red.png": {
+    "ItemCategory": "Consumable",
+    "StackSize": 99,
+    "Description": "",
+    "AddHealth": 10
+  },
+  "td_items_potion_yellow.png": {
+    "ItemCategory": "Consumable",
+    "StackSize": 99,
+    "Description": "",
+    "AddHealth": 10
+  },
+  "td_items_quiver.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_ring_gold.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_ring_magic.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_ring_silver.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_rope.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_sack.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_scroll.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_shield_magic.png": {
+    "ItemCategory": "Shield",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_shield_steel.png": {
+    "ItemCategory": "Shield",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_shield_wood.png": {
+    "ItemCategory": "Shield",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_skull.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_skull_gold.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_steel_boot.png": {
+    "ItemCategory": "Boot",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_steel_chest.png": {
+    "ItemCategory": "Chest",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_steel_glove.png": {
+    "ItemCategory": "Glove",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_steel_helm.png": {
+    "ItemCategory": "Helm",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_steel_pant.png": {
+    "ItemCategory": "Pant",
+    "StackSize": 1,
+    "Description": "",
+    "armor_bonus": 1
+  },
+  "td_items_stone.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_token_copper.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_token_gold.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_token_silver.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_torch1.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_torch2.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_turkey.png": {
+    "ItemCategory": "",
+    "StackSize": 1,
+    "Description": ""
+  },
+  "td_items_weapon_axe.png": {
+    "ItemCategory": "Sword",
+    "StackSize": 1,
+    "Description": "",
+    "projectile_type": "slash",
+    "damage": [
+      1,
+      6,
+      0
+    ]
+  },
+  "td_items_weapon_bow.png": {
+    "ItemCategory": "Sword",
+    "StackSize": 1,
+    "Description": "",
+    "projectile_type": "slash",
+    "damage": [
+      1,
+      6,
+      0
+    ]
+  },
+  "td_items_weapon_club.png": {
+    "ItemCategory": "Sword",
+    "StackSize": 1,
+    "Description": "",
+    "projectile_type": "slash",
+    "damage": [
+      1,
+      6,
+      0
+    ]
+  },
+  "td_items_weapon_crossbow.png": {
+    "ItemCategory": "Sword",
+    "StackSize": 1,
+    "Description": "",
+    "projectile_type": "slash",
+    "damage": [
+      1,
+      6,
+      0
+    ]
+  },
+  "td_items_weapon_dagger.png": {
+    "ItemCategory": "Sword",
+    "StackSize": 1,
+    "Description": "",
+    "projectile_type": "slash",
+    "damage": [
+      1,
+      6,
+      0
+    ]
+  },
+  "td_items_weapon_hammer.png": {
+    "ItemCategory": "Sword",
+    "StackSize": 1,
+    "Description": "",
+    "projectile_type": "slash",
+    "damage": [
+      1,
+      6,
+      0
+    ]
+  },
+  "td_items_weapon_mace.png": {
+    "ItemCategory": "Sword",
+    "StackSize": 1,
+    "Description": "",
+    "projectile_type": "slash",
+    "damage": [
+      1,
+      6,
+      0
+    ]
+  },
+  "td_items_weapon_quarterstaff.png": {
+    "ItemCategory": "Sword",
+    "StackSize": 1,
+    "Description": "",
+    "projectile_type": "slash",
+    "damage": [
+      1,
+      6,
+      0
+    ]
+  },
+  "td_items_weapon_shortsword.png": {
+    "ItemCategory": "Sword",
+    "StackSize": 1,
+    "Description": "",
+    "projectile_type": "slash",
+    "damage": [
+      1,
+      6,
+      0
+    ]
+  },
+  "td_items_weapon_sling.png": {
+    "ItemCategory": "Sword",
+    "StackSize": 1,
+    "Description": "",
+    "projectile_type": "slash",
+    "damage": [
+      1,
+      6,
+      0
+    ]
+  },
+  "td_items_weapon_staff.png": {
+    "ItemCategory": "Sword",
+    "StackSize": 1,
+    "Description": "",
+    "projectile_type": "slash",
+    "damage": [
+      1,
+      6,
+      0
+    ]
+  },
+  "td_items_weapon_sword.png": {
+    "ItemCategory": "Sword",
+    "StackSize": 1,
+    "Description": "",
+    "projectile_type": "slash",
+    "damage": [
+      1,
+      6,
+      0
+    ]
+  }
+}
