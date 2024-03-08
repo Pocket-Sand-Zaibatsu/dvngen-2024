@@ -47,7 +47,10 @@ var input_to_direction = {
 	"ui_left": "Left",
 	"ui_up": "Up",
 	"ui_down": "Down",
-	"attack_down": "this is a hack",
+	"attack_right": "Right",
+	"attack_left": "Left",
+	"attack_up": "Up",
+	"attack_down": "Down",
 }
 
 func _ready() -> void:
@@ -72,7 +75,7 @@ func get_grid() -> Vector2i:
 	return LevelGrid.position_to_grid(position)
 
 func fire_projectile(_action: String) -> void:
-	spawn_projectile.emit(get_grid(), Vector2i(0, 1))
+	pass
 
 func spawn(_spawn_grid: Vector2i) -> void:
 	pass
