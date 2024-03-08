@@ -60,7 +60,17 @@ func spawn(spawn_grid: Vector2i) -> void:
 func fire_projectile(action: String) -> void:
 	if action.begins_with("attack"):
 		animated_sprite.play(attack_to_direction[action])
-		spawn_projectile.emit(get_grid(), direction_vector[attack_to_direction[action]])
+		var attacked: bool = false
+		var right_hand = PlayerInventory.get_item_in_slot(PlayerInventory.EquipSlots.RHAND)
+		if right_hand && right_hand.damage:
+			spawn_projectile.emit(get_grid(), direction_vector[attack_to_direction[action]], right_hand.projectile_type)
+			attacked = true
+		var left_hand = PlayerInventory.get_item_in_slot(PlayerInventory.EquipSlots.LHAND)
+		if left_hand && left_hand.damage:
+			spawn_projectile.emit(get_grid(), direction_vector[attack_to_direction[action]], left_hand.projectile_type)
+			attacked = true
+		if not attacked:
+			spawn_projectile.emit(get_grid(), direction_vector[attack_to_direction[action]], "bash")
 
 func move(ui_action: String) -> void:
 	frames_since_last_action = 0
