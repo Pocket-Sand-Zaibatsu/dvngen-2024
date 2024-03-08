@@ -28,7 +28,7 @@ for item_file in item_paths:
     for item_type in ['amulet', 'boot', 'cape', 'chest', 'glove', 'hat', 'helm', 'pant', 'shield']:
         if item_type in item_file:
             new_item['ItemCategory'] = item_type.title()
-            new_item['armor_bonus'] = 1
+            new_item['armor_class'] = 1
             break
     items[item_file] = new_item
 
