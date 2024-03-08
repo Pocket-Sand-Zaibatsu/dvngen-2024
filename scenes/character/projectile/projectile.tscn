@@ -46,8 +46,11 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_5jyc1")
+}, {
+"duration": 1.0,
+"texture": null
 }],
-"loop": true,
+"loop": false,
 "name": &"bash",
 "speed": 5.0
 }, {
@@ -87,8 +90,11 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("8_sqb80")
+}, {
+"duration": 1.0,
+"texture": null
 }],
-"loop": true,
+"loop": false,
 "name": &"slash",
 "speed": 5.0
 }, {
