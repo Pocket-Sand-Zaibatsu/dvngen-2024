@@ -10,6 +10,7 @@ signal health_changed
 signal damage_sent(target_grid: Vector2i, actor: String, attack_roll: int, amount: int)
 signal log_messaged(contents: String)
 signal position_changed
+signal spawn_projectile(spawn_grid: Vector2i, velocity: Vector2i)
 
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var audio_player = get_node("AudioStreamPlayer2D")
@@ -45,7 +46,8 @@ var input_to_direction = {
 	"ui_right": "Right",
 	"ui_left": "Left",
 	"ui_up": "Up",
-	"ui_down": "Down"
+	"ui_down": "Down",
+	"attack_down": "this is a hack",
 }
 
 func _ready() -> void:
@@ -68,6 +70,9 @@ func roll_attack() -> int:
 
 func get_grid() -> Vector2i:
 	return LevelGrid.position_to_grid(position)
+
+func fire_projectile(_action: String) -> void:
+	spawn_projectile.emit(get_grid(), Vector2i(0, 1))
 
 func spawn(_spawn_grid: Vector2i) -> void:
 	pass
@@ -100,7 +105,7 @@ func die() -> void:
 	pass
 
 func _on_input_received(action: String) -> void:
-	action_mapping.get(action, func(): pass).call(action)
+	action_mapping.get(action, func(_action): pass).call(action)
 
 func _on_level_increased() -> void:
 	var new_health = hit_dice.roll()
