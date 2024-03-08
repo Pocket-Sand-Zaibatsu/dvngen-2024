@@ -15,16 +15,9 @@ enum EquipSlots {
 	LHAND,
 }
 
-var inventory = {
-}
+var inventory = {}
 
-var equips ={
-	EquipSlots.HEAD: ["td_items_leather_helm", 1],
-	EquipSlots.LEGS: ["td_items_leather_pant", 1],
-	EquipSlots.FEET: ["td_items_leather_boot", 1],
-	EquipSlots.RHAND: ["td_items_weapon_sword", 1],
-	EquipSlots.LHAND: ["td_items_weapon_bow", 1],
-}
+var equips = {}
 
 func add_item(item_name, item_quantity):
 	for item in inventory:
