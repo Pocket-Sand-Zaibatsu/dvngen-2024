@@ -2,6 +2,7 @@ extends Area2D
 class_name Projectile
 
 var uuid: String
+var desired_type: String = "slash"
 var projectile_type: String = "slash"
 var current_travel: int = 1
 var max_range: int = 1
@@ -11,6 +12,8 @@ var max_range: int = 1
 @onready var velocity: Vector2i
 
 func _ready():
+	if desired_type in projectile_types:
+		projectile_type = desired_type
 	set_projectile_range()
 	sprite.play(projectile_type)
 
@@ -20,12 +23,13 @@ func set_projectile_range() -> void:
 			max_range = 20
 		"slash":
 			max_range = 1
+		"lightning":
+			max_range = 3
 		_:
 			max_range = 10
 
-func set_projectile_type(desired_projectile: String):
-	if desired_projectile in projectile_types:
-		projectile_type = desired_projectile
+func set_projectile_type(new_type: String):
+	desired_type = new_type
 
 func set_velocity(new_velocity: Vector2i) -> void:
 	velocity = new_velocity
