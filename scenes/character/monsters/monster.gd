@@ -26,7 +26,7 @@ func move(_ui_action: String) -> void:
 func die() -> void:
 	enemy_died.emit(uuid, get_grid())
 	var xp = xp_dice.roll()
-	xp_dropped.emit()
+	xp_dropped.emit(xp)
 	log_messaged.emit("%s died and gave %d XP" % [log_name, xp])
 	despawn()
 
