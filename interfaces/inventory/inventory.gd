@@ -9,10 +9,6 @@ func _ready():
 	for i in range(slots.size()):
 		slots[i].gui_input.connect(slot_gui_input.bind(slots[i]))
 		slots[i].slot_index = i
-	for i in range(equip_slots.size()):
-		equip_slots[i].gui_input.connect(slot_gui_input.bind(equip_slots[i]))
-		equip_slots[i].slot_index = i
-		equip_slots[i].allowed_types = [equip_slots[i].slot_type]	
 	equip_slots[0].slot_type = Slot.SlotType.HEAD
 	equip_slots[1].slot_type = Slot.SlotType.NECK
 	equip_slots[2].slot_type = Slot.SlotType.BODY
@@ -21,6 +17,10 @@ func _ready():
 	equip_slots[5].slot_type = Slot.SlotType.FEET
 	equip_slots[6].slot_type = Slot.SlotType.HAND
 	equip_slots[7].slot_type = Slot.SlotType.HAND
+	for i in range(equip_slots.size()):
+		equip_slots[i].gui_input.connect(slot_gui_input.bind(equip_slots[i]))
+		equip_slots[i].slot_index = i
+		equip_slots[i].allowed_types = [equip_slots[i].slot_type]
 	_on_inventory_update()
 	PlayerInventory.inventory_updated.connect(_on_inventory_update)
 
