@@ -34,6 +34,10 @@ var action_mapping: Dictionary = {
 	"ui_left": move,
 	"ui_down": move,
 	"ui_up": move,
+	"attack_right": move,
+	"attack_left": move,
+	"attack_down": move,
+	"attack_up": move,
 }
 
 var direction_vector = {
@@ -47,6 +51,8 @@ var input_to_direction = {
 	"ui_left": "Left",
 	"ui_up": "Up",
 	"ui_down": "Down",
+}
+var attack_to_direction = {
 	"attack_right": "Right",
 	"attack_left": "Left",
 	"attack_up": "Up",
