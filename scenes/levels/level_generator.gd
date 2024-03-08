@@ -17,6 +17,7 @@ signal bottom_reached
 @onready var map: Dictionary = {}
 @onready var enemy_manager: EnemyManager = EnemyManager.new()
 @onready var world_object_manager: WorldObjectManager = WorldObjectManager.new()
+@onready var projectile_manager: ProjectileManager = ProjectileManager.new()
 @onready var rooms: Array[Room] = []
 @onready var biome: DungeonBiome = DungeonBiome.STONE
 
@@ -45,6 +46,7 @@ func _get_wall_tile(is_ew: bool = true) -> Vector2i:
 func _ready() -> void:
 	add_child(enemy_manager)
 	add_child(world_object_manager)
+	add_child(projectile_manager)
 	$Level1Music.play()
 	var stairs_scene = preload("res://scenes/world-object/stairs/stairs.tscn")
 	stairs = stairs_scene.instantiate()
@@ -65,6 +67,7 @@ func _create_level() -> void:
 	biome = pick_biome()
 	enemy_manager.reset()
 	world_object_manager.reset()
+	projectile_manager.reset()
 	Player.hide()
 	level.hide()
 	_initialize_map()
