@@ -17,6 +17,7 @@ const FRAMES_PER_ACTION: int = 10
 func _ready() -> void:
 	super()
 	log_name = "player"
+	action_mapping["attack_down"] = fire_projectile
 
 func reset() -> void:
 	you_won = false
