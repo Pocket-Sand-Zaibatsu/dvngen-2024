@@ -46,5 +46,10 @@ func add_experience(added_experience: int) -> void:
 		level += 1
 		level_increased.emit()
 
+func reset(new_level: int = 1) -> void:
+	current_experience = 0
+	level = 0
+	set_level(new_level)
+
 func _to_string() -> String:
 	return "%d XP, %d level" % [current_experience, level]

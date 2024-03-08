@@ -4,6 +4,7 @@ var death_stats: Array[String] = []
 
 @onready var StatsContainer: VBoxContainer = get_node("CenterContainer/VBoxContainer/VBoxContainer")
 @onready var label_theme: Theme = preload("res://assets/themes/menu_theme.tres")
+@onready var main_menu_scene = preload("res://scenes/main-menu/main_menu.tscn")
 
 func _ready():
 	$CenterContainer/VBoxContainer/MainMenuButton.grab_focus()
@@ -20,8 +21,9 @@ func _ready():
 
 
 func _on_main_menu_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/main-menu/main_menu.tscn")
+	SceneChanger.change_scene(SceneChanger.PossibleScene.MAIN_MENU)
 
 func _on_v_box_container_tree_entered():
 	death_stats.push_back("LEVEL: %d" % Player.level.level)
 	death_stats.push_back("TOTAL XP: %d" % Player.level.current_experience)
+	Player.position = Vector2(0, 0)

@@ -17,10 +17,14 @@ const FRAMES_PER_ACTION: int = 10
 func _ready() -> void:
 	super()
 	log_name = "player"
+	action_mapping["attack_down"] = fire_projectile
+	action_mapping["attack_left"] = fire_projectile
+	action_mapping["attack_right"] = fire_projectile
+	action_mapping["attack_up"] = fire_projectile
 
 func reset() -> void:
 	you_won = false
-	desired_level = 1
+	level.reset()
 	stat_block = StatBlock.new()
 	hit_dice = DicePool.new([Dice.new(8)], 0)
 	current_health = 100
@@ -53,6 +57,11 @@ func spawn(spawn_grid: Vector2i) -> void:
 	camera.set_enabled(true)
 	camera.make_current()
 
+func fire_projectile(action: String) -> void:
+	if action.begins_with("attack"):
+		animated_sprite.play(attack_to_direction[action])
+		spawn_projectile.emit(get_grid(), direction_vector[attack_to_direction[action]])
+
 func move(ui_action: String) -> void:
 	frames_since_last_action = 0
 	super(ui_action)
@@ -71,6 +80,11 @@ func _unhandled_input(event):
 		return
 	for direction in input_to_direction.keys():
 		if event.is_action_pressed(direction):
+			frames_since_last_action = 0
+			input_received.emit(direction)
+	for direction in attack_to_direction.keys():
+		if event.is_action_pressed(direction):
+			frames_since_last_action = 0
 			input_received.emit(direction)
 
 func _physics_process(_delta):

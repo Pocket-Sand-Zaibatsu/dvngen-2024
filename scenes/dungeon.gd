@@ -21,8 +21,11 @@ func _ready() -> void:
 	add_child(hud)
 	level_generator.stairs.generate_level.emit()
 	Player.player_died.connect(_on_player_died)
+	Player.spawn_projectile.connect(level_generator.projectile_manager.spawn_projectile)
 	Player.reset()
 
 func _on_player_died() -> void:
 	Player.visible = false
-	get_tree().change_scene_to_file("res://interfaces/death.tscn")
+	await level_generator.enemy_manager.reset()
+	await level_generator.world_object_manager.reset()
+	SceneChanger.change_scene(SceneChanger.PossibleScene.DEATH)

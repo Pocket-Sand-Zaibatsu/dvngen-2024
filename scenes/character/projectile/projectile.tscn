@@ -1,0 +1,106 @@
+[gd_scene load_steps=15 format=3 uid="uid://36u44ona72g3"]
+
+[ext_resource type="Script" path="res://scenes/character/projectile/projectile.gd" id="1_k4bsl"]
+[ext_resource type="Texture2D" uid="uid://da7v0j8dvkemk" path="res://assets/sprites/fx/tiny_dungeon_fx_arrow_5.png" id="2_67gkl"]
+[ext_resource type="Texture2D" uid="uid://cm068vqs1cxxs" path="res://assets/sprites/fx/tiny_dungeon_fx_acidball_n.png" id="2_s8xi3"]
+[ext_resource type="Texture2D" uid="uid://8pehxq008iry" path="res://assets/sprites/fx/tiny_dungeon_fx_fireball_n.png" id="4_qb2xv"]
+[ext_resource type="Texture2D" uid="uid://ohgytqfxmgej" path="res://assets/sprites/fx/tiny_dungeon_fx_iceball_n.png" id="5_8xqmp"]
+[ext_resource type="Texture2D" uid="uid://bvydc2w0d4rlk" path="res://assets/sprites/fx/tiny_dungeon_fx_lightning_1.png" id="6_vl6tc"]
+[ext_resource type="Texture2D" uid="uid://bfb5sca1dqf5y" path="res://assets/sprites/fx/tiny_dungeon_fx_lightning_2.png" id="7_k75j7"]
+[ext_resource type="Texture2D" uid="uid://cymwjvt6j00mb" path="res://assets/sprites/fx/tiny_dungeon_fx_slash2_3.png" id="8_rr3dq"]
+[ext_resource type="Texture2D" uid="uid://cbav28e67hidg" path="res://assets/sprites/fx/tiny_dungeon_fx_slash2_1.png" id="8_sqb80"]
+[ext_resource type="Texture2D" uid="uid://vmalyag1jb5x" path="res://assets/sprites/fx/tiny_dungeon_fx_slash2_2.png" id="9_svuys"]
+[ext_resource type="Texture2D" uid="uid://dmgg48sujve7y" path="res://assets/sprites/fx/tiny_dungeon_fx_voidball_n.png" id="9_wqd7d"]
+[ext_resource type="Texture2D" uid="uid://b5ckjch0f5j0s" path="res://assets/sprites/fx/tiny_dungeon_fx_zap_5.png" id="10_puttf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kcbsh"]
+size = Vector2(10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r32ad"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s8xi3")
+}],
+"loop": true,
+"name": &"acidball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_67gkl")
+}],
+"loop": true,
+"name": &"arrow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qb2xv")
+}],
+"loop": true,
+"name": &"fireball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_8xqmp")
+}],
+"loop": true,
+"name": &"iceball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_vl6tc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_k75j7")
+}],
+"loop": true,
+"name": &"lightning",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_rr3dq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_svuys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_sqb80")
+}],
+"loop": true,
+"name": &"slash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_wqd7d")
+}],
+"loop": true,
+"name": &"voidball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_puttf")
+}],
+"loop": true,
+"name": &"zap",
+"speed": 5.0
+}]
+
+[node name="Projectile" type="Area2D"]
+z_index = 3
+script = ExtResource("1_k4bsl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kcbsh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r32ad")
+animation = &"lightning"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
