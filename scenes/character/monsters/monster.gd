@@ -12,9 +12,9 @@ var armor_class_bonus: int = 0
 var extra_attack_bonus: int = 0
 # Set these to something higher
 var drop_table: Dictionary = {
-	"td_items_coins_gold": 0,
-	"td_items_potion_red": 0,
-	"td_items_weapon_shortsword": 0,
+	"td_items_coins_gold": 100,
+	"td_items_potion_red": 100,
+	"td_items_weapon_shortsword": 100,
 }
 var drop_dice: DicePool = DicePool.new([Dice.new(100)])
 
@@ -54,7 +54,7 @@ func move(_ui_action: String) -> void:
 func roll_drop_table() -> Array[String]:
 	var drops: Array[String] = []
 	for item in drop_table.keys():
-		if drop_dice.roll() >= drop_table[item]:
+		if drop_dice.roll() <= drop_table[item]:
 			drops.push_back(item)
 	return drops
 
