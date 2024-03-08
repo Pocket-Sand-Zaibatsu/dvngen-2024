@@ -3,19 +3,19 @@
 	"ItemCategory": "Amulet",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_amulet_magic": {
 	"ItemCategory": "Amulet",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_amulet_silver": {
 	"ItemCategory": "Amulet",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_arrow": {
 	"ItemCategory": "",
@@ -56,19 +56,19 @@
 	"ItemCategory": "Cape",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_cape_magic": {
 	"ItemCategory": "Cape",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_cape_purple": {
 	"ItemCategory": "Cape",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_coins_copper": {
 	"ItemCategory": "",
@@ -177,19 +177,19 @@
 	"ItemCategory": "Hat",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_hat_magic": {
 	"ItemCategory": "Hat",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_hat_purple": {
 	"ItemCategory": "Hat",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_heart_empty": {
 	"ItemCategory": "",
@@ -238,61 +238,61 @@
 	"ItemCategory": "Boot",
 	"StackSize": 1,
 	"Description": "Boots made from leather and cloth.",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_leather_chest": {
 	"ItemCategory": "Chest",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_leather_glove": {
 	"ItemCategory": "Glove",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_leather_helm": {
 	"ItemCategory": "Helm",
 	"StackSize": 1,
 	"Description": "A leather helmet, good for protecting your head.",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_leather_pant": {
 	"ItemCategory": "Pant",
 	"StackSize": 1,
 	"Description": "Leather pants, they make your butt look great!",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_magic_boot": {
 	"ItemCategory": "Boot",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_magic_chest": {
 	"ItemCategory": "Chest",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_magic_glove": {
 	"ItemCategory": "Glove",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_magic_helm": {
 	"ItemCategory": "Helm",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_magic_pant": {
 	"ItemCategory": "Pant",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_map": {
 	"ItemCategory": "",
@@ -368,19 +368,19 @@
 	"ItemCategory": "Shield",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_shield_steel": {
 	"ItemCategory": "Shield",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_shield_wood": {
 	"ItemCategory": "Shield",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_skull": {
 	"ItemCategory": "",
@@ -396,31 +396,31 @@
 	"ItemCategory": "Boot",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_steel_chest": {
 	"ItemCategory": "Chest",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_steel_glove": {
 	"ItemCategory": "Glove",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_steel_helm": {
 	"ItemCategory": "Helm",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_steel_pant": {
 	"ItemCategory": "Pant",
 	"StackSize": 1,
 	"Description": "",
-	"armor_bonus": 1
+	"armor_class": 1
   },
   "td_items_stone": {
 	"ItemCategory": "",
@@ -458,7 +458,7 @@
 	"Description": ""
   },
   "td_items_weapon_axe": {
-	"ItemCategory": "Sword",
+	"ItemCategory": "Axe",
 	"StackSize": 1,
 	"Description": "",
 	"projectile_type": "slash",
@@ -469,10 +469,10 @@
 	]
   },
   "td_items_weapon_bow": {
-	"ItemCategory": "Sword",
+	"ItemCategory": "Bow",
 	"StackSize": 1,
 	"Description": "",
-	"projectile_type": "slash",
+	"projectile_type": "arrow",
 	"damage": [
 	  1,
 	  6,
@@ -480,10 +480,10 @@
 	]
   },
   "td_items_weapon_club": {
-	"ItemCategory": "Sword",
+	"ItemCategory": "Club",
 	"StackSize": 1,
 	"Description": "",
-	"projectile_type": "slash",
+	"projectile_type": "bash",
 	"damage": [
 	  1,
 	  6,
@@ -491,10 +491,10 @@
 	]
   },
   "td_items_weapon_crossbow": {
-	"ItemCategory": "Sword",
+	"ItemCategory": "Crossbow",
 	"StackSize": 1,
 	"Description": "",
-	"projectile_type": "slash",
+	"projectile_type": "arrow",
 	"damage": [
 	  1,
 	  6,
@@ -502,7 +502,7 @@
 	]
   },
   "td_items_weapon_dagger": {
-	"ItemCategory": "Sword",
+	"ItemCategory": "Dagger",
 	"StackSize": 1,
 	"Description": "",
 	"projectile_type": "slash",
@@ -513,10 +513,10 @@
 	]
   },
   "td_items_weapon_hammer": {
-	"ItemCategory": "Sword",
+	"ItemCategory": "Hammer",
 	"StackSize": 1,
 	"Description": "",
-	"projectile_type": "slash",
+	"projectile_type": "bash",
 	"damage": [
 	  1,
 	  6,
@@ -524,10 +524,10 @@
 	]
   },
   "td_items_weapon_mace": {
-	"ItemCategory": "Sword",
+	"ItemCategory": "Mace",
 	"StackSize": 1,
 	"Description": "",
-	"projectile_type": "slash",
+	"projectile_type": "bash",
 	"damage": [
 	  1,
 	  6,
@@ -535,10 +535,10 @@
 	]
   },
   "td_items_weapon_quarterstaff": {
-	"ItemCategory": "Sword",
+	"ItemCategory": "Staff",
 	"StackSize": 1,
 	"Description": "",
-	"projectile_type": "slash",
+	"projectile_type": "bash",
 	"damage": [
 	  1,
 	  6,
@@ -557,7 +557,7 @@
 	]
   },
   "td_items_weapon_sling": {
-	"ItemCategory": "Sword",
+	"ItemCategory": "Sling",
 	"StackSize": 1,
 	"Description": "",
 	"projectile_type": "slash",
@@ -568,10 +568,10 @@
 	]
   },
   "td_items_weapon_staff": {
-	"ItemCategory": "Sword",
+	"ItemCategory": "Staff",
 	"StackSize": 1,
 	"Description": "",
-	"projectile_type": "slash",
+	"projectile_type": "bash",
 	"damage": [
 	  1,
 	  6,

@@ -73,3 +73,24 @@ func get_item_in_slot(equip_slot: EquipSlots):
 		item.set_item_data(possible_item[Item.ItemComponents.NAME], possible_item[Item.ItemComponents.QUANTITY])
 		return item
 	return null
+
+func get_all_equipped_items() -> Array[Item]:
+	var equipped: Array[Item] = []
+	for slot_key in EquipSlots.keys():
+		var possible_item = get_item_in_slot(EquipSlots[slot_key])
+		if possible_item:
+			equipped.push_back(possible_item)
+	return equipped
+
+func get_equipped_stat(stat_name: String) -> int:
+	var stat = 0
+	for item in get_all_equipped_items():
+		stat += item[stat_name]
+	return stat
+
+func get_equipped_armor_class() -> int:
+	return get_equipped_stat("armor_class")
+
+func get_equipped_attack_bonus() -> int:
+	return get_equipped_stat("attack_bonus")
+	
