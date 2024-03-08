@@ -535,7 +535,7 @@
 	]
   },
   "td_items_weapon_quarterstaff": {
-	"ItemCategory": "Staff",
+	"ItemCategory": "Quarterstaff",
 	"StackSize": 1,
 	"Description": "",
 	"projectile_type": "bash",
@@ -571,7 +571,7 @@
 	"ItemCategory": "Staff",
 	"StackSize": 1,
 	"Description": "",
-	"projectile_type": "bash",
+	"projectile_type": "fireball",
 	"damage": [
 	  1,
 	  6,
