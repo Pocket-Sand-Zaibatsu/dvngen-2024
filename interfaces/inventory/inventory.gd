@@ -31,12 +31,12 @@ func _ready():
 func initialize_inventory():
 	for i in range(slots.size()):
 		if PlayerInventory.inventory.has(i):
-			slots[i].initialize_item(PlayerInventory.inventory[i][0], PlayerInventory.inventory[i])
+			slots[i].initialize_item(PlayerInventory.inventory[i][0], PlayerInventory.inventory[i][1])
 
 func initialize_equips():
 	for i in range(equip_slots.size()):
 		if PlayerInventory.equips.has(i):
-			equip_slots[i].initialize_item(PlayerInventory.equips[i][0], PlayerInventory.equips[i])
+			equip_slots[i].initialize_item(PlayerInventory.equips[i][0], PlayerInventory.equips[i][1])
 
 func slot_gui_input(event: InputEvent, slot: Slot):
 	if event is InputEventMouseButton:
@@ -58,7 +58,6 @@ func _input(_event):
 
 
 func left_click_empty_slot(slot: Slot):
-	print(holding_item)
 	if item_category_to_slot_type(holding_item.category) in slot.allowed_types:
 		PlayerInventory.add_item_to_empty_slot(holding_item, slot)
 		slot.putIntoSlot(holding_item)
@@ -66,13 +65,14 @@ func left_click_empty_slot(slot: Slot):
 	
 
 func left_click_different_item(event: InputEvent, slot: Slot):
-	PlayerInventory.remove_item(slot)
-	PlayerInventory.add_item_to_empty_slot(holding_item, slot)
-	var temp_item = slot.item
-	slot.pickFromSlot()
-	temp_item.global_position = event.global_position
-	slot.putIntoSlot(holding_item)
-	holding_item = temp_item
+	if item_category_to_slot_type(holding_item.category) in slot.allowed_types:
+		PlayerInventory.remove_item(slot)
+		PlayerInventory.add_item_to_empty_slot(holding_item, slot)
+		var temp_item = slot.item
+		slot.pickFromSlot()
+		temp_item.global_position = event.global_position
+		slot.putIntoSlot(holding_item)
+		holding_item = temp_item
 
 
 func left_click_same_item(slot: Slot):
@@ -100,5 +100,17 @@ func item_category_to_slot_type(category: String) -> Slot.SlotType:
 	match category:
 		"Sword","Bow":
 			return Slot.SlotType.HAND
+		"Helmet":
+			return Slot.SlotType.HEAD
+		"Cape", "Necklace":
+			return Slot.SlotType.NECK
+		"Chest":
+			return Slot.SlotType.BODY
+		"Gloves":
+			return Slot.SlotType.ARMS
+		"Pants":
+			return Slot.SlotType.LEGS
+		"Boots":
+			return Slot.SlotType.FEET
 		_:
 			return Slot.SlotType.INVENTORY
