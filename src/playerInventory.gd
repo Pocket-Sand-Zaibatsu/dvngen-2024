@@ -4,6 +4,8 @@ const SlotClass =  preload("res://interfaces/inventory/InvSlot.gd")
 const ItemClass = preload("res://scenes/Items/items/items.gd")
 const NUM_INVENTORY_SLOTS = 20
 
+signal inventory_updated
+
 enum EquipSlots {
 	HEAD,
 	NECK,
@@ -30,18 +32,17 @@ func add_item(item_name, item_quantity):
 			var able_to_add = stack_size - inventory[item][1]
 			if able_to_add >= item_quantity:
 				inventory[item][1] += item_quantity
+				inventory_updated.emit()
 				return
 			else:
 				inventory[item][1] -= able_to_add
 				item_quantity = item_quantity - able_to_add
-
 	#Item doesn't exist in inventory yet, so add it to an empty slot.
 	for i in range(NUM_INVENTORY_SLOTS):
 		if inventory.has(i) == false:
 			inventory[i] = [item_name, item_quantity]
+			inventory_updated.emit()
 			return
-
-
 
 func remove_item(slot: SlotClass):
 	match slot.slot_type:

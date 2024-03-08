@@ -48,6 +48,7 @@ func _input(event):
 	if event.is_action_pressed("Inventory"):
 		$Inventory.visible = !$Inventory.visible
 		$Inventory.initialize_inventory()
+		$Inventory.initialize_equips()
 
 func _on_cell_painted(cell_grid: Vector2i, cell_type: LevelGrid.CELL_TYPE) -> void:
 	if LevelGrid.CELL_TYPE.PLAYER == cell_type:
