@@ -3,11 +3,20 @@ class_name Monster
 
 signal enemy_died(uuid: String, location_grid: Vector2i)
 signal xp_dropped(amount: int)
+signal items_dropped(target_grid: Vector2i, items: Array[String])
 
 @onready var rng: RandomNumberGenerator
+
 var xp_dice: DicePool
 var armor_class_bonus: int = 0
 var extra_attack_bonus: int = 0
+# Set these to something higher
+var drop_table: Dictionary = {
+	"td_items_coins_gold": 0,
+	"td_items_potion_red": 0,
+	"td_items_weapon_shortsword": 0,
+}
+var drop_dice: DicePool = DicePool.new([Dice.new(100)])
 
 func _init():
 	log_name = "monster"
@@ -42,10 +51,18 @@ func move(_ui_action: String) -> void:
 		_:
 			super(LevelGrid.a_star_to_player(position))
 
+func roll_drop_table() -> Array[String]:
+	var drops: Array[String] = []
+	for item in drop_table.keys():
+		if drop_dice.roll() >= drop_table[item]:
+			drops.push_back(item)
+	return drops
+
 func die() -> void:
 	enemy_died.emit(uuid, get_grid())
 	var xp = xp_dice.roll()
 	xp_dropped.emit(xp)
+	items_dropped.emit(get_grid(), roll_drop_table())
 	log_messaged.emit("%s died and gave %d XP" % [log_name, xp])
 	despawn()
 

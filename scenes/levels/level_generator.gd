@@ -135,7 +135,6 @@ func _build_rooms() -> void:
 	Player.spawn(rooms[0].get_center())
 	var stair_position = rooms[-1].get_center()
 	stairs.spawn_with_biome(biome, Vector2i(stair_position.x + 1, stair_position.y))
-	world_object_manager.spawn_object(WorldObjectManager.OBJECT_TYPE.ITEMDROP, rooms[0].get_center() + Vector2i.ONE)
 
 func _check_neighbor(coords: Vector2i) -> String:
 	if 0 <= coords.x&&map_size.x > coords.x&&0 <= coords.y&&map_size.y > coords.y:

@@ -1,16 +1,20 @@
 extends WorldObject
 class_name ItemDrop
 
-var item_name
+var item_name: String = "td_items_coins_gold"
 var player = null
 var being_picked_up
 
 func _ready():
-	item_name = "td_items_potion_red"
+	$Sprite2D.texture = load("res://assets/sprites/items/" + item_name + ".png")
 
-func _on_body_entered(_body):
-	PlayerInventory.add_item(item_name, 1)
-	despawn()
+func set_item_name(new_item_name: String) -> void:
+	item_name = new_item_name
+
+func _on_body_entered(body):
+	if is_body_player(body):
+		PlayerInventory.add_item(item_name, 1)
+		despawn()
 
 #func pick_up_item(body):
 	#player = body

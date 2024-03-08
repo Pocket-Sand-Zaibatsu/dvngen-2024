@@ -31,6 +31,14 @@ func reset():
 		objects[item].despawn()
 	objects.clear()
 
+func spawn_item_drops(spawn_grid: Vector2i, item_names: Array[String]):
+	for item_name in item_names:
+		var item = loader[OBJECT_TYPE.ITEMDROP]["scene"].instantiate()
+		item.set_item_name(item_name)
+		item.spawn(spawn_grid)
+		objects[item.uuid] = item
+		call_deferred("add_child", item)
+
 func spawn_object(object_type: OBJECT_TYPE, spawn_grid: Vector2i) -> String:
 	var item = loader[object_type]["scene"].instantiate()
 	item.spawn(spawn_grid)
