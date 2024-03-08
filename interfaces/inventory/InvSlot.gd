@@ -41,9 +41,6 @@ func _ready():
 	empty_style = StyleBoxTexture.new()
 	default_style.texture = default_texture
 	empty_style.texture = empty_texture
-	#if randi() % 2 == 0:
-		#item = ItemClass.instantiate()
-		#add_child(item)
 	refresh_style()
 		
 func refresh_style():

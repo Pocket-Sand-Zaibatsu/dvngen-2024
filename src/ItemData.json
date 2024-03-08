@@ -174,19 +174,19 @@
 	"Description": ""
   },
   "td_items_hat_leather": {
-	"ItemCategory": "Hat",
+	"ItemCategory": "Helmet",
 	"StackSize": 1,
 	"Description": "",
 	"armor_class": 1
   },
   "td_items_hat_magic": {
-	"ItemCategory": "Hat",
+	"ItemCategory": "Helmet",
 	"StackSize": 1,
 	"Description": "",
 	"armor_class": 1
   },
   "td_items_hat_purple": {
-	"ItemCategory": "Hat",
+	"ItemCategory": "Helmet",
 	"StackSize": 1,
 	"Description": "",
 	"armor_class": 1
@@ -235,7 +235,7 @@
 	"Description": ""
   },
   "td_items_leather_boot": {
-	"ItemCategory": "Boot",
+	"ItemCategory": "Boots",
 	"StackSize": 1,
 	"Description": "Boots made from leather and cloth.",
 	"armor_class": 1
@@ -247,25 +247,25 @@
 	"armor_class": 1
   },
   "td_items_leather_glove": {
-	"ItemCategory": "Glove",
+	"ItemCategory": "Gloves",
 	"StackSize": 1,
 	"Description": "",
 	"armor_class": 1
   },
   "td_items_leather_helm": {
-	"ItemCategory": "Helm",
+	"ItemCategory": "Helmet",
 	"StackSize": 1,
 	"Description": "A leather helmet, good for protecting your head.",
 	"armor_class": 1
   },
   "td_items_leather_pant": {
-	"ItemCategory": "Pant",
+	"ItemCategory": "Pants",
 	"StackSize": 1,
 	"Description": "Leather pants, they make your butt look great!",
 	"armor_class": 1
   },
   "td_items_magic_boot": {
-	"ItemCategory": "Boot",
+	"ItemCategory": "Boots",
 	"StackSize": 1,
 	"Description": "",
 	"armor_class": 1
@@ -277,19 +277,19 @@
 	"armor_class": 1
   },
   "td_items_magic_glove": {
-	"ItemCategory": "Glove",
+	"ItemCategory": "Gloves",
 	"StackSize": 1,
 	"Description": "",
 	"armor_class": 1
   },
   "td_items_magic_helm": {
-	"ItemCategory": "Helm",
+	"ItemCategory": "Helmet",
 	"StackSize": 1,
 	"Description": "",
 	"armor_class": 1
   },
   "td_items_magic_pant": {
-	"ItemCategory": "Pant",
+	"ItemCategory": "Pants",
 	"StackSize": 1,
 	"Description": "",
 	"armor_class": 1
@@ -393,7 +393,7 @@
 	"Description": ""
   },
   "td_items_steel_boot": {
-	"ItemCategory": "Boot",
+	"ItemCategory": "Boots",
 	"StackSize": 1,
 	"Description": "",
 	"armor_class": 1
@@ -405,19 +405,19 @@
 	"armor_class": 1
   },
   "td_items_steel_glove": {
-	"ItemCategory": "Glove",
+	"ItemCategory": "Gloves",
 	"StackSize": 1,
 	"Description": "",
 	"armor_class": 1
   },
   "td_items_steel_helm": {
-	"ItemCategory": "Helm",
+	"ItemCategory": "Helmet",
 	"StackSize": 1,
 	"Description": "",
 	"armor_class": 1
   },
   "td_items_steel_pant": {
-	"ItemCategory": "Pant",
+	"ItemCategory": "Pants",
 	"StackSize": 1,
 	"Description": "",
 	"armor_class": 1
