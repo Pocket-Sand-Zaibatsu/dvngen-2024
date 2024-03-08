@@ -26,7 +26,6 @@ func reset() -> void:
 	you_won = false
 	PlayerInventory.reset()
 	set_starting_equipment()
-	print(PlayerInventory.equips)
 	level.reset()
 	stat_block = StatBlock.new()
 	hit_dice = DicePool.new([Dice.new(8)], 0)
