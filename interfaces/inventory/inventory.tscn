@@ -21,6 +21,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_ei4nf")
 
 [node name="InvGrid" type="GridContainer" parent="TextureRect"]
+layout_mode = 0
 offset_left = 159.0
 offset_top = 43.0
 offset_right = 275.0
@@ -150,6 +151,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_7lvlw")
 script = ExtResource("3_e3p3i")
 
 [node name="EquipGrid" type="GridContainer" parent="TextureRect"]
+layout_mode = 0
 offset_left = 53.0
 offset_top = 43.0
 offset_right = 123.0

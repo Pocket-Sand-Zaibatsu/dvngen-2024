@@ -12,6 +12,6 @@ func _on_body_entered(_body):
 	PlayerInventory.add_item(item_name, 1)
 	despawn()
 
-func pick_up_item(body):
-	player = body
-	being_picked_up = true
+#func pick_up_item(body):
+	#player = body
+	#being_picked_up = true

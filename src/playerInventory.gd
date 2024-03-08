@@ -19,9 +19,9 @@ var inventory = {
 }
 
 var equips ={
-	1: ["td_items_leather_helm", 1],
-	2: ["td_items_leather_pant", 1],
-	3: ["td_items_leather_boot", 1],
+	EquipSlots.HEAD: ["td_items_leather_helm", 1],
+	EquipSlots.LEGS: ["td_items_leather_pant", 1],
+	EquipSlots.FEET: ["td_items_leather_boot", 1],
 	EquipSlots.RHAND: ["td_items_weapon_sword", 1],
 	EquipSlots.LHAND: ["td_items_weapon_bow", 1],
 }
@@ -44,27 +44,34 @@ func add_item(item_name, item_quantity):
 			inventory[i] = [item_name, item_quantity]
 			return
 
+
+
 func remove_item(slot: SlotClass):
-	match slot.SlotType:
+	match slot.slot_type:
 		SlotClass.SlotType.INVENTORY:
 			inventory.erase(slot.slot_index)
 		_:
 			equips.erase(slot.slot_index)
 
+
+
 func add_item_to_empty_slot(item: ItemClass, slot: SlotClass):
-	match slot.SlotType:
+	match slot.slot_type:
 		SlotClass.SlotType.INVENTORY:
 			inventory[slot.slot_index] = [item.item_name, item.item_quantity]
 		_:
 			equips[slot.slot_index] = [item.item_name, item.item_quantity]
-	
-	
+
+
+
+
 func add_item_quantity(slot: SlotClass, quantity_to_add: int):
-	match slot.SlotType:
+	match slot.slot_type:
 		SlotClass.SlotType.INVENTORY:
 			inventory[slot.slot_index][1] += quantity_to_add
 		_:
 			equips[slot.slot_index][1] += quantity_to_add
+
 
 func get_item_in_slot(equip_slot: EquipSlots):
 	var possible_item = equips.get(equip_slot, [])
