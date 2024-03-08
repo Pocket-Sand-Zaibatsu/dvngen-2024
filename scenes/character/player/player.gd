@@ -24,6 +24,9 @@ func _ready() -> void:
 
 func reset() -> void:
 	you_won = false
+	PlayerInventory.reset()
+	set_starting_equipment()
+	print(PlayerInventory.equips)
 	level.reset()
 	stat_block = StatBlock.new()
 	hit_dice = DicePool.new([Dice.new(8)], 0)
@@ -35,6 +38,31 @@ func reset() -> void:
 	unarmed_damage_dice = DicePool.new([Dice.new(3)], 0)
 	player_ready.emit()
 	health_changed.emit()
+
+func set_starting_equipment() -> void:
+	var armor_type: String
+	var weapon: String
+	var cape: String
+	match player_class.to_lower():
+		"fighter":
+			armor_type = "steel"
+			weapon = "td_items_weapon_sword"
+			cape = "purple"
+		"ranger":
+			armor_type = "leather"
+			weapon = "td_items_weapon_bow"
+			cape = "leather"
+		"wizard":
+			armor_type = "magic"
+			cape = "magic"
+			weapon = "td_items_weapon_staff"
+	PlayerInventory.equips[PlayerInventory.EquipSlots.HEAD] = ["td_items_%s_helm" % armor_type, 1]
+	PlayerInventory.equips[PlayerInventory.EquipSlots.NECK] = ["td_items_cape_%s" % cape, 1]
+	PlayerInventory.equips[PlayerInventory.EquipSlots.BODY] = ["td_items_%s_chest" % armor_type, 1]
+	PlayerInventory.equips[PlayerInventory.EquipSlots.ARMS] = ["td_items_%s_glove" % armor_type, 1]
+	PlayerInventory.equips[PlayerInventory.EquipSlots.LEGS] = ["td_items_%s_pant" % armor_type, 1]
+	PlayerInventory.equips[PlayerInventory.EquipSlots.FEET] = ["td_items_%s_boot" % armor_type, 1]
+	PlayerInventory.equips[PlayerInventory.EquipSlots.RHAND] = [weapon, 1]
 
 func _on_dev_tools_stat_update(stat_field: String, value: int) -> void:
 	print("Player dev tools: ", stat_field, ":", value)
