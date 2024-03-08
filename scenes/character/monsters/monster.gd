@@ -54,7 +54,7 @@ func move(_ui_action: String) -> void:
 func roll_drop_table() -> Array[String]:
 	var drops: Array[String] = []
 	for item in drop_table.keys():
-		if drop_dice.roll() > drop_table[item]:
+		if drop_dice.roll() >= drop_table[item]:
 			drops.push_back(item)
 	return drops
 
