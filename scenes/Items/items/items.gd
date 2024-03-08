@@ -18,6 +18,8 @@ var item_quantity
 var category: String
 var projectile_type: String
 var damage: DicePool
+var attack_bonus: int = 0
+var armor_class: int = 0
 
 func set_item_data(new_name: String, new_quantity: int):
 	item_name = new_name
@@ -35,7 +37,10 @@ func set_item_data(new_name: String, new_quantity: int):
 			],
 			item_data["damage"][DamageArray.BONUS]
 		)
-
+	if "armor_class" in item_data.keys():
+		armor_class = item_data["armor_class"]
+	if "attack_bonus" in item_data.keys():
+		attack_bonus = item_data["attack_bonus"]
 
 func set_item (nm, qt):
 	set_item_data(nm, qt)
