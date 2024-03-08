@@ -4,14 +4,26 @@ const SlotClass =  preload("res://interfaces/inventory/InvSlot.gd")
 const ItemClass = preload("res://scenes/Items/items/items.gd")
 const NUM_INVENTORY_SLOTS = 20
 
+enum EquipSlots {
+	HEAD,
+	NECK,
+	BODY,
+	ARMS,
+	LEGS,
+	FEET,
+	RHAND,
+	LHAND,
+}
+
 var inventory = {
 }
 
 var equips ={
-	0: ["td_items_weapon_sword", 1],
 	1: ["td_items_leather_helm", 1],
 	2: ["td_items_leather_pant", 1],
 	3: ["td_items_leather_boot", 1],
+	EquipSlots.RHAND: ["td_items_weapon_sword", 1],
+	EquipSlots.LHAND: ["td_items_weapon_bow", 1],
 }
 
 func add_item(item_name, item_quantity):
@@ -23,7 +35,7 @@ func add_item(item_name, item_quantity):
 				inventory[item][1] += item_quantity
 				return
 			else:
-				inventory[item][1] +- able_to_add
+				inventory[item][1] -= able_to_add
 				item_quantity = item_quantity - able_to_add
 
 	#Item doesn't exist in inventory yet, so add it to an empty slot.
@@ -53,5 +65,11 @@ func add_item_quantity(slot: SlotClass, quantity_to_add: int):
 			inventory[slot.slot_index][1] += quantity_to_add
 		_:
 			equips[slot.slot_index][1] += quantity_to_add
-	
-	
+
+func get_item_in_slot(equip_slot: EquipSlots):
+	var possible_item = equips.get(equip_slot, [])
+	if 0 < possible_item.size():
+		var item = Item.new()
+		item.set_item_data(possible_item[Item.ItemComponents.NAME], possible_item[Item.ItemComponents.QUANTITY])
+		return item
+	return null

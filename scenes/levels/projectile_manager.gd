@@ -16,12 +16,20 @@ func reset():
 		projectiles[projectile].despawn()
 	projectiles.clear()
 
-func spawn_projectile(spawn_grid: Vector2i, velocity: Vector2i, projectile_type: String = "slash") -> void:
+func spawn_projectile(
+	spawn_grid: Vector2i,
+	velocity: Vector2i,
+	projectile_type: String,
+	actor: String,
+	attack_roll: int,
+	damage: int,
+) -> void:
 	if LevelGrid.CELL_TYPE.OBSTACLE == LevelGrid.get_cell(spawn_grid + velocity):
 		return
 	var projectile: Projectile = projectile_scene.instantiate()
 	projectile.set_projectile_type(projectile_type)
 	projectile.set_velocity(velocity)
+	projectile.set_attack(actor, attack_roll, damage)
 	projectile.spawn(spawn_grid)
 	Player.input_received.connect(projectile._on_input_received)
 	projectile.set("uuid", uuid_util.v4())

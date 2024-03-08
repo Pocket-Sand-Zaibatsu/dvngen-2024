@@ -12,9 +12,17 @@
   },
   "td_items_weapon_sword": {
 	"ItemCategory": "Sword",
-	"ItemAttack": 3,
 	"StackSize": 1,
-	"Description": "A basic sword, forged to cut, stab, and slash."
+	"Description": "A basic sword, forged to cut, stab, and slash.",
+	"projectile_type": "slash",
+	"damage": [1, 6, 0]
+  },
+  "td_items_weapon_bow": {
+	"ItemCategory": "Bow",
+	"StackSize": 1,
+	"Description": "A basic bow",
+	"projectile_type": "arrow",
+	"damage": [1, 6, 0]
   },
   "td_items_leather_helm": {
 	"ItemCategory": "Helmet",

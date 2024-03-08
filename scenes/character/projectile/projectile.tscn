@@ -1,10 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://36u44ona72g3"]
+[gd_scene load_steps=18 format=3 uid="uid://36u44ona72g3"]
 
 [ext_resource type="Script" path="res://scenes/character/projectile/projectile.gd" id="1_k4bsl"]
 [ext_resource type="Texture2D" uid="uid://da7v0j8dvkemk" path="res://assets/sprites/fx/tiny_dungeon_fx_arrow_5.png" id="2_67gkl"]
 [ext_resource type="Texture2D" uid="uid://cm068vqs1cxxs" path="res://assets/sprites/fx/tiny_dungeon_fx_acidball_n.png" id="2_s8xi3"]
 [ext_resource type="Texture2D" uid="uid://8pehxq008iry" path="res://assets/sprites/fx/tiny_dungeon_fx_fireball_n.png" id="4_qb2xv"]
+[ext_resource type="Texture2D" uid="uid://540d85cegni8" path="res://assets/sprites/fx/tiny_dungeon_fx_bash_3.png" id="4_v4r8f"]
 [ext_resource type="Texture2D" uid="uid://ohgytqfxmgej" path="res://assets/sprites/fx/tiny_dungeon_fx_iceball_n.png" id="5_8xqmp"]
+[ext_resource type="Texture2D" uid="uid://dkklrok5x22er" path="res://assets/sprites/fx/tiny_dungeon_fx_bash_2.png" id="5_bmhae"]
+[ext_resource type="Texture2D" uid="uid://jfg6k822b77c" path="res://assets/sprites/fx/tiny_dungeon_fx_bash_1.png" id="6_5jyc1"]
 [ext_resource type="Texture2D" uid="uid://bvydc2w0d4rlk" path="res://assets/sprites/fx/tiny_dungeon_fx_lightning_1.png" id="6_vl6tc"]
 [ext_resource type="Texture2D" uid="uid://bfb5sca1dqf5y" path="res://assets/sprites/fx/tiny_dungeon_fx_lightning_2.png" id="7_k75j7"]
 [ext_resource type="Texture2D" uid="uid://cymwjvt6j00mb" path="res://assets/sprites/fx/tiny_dungeon_fx_slash2_3.png" id="8_rr3dq"]
@@ -32,6 +35,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"arrow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_v4r8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bmhae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5jyc1")
+}],
+"loop": true,
+"name": &"bash",
 "speed": 5.0
 }, {
 "frames": [{
@@ -101,6 +118,6 @@ shape = SubResource("RectangleShape2D_kcbsh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r32ad")
-animation = &"lightning"
+animation = &"bash"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
