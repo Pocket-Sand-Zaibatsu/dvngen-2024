@@ -71,6 +71,14 @@ func add_item_quantity(slot: SlotClass, quantity_to_add: int):
 			equips[slot.slot_index][1] += quantity_to_add
 
 
+func remove_item_quantity(slot: SlotClass, quantity_to_remove: int):
+	match slot.slot_type:
+		SlotClass.SlotType.INVENTORY:
+			inventory[slot.slot_index][1] -= quantity_to_remove
+		_:
+			equips[slot.slot_index][1] -= quantity_to_remove
+
+
 func get_item_in_slot(equip_slot: EquipSlots):
 	var possible_item = equips.get(equip_slot, [])
 	if 0 < possible_item.size():

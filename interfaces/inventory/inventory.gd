@@ -40,18 +40,32 @@ func initialize_equips():
 
 func slot_gui_input(event: InputEvent, slot: Slot):
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
-			if holding_item != null:
-				if !slot.item:
-					left_click_empty_slot(slot)
-				else: 
-					if holding_item.item_name != slot.item.item_name:
-						left_click_different_item(event, slot)
-					else:
-						left_click_same_item(slot)
-			elif slot.item:
-				left_click_not_holding(slot)
-		_on_inventory_update()
+		if event.button_index == MOUSE_BUTTON_RIGHT && event.pressed:
+			print("right click")
+			use_item(slot)
+		else:
+			if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
+				if holding_item != null:
+					if !slot.item:
+						left_click_empty_slot(slot)
+					else: 
+						if holding_item.item_name != slot.item.item_name:
+							left_click_different_item(event, slot)
+						else:
+							left_click_same_item(slot)
+				elif slot.item:
+					left_click_not_holding(slot)
+			_on_inventory_update()
+
+
+	
+#func use_item (event: InputEvent, category: String):
+	#if event is InputEventMouseButton:
+		#if event.button_index == MOUSE_BUTTON_RIGHT && event.pressed:
+			#match category:
+				#"Consumable":
+					#Player.change_health(+ 10)
+
 
 func _input(_event):
 	if holding_item:
@@ -62,6 +76,7 @@ func left_click_empty_slot(slot: Slot):
 		PlayerInventory.add_item_to_empty_slot(holding_item, slot)
 		slot.putIntoSlot(holding_item)
 		holding_item = null
+
 
 func left_click_different_item(event: InputEvent, slot: Slot):
 	if item_category_to_slot_type(holding_item.category) in slot.allowed_types:
@@ -92,6 +107,19 @@ func left_click_not_holding(slot: Slot):
 	holding_item = slot.item
 	slot.pickFromSlot()
 	holding_item.global_position = get_global_mouse_position()
+	
+	
+func use_item(slot: Slot):
+	var item_cat = str(JsonItemData.item_data[slot.item.item_name]["ItemCategory"])
+	if item_cat == "Consumable":
+		Player.change_health(+ 10)
+		PlayerInventory.remove_item_quantity(slot, slot.item.item_quantity)
+		if slot.item.item_quantity <= 1:
+			PlayerInventory.remove_item(slot)
+			slot.removeFromSlot()
+	
+
+	
 
 func item_category_to_slot_type(category: String) -> Slot.SlotType:
 	match category:
