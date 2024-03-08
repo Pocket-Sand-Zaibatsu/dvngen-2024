@@ -4,14 +4,26 @@ const SlotClass =  preload("res://interfaces/inventory/InvSlot.gd")
 const ItemClass = preload("res://scenes/Items/items/items.gd")
 const NUM_INVENTORY_SLOTS = 20
 
+enum EquipSlots {
+	HEAD,
+	NECK,
+	BODY,
+	ARMS,
+	LEGS,
+	FEET,
+	RHAND,
+	LHAND,
+}
+
 var inventory = {
 }
 
 var equips ={
-	0: ["td_items_weapon_sword", 1],
 	1: ["td_items_leather_helm", 1],
 	2: ["td_items_leather_pant", 1],
 	3: ["td_items_leather_boot", 1],
+	EquipSlots.RHAND: ["td_items_weapon_sword", 1],
+	EquipSlots.LHAND: ["td_items_weapon_bow", 1],
 }
 
 func add_item(item_name, item_quantity):
