@@ -59,7 +59,7 @@ func spawn(spawn_grid: Vector2i) -> void:
 
 func fire_projectile(action: String) -> void:
 	if action.begins_with("attack"):
-		spawn_projectile.emit(get_grid(), direction_vector[input_to_direction[action]])
+		spawn_projectile.emit(get_grid(), direction_vector[attack_to_direction[action]])
 
 func move(ui_action: String) -> void:
 	frames_since_last_action = 0
@@ -79,6 +79,11 @@ func _unhandled_input(event):
 		return
 	for direction in input_to_direction.keys():
 		if event.is_action_pressed(direction):
+			frames_since_last_action = 0
+			input_received.emit(direction)
+	for direction in attack_to_direction.keys():
+		if event.is_action_pressed(direction):
+			frames_since_last_action = 0
 			input_received.emit(direction)
 
 func _physics_process(_delta):
