@@ -1,42 +1,592 @@
 {
+  "td_items_amulet_gold": {
+	"ItemCategory": "Amulet",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_amulet_magic": {
+	"ItemCategory": "Amulet",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_amulet_silver": {
+	"ItemCategory": "Amulet",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_arrow": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_bandage": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_bolt": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_book_black": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_book_brown": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_book_green": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_caltrops": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_cape_leather": {
+	"ItemCategory": "Cape",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_cape_magic": {
+	"ItemCategory": "Cape",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_cape_purple": {
+	"ItemCategory": "Cape",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_coins_copper": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
   "td_items_coins_gold": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "Its money, stupid. Use it to buy goods and services."
+	"Description": "It's money, stupid. Use it to buy goods and services."
+  },
+  "td_items_coins_silver": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_compass": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_cross": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_crown_evil": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_crown_gold": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_crown_silver": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_crystal_empty": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_crystal_full": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_darts": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_feather": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_flask_blue": {
+	"ItemCategory": "Consumable",
+	"StackSize": 10,
+	"Description": "",
+	"AddHealth": 10
+  },
+  "td_items_flask_green": {
+	"ItemCategory": "Consumable",
+	"StackSize": 10,
+	"Description": "",
+	"AddHealth": 10
+  },
+  "td_items_flask_red": {
+	"ItemCategory": "Consumable",
+	"StackSize": 10,
+	"Description": "",
+	"AddHealth": 10
+  },
+  "td_items_gem_amethyst": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_gem_garnet": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_gem_jade": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_gem_ruby": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_gem_sapphire": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_hat_leather": {
+	"ItemCategory": "Hat",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_hat_magic": {
+	"ItemCategory": "Hat",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_hat_purple": {
+	"ItemCategory": "Hat",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_heart_empty": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_heart_full": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_herb_gold": {
+	"ItemCategory": "Consumable",
+	"StackSize": 99,
+	"Description": "",
+	"AddHealth": 10
+  },
+  "td_items_herb_green": {
+	"ItemCategory": "Consumable",
+	"StackSize": 99,
+	"Description": "",
+	"AddHealth": 10
+  },
+  "td_items_herb_red": {
+	"ItemCategory": "Consumable",
+	"StackSize": 99,
+	"Description": "",
+	"AddHealth": 10
+  },
+  "td_items_key_gold": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_key_magic": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_key_skeleton": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_leather_boot": {
+	"ItemCategory": "Boot",
+	"StackSize": 1,
+	"Description": "Boots made from leather and cloth.",
+	"armor_bonus": 1
+  },
+  "td_items_leather_chest": {
+	"ItemCategory": "Chest",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_leather_glove": {
+	"ItemCategory": "Glove",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_leather_helm": {
+	"ItemCategory": "Helm",
+	"StackSize": 1,
+	"Description": "A leather helmet, good for protecting your head.",
+	"armor_bonus": 1
+  },
+  "td_items_leather_pant": {
+	"ItemCategory": "Pant",
+	"StackSize": 1,
+	"Description": "Leather pants, they make your butt look great!",
+	"armor_bonus": 1
+  },
+  "td_items_magic_boot": {
+	"ItemCategory": "Boot",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_magic_chest": {
+	"ItemCategory": "Chest",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_magic_glove": {
+	"ItemCategory": "Glove",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_magic_helm": {
+	"ItemCategory": "Helm",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_magic_pant": {
+	"ItemCategory": "Pant",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_map": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_potion_black": {
+	"ItemCategory": "Consumable",
+	"StackSize": 10,
+	"Description": "",
+	"AddHealth": 10
+  },
+  "td_items_potion_blue": {
+	"ItemCategory": "Consumable",
+	"StackSize": 10,
+	"Description": "",
+	"AddHealth": 10
+  },
+  "td_items_potion_green": {
+	"ItemCategory": "Consumable",
+	"StackSize": 10,
+	"Description": "",
+	"AddHealth": 10
   },
   "td_items_potion_red": {
 	"ItemCategory": "Consumable",
-	"AddHealth": 5,
 	"StackSize": 10,
-	"Description": "Made from monster blood. It smells like cough syrup."
+	"Description": "Made from monster blood. It smells like cough syrup.",
+	"AddHealth": 10
+  },
+  "td_items_potion_yellow": {
+	"ItemCategory": "Consumable",
+	"StackSize": 10,
+	"Description": "",
+	"AddHealth": 10
+  },
+  "td_items_quiver": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_ring_gold": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_ring_magic": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_ring_silver": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_rope": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_sack": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_scroll": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_shield_magic": {
+	"ItemCategory": "Shield",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_shield_steel": {
+	"ItemCategory": "Shield",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_shield_wood": {
+	"ItemCategory": "Shield",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_skull": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_skull_gold": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_steel_boot": {
+	"ItemCategory": "Boot",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_steel_chest": {
+	"ItemCategory": "Chest",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_steel_glove": {
+	"ItemCategory": "Glove",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_steel_helm": {
+	"ItemCategory": "Helm",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_steel_pant": {
+	"ItemCategory": "Pant",
+	"StackSize": 1,
+	"Description": "",
+	"armor_bonus": 1
+  },
+  "td_items_stone": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_token_copper": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_token_gold": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_token_silver": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_torch1": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_torch2": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_turkey": {
+	"ItemCategory": "",
+	"StackSize": 1,
+	"Description": ""
+  },
+  "td_items_weapon_axe": {
+	"ItemCategory": "Sword",
+	"StackSize": 1,
+	"Description": "",
+	"projectile_type": "slash",
+	"damage": [
+	  1,
+	  6,
+	  0
+	]
+  },
+  "td_items_weapon_bow": {
+	"ItemCategory": "Sword",
+	"StackSize": 1,
+	"Description": "",
+	"projectile_type": "slash",
+	"damage": [
+	  1,
+	  6,
+	  0
+	]
+  },
+  "td_items_weapon_club": {
+	"ItemCategory": "Sword",
+	"StackSize": 1,
+	"Description": "",
+	"projectile_type": "slash",
+	"damage": [
+	  1,
+	  6,
+	  0
+	]
+  },
+  "td_items_weapon_crossbow": {
+	"ItemCategory": "Sword",
+	"StackSize": 1,
+	"Description": "",
+	"projectile_type": "slash",
+	"damage": [
+	  1,
+	  6,
+	  0
+	]
+  },
+  "td_items_weapon_dagger": {
+	"ItemCategory": "Sword",
+	"StackSize": 1,
+	"Description": "",
+	"projectile_type": "slash",
+	"damage": [
+	  1,
+	  6,
+	  0
+	]
+  },
+  "td_items_weapon_hammer": {
+	"ItemCategory": "Sword",
+	"StackSize": 1,
+	"Description": "",
+	"projectile_type": "slash",
+	"damage": [
+	  1,
+	  6,
+	  0
+	]
+  },
+  "td_items_weapon_mace": {
+	"ItemCategory": "Sword",
+	"StackSize": 1,
+	"Description": "",
+	"projectile_type": "slash",
+	"damage": [
+	  1,
+	  6,
+	  0
+	]
+  },
+  "td_items_weapon_quarterstaff": {
+	"ItemCategory": "Sword",
+	"StackSize": 1,
+	"Description": "",
+	"projectile_type": "slash",
+	"damage": [
+	  1,
+	  6,
+	  0
+	]
+  },
+  "td_items_weapon_shortsword": {
+	"ItemCategory": "Sword",
+	"StackSize": 1,
+	"Description": "",
+	"projectile_type": "slash",
+	"damage": [
+	  1,
+	  6,
+	  0
+	]
+  },
+  "td_items_weapon_sling": {
+	"ItemCategory": "Sword",
+	"StackSize": 1,
+	"Description": "",
+	"projectile_type": "slash",
+	"damage": [
+	  1,
+	  6,
+	  0
+	]
+  },
+  "td_items_weapon_staff": {
+	"ItemCategory": "Sword",
+	"StackSize": 1,
+	"Description": "",
+	"projectile_type": "slash",
+	"damage": [
+	  1,
+	  6,
+	  0
+	]
   },
   "td_items_weapon_sword": {
 	"ItemCategory": "Sword",
 	"StackSize": 1,
-	"Description": "A basic sword, forged to cut, stab, and slash.",
+	"Description": "",
 	"projectile_type": "slash",
-	"damage": [1, 6, 0]
-  },
-  "td_items_weapon_bow": {
-	"ItemCategory": "Bow",
-	"StackSize": 1,
-	"Description": "A basic bow",
-	"projectile_type": "arrow",
-	"damage": [1, 6, 0]
-  },
-  "td_items_leather_helm": {
-	"ItemCategory": "Helmet",
-	"StackSize": 1,
-	"Description": "A leather helmet, good for protecting your head."
-  },
-  "td_items_leather_pant": {
-	"ItemCategory": "Pants",
-	"StackSize": 1,
-	"Description": "Leather pants, they make your butt look great!"
-  },
- "td_items_leather_boot": {
-	"ItemCategory": "Boots",
-	"StackSize": 1,
-	"Description": "Boots made from leatther and cloth."
+	"damage": [
+	  1,
+	  6,
+	  0
+	]
   }
 }

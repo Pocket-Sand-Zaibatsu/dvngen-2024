@@ -1,0 +1,50 @@
+{
+	"td_items_coins_gold": {
+		"ItemCategory": "Resource",
+		"StackSize": 99,
+		"Description": "Its money, stupid. Use it to buy goods and services."
+	},
+	"td_items_potion_red": {
+		"ItemCategory": "Consumable",
+		"AddHealth": 5,
+		"StackSize": 10,
+		"Description": "Made from monster blood. It smells like cough syrup."
+	},
+	"td_items_weapon_sword": {
+		"ItemCategory": "Sword",
+		"StackSize": 1,
+		"Description": "A basic sword, forged to cut, stab, and slash.",
+		"projectile_type": "slash",
+		"damage": [
+			1,
+			6,
+			0
+		]
+	},
+	"td_items_weapon_bow": {
+		"ItemCategory": "Bow",
+		"StackSize": 1,
+		"Description": "A basic bow",
+		"projectile_type": "arrow",
+		"damage": [
+			1,
+			6,
+			0
+		]
+	},
+	"td_items_leather_helm": {
+		"ItemCategory": "Helmet",
+		"StackSize": 1,
+		"Description": "A leather helmet, good for protecting your head."
+	},
+	"td_items_leather_pant": {
+		"ItemCategory": "Pants",
+		"StackSize": 1,
+		"Description": "Leather pants, they make your butt look great!"
+	},
+	"td_items_leather_boot": {
+		"ItemCategory": "Boots",
+		"StackSize": 1,
+		"Description": "Boots made from leatther and cloth."
+	}
+}
