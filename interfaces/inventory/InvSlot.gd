@@ -1,4 +1,5 @@
 extends Panel
+class_name Slot
 
 var default_texture = preload("res://assets/sprites/inventory/item_slot_default.png")
 var empty_texture = preload("res://assets/sprites/inventory/item_slot_empty.png")
@@ -8,6 +9,32 @@ var empty_style: StyleBoxTexture = null
 
 var ItemClass = preload("res://scenes/Items/items/items.tscn")
 var item = null
+var slot_index
+var allowed_types = [
+	SlotType.INVENTORY,
+	SlotType.HEAD,
+	SlotType.NECK,
+	SlotType.BODY,
+	SlotType.ARMS,
+	SlotType.LEGS,
+	SlotType.FEET,
+	SlotType.HAND,
+]
+
+enum SlotType{
+	INVENTORY,
+	HEAD,
+	NECK,
+	BODY,
+	ARMS,
+	LEGS,
+	FEET,
+	HAND,
+}
+
+@onready var slot_type: SlotType = SlotType.INVENTORY
+
+
 
 func _ready():
 	default_style = StyleBoxTexture.new()
@@ -50,3 +77,4 @@ func initialize_item(item_name, item_quantity):
 		item.set_item(item_name, item_quantity)
 	refresh_style()
 	
+
