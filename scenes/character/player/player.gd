@@ -31,7 +31,7 @@ func reset() -> void:
 	hit_dice = DicePool.new([Dice.new(8)], 0)
 	current_health = 100
 	max_health = 100
-	base_armor_class = 10
+	base_armor_class = 5
 	base_attack_bonus = 0
 	attack_dice = Dice.new(20, 1)
 	unarmed_damage_dice = DicePool.new([Dice.new(3)], 0)

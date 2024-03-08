@@ -13,6 +13,7 @@ func set_item_name(new_item_name: String) -> void:
 
 func _on_body_entered(body):
 	if is_body_player(body):
+		GameLogTransport._on_log_messaged("Player picks up %s" % item_name.trim_prefix("td_items_"))
 		PlayerInventory.add_item(item_name, 1)
 		despawn()
 

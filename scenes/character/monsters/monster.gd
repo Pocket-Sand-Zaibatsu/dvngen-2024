@@ -12,9 +12,29 @@ var armor_class_bonus: int = 0
 var extra_attack_bonus: int = 0
 # Set these to something higher
 var drop_table: Dictionary = {
-	"td_items_coins_gold": 100,
-	"td_items_potion_red": 100,
-	"td_items_weapon_shortsword": 100,
+	"td_items_coins_gold": 20,
+	"td_items_potion_red": 10,
+	"td_items_weapon_shortsword": 1,
+	"td_items_weapon_bow": 1,
+	"td_items_weapon_staff": 1,
+	"td_items_steel_boot": 1,
+	"td_items_steel_chest": 1,
+	"td_items_steel_glove": 1,
+	"td_items_steel_helm": 1,
+	"td_items_steel_pant": 1,
+	"td_items_cape_purple": 1,
+	"td_items_magic_boot": 1,
+	"td_items_magic_chest": 1,
+	"td_items_magic_glove": 1,
+	"td_items_magic_helm": 1,
+	"td_items_magic_pant": 1,
+	"td_items_cape_magic": 1,
+	"td_items_leather_boot": 1,
+	"td_items_leather_chest": 1,
+	"td_items_leather_glove": 1,
+	"td_items_leather_helm": 1,
+	"td_items_leather_pant": 1,
+	"td_items_cape_leather": 1,
 }
 var drop_dice: DicePool = DicePool.new([Dice.new(100)])
 
