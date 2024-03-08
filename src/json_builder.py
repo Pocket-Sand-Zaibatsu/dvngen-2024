@@ -7,7 +7,7 @@ from os.path import basename, join
 
 items = OrderedDict()
 
-item_paths = [basename(item_path) for item_path in glob(
+item_paths = [basename(item_path).removesuffix('.png') for item_path in glob(
     join('..', 'assets', 'sprites', 'items', '*.png'))]
 item_paths.sort()
 for item_file in item_paths:
