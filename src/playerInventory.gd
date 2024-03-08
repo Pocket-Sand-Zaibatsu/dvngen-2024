@@ -85,8 +85,7 @@ func get_all_equipped_items() -> Array[Item]:
 func get_equipped_stat(stat_name: String) -> int:
 	var stat = 0
 	for item in get_all_equipped_items():
-		if item.has(stat_name):
-			stat += item[stat_name]
+		stat += item[stat_name]
 	return stat
 
 func get_equipped_armor_class() -> int:
