@@ -59,6 +59,7 @@ func spawn(spawn_grid: Vector2i) -> void:
 
 func fire_projectile(action: String) -> void:
 	if action.begins_with("attack"):
+		animated_sprite.play(attack_to_direction[action])
 		spawn_projectile.emit(get_grid(), direction_vector[attack_to_direction[action]])
 
 func move(ui_action: String) -> void:
