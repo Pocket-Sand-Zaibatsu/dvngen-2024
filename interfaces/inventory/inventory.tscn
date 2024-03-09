@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://drcophnpcvkyx"]
+[gd_scene load_steps=6 format=3 uid="uid://drcophnpcvkyx"]
 
 [ext_resource type="Script" path="res://interfaces/inventory/inventory.gd" id="1_7u5wm"]
-[ext_resource type="Texture2D" uid="uid://ivatf2ktybyt" path="res://assets/sprites/inventory/inv_bg.png" id="1_ei4nf"]
 [ext_resource type="Texture2D" uid="uid://cbpw27few6uj8" path="res://assets/sprites/inventory/item_slot_default.png" id="2_a5s1b"]
 [ext_resource type="Script" path="res://interfaces/inventory/InvSlot.gd" id="3_e3p3i"]
 
@@ -18,7 +17,6 @@ script = ExtResource("1_7u5wm")
 offset_right = 300.0
 offset_bottom = 150.0
 scale = Vector2(2, 2)
-texture = ExtResource("1_ei4nf")
 
 [node name="InvGrid" type="GridContainer" parent="TextureRect"]
 layout_mode = 0

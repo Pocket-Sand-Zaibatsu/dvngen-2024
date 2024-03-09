@@ -22,6 +22,8 @@ func _ready():
 	Player.health_changed.connect(_player_health_changed)
 	_player_health_changed()
 	GameLogTransport.game_log_messaged.connect(_on_game_log_messaged)
+	$Inventory.initialize_inventory()
+	$Inventory.initialize_equips()
 
 func _pass_dev_tools_stat_updates(stat_field: String, value: int):
 	print("HUD dev tools: ", stat_field, ":", value)
@@ -44,11 +46,11 @@ func _on_game_log_messaged(contents: String) -> void:
 	GameLog.clear()
 	GameLog.add_text(reverse_newline_join(game_log_messages))
 
-func _input(event):
-	if event.is_action_pressed("Inventory"):
-		$Inventory.visible = !$Inventory.visible
-		$Inventory.initialize_inventory()
-		$Inventory.initialize_equips()
+#func _input(event):
+	#if event.is_action_pressed("Inventory"):
+		#$Inventory.visible = !$Inventory.visible
+		#$Inventory.initialize_inventory()
+		#$Inventory.initialize_equips()
 
 func _on_cell_painted(cell_grid: Vector2i, cell_type: LevelGrid.CELL_TYPE) -> void:
 	if LevelGrid.CELL_TYPE.PLAYER == cell_type:

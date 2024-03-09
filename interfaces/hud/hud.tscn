@@ -1,14 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://p6nnokp0w23o"]
+[gd_scene load_steps=16 format=3 uid="uid://p6nnokp0w23o"]
 
 [ext_resource type="Texture2D" uid="uid://borbpogvyri8g" path="res://assets/sprites/tilesets/tiny_dungeon_interface.png" id="1_3rjoo"]
 [ext_resource type="Script" path="res://interfaces/hud/hud.gd" id="1_07xmy"]
 [ext_resource type="Texture2D" uid="uid://dtnl811kxhdnk" path="res://assets/sprites/tilesets/nine_patch_empty_bar.png" id="2_8td0o"]
-[ext_resource type="Texture2D" uid="uid://bsko0mjf65eyn" path="res://assets/sprites/tilesets/hud_window.png" id="2_tnxsa"]
+[ext_resource type="Texture2D" uid="uid://d4lte3nkiqlqe" path="res://assets/sprites/inventory/ui_background.png" id="2_mj63x"]
 [ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="2_utsmw"]
 [ext_resource type="Texture2D" uid="uid://dkc0kcm7ryol" path="res://assets/sprites/tilesets/nine_patch_health_bar.png" id="3_xvofm"]
 [ext_resource type="Script" path="res://interfaces/hud/number_field.gd" id="4_7wp03"]
 [ext_resource type="PackedScene" uid="uid://drcophnpcvkyx" path="res://interfaces/inventory/inventory.tscn" id="8_ghnld"]
 [ext_resource type="Texture2D" uid="uid://7vlaawci157j" path="res://assets/sprites/tilesets/minimap.png" id="9_rwquv"]
+[ext_resource type="Texture2D" uid="uid://cudop8swk00q7" path="res://assets/sprites/scaled_portraits/fighter.png" id="10_mfjwx"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5b06b"]
 texture = ExtResource("1_3rjoo")
@@ -38,10 +39,10 @@ sources/0 = SubResource("TileSetAtlasSource_t631j")
 script = ExtResource("1_07xmy")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-offset_top = 768.0
+offset_top = 721.0
 offset_right = 1280.0
 offset_bottom = 960.0
-texture = ExtResource("2_tnxsa")
+texture = ExtResource("2_mj63x")
 patch_margin_left = 12
 patch_margin_top = 12
 patch_margin_right = 12
@@ -51,10 +52,10 @@ axis_stretch_vertical = 2
 metadata/_edit_group_ = true
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
-offset_left = 1272.0
-offset_top = 776.0
-offset_right = 1448.0
-offset_bottom = 808.0
+offset_left = 225.0
+offset_top = 790.0
+offset_right = 378.0
+offset_bottom = 827.0
 rotation = -4.71239
 value = 60.0
 fill_mode = 1
@@ -67,10 +68,10 @@ texture_under = ExtResource("2_8td0o")
 texture_progress = ExtResource("3_xvofm")
 
 [node name="Menu" type="Button" parent="."]
-offset_left = 1160.0
-offset_top = 920.0
-offset_right = 1232.0
-offset_bottom = 944.0
+offset_left = 622.0
+offset_top = 917.0
+offset_right = 694.0
+offset_bottom = 941.0
 theme = ExtResource("2_utsmw")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_5b06b")
@@ -79,14 +80,16 @@ text = "MENU"
 [node name="GameLogControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 16.0
-offset_top = 784.0
-offset_right = 528.0
-offset_bottom = 944.0
+offset_left = 722.0
+offset_top = 786.0
+offset_right = 1234.0
+offset_bottom = 946.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="GameLogControl"]
 y_sort_enabled = true
 layout_mode = 0
+offset_left = 21.0
+offset_top = 5.0
 offset_right = 512.0
 offset_bottom = 160.0
 texture = SubResource("AtlasTexture_71ml4")
@@ -99,8 +102,8 @@ axis_stretch_vertical = 2
 
 [node name="GameLog" type="RichTextLabel" parent="GameLogControl"]
 layout_mode = 2
-offset_left = 8.0
-offset_top = 8.0
+offset_left = 28.0
+offset_top = 10.0
 offset_right = 504.0
 offset_bottom = 152.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -159,15 +162,17 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_5b06b")
 text = "KILL"
 
 [node name="Inventory" parent="." instance=ExtResource("8_ghnld")]
-visible = false
-position = Vector2(-7, 475)
+position = Vector2(144, 721)
+scale = Vector2(0.83, 0.83)
 
 [node name="MinimapContainer" type="CanvasGroup" parent="."]
 position = Vector2(544, 784)
 
 [node name="MinimapBackground" type="NinePatchRect" parent="MinimapContainer"]
-offset_right = 160.0
-offset_bottom = 160.0
+offset_left = 573.0
+offset_top = -780.0
+offset_right = 733.0
+offset_bottom = -620.0
 texture = SubResource("AtlasTexture_11gjw")
 patch_margin_left = 12
 patch_margin_top = 12
@@ -177,10 +182,10 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
 [node name="MinimapViewportContainer" type="SubViewportContainer" parent="MinimapContainer"]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 152.0
-offset_bottom = 152.0
+offset_left = 581.0
+offset_top = -772.0
+offset_right = 725.0
+offset_bottom = -628.0
 
 [node name="MinimapViewport" type="SubViewport" parent="MinimapContainer/MinimapViewportContainer"]
 disable_3d = true
@@ -193,5 +198,26 @@ tile_set = SubResource("TileSet_h4po4")
 format = 2
 
 [node name="MinimapCamera" type="Camera2D" parent="MinimapContainer/MinimapViewportContainer/MinimapViewport"]
+
+[node name="PortraitBackground" type="NinePatchRect" parent="."]
+offset_left = 34.0
+offset_top = 793.0
+offset_right = 185.0
+offset_bottom = 942.0
+texture = SubResource("AtlasTexture_11gjw")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="Portrait" type="TextureRect" parent="PortraitBackground"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -3.0
+offset_right = 149.0
+offset_bottom = 143.0
+texture = ExtResource("10_mfjwx")
 
 [connection signal="pressed" from="DevTools/Menu2" to="." method="_on_menu_2_pressed"]

@@ -2,7 +2,7 @@ extends Button
 
 @export var texture: Texture
 @export var audio: AudioStreamWAV
-
+@onready var hud = preload("res://interfaces/hud/hud.tscn")
 @onready var audio_stream_player: AudioStreamPlayer = get_node("ClassButtonAudio")
 @onready var dungeon_scene = preload("res://scenes/dungeon.tscn")
 
@@ -30,6 +30,7 @@ func _on_pressed():
 	Player.animated_sprite.sprite_frames.add_animation("Right")
 	Player.animated_sprite.sprite_frames.add_frame("Right", load("res://assets/sprites/heroes/{class}/td_monsters_{class}_r1.png".format({"class": lower_class})))
 	Player.animated_sprite.sprite_frames.add_frame("Right", load("res://assets/sprites/heroes/{class}/td_monsters_{class}_r2.png".format({"class": lower_class})))
+
 	audio_stream_player.play()
 	await get_tree().create_timer(1.0).timeout
 	SceneChanger.change_scene(SceneChanger.PossibleScene.DUNGEON)

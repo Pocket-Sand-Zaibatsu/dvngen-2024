@@ -52,7 +52,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"bash",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -79,7 +79,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"lightning",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -96,7 +96,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"slash",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -124,7 +124,8 @@ shape = SubResource("RectangleShape2D_kcbsh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r32ad")
-animation = &"bash"
+animation = &"lightning"
+frame_progress = 0.303537
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

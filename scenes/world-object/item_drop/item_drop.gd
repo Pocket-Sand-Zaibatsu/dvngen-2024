@@ -16,7 +16,3 @@ func _on_body_entered(body):
 		GameLogTransport._on_log_messaged("Player picks up %s" % item_name.trim_prefix("td_items_"))
 		PlayerInventory.add_item(item_name, 1)
 		despawn()
-
-#func pick_up_item(body):
-	#player = body
-	#being_picked_up = true

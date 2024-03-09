@@ -41,7 +41,6 @@ func initialize_equips():
 func slot_gui_input(event: InputEvent, slot: Slot):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_RIGHT && event.pressed:
-			print("right click")
 			use_item(slot)
 		else:
 			if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
@@ -54,17 +53,18 @@ func slot_gui_input(event: InputEvent, slot: Slot):
 						else:
 							left_click_same_item(slot)
 				elif slot.item:
-					left_click_not_holding(slot)
+						left_click_not_holding(slot)
 			_on_inventory_update()
 
 
-	
-#func use_item (event: InputEvent, category: String):
-	#if event is InputEventMouseButton:
-		#if event.button_index == MOUSE_BUTTON_RIGHT && event.pressed:
-			#match category:
-				#"Consumable":
-					#Player.change_health(+ 10)
+func use_item(slot: Slot):
+	var item_cat = str(JsonItemData.item_data[slot.item.item_name]["ItemCategory"])
+	if item_cat == "Consumable":
+		Player.change_health(+ 10)
+		PlayerInventory.decrease_item_quantity(slot, slot.item.item_quantity)
+		if slot.item.item_quantity <= 1:
+			PlayerInventory.remove_item(slot)
+			slot.removeFromSlot()
 
 
 func _input(_event):
@@ -107,16 +107,6 @@ func left_click_not_holding(slot: Slot):
 	holding_item = slot.item
 	slot.pickFromSlot()
 	holding_item.global_position = get_global_mouse_position()
-	
-	
-func use_item(slot: Slot):
-	var item_cat = str(JsonItemData.item_data[slot.item.item_name]["ItemCategory"])
-	if item_cat == "Consumable":
-		Player.change_health(+ 10)
-		PlayerInventory.remove_item_quantity(slot, slot.item.item_quantity)
-		if slot.item.item_quantity <= 1:
-			PlayerInventory.remove_item(slot)
-			slot.removeFromSlot()
 	
 
 	
