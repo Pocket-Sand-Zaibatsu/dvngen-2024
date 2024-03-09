@@ -48,7 +48,9 @@ offset_top = 264.0
 offset_right = 732.0
 offset_bottom = 280.0
 scale = Vector2(2.75, 2.75)
-value = 100.0
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="MainCheck" type="CheckBox" parent="Main Volume"]
 offset_left = 384.0
@@ -78,7 +80,9 @@ offset_top = 264.0
 offset_right = 732.0
 offset_bottom = 280.0
 scale = Vector2(2.75, 2.75)
-value = 100.0
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="MusicCheck" type="CheckBox" parent="Music Volume"]
 offset_left = 384.0
@@ -107,7 +111,9 @@ offset_top = 264.0
 offset_right = 732.0
 offset_bottom = 280.0
 scale = Vector2(2.75, 2.75)
-value = 100.0
+max_value = 1.0
+step = 0.05
+value = 1.0
 
 [node name="SFXCheck" type="CheckBox" parent="SFX Volume"]
 offset_left = 384.0
