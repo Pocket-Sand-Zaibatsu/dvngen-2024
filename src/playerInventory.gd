@@ -6,6 +6,7 @@ const NUM_INVENTORY_SLOTS = 20
 
 signal inventory_updated
 
+
 enum EquipSlots {
 	HEAD,
 	NECK,
@@ -106,4 +107,4 @@ func get_equipped_armor_class() -> int:
 
 func get_equipped_attack_bonus() -> int:
 	return get_equipped_stat("attack_bonus")
-	
+

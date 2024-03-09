@@ -3,16 +3,20 @@ class_name PlayerCharacter
 
 var you_won: bool = false
 
+
 signal player_ready
 signal player_position_updated(position: Vector2i)
 signal input_received(action: String)
 signal player_died
+signal atk_bonus_chaged
 
 const FRAMES_PER_ACTION: int = 10
 
 @onready var camera = get_node("PlayerCamera")
 @onready var player_class: String
 @onready var frames_since_last_action: int = 0
+
+
 
 func _ready() -> void:
 	super()
@@ -125,9 +129,12 @@ func move(ui_action: String) -> void:
 	frames_since_last_action = 0
 	super(ui_action)
 	player_position_updated.emit(position)
+	$Footsteps.Play()
 
 func compute_attack_bonus() -> int:
 	return base_attack_bonus + PlayerInventory.get_equipped_attack_bonus()
+	atk_bonus_chaged.emit()
+	
 
 func compute_armor_class() -> int:
 	return base_armor_class + PlayerInventory.get_equipped_armor_class()

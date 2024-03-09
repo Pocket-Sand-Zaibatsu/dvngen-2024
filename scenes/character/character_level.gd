@@ -29,6 +29,7 @@ const EXPERIENCE_TABLE = [
 ]
 
 signal level_increased
+signal exp_increased
 
 @export var level: int = 0
 @export var current_experience: int = 0
@@ -42,6 +43,7 @@ func set_level(new_level: int) -> void:
 
 func add_experience(added_experience: int) -> void:
 	current_experience += added_experience
+	exp_increased.emit()
 	while current_experience >= EXPERIENCE_TABLE[level + 1]:
 		level += 1
 		level_increased.emit()
