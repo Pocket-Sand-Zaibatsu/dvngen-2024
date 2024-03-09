@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Dvngeon-2024"
+config/name="DVNGEN"
 run/main_scene="res://scenes/scene_changer.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 
