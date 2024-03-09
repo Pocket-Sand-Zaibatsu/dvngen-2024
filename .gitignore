@@ -1,7 +1,7 @@
 # Dvngeon ignores
 export/
 build/
-dvngeon*.zip
+dvngen*.zip
 *.tmp
 
 # Godot 4+ specific ignores
