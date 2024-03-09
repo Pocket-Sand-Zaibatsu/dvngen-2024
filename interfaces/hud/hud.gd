@@ -24,8 +24,19 @@ func _ready():
 	_player_health_changed()
 	GameLogTransport.game_log_messaged.connect(_on_game_log_messaged)
 	$PortraitBackground/Portrait.texture = load ("res://assets/sprites/scaled_portraits/%s.png" % Player.player_class.to_lower()) 
+	get_player_stats()
+	Player.level.exp_increased.connect(get_player_stats)
+	Player.atk_bonus_chaged.connect(get_player_stats)
 	$Inventory.initialize_inventory()
 	$Inventory.initialize_equips()
+
+func get_player_stats():
+	$StatsBackground/ClassLabel.text = str(Player.player_class)
+	$StatsBackground/HPStat.text = str(Player.max_health)
+	$StatsBackground/DefStat.text = str(Player.compute_armor_class())
+	$StatsBackground/ATKStat.text = str(Player.compute_attack_bonus())
+	$StatsBackground/XPStat.text = str(Player.level.current_experience)
+
 
 func _pass_dev_tools_stat_updates(stat_field: String, value: int):
 	print("HUD dev tools: ", stat_field, ":", value)

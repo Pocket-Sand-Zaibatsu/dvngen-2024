@@ -581,6 +581,7 @@
   "td_items_weapon_sword": {
 	"ItemCategory": "Sword",
 	"StackSize": 1,
+	"attack_bonus": 1,
 	"Description": "",
 	"projectile_type": "slash",
 	"damage": [

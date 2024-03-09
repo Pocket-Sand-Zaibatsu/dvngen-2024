@@ -150,10 +150,10 @@ script = ExtResource("3_e3p3i")
 
 [node name="EquipGrid" type="GridContainer" parent="TextureRect"]
 layout_mode = 0
-offset_left = 53.0
-offset_top = 43.0
-offset_right = 123.0
-offset_bottom = 133.0
+offset_left = 120.69
+offset_top = 42.5
+offset_right = 190.69
+offset_bottom = 132.5
 theme_override_constants/h_separation = 34
 theme_override_constants/v_separation = 6
 columns = 2

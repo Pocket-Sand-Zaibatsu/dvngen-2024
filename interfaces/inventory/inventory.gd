@@ -117,7 +117,7 @@ func left_click_not_holding(slot: Slot):
 
 func item_category_to_slot_type(category: String) -> Slot.SlotType:
 	match category:
-		"Sword","Bow":
+		"Sword","Bow","Staff":
 			return Slot.SlotType.HAND
 		"Helmet":
 			return Slot.SlotType.HEAD
