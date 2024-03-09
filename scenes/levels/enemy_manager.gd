@@ -43,6 +43,8 @@ var loader: Dictionary = {
 
 @onready var enemies: Dictionary = {}
 @onready var rng: RandomNumberGenerator
+@onready var m_randomizer = preload("res://assets/audio/MonsterDeathRandomizer.tres")
+@onready var deathplayer = AudioStreamPlayer2D.new()
 
 var world_object_manager: WorldObjectManager
 
@@ -50,6 +52,8 @@ func _ready():
 	rng = RandomNumberGenerator.new()
 	rng.randomize()
 	world_object_manager = get_parent().world_object_manager
+	deathplayer.set_stream(m_randomizer)
+	add_child(deathplayer)
 
 func reset():
 	for monster in enemies.keys():
@@ -69,8 +73,15 @@ func spawn_enemy(enemy_type: ENEMY_TYPE, spawn_grid: Vector2i) -> void:
 	var enemy = loader[enemy_type]["scene"].instantiate()
 	enemy.spawn(spawn_grid)
 	enemy.enemy_died.connect(get_parent()._on_enemy_died)
+	enemy.enemy_died.connect(_on_monster_death)
 	enemy.items_dropped.connect(world_object_manager.spawn_item_drops)
 	enemy.set("uuid", uuid_util.v4())
 	enemy.set("desired_level", int(float(get_parent().dungeon_level) / 5) + 1)
 	enemies[enemy.uuid] = enemy
 	await call_deferred("add_child", enemy)
+
+func _on_monster_death(_uuid: String, _location_grid: Vector2i):
+	print("poop")
+	deathplayer.volume_db = -7
+	deathplayer.play()
+	

@@ -59,10 +59,13 @@ func slot_gui_input(event: InputEvent, slot: Slot):
 
 
 func use_item(slot: Slot):
+	if slot.is_empty():
+		return
 	var item_cat = str(JsonItemData.item_data[slot.item.item_name]["ItemCategory"])
 	var quantity = PlayerInventory.inventory.get(slot.slot_index, ["", 0])[1]
 	if item_cat == "Consumable" && quantity >= 1:
 		Player.change_health(+ 10)
+		$HealthPotion.play()
 		PlayerInventory.decrease_item_quantity(slot, 1)
 		quantity = PlayerInventory.inventory.get(slot.slot_index, ["", 0])[1]
 		if quantity < 1:

@@ -1,14 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://drcophnpcvkyx"]
+[gd_scene load_steps=8 format=3 uid="uid://drcophnpcvkyx"]
 
 [ext_resource type="Script" path="res://interfaces/inventory/inventory.gd" id="1_7u5wm"]
 [ext_resource type="Texture2D" uid="uid://cbpw27few6uj8" path="res://assets/sprites/inventory/item_slot_default.png" id="2_a5s1b"]
 [ext_resource type="Script" path="res://interfaces/inventory/InvSlot.gd" id="3_e3p3i"]
+[ext_resource type="AudioStream" uid="uid://bw3aisb3gv7qx" path="res://assets/audio/soundeffects/Items & Misc/Potion Drink A.wav" id="4_paxg2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7lvlw"]
 texture = ExtResource("2_a5s1b")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6d45c"]
 texture = ExtResource("2_a5s1b")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_lipc1"]
+playback_mode = 1
+random_pitch = 1.5
+streams_count = 1
+stream_0/stream = ExtResource("4_paxg2")
+stream_0/weight = 1.0
 
 [node name="Inventory" type="Node2D"]
 script = ExtResource("1_7u5wm")
@@ -287,3 +295,6 @@ scale = Vector2(0.29, 0.29)
 theme_override_colors/font_color = Color(0.615686, 0.615686, 0.615686, 1)
 text = "Hand
 "
+
+[node name="HealthPotion" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_lipc1")

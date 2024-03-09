@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bk1cg2xypnud7"]
+[gd_scene load_steps=3 format=3 uid="uid://bk1cg2xypnud7"]
 
 [ext_resource type="PackedScene" uid="uid://dkin3dk5kt3im" path="res://scenes/character/character.tscn" id="1_ifggm"]
+[ext_resource type="AudioStream" uid="uid://cetdhwf5dc54y" path="res://assets/audio/MonsterDeathRandomizer.tres" id="2_5o8tv"]
 
 [node name="Monster" instance=ExtResource("1_ifggm")]
 collision_layer = 3
 collision_mask = 13
 
-[node name="AudioStreamPlayer2D" parent="." index="2"]
+[node name="MonsterDeath" type="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource("2_5o8tv")
+volume_db = -7.0
 bus = &"SFX"

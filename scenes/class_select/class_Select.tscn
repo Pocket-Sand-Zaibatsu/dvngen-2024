@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvhaq8anokajp"]
+[gd_scene load_steps=11 format=3 uid="uid://cvhaq8anokajp"]
 
 [ext_resource type="Script" path="res://scenes/class_select/class_Select.gd" id="1_iee6x"]
 [ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="3_86f0o"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dk7ybjrd6hdr2" path="res://assets/sprites/scaled_portraits/wizard.png" id="7_75ove"]
 [ext_resource type="Texture2D" uid="uid://nhhvugc3h4la" path="res://assets/sprites/scaled_portraits/ranger.png" id="9_1puvd"]
 [ext_resource type="PackedScene" uid="uid://b0c3nenxj3uuu" path="res://scenes/class_select/class_button.tscn" id="10_f0wc8"]
+[ext_resource type="AudioStream" uid="uid://uby6h2y3s4p" path="res://assets/audio/music/Somewhere (RT 3.173)/SynFantasy Somewhere Intensity 2.wav" id="10_rmkuu"]
 
 [node name="ClassSelect" type="CanvasLayer"]
 script = ExtResource("1_iee6x")
@@ -56,3 +57,8 @@ texture = ExtResource("9_1puvd")
 audio = ExtResource("3_kxror")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Center/VBoxContainer/HBoxContainer2/HBoxContainer"]
+
+[node name="SelectMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_rmkuu")
+volume_db = -10.0
+bus = &"Music"

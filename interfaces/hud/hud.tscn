@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://p6nnokp0w23o"]
+[gd_scene load_steps=19 format=3 uid="uid://p6nnokp0w23o"]
 
 [ext_resource type="Texture2D" uid="uid://borbpogvyri8g" path="res://assets/sprites/tilesets/tiny_dungeon_interface.png" id="1_3rjoo"]
 [ext_resource type="Script" path="res://interfaces/hud/hud.gd" id="1_07xmy"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://interfaces/hud/number_field.gd" id="4_7wp03"]
 [ext_resource type="PackedScene" uid="uid://drcophnpcvkyx" path="res://interfaces/inventory/inventory.tscn" id="8_ghnld"]
 [ext_resource type="Texture2D" uid="uid://crivksv508dlf" path="res://interfaces/hud/Scroll.tres" id="9_gg1tv"]
+[ext_resource type="Texture2D" uid="uid://daoa2rb1gfj1a" path="res://assets/sprites/inventory/E_guy.png" id="9_l1rov"]
 [ext_resource type="Texture2D" uid="uid://7vlaawci157j" path="res://assets/sprites/tilesets/minimap.png" id="9_rwquv"]
 [ext_resource type="Texture2D" uid="uid://cudop8swk00q7" path="res://assets/sprites/scaled_portraits/fighter.png" id="10_mfjwx"]
 
@@ -43,8 +44,10 @@ script = ExtResource("1_07xmy")
 [node name="UpperLeftCorner" type="CanvasGroup" parent="."]
 
 [node name="NinePatchRect" type="NinePatchRect" parent="UpperLeftCorner"]
-offset_right = 192.0
-offset_bottom = 192.0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 90.0
+offset_bottom = 54.0
 texture = ExtResource("2_d8tru")
 patch_margin_left = 12
 patch_margin_top = 12
@@ -54,20 +57,21 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 
 [node name="Options" type="Button" parent="UpperLeftCorner"]
-offset_left = 37.0
-offset_top = 152.0
-offset_right = 155.0
-offset_bottom = 176.0
+offset_left = 3.0
+offset_top = 56.0
+offset_right = 122.0
+offset_bottom = 79.0
+scale = Vector2(0.73, 0.73)
 theme = ExtResource("2_utsmw")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_5b06b")
 text = " OPTIONS "
 
 [node name="DungeonLevelBackground" type="NinePatchRect" parent="UpperLeftCorner"]
-offset_left = 16.0
-offset_top = 48.0
-offset_right = 176.0
-offset_bottom = 136.0
+offset_left = 9.0
+offset_top = 24.0
+offset_right = 79.0
+offset_bottom = 51.0
 texture = SubResource("AtlasTexture_pp081")
 patch_margin_left = 12
 patch_margin_top = 12
@@ -78,8 +82,11 @@ axis_stretch_vertical = 2
 
 [node name="DungeonLevelContainer" type="CenterContainer" parent="UpperLeftCorner/DungeonLevelBackground"]
 layout_mode = 0
-offset_right = 160.0
-offset_bottom = 87.0
+offset_left = 7.41
+offset_top = 3.11
+offset_right = 127.41
+offset_bottom = 43.11
+scale = Vector2(0.49, 0.49)
 
 [node name="DungeonLevel" type="Label" parent="UpperLeftCorner/DungeonLevelBackground/DungeonLevelContainer"]
 layout_mode = 2
@@ -88,13 +95,13 @@ theme_override_font_sizes/font_size = 80
 text = "001"
 
 [node name="Label" type="Label" parent="UpperLeftCorner"]
-offset_left = 40.0
-offset_top = 17.0
-offset_right = 152.0
-offset_bottom = 40.0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 90.0
+offset_bottom = 24.0
 theme = ExtResource("2_utsmw")
 theme_override_font_sizes/font_size = 32
-text = "DVNGEON"
+text = "LEVEL"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 offset_top = 721.0
@@ -208,6 +215,14 @@ theme = ExtResource("2_utsmw")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_5b06b")
 text = "KILL"
+
+[node name="E_guy" type="TextureRect" parent="."]
+offset_left = 370.235
+offset_top = 798.14
+offset_right = 444.235
+offset_bottom = 942.14
+scale = Vector2(0.925, 0.925)
+texture = ExtResource("9_l1rov")
 
 [node name="Inventory" parent="." instance=ExtResource("8_ghnld")]
 position = Vector2(144, 719)
