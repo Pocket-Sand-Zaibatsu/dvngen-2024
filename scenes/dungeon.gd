@@ -15,6 +15,7 @@ func _ready() -> void:
 	level_generator.name = "LevelGenerator"
 	add_child(level_generator)
 	level_generator.bottom_reached.connect(_on_player_died)
+	Player.reset()
 	hud = hud_scene.instantiate()
 	hud.name = "Hud"
 	LevelGrid.cell_painted.connect(hud._on_cell_painted)
@@ -22,7 +23,7 @@ func _ready() -> void:
 	level_generator.stairs.generate_level.emit()
 	Player.player_died.connect(_on_player_died)
 	Player.spawn_projectile.connect(level_generator.projectile_manager.spawn_projectile)
-	Player.reset()
+
 
 func _on_player_died() -> void:
 	Player.visible = false
