@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cvhaq8anokajp"]
+[gd_scene load_steps=10 format=3 uid="uid://cvhaq8anokajp"]
 
 [ext_resource type="Script" path="res://scenes/class_select/class_Select.gd" id="1_iee6x"]
-[ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="3_86f0o"]
+[ext_resource type="PackedScene" uid="uid://1m6ux8m8xy7i" path="res://scenes/main-menu/title.tscn" id="2_5ayua"]
 [ext_resource type="AudioStream" uid="uid://uub4huchqb7m" path="res://assets/audio/TitleScreen Audio/ranger_select.wav" id="3_kxror"]
 [ext_resource type="AudioStream" uid="uid://wpok1c3mgw7b" path="res://assets/audio/TitleScreen Audio/fighter_select.wav" id="4_hnnul"]
 [ext_resource type="Texture2D" uid="uid://cudop8swk00q7" path="res://assets/sprites/scaled_portraits/fighter.png" id="5_5ck18"]
@@ -9,56 +9,50 @@
 [ext_resource type="Texture2D" uid="uid://dk7ybjrd6hdr2" path="res://assets/sprites/scaled_portraits/wizard.png" id="7_75ove"]
 [ext_resource type="Texture2D" uid="uid://nhhvugc3h4la" path="res://assets/sprites/scaled_portraits/ranger.png" id="9_1puvd"]
 [ext_resource type="PackedScene" uid="uid://b0c3nenxj3uuu" path="res://scenes/class_select/class_button.tscn" id="10_f0wc8"]
-[ext_resource type="AudioStream" uid="uid://uby6h2y3s4p" path="res://assets/audio/music/Somewhere (RT 3.173)/SynFantasy Somewhere Intensity 2.wav" id="10_rmkuu"]
 
 [node name="ClassSelect" type="CanvasLayer"]
 script = ExtResource("1_iee6x")
+
+[node name="SelectMusic" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
+bus = &"Music"
+
+[node name="Node2D" parent="." instance=ExtResource("2_5ayua")]
 
 [node name="Center" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 512.0
+offset_top = 576.0
+offset_right = -512.0
+offset_bottom = -128.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Center"]
-layout_mode = 2
-theme_override_constants/separation = 32
-
-[node name="ChooseYourHero" type="Label" parent="Center/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("3_86f0o")
-theme_type_variation = &"HeaderMedium"
-theme_override_font_sizes/font_size = 128
-text = "CHOOSE YOUR HERO
-"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Center/VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="HBoxContainer" type="GridContainer" parent="Center/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-columns = 3
-
-[node name="FIGHTER" parent="Center/VBoxContainer/HBoxContainer2/HBoxContainer" instance=ExtResource("10_f0wc8")]
+[node name="FIGHTER" parent="Center" instance=ExtResource("10_f0wc8")]
 layout_mode = 2
 texture = ExtResource("5_5ck18")
 audio = ExtResource("4_hnnul")
 
-[node name="WIZARD" parent="Center/VBoxContainer/HBoxContainer2/HBoxContainer" instance=ExtResource("10_f0wc8")]
-layout_mode = 2
-texture = ExtResource("7_75ove")
-audio = ExtResource("7_2hscg")
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_left = 200.0
+offset_top = 576.0
+offset_right = 448.0
+offset_bottom = 832.0
 
-[node name="RANGER" parent="Center/VBoxContainer/HBoxContainer2/HBoxContainer" instance=ExtResource("10_f0wc8")]
+[node name="RANGER" parent="CenterContainer" instance=ExtResource("10_f0wc8")]
 layout_mode = 2
 texture = ExtResource("9_1puvd")
 audio = ExtResource("3_kxror")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Center/VBoxContainer/HBoxContainer2/HBoxContainer"]
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+offset_left = 832.0
+offset_top = 576.0
+offset_right = 1088.0
+offset_bottom = 832.0
 
-[node name="SelectMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_rmkuu")
-volume_db = -10.0
-bus = &"Music"
+[node name="WIZARD" parent="CenterContainer2" instance=ExtResource("10_f0wc8")]
+layout_mode = 2
+texture = ExtResource("7_75ove")
+audio = ExtResource("7_2hscg")

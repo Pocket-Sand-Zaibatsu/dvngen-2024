@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://1m6ux8m8xy7i"]
+
+[ext_resource type="Texture2D" uid="uid://roo5al1wkd4i" path="res://assets/sprites/portraits/td_portrait_necromancer_3f.png" id="1_8c6l6"]
+[ext_resource type="FontFile" uid="uid://c8vpxjen7xpab" path="res://assets/fonts/tiny_dungeon_font.tres" id="2_kp4ow"]
+[ext_resource type="Texture2D" uid="uid://docbpn4tykcci" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_d1.png" id="3_vm8a3"]
+[ext_resource type="Texture2D" uid="uid://trv270lucvlj" path="res://assets/sprites/heroes/ranger/td_monsters_ranger_d1.png" id="4_vh468"]
+[ext_resource type="Texture2D" uid="uid://byxdmy0ddx4vl" path="res://assets/sprites/heroes/wizard/td_monsters_wizard_d1.png" id="5_07rc5"]
+[ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="6_m524v"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TdPortraitNecromancer3f" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.235294)
+offset_top = -240.0
+offset_right = 128.0
+offset_bottom = -112.0
+scale = Vector2(10, 10)
+texture = ExtResource("1_8c6l6")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_right = 1280.0
+offset_bottom = 960.0
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_kp4ow")
+theme_override_font_sizes/font_size = 256
+text = "DVNGEN"
+
+[node name="TdMonstersFighterD1" type="TextureRect" parent="."]
+offset_left = 512.0
+offset_top = 128.0
+offset_right = 768.0
+offset_bottom = 384.0
+texture = ExtResource("3_vm8a3")
+
+[node name="TdMonstersRangerD1" type="TextureRect" parent="."]
+offset_left = 192.0
+offset_top = 128.0
+offset_right = 448.0
+offset_bottom = 384.0
+texture = ExtResource("4_vh468")
+
+[node name="TdMonstersWizardD1" type="TextureRect" parent="."]
+offset_left = 832.0
+offset_top = 128.0
+offset_right = 1088.0
+offset_bottom = 384.0
+texture = ExtResource("5_07rc5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 8.0
+offset_top = 920.0
+offset_right = 1280.0
+offset_bottom = 960.0
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_m524v")
+text = "2024 POCKET SAND ZAIBATSU"
