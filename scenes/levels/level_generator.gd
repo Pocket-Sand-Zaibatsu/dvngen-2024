@@ -3,13 +3,13 @@ class_name LevelGenerator
 
 signal bottom_reached
 
-#@export var map_size := Vector2i(102, 102)
-#@export var room_size_range := Vector2i(5, 15)
-#@export var max_rooms := 30
-@export var map_size := Vector2i(32, 32)
-@export var room_size_range := Vector2i(5, 10)
-@export var max_rooms := 4
-@export var map_seed := 4
+@export var map_size := Vector2i(102, 102)
+@export var room_size_range := Vector2i(5, 15)
+@export var max_rooms := 30
+# @export var map_size := Vector2i(32, 32)
+# @export var room_size_range := Vector2i(5, 10)
+# @export var max_rooms := 4
+@export var map_seed := 0
 
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var level: TileMap = get_node("Level")
@@ -53,10 +53,10 @@ func _ready() -> void:
 	add_child(stairs)
 	stairs.generate_level.connect(_on_generate_level)
 	# REMOVE FOR FINAL GAME
-	rng.seed = map_seed
+	# rng.seed = map_seed
 	$LevelMusic.play()
 	$LevelAmbience.play()
-	
+
 
 func pick_biome() -> DungeonBiome:
 	return DungeonBiome.values()[rng.randi() % DungeonBiome.values().size()]
