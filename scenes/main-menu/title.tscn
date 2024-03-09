@@ -25,7 +25,7 @@ offset_bottom = 960.0
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_kp4ow")
 theme_override_font_sizes/font_size = 256
-text = "DVNGEON"
+text = "DVNGEN"
 
 [node name="TdMonstersFighterD1" type="TextureRect" parent="."]
 offset_left = 512.0
