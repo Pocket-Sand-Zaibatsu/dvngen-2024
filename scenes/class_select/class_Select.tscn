@@ -13,6 +13,10 @@
 [node name="ClassSelect" type="CanvasLayer"]
 script = ExtResource("1_iee6x")
 
+[node name="SelectMusic" type="AudioStreamPlayer2D" parent="."]
+volume_db = -10.0
+bus = &"Music"
+
 [node name="Node2D" parent="." instance=ExtResource("2_5ayua")]
 
 [node name="Center" type="CenterContainer" parent="."]
@@ -30,10 +34,6 @@ grow_vertical = 2
 layout_mode = 2
 texture = ExtResource("5_5ck18")
 audio = ExtResource("4_hnnul")
-
-[node name="SelectMusic" type="AudioStreamPlayer2D" parent="."]
-volume_db = -10.0
-bus = &"Music"
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 offset_left = 200.0
