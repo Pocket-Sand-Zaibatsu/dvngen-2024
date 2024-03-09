@@ -18,6 +18,7 @@ func _ready() -> void:
 	Player.reset()
 	hud = hud_scene.instantiate()
 	hud.name = "Hud"
+	level_generator.dungeon_level_changed.connect(hud._on_dungeon_level_changed)
 	LevelGrid.cell_painted.connect(hud._on_cell_painted)
 	add_child(hud)
 	level_generator.stairs.generate_level.emit()

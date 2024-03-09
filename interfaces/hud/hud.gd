@@ -62,4 +62,7 @@ func _on_menu_2_pressed():
 func _on_options_pressed():
 	var options = options_scene.instantiate()
 	add_child(options)
-	
+
+
+func _on_dungeon_level_changed(new_level: int) -> void:
+	$UpperLeftCorner/DungeonLevelBackground/DungeonLevelContainer/DungeonLevel.text = "%03d" % new_level
