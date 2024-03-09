@@ -1,0 +1,10 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://cetdhwf5dc54y"]
+
+[ext_resource type="AudioStream" uid="uid://c6vgrkibvknm3" path="res://assets/audio/soundeffects/Voice/Designed/Zombie Growl 001.wav" id="1_f5cxa"]
+
+[resource]
+playback_mode = 1
+random_pitch = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("1_f5cxa")
+stream_0/weight = 1.0

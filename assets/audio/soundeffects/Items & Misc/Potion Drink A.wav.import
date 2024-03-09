@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bw3aisb3gv7qx"
+path="res://.godot/imported/Potion Drink A.wav-5023dec3ee0d115ec394f47d984e3e66.sample"
+
+[deps]
+
+source_file="res://assets/audio/soundeffects/Items & Misc/Potion Drink A.wav"
+dest_files=["res://.godot/imported/Potion Drink A.wav-5023dec3ee0d115ec394f47d984e3e66.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

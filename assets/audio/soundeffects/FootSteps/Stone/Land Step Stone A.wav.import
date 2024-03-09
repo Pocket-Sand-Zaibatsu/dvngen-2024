@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://boqjf7y8yvp6p"
+path="res://.godot/imported/Land Step Stone A.wav-abb11648de2e5268b3c5465a2ca6ff33.sample"
+
+[deps]
+
+source_file="res://assets/audio/soundeffects/FootSteps/Stone/Land Step Stone A.wav"
+dest_files=["res://.godot/imported/Land Step Stone A.wav-abb11648de2e5268b3c5465a2ca6ff33.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://rsdqxdtvontd"
+path="res://.godot/imported/Bare Step Stone Hard C.wav-6d74be08bb6f5b9d6407ea235f38a21f.sample"
+
+[deps]
+
+source_file="res://assets/audio/soundeffects/FootSteps/Stone/Bare Step Stone Hard C.wav"
+dest_files=["res://.godot/imported/Bare Step Stone Hard C.wav-6d74be08bb6f5b9d6407ea235f38a21f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

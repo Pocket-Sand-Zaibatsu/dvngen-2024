@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="OvaniSong" load_steps=2 format=3 uid="uid://bo7rpj6ycr3bx"]
+
+[ext_resource type="Script" path="res://OvaniPlugin/OvaniSong.gd" id="1_ev20k"]
+
+[resource]
+script = ExtResource("1_ev20k")
+ReverbTail = 0.0
+SongMode = 0
