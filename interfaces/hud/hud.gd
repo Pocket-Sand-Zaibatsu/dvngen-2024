@@ -22,6 +22,7 @@ func _ready():
 	Player.health_changed.connect(_player_health_changed)
 	_player_health_changed()
 	GameLogTransport.game_log_messaged.connect(_on_game_log_messaged)
+	$PortraitBackground/Portrait.texture = load ("res://assets/sprites/scaled_portraits/%s.png" % Player.player_class.to_lower()) 
 	$Inventory.initialize_inventory()
 	$Inventory.initialize_equips()
 
