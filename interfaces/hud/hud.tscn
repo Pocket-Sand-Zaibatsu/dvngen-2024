@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://p6nnokp0w23o"]
+[gd_scene load_steps=18 format=3 uid="uid://p6nnokp0w23o"]
 
 [ext_resource type="Texture2D" uid="uid://borbpogvyri8g" path="res://assets/sprites/tilesets/tiny_dungeon_interface.png" id="1_3rjoo"]
 [ext_resource type="Script" path="res://interfaces/hud/hud.gd" id="1_07xmy"]
 [ext_resource type="Texture2D" uid="uid://dtnl811kxhdnk" path="res://assets/sprites/tilesets/nine_patch_empty_bar.png" id="2_8td0o"]
+[ext_resource type="Texture2D" uid="uid://bsko0mjf65eyn" path="res://assets/sprites/tilesets/hud_window.png" id="2_d8tru"]
 [ext_resource type="Texture2D" uid="uid://d4lte3nkiqlqe" path="res://assets/sprites/inventory/ui_background.png" id="2_mj63x"]
 [ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="2_utsmw"]
 [ext_resource type="Texture2D" uid="uid://dkc0kcm7ryol" path="res://assets/sprites/tilesets/nine_patch_health_bar.png" id="3_xvofm"]
@@ -14,6 +15,10 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5b06b"]
 texture = ExtResource("1_3rjoo")
 region_rect = Rect2(1, 1, 46, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pp081"]
+atlas = ExtResource("1_3rjoo")
+region = Rect2(144, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_71ml4"]
 atlas = ExtResource("1_3rjoo")
@@ -37,6 +42,61 @@ sources/0 = SubResource("TileSetAtlasSource_t631j")
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_07xmy")
+
+[node name="UpperLeftCorner" type="CanvasGroup" parent="."]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UpperLeftCorner"]
+offset_right = 192.0
+offset_bottom = 192.0
+texture = ExtResource("2_d8tru")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="Options" type="Button" parent="UpperLeftCorner"]
+offset_left = 37.0
+offset_top = 152.0
+offset_right = 155.0
+offset_bottom = 176.0
+theme = ExtResource("2_utsmw")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_5b06b")
+text = " OPTIONS "
+
+[node name="DungeonLevelBackground" type="NinePatchRect" parent="UpperLeftCorner"]
+offset_left = 16.0
+offset_top = 48.0
+offset_right = 176.0
+offset_bottom = 136.0
+texture = SubResource("AtlasTexture_pp081")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="DungeonLevelContainer" type="CenterContainer" parent="UpperLeftCorner/DungeonLevelBackground"]
+offset_right = 160.0
+offset_bottom = 87.0
+
+[node name="DungeonLevel" type="Label" parent="UpperLeftCorner/DungeonLevelBackground/DungeonLevelContainer"]
+layout_mode = 2
+theme = ExtResource("2_utsmw")
+theme_override_font_sizes/font_size = 80
+text = "001"
+
+[node name="Label" type="Label" parent="UpperLeftCorner"]
+offset_left = 40.0
+offset_top = 17.0
+offset_right = 152.0
+offset_bottom = 40.0
+theme = ExtResource("2_utsmw")
+theme_override_font_sizes/font_size = 32
+text = "DVNGEON"
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 offset_top = 721.0
@@ -66,16 +126,6 @@ stretch_margin_right = 3
 stretch_margin_bottom = 3
 texture_under = ExtResource("2_8td0o")
 texture_progress = ExtResource("3_xvofm")
-
-[node name="Options" type="Button" parent="."]
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 120.0
-offset_bottom = 32.0
-theme = ExtResource("2_utsmw")
-theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxTexture_5b06b")
-text = " OPTIONS "
 
 [node name="GameLogControl" type="Control" parent="."]
 layout_mode = 3
@@ -222,5 +272,5 @@ offset_right = 149.0
 offset_bottom = 143.0
 texture = ExtResource("10_mfjwx")
 
-[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="UpperLeftCorner/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="DevTools/Menu2" to="." method="_on_menu_2_pressed"]
