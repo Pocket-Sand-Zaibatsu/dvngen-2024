@@ -68,7 +68,7 @@ stretch_margin_bottom = 3
 texture_under = ExtResource("2_8td0o")
 texture_progress = ExtResource("3_xvofm")
 
-[node name="Menu" type="Button" parent="."]
+[node name="Options" type="Button" parent="."]
 offset_left = 8.0
 offset_top = 8.0
 offset_right = 120.0
@@ -227,5 +227,5 @@ texture = ExtResource("10_mfjwx")
 stream = ExtResource("11_plpyg")
 autoplay = true
 
-[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="DevTools/Menu2" to="." method="_on_menu_2_pressed"]

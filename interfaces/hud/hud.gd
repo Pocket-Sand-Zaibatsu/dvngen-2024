@@ -59,7 +59,7 @@ func _on_menu_2_pressed():
 	Player.change_health(-9223372036854775808)
 
 
-func _on_menu_pressed():
+func _on_options_pressed():
 	var options = options_scene.instantiate()
 	add_child(options)
 	
