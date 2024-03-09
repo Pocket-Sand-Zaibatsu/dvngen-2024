@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://ctqmirip0ubsd"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_generator.gd" id="1_pbglm"]
-[ext_resource type="AudioStream" uid="uid://21oo71jmn1tb" path="res://assets/audio/TitleScreen Audio/SynFantasy Depths Intensity 1.wav" id="2_36dj4"]
+[ext_resource type="AudioStream" uid="uid://b41wxkklwrtku" path="res://assets/audio/TitleScreen Audio/SynFantasy Depths Intensity 2.wav" id="2_wd264"]
 [ext_resource type="Texture2D" uid="uid://woe6u7ms2n4k" path="res://assets/sprites/tiny_dungeon_world.png" id="3_0ql10"]
 [ext_resource type="Texture2D" uid="uid://ca7f63mphhxyc" path="res://assets/sprites/tilesets/stone_dungeon.png" id="4_ex4vd"]
 [ext_resource type="Texture2D" uid="uid://cg4jomw3dnax7" path="res://assets/sprites/world/td_world_floor_pit.png" id="5_junio"]
@@ -1359,7 +1359,8 @@ tile_proxies/coords_level = [[1, Vector2i(0, 0)], [27, Vector2i(0, 0)], [2, Vect
 script = ExtResource("1_pbglm")
 
 [node name="Level1Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_36dj4")
+stream = ExtResource("2_wd264")
+autoplay = true
 
 [node name="Level" type="TileMap" parent="."]
 z_as_relative = false

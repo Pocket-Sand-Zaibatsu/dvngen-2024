@@ -18,7 +18,7 @@ func _ready():
 		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		label.add_theme_font_size_override("font_size", 48)
 		StatsContainer.add_child(label)
-
+	$DeathMusic.play()
 
 func _on_main_menu_button_pressed():
 	SceneChanger.change_scene(SceneChanger.PossibleScene.MAIN_MENU)

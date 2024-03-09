@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cvhaq8anokajp"]
 
 [ext_resource type="Script" path="res://scenes/class_select/class_Select.gd" id="1_iee6x"]
-[ext_resource type="AudioStream" uid="uid://b41wxkklwrtku" path="res://assets/audio/TitleScreen Audio/SynFantasy Depths Intensity 2.wav" id="2_1jee1"]
+[ext_resource type="AudioStream" uid="uid://21oo71jmn1tb" path="res://assets/audio/TitleScreen Audio/SynFantasy Depths Intensity 1.wav" id="2_oi33k"]
 [ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="3_86f0o"]
 [ext_resource type="AudioStream" uid="uid://uub4huchqb7m" path="res://assets/audio/TitleScreen Audio/ranger_select.wav" id="3_kxror"]
 [ext_resource type="AudioStream" uid="uid://wpok1c3mgw7b" path="res://assets/audio/TitleScreen Audio/fighter_select.wav" id="4_hnnul"]
@@ -15,7 +15,8 @@
 script = ExtResource("1_iee6x")
 
 [node name="ClassMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_1jee1")
+stream = ExtResource("2_oi33k")
+autoplay = true
 
 [node name="Center" type="CenterContainer" parent="."]
 anchors_preset = 15

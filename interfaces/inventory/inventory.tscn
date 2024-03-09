@@ -20,10 +20,10 @@ scale = Vector2(2, 2)
 
 [node name="InvGrid" type="GridContainer" parent="TextureRect"]
 layout_mode = 0
-offset_left = 159.0
-offset_top = 43.0
-offset_right = 275.0
-offset_bottom = 136.0
+offset_left = 307.0
+offset_top = 42.0
+offset_right = 423.0
+offset_bottom = 135.0
 theme_override_constants/h_separation = 6
 theme_override_constants/v_separation = 6
 columns = 5

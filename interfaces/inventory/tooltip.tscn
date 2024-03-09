@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dlagacy1bmfd2"]
+
+[node name="Tooltip" type="Popup"]
+size = Vector2i(300, 200)
+visible = true
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true

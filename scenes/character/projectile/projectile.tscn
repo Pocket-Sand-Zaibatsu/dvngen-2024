@@ -125,7 +125,7 @@ shape = SubResource("RectangleShape2D_kcbsh")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r32ad")
 animation = &"lightning"
-frame_progress = 0.303537
+frame_progress = 0.0516571
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
