@@ -1,4 +1,4 @@
-# Dvngeon ignores
+# DVNGEN ignores
 export/
 build/
 dvngen*.zip
