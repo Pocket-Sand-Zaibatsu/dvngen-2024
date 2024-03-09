@@ -124,7 +124,6 @@ func fire_projectile(action: String) -> void:
 func move(ui_action: String) -> void:
 	frames_since_last_action = 0
 	super(ui_action)
-	audio_player.play()
 	player_position_updated.emit(position)
 
 func compute_attack_bonus() -> int:

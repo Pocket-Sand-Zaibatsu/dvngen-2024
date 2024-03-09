@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cteacib84n4xi"]
+
+[ext_resource type="PackedScene" uid="uid://uswfopw5c8cj" path="res://scenes/world-object/bones/bones.tscn" id="1_0fugk"]
+[ext_resource type="Script" path="res://scenes/world-object/blood_splatter/blood.gd" id="2_ll2e0"]
+
+[node name="Blood" instance=ExtResource("1_0fugk")]
+script = ExtResource("2_ll2e0")

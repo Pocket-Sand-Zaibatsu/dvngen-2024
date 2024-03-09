@@ -3,6 +3,7 @@ class_name WorldObjectManager
 
 enum OBJECT_TYPE {
 	BONES,
+	BLOOD,
 	DOOR_EW,
 	ITEMDROP,
 }
@@ -16,7 +17,10 @@ var loader: Dictionary = {
 	},
 	OBJECT_TYPE.ITEMDROP: {
 		"scene": preload ("res://scenes/world-object/item_drop/item_drop.tscn")
-	}
+	},
+		OBJECT_TYPE.BLOOD: {
+		"scene": preload ("res://scenes/world-object/blood_splatter/blood.tscn")
+	},
 }
 
 @onready var objects: Dictionary = {}

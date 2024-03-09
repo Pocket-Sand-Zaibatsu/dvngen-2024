@@ -8,8 +8,8 @@ signal bottom_reached
 #@export var max_rooms := 30
 @export var map_size := Vector2i(32, 32)
 @export var room_size_range := Vector2i(5, 10)
-@export var max_rooms := 2
-@export var map_seed := 0
+@export var max_rooms := 4
+@export var map_seed := 4
 
 @onready var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 @onready var level: TileMap = get_node("Level")
@@ -47,7 +47,6 @@ func _ready() -> void:
 	add_child(enemy_manager)
 	add_child(world_object_manager)
 	add_child(projectile_manager)
-	$Level1Music.play()
 	var stairs_scene = preload("res://scenes/world-object/stairs/stairs.tscn")
 	stairs = stairs_scene.instantiate()
 	add_child(stairs)
@@ -186,4 +185,4 @@ func _paint_map() -> void:
 			"ns": level.set_cell(layer, tile, biome, _get_wall_tile(false))
 
 func _on_enemy_died(_uuid: String, location_grid: Vector2i) -> void:
-	world_object_manager.spawn_object(WorldObjectManager.OBJECT_TYPE.BONES, location_grid)
+	world_object_manager.spawn_object(WorldObjectManager.OBJECT_TYPE.BLOOD, location_grid)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://jaj4q77h7clv"]
+[gd_scene load_steps=12 format=3 uid="uid://jaj4q77h7clv"]
 
 [ext_resource type="Script" path="res://scenes/character/player/player.gd" id="2_nmpkx"]
 [ext_resource type="Texture2D" uid="uid://docbpn4tykcci" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_d1.png" id="3_p26k0"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://ckm2m0pqig1vq" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_r2.png" id="7_5ia83"]
 [ext_resource type="Texture2D" uid="uid://bg77853lf1wxm" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_u1.png" id="8_xujvp"]
 [ext_resource type="Texture2D" uid="uid://y5blwda7j0wr" path="res://assets/sprites/heroes/fighter/td_monsters_fighter_u2.png" id="9_uiyna"]
-[ext_resource type="AudioStream" uid="uid://cex0yk2jw750f" path="res://assets/audio/SoundEffects/footsteps/Bare Step Stone Medium C.wav" id="10_o04yt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4mhdp"]
 animations = [{
@@ -74,11 +73,6 @@ animation = &"Up"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_ivopj")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_o04yt")
-volume_db = 5.0
-pitch_scale = 1.1
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 offset = Vector2(0, 30)

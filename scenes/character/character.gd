@@ -13,7 +13,7 @@ signal position_changed
 signal spawn_projectile(spawn_grid: Vector2i, velocity: Vector2i, projectile_type: String)
 
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
-@onready var audio_player = get_node("AudioStreamPlayer2D")
+#@onready var audio_player = get_node("AudioStreamPlayer2D")
 @onready var level: CharacterLevel = CharacterLevel.new()
 
 var uuid: String
@@ -61,7 +61,6 @@ var attack_to_direction = {
 
 func _ready() -> void:
 	log_messaged.connect(GameLogTransport._on_log_messaged)
-	audio_player.set_volume_db(volume_db)
 	animated_sprite.play("Down")
 	Player.input_received.connect(_on_input_received)
 	add_child(level)

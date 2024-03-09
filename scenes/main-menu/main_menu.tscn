@@ -1,17 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4ciguhuugsmo"]
+[gd_scene load_steps=7 format=3 uid="uid://c4ciguhuugsmo"]
 
 [ext_resource type="Script" path="res://scenes/main-menu/main_menu.gd" id="1_vm5rm"]
-[ext_resource type="AudioStream" uid="uid://cfqkwguxw4pwe" path="res://assets/audio/TitleScreen Audio/SynFantasy Depths Main.wav" id="2_q6gqm"]
 [ext_resource type="FontFile" uid="uid://c8vpxjen7xpab" path="res://assets/fonts/tiny_dungeon_font.tres" id="3_a4hwk"]
 [ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="3_v77f4"]
+[ext_resource type="AudioStream" uid="uid://o0pj2oleqjjt" path="res://assets/audio/music/Depths (RT 3.504)/SynFantasy Depths Main.wav" id="5_ipwdl"]
+[ext_resource type="AudioStream" uid="uid://di1nwrsrb5uid" path="res://assets/audio/TitleScreen Audio/dvngen_title.wav" id="6_rjjr5"]
 
 [sub_resource type="GDScript" id="GDScript_3qkge"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_vm5rm")
-
-[node name="TitleMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_q6gqm")
 
 [node name="Center" type="CenterContainer" parent="."]
 offset_right = 1280.0
@@ -54,6 +52,13 @@ focus_neighbor_bottom = NodePath("../StartButton")
 theme = ExtResource("3_v77f4")
 text = "QUIT"
 script = SubResource("GDScript_3qkge")
+
+[node name="StartbuttonAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_rjjr5")
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ipwdl")
+volume_db = -20.0
 
 [connection signal="pressed" from="Center/MainColumn/MenuVBox/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Center/MainColumn/MenuVBox/QuitButton" to="." method="_on_quit_button_pressed"]
