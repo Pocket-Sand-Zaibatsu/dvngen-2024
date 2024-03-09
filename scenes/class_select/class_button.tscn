@@ -15,5 +15,6 @@ vertical_icon_alignment = 0
 script = ExtResource("1_lai1e")
 
 [node name="ClassButtonAudio" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

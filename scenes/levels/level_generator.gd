@@ -29,6 +29,7 @@ enum DungeonBiome {
 }
 
 var dungeon_level: int = 0
+signal dungeon_level_changed(current_level: int)
 
 func _on_generate_level():
 	map_seed += 1
@@ -63,6 +64,7 @@ func _create_level() -> void:
 		Player.you_won = true
 		bottom_reached.emit()
 		return
+	dungeon_level_changed.emit(dungeon_level)
 	biome = pick_biome()
 	enemy_manager.reset()
 	world_object_manager.reset()

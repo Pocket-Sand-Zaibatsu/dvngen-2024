@@ -1,0 +1,126 @@
+[gd_scene load_steps=4 format=3 uid="uid://doxgojfvb65fn"]
+
+[ext_resource type="Script" path="res://interfaces/options/options.gd" id="1_2wtwq"]
+[ext_resource type="Texture2D" uid="uid://bsko0mjf65eyn" path="res://assets/sprites/tilesets/hud_window.png" id="2_ukur1"]
+[ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="3_tklul"]
+
+[node name="Options" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_2wtwq")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.008
+offset_bottom = -7.67999
+texture = ExtResource("2_ukur1")
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 12
+patch_margin_bottom = 12
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[node name="Close" type="Button" parent="."]
+offset_left = 1096.0
+offset_top = 16.0
+offset_right = 1264.0
+offset_bottom = 56.0
+theme = ExtResource("3_tklul")
+text = "CLOSE"
+
+[node name="Main Volume" type="CanvasGroup" parent="."]
+
+[node name="Main" type="Label" parent="Main Volume"]
+offset_left = 128.0
+offset_top = 256.0
+offset_right = 384.0
+offset_bottom = 320.0
+theme = ExtResource("3_tklul")
+theme_override_font_sizes/font_size = 128
+text = "MAIN
+"
+horizontal_alignment = 2
+
+[node name="MainSlider" type="HSlider" parent="Main Volume"]
+offset_left = 464.0
+offset_top = 264.0
+offset_right = 732.0
+offset_bottom = 280.0
+scale = Vector2(2.75, 2.75)
+value = 100.0
+
+[node name="MainCheck" type="CheckBox" parent="Main Volume"]
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 408.0
+offset_bottom = 280.0
+scale = Vector2(2.75, 2.75)
+button_pressed = true
+
+[node name="Music Volume" type="CanvasGroup" parent="."]
+position = Vector2(0, 128)
+
+[node name="Music" type="Label" parent="Music Volume"]
+offset_left = 64.0
+offset_top = 256.0
+offset_right = 384.0
+offset_bottom = 320.0
+theme = ExtResource("3_tklul")
+theme_override_font_sizes/font_size = 128
+text = "MUSIC
+"
+horizontal_alignment = 2
+
+[node name="MusicSlider" type="HSlider" parent="Music Volume"]
+offset_left = 464.0
+offset_top = 264.0
+offset_right = 732.0
+offset_bottom = 280.0
+scale = Vector2(2.75, 2.75)
+value = 100.0
+
+[node name="MusicCheck" type="CheckBox" parent="Music Volume"]
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 408.0
+offset_bottom = 280.0
+scale = Vector2(2.75, 2.75)
+button_pressed = true
+
+[node name="SFX Volume" type="CanvasGroup" parent="."]
+position = Vector2(0, 256)
+
+[node name="SFX" type="Label" parent="SFX Volume"]
+offset_left = 128.0
+offset_top = 256.0
+offset_right = 384.0
+offset_bottom = 320.0
+theme = ExtResource("3_tklul")
+theme_override_font_sizes/font_size = 128
+text = "SFX"
+horizontal_alignment = 2
+
+[node name="SFXSlider" type="HSlider" parent="SFX Volume"]
+offset_left = 464.0
+offset_top = 264.0
+offset_right = 732.0
+offset_bottom = 280.0
+scale = Vector2(2.75, 2.75)
+value = 100.0
+
+[node name="SFXCheck" type="CheckBox" parent="SFX Volume"]
+offset_left = 384.0
+offset_top = 256.0
+offset_right = 408.0
+offset_bottom = 280.0
+scale = Vector2(2.75, 2.75)
+button_pressed = true
+
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]
+[connection signal="value_changed" from="Main Volume/MainSlider" to="." method="_on_main_slider_value_changed"]
+[connection signal="toggled" from="Main Volume/MainCheck" to="." method="_on_main_check_toggled"]
+[connection signal="value_changed" from="Music Volume/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="toggled" from="Music Volume/MusicCheck" to="." method="_on_music_check_toggled"]
+[connection signal="value_changed" from="SFX Volume/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="SFX Volume/SFXCheck" to="." method="_on_sfx_check_toggled"]
