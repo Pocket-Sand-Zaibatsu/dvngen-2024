@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c31holoy5mwcj"
-path="res://.godot/imported/Bare Step Stone Medium E.wav-0f968563a243d373660321be06a84ed4.sample"
+path="res://.godot/imported/Bare Step Stone Medium E.wav-9845d84a11b1164d1ada4c35891707f5.sample"
 
 [deps]
 
-source_file="res://assets/audio/SoundEffects/footsteps/Bare Step Stone Medium E.wav"
-dest_files=["res://.godot/imported/Bare Step Stone Medium E.wav-0f968563a243d373660321be06a84ed4.sample"]
+source_file="res://assets/audio/soundeffects/FootSteps/Bare Step Stone Medium E.wav"
+dest_files=["res://.godot/imported/Bare Step Stone Medium E.wav-9845d84a11b1164d1ada4c35891707f5.sample"]
 
 [params]
 

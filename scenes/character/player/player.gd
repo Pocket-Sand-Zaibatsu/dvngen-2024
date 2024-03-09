@@ -129,7 +129,7 @@ func move(ui_action: String) -> void:
 	frames_since_last_action = 0
 	super(ui_action)
 	player_position_updated.emit(position)
-	#$Footsteps.Play()
+	$Footsteps.play()
 
 func compute_attack_bonus() -> int:
 	return base_attack_bonus + PlayerInventory.get_equipped_attack_bonus()
@@ -168,3 +168,7 @@ func _physics_process(_delta):
 	for direction in input_to_direction.keys():
 		if Input.is_action_pressed(direction):
 			input_received.emit(direction)
+
+func _on_damage_sent(actor: String, attack_roll: int, amount: int) -> void:
+	super(actor, attack_roll, amount)
+	$Damage.play()

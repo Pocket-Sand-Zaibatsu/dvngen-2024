@@ -9,8 +9,11 @@ var death_stats: Array[String] = []
 func _ready():
 	$CenterContainer/VBoxContainer/MainMenuButton.grab_focus()
 	if Player.you_won:
+		$WinScreen.play()
 		$CenterContainer/VBoxContainer/Label.text = "YOU WON"
 	for stat in death_stats:
+		$DeathScreen.play()
+		$DeathLaugh.play()
 		var label = Label.new()
 		label.text = stat
 		label.set_theme(label_theme)

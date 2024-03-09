@@ -42,9 +42,12 @@ func _ready():
 	default_style.texture = default_texture
 	empty_style.texture = empty_texture
 	refresh_style()
-		
+
+func is_empty():
+	return item == null
+
 func refresh_style():
-	if item == null:
+	if is_empty():
 		set('theme_override_styles/panel', empty_style)
 	else:
 		set('theme_override_styles/panel', default_style)

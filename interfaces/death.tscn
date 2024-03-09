@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://eyxj7oykv8le"]
+[gd_scene load_steps=6 format=3 uid="uid://eyxj7oykv8le"]
 
 [ext_resource type="Script" path="res://interfaces/death.gd" id="1_4hksk"]
 [ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="2_tkrpe"]
+[ext_resource type="AudioStream" uid="uid://21oo71jmn1tb" path="res://assets/audio/TitleScreen Audio/SynFantasy Depths Intensity 1.wav" id="3_f3676"]
+[ext_resource type="AudioStream" uid="uid://cxv4ouvwcgaac" path="res://assets/audio/music/Stars (RT 5.674)/SynFantasy Stars Main.wav" id="4_gcfj7"]
+[ext_resource type="AudioStream" uid="uid://dkrnh05wpocsk" path="res://assets/audio/TitleScreen Audio/death_laugh.wav" id="5_0e38c"]
 
 [node name="Death" type="CanvasLayer"]
 script = ExtResource("1_4hksk")
@@ -29,6 +32,18 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_tkrpe")
 text = "MAIN MENU"
+
+[node name="DeathScreen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_f3676")
+bus = &"Music"
+
+[node name="WinScreen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_gcfj7")
+bus = &"Music"
+
+[node name="DeathLaugh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_0e38c")
+bus = &"SFX"
 
 [connection signal="tree_entered" from="CenterContainer/VBoxContainer/VBoxContainer" to="." method="_on_v_box_container_tree_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

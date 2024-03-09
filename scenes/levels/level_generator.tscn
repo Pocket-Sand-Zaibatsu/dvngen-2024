@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ctqmirip0ubsd"]
+[gd_scene load_steps=17 format=3 uid="uid://ctqmirip0ubsd"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_generator.gd" id="1_pbglm"]
 [ext_resource type="Texture2D" uid="uid://woe6u7ms2n4k" path="res://assets/sprites/tiny_dungeon_world.png" id="3_0ql10"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cg4jomw3dnax7" path="res://assets/sprites/world/td_world_floor_pit.png" id="5_junio"]
 [ext_resource type="Texture2D" uid="uid://bovtbtx6guybg" path="res://assets/sprites/tilesets/cave_dungeon.png" id="6_tjbq1"]
 [ext_resource type="Texture2D" uid="uid://cjo47tt32lolp" path="res://assets/sprites/tilesets/crypt_dungeon.png" id="7_bwjbt"]
+[ext_resource type="AudioStream" uid="uid://v6twccqibjf" path="res://assets/audio/music/Somewhere (RT 3.173)/SynFantasy Somewhere Main.wav" id="8_2gckb"]
 [ext_resource type="Texture2D" uid="uid://cky3clbefry5j" path="res://assets/sprites/tilesets/sewer_dungeon.png" id="8_b3g72"]
+[ext_resource type="AudioStream" uid="uid://bijqrlwh4jffr" path="res://assets/audio/soundeffects/Ambience/Loops/Dungeon Loop.wav" id="9_1qeo5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pwyav"]
 texture = ExtResource("3_0ql10")
@@ -1368,3 +1370,13 @@ layer_1/tile_data = PackedInt32Array()
 layer_2/name = "objects"
 layer_2/z_index = 2
 layer_2/tile_data = PackedInt32Array()
+
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_2gckb")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
+
+[node name="LevelAmbience" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_1qeo5")
+volume_db = 10.0

@@ -54,6 +54,9 @@ func _ready() -> void:
 	stairs.generate_level.connect(_on_generate_level)
 	# REMOVE FOR FINAL GAME
 	rng.seed = map_seed
+	$LevelMusic.play()
+	$LevelAmbience.play()
+	
 
 func pick_biome() -> DungeonBiome:
 	return DungeonBiome.values()[rng.randi() % DungeonBiome.values().size()]
