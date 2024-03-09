@@ -5,6 +5,7 @@ const MAX_MESSAGES = 50
 
 signal dev_tools_stat_update(stat_field: String, value: int)
 
+@onready var options_scene: PackedScene = preload("res://interfaces/options/options.tscn")
 @onready var HealthBar = get_node("HealthBar")
 @onready var GameLog: RichTextLabel = get_node("GameLogControl").get_node("GameLog")
 @onready var Minimap: TileMap = get_node("MinimapContainer/MinimapViewportContainer/MinimapViewport/Minimap")
@@ -56,3 +57,9 @@ func _on_cell_painted(cell_grid: Vector2i, cell_type: LevelGrid.CELL_TYPE) -> vo
 
 func _on_menu_2_pressed():
 	Player.change_health(-9223372036854775808)
+
+
+func _on_options_pressed():
+	var options = options_scene.instantiate()
+	add_child(options)
+	
