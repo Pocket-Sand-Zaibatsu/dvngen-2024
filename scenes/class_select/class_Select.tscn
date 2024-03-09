@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cvhaq8anokajp"]
+[gd_scene load_steps=11 format=3 uid="uid://cvhaq8anokajp"]
 
 [ext_resource type="Script" path="res://scenes/class_select/class_Select.gd" id="1_iee6x"]
 [ext_resource type="PackedScene" uid="uid://1m6ux8m8xy7i" path="res://scenes/main-menu/title.tscn" id="2_5ayua"]
+[ext_resource type="AudioStream" uid="uid://uby6h2y3s4p" path="res://assets/audio/music/Somewhere (RT 3.173)/SynFantasy Somewhere Intensity 2.wav" id="2_75old"]
 [ext_resource type="AudioStream" uid="uid://uub4huchqb7m" path="res://assets/audio/TitleScreen Audio/ranger_select.wav" id="3_kxror"]
 [ext_resource type="AudioStream" uid="uid://wpok1c3mgw7b" path="res://assets/audio/TitleScreen Audio/fighter_select.wav" id="4_hnnul"]
 [ext_resource type="Texture2D" uid="uid://cudop8swk00q7" path="res://assets/sprites/scaled_portraits/fighter.png" id="5_5ck18"]
@@ -14,10 +15,24 @@
 script = ExtResource("1_iee6x")
 
 [node name="SelectMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_75old")
 volume_db = -10.0
 bus = &"Music"
 
 [node name="Node2D" parent="." instance=ExtResource("2_5ayua")]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+offset_left = 200.0
+offset_top = 576.0
+offset_right = 448.0
+offset_bottom = 832.0
+
+[node name="RANGER" parent="CenterContainer" instance=ExtResource("10_f0wc8")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../../CenterContainer2/WIZARD")
+focus_neighbor_right = NodePath("../../Center/FIGHTER")
+texture = ExtResource("9_1puvd")
+audio = ExtResource("3_kxror")
 
 [node name="Center" type="CenterContainer" parent="."]
 anchors_preset = 15
@@ -32,19 +47,10 @@ grow_vertical = 2
 
 [node name="FIGHTER" parent="Center" instance=ExtResource("10_f0wc8")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../CenterContainer/RANGER")
+focus_neighbor_right = NodePath("../../CenterContainer2/WIZARD")
 texture = ExtResource("5_5ck18")
 audio = ExtResource("4_hnnul")
-
-[node name="CenterContainer" type="CenterContainer" parent="."]
-offset_left = 200.0
-offset_top = 576.0
-offset_right = 448.0
-offset_bottom = 832.0
-
-[node name="RANGER" parent="CenterContainer" instance=ExtResource("10_f0wc8")]
-layout_mode = 2
-texture = ExtResource("9_1puvd")
-audio = ExtResource("3_kxror")
 
 [node name="CenterContainer2" type="CenterContainer" parent="."]
 offset_left = 832.0
@@ -54,5 +60,7 @@ offset_bottom = 832.0
 
 [node name="WIZARD" parent="CenterContainer2" instance=ExtResource("10_f0wc8")]
 layout_mode = 2
+focus_neighbor_left = NodePath("../../Center/FIGHTER")
+focus_neighbor_right = NodePath("../../CenterContainer/RANGER")
 texture = ExtResource("7_75ove")
 audio = ExtResource("7_2hscg")
