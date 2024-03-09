@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://p6nnokp0w23o"]
+[gd_scene load_steps=16 format=3 uid="uid://p6nnokp0w23o"]
 
 [ext_resource type="Texture2D" uid="uid://borbpogvyri8g" path="res://assets/sprites/tilesets/tiny_dungeon_interface.png" id="1_3rjoo"]
 [ext_resource type="Script" path="res://interfaces/hud/hud.gd" id="1_07xmy"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://drcophnpcvkyx" path="res://interfaces/inventory/inventory.tscn" id="8_ghnld"]
 [ext_resource type="Texture2D" uid="uid://7vlaawci157j" path="res://assets/sprites/tilesets/minimap.png" id="9_rwquv"]
 [ext_resource type="Texture2D" uid="uid://cudop8swk00q7" path="res://assets/sprites/scaled_portraits/fighter.png" id="10_mfjwx"]
-[ext_resource type="AudioStream" uid="uid://cfqkwguxw4pwe" path="res://assets/audio/TitleScreen Audio/SynFantasy Depths Main.wav" id="11_plpyg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5b06b"]
 texture = ExtResource("1_3rjoo")
@@ -222,10 +221,6 @@ offset_top = -3.0
 offset_right = 149.0
 offset_bottom = 143.0
 texture = ExtResource("10_mfjwx")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_plpyg")
-autoplay = true
 
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="DevTools/Menu2" to="." method="_on_menu_2_pressed"]
