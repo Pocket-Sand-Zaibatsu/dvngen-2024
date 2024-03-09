@@ -57,14 +57,18 @@ func slot_gui_input(event: InputEvent, slot: Slot):
 			_on_inventory_update()
 
 
+
 func use_item(slot: Slot):
 	var item_cat = str(JsonItemData.item_data[slot.item.item_name]["ItemCategory"])
-	if item_cat == "Consumable":
+	var quantity = PlayerInventory.inventory.get(slot.slot_index, ["", 0])[1]
+	if item_cat == "Consumable" && quantity >= 1:
 		Player.change_health(+ 10)
-		PlayerInventory.decrease_item_quantity(slot, slot.item.item_quantity)
-		if slot.item.item_quantity <= 1:
+		PlayerInventory.decrease_item_quantity(slot, 1)
+		quantity = PlayerInventory.inventory.get(slot.slot_index, ["", 0])[1]
+		if quantity < 1:
 			PlayerInventory.remove_item(slot)
 			slot.removeFromSlot()
+
 
 
 func _input(_event):
