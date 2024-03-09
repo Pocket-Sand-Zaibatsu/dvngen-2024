@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/main-menu/main_menu.gd" id="1_vm5rm"]
 [ext_resource type="FontFile" uid="uid://c8vpxjen7xpab" path="res://assets/fonts/tiny_dungeon_font.tres" id="3_a4hwk"]
 [ext_resource type="Theme" uid="uid://bx30hgdcpfdve" path="res://assets/themes/menu_theme.tres" id="3_v77f4"]
-[ext_resource type="AudioStream" uid="uid://o0pj2oleqjjt" path="res://assets/audio/music/Depths (RT 3.504)/SynFantasy Depths Main.wav" id="5_ipwdl"]
+[ext_resource type="AudioStream" uid="uid://cfqkwguxw4pwe" path="res://assets/audio/TitleScreen Audio/SynFantasy Depths Main.wav" id="5_hc3pl"]
 [ext_resource type="AudioStream" uid="uid://di1nwrsrb5uid" path="res://assets/audio/TitleScreen Audio/dvngen_title.wav" id="6_rjjr5"]
 
 [sub_resource type="GDScript" id="GDScript_3qkge"]
@@ -40,7 +40,6 @@ text = "START GAME"
 script = SubResource("GDScript_3qkge")
 
 [node name="OptionsButton" type="Button" parent="Center/MainColumn/MenuVBox"]
-visible = false
 layout_mode = 2
 theme = ExtResource("3_v77f4")
 text = "OPTIONS"
@@ -55,10 +54,13 @@ script = SubResource("GDScript_3qkge")
 
 [node name="StartbuttonAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_rjjr5")
+bus = &"SFX"
 
 [node name="TitleMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_ipwdl")
+stream = ExtResource("5_hc3pl")
 volume_db = -20.0
+bus = &"Music"
 
 [connection signal="pressed" from="Center/MainColumn/MenuVBox/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Center/MainColumn/MenuVBox/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="Center/MainColumn/MenuVBox/QuitButton" to="." method="_on_quit_button_pressed"]
