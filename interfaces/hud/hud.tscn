@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://p6nnokp0w23o"]
+[gd_scene load_steps=17 format=3 uid="uid://p6nnokp0w23o"]
 
 [ext_resource type="Texture2D" uid="uid://borbpogvyri8g" path="res://assets/sprites/tilesets/tiny_dungeon_interface.png" id="1_3rjoo"]
 [ext_resource type="Script" path="res://interfaces/hud/hud.gd" id="1_07xmy"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://drcophnpcvkyx" path="res://interfaces/inventory/inventory.tscn" id="8_ghnld"]
 [ext_resource type="Texture2D" uid="uid://7vlaawci157j" path="res://assets/sprites/tilesets/minimap.png" id="9_rwquv"]
 [ext_resource type="Texture2D" uid="uid://cudop8swk00q7" path="res://assets/sprites/scaled_portraits/fighter.png" id="10_mfjwx"]
+[ext_resource type="AudioStream" uid="uid://cfqkwguxw4pwe" path="res://assets/audio/TitleScreen Audio/SynFantasy Depths Main.wav" id="11_plpyg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5b06b"]
 texture = ExtResource("1_3rjoo")
@@ -68,14 +69,14 @@ texture_under = ExtResource("2_8td0o")
 texture_progress = ExtResource("3_xvofm")
 
 [node name="Menu" type="Button" parent="."]
-offset_left = 1207.0
-offset_top = 2.0
-offset_right = 1279.0
-offset_bottom = 26.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 120.0
+offset_bottom = 32.0
 theme = ExtResource("2_utsmw")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxTexture_5b06b")
-text = "MENU"
+text = " OPTIONS "
 
 [node name="GameLogControl" type="Control" parent="."]
 layout_mode = 3
@@ -222,4 +223,9 @@ offset_right = 149.0
 offset_bottom = 143.0
 texture = ExtResource("10_mfjwx")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_plpyg")
+autoplay = true
+
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
 [connection signal="pressed" from="DevTools/Menu2" to="." method="_on_menu_2_pressed"]
