@@ -13,10 +13,10 @@ var extra_attack_bonus: int = 0
 # Set these to something higher
 var drop_table: Dictionary = {
 	# "td_items_coins_gold": 20,
-	"td_items_potion_red": 50,
-	# "td_items_weapon_shortsword": 1,
-	# "td_items_weapon_bow": 1,
-	# "td_items_weapon_staff": 1,
+	"td_items_potion_red": 70,
+	 "td_items_weapon_shortsword": 30,
+	 "td_items_weapon_bow": 30,
+	 "td_items_weapon_staff": 30,
 	# "td_items_steel_boot": 1,
 	# "td_items_steel_chest": 1,
 	# "td_items_steel_glove": 1,
