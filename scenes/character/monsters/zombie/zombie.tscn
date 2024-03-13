@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://bwutgwgh3mlk6"]
+
+[ext_resource type="PackedScene" uid="uid://bk1cg2xypnud7" path="res://scenes/character/monsters/monster.tscn" id="1_sg5a0"]
+[ext_resource type="Script" path="res://scenes/character/monsters/zombie/zombie.gd" id="2_5eb5p"]
+[ext_resource type="Texture2D" uid="uid://b3fpvmj4br8iy" path="res://assets/sprites/monsters/zombie/td_monsters_zombie_d1.png" id="2_skjio"]
+[ext_resource type="Texture2D" uid="uid://bb0vrg2xmoi78" path="res://assets/sprites/monsters/zombie/td_monsters_zombie_d2.png" id="3_c7o43"]
+[ext_resource type="Texture2D" uid="uid://dw1h4deaygq7p" path="res://assets/sprites/monsters/zombie/td_monsters_zombie_l1.png" id="4_p3x4v"]
+[ext_resource type="Texture2D" uid="uid://e11mla34aqd3" path="res://assets/sprites/monsters/zombie/td_monsters_zombie_l2.png" id="5_72566"]
+[ext_resource type="Texture2D" uid="uid://ce52qid8382jr" path="res://assets/sprites/monsters/zombie/td_monsters_zombie_r1.png" id="6_mdave"]
+[ext_resource type="Texture2D" uid="uid://b5mqnq2ada58n" path="res://assets/sprites/monsters/zombie/td_monsters_zombie_r2.png" id="7_ny6kk"]
+[ext_resource type="Texture2D" uid="uid://cw0e4nuaatobt" path="res://assets/sprites/monsters/zombie/td_monsters_zombie_u1.png" id="8_j1u1j"]
+[ext_resource type="Texture2D" uid="uid://k70joepc3y2o" path="res://assets/sprites/monsters/zombie/td_monsters_zombie_u2.png" id="9_bmnk0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ks8mb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_skjio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c7o43")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_p3x4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_72566")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_mdave")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ny6kk")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_j1u1j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bmnk0")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[node name="Zombie" instance=ExtResource("1_sg5a0")]
+script = ExtResource("2_5eb5p")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_ks8mb")
+animation = &"Up"

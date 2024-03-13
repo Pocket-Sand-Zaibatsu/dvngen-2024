@@ -42,6 +42,7 @@ func slot_gui_input(event: InputEvent, slot: Slot):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_RIGHT && event.pressed:
 			use_item(slot)
+			destroy_item(slot)
 		else:
 			if event.button_index == MOUSE_BUTTON_LEFT && event.pressed:
 				if holding_item != null:
@@ -57,14 +58,23 @@ func slot_gui_input(event: InputEvent, slot: Slot):
 			_on_inventory_update()
 
 
+func destroy_item(slot: Slot):
+	if slot.is_empty():
+		return
+	var item_cat = str(JsonItemData.item_data[slot.item.item_name]["ItemCategory"])
+	if item_cat != "Consumable":
+		PlayerInventory.remove_item(slot)
+		slot.removeFromSlot()
+
 
 func use_item(slot: Slot):
 	if slot.is_empty():
 		return
 	var item_cat = str(JsonItemData.item_data[slot.item.item_name]["ItemCategory"])
+	var con_stat = int(JsonItemData.item_data[slot.item.item_name]["con_change"])
 	var quantity = PlayerInventory.inventory.get(slot.slot_index, ["", 0])[1]
 	if item_cat == "Consumable" && quantity >= 1:
-		Player.change_health(+ 10)
+		Player.change_health(+ con_stat)
 		$HealthPotion.play()
 		PlayerInventory.decrease_item_quantity(slot, 1)
 		quantity = PlayerInventory.inventory.get(slot.slot_index, ["", 0])[1]
@@ -120,7 +130,7 @@ func left_click_not_holding(slot: Slot):
 
 func item_category_to_slot_type(category: String) -> Slot.SlotType:
 	match category:
-		"Sword","Bow","Staff":
+		"Sword","Bow","Staff","Shield","Axe","Dagger":
 			return Slot.SlotType.HAND
 		"Helmet":
 			return Slot.SlotType.HEAD

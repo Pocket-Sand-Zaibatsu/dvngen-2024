@@ -60,7 +60,6 @@ animations = [{
 
 [node name="Skeleton" instance=ExtResource("1_iwfh3")]
 script = ExtResource("2_ujukn")
-uuid = ""
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_b1ax3")

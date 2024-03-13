@@ -8,7 +8,7 @@ signal player_ready
 signal player_position_updated(position: Vector2i)
 signal input_received(action: String)
 signal player_died
-signal atk_bonus_chaged
+signal atk_bonus_change
 
 const FRAMES_PER_ACTION: int = 10
 
@@ -46,25 +46,27 @@ func set_starting_equipment() -> void:
 	var armor_type: String
 	var weapon: String
 	var cape: String
+	var shield: String
 	match player_class.to_lower():
 		"fighter":
-			armor_type = "steel"
-			weapon = "td_items_weapon_sword"
-			cape = "purple"
+			armor_type = "Steel"
+			weapon = "Sword"
+			cape = "Purple"
+			shield = "Wood Shield"
 		"ranger":
-			armor_type = "leather"
-			weapon = "td_items_weapon_bow"
-			cape = "leather"
+			armor_type = "Leather"
+			weapon = "Bow"
+			cape = "Leather"
 		"wizard":
-			armor_type = "magic"
-			cape = "magic"
-			weapon = "td_items_weapon_staff"
-	PlayerInventory.equips[PlayerInventory.EquipSlots.HEAD] = ["td_items_%s_helm" % armor_type, 1]
-	PlayerInventory.equips[PlayerInventory.EquipSlots.NECK] = ["td_items_cape_%s" % cape, 1]
-	PlayerInventory.equips[PlayerInventory.EquipSlots.BODY] = ["td_items_%s_chest" % armor_type, 1]
-	PlayerInventory.equips[PlayerInventory.EquipSlots.ARMS] = ["td_items_%s_glove" % armor_type, 1]
-	PlayerInventory.equips[PlayerInventory.EquipSlots.LEGS] = ["td_items_%s_pant" % armor_type, 1]
-	PlayerInventory.equips[PlayerInventory.EquipSlots.FEET] = ["td_items_%s_boot" % armor_type, 1]
+			armor_type = "Magic"
+			cape = "Magic"
+			weapon = "Staff"
+	#PlayerInventory.equips[PlayerInventory.EquipSlots.HEAD] = ["%s Helmet" % armor_type, 1]
+	#PlayerInventory.equips[PlayerInventory.EquipSlots.NECK] = ["%s Cape" % cape, 1]
+	#PlayerInventory.equips[PlayerInventory.EquipSlots.BODY] = ["%s Chest" % armor_type, 1]
+	#PlayerInventory.equips[PlayerInventory.EquipSlots.ARMS] = ["%s Gloves" % armor_type, 1]
+	#PlayerInventory.equips[PlayerInventory.EquipSlots.LEGS] = ["%s Pants" % armor_type, 1]
+	#PlayerInventory.equips[PlayerInventory.EquipSlots.FEET] = ["%s Boots" % armor_type, 1]
 	PlayerInventory.equips[PlayerInventory.EquipSlots.RHAND] = [weapon, 1]
 
 func _on_dev_tools_stat_update(stat_field: String, value: int) -> void:
@@ -133,7 +135,6 @@ func move(ui_action: String) -> void:
 
 func compute_attack_bonus() -> int:
 	return base_attack_bonus + PlayerInventory.get_equipped_attack_bonus()
-	atk_bonus_chaged.emit()
 	
 
 func compute_armor_class() -> int:

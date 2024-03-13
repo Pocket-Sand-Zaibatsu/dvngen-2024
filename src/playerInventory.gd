@@ -5,6 +5,7 @@ const ItemClass = preload("res://scenes/Items/items/items.gd")
 const NUM_INVENTORY_SLOTS = 20
 
 signal inventory_updated
+signal atk_bonus_chaged
 
 
 enum EquipSlots {
@@ -107,4 +108,6 @@ func get_equipped_armor_class() -> int:
 
 func get_equipped_attack_bonus() -> int:
 	return get_equipped_stat("attack_bonus")
+
+	
 

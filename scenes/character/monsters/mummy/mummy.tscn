@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://djka453q8k4uv"]
+
+[ext_resource type="PackedScene" uid="uid://bk1cg2xypnud7" path="res://scenes/character/monsters/monster.tscn" id="1_xfnvx"]
+[ext_resource type="Script" path="res://scenes/character/monsters/mummy/mummy.gd" id="2_18iec"]
+[ext_resource type="Texture2D" uid="uid://dcmnuyugc8257" path="res://assets/sprites/monsters/mummy/td_monsters_mummy_d1.png" id="3_x7h52"]
+[ext_resource type="Texture2D" uid="uid://dgljysuyafqor" path="res://assets/sprites/monsters/mummy/td_monsters_mummy_d2.png" id="4_5lttr"]
+[ext_resource type="Texture2D" uid="uid://cbvwo7yuw28gn" path="res://assets/sprites/monsters/mummy/td_monsters_mummy_l1.png" id="5_gej8g"]
+[ext_resource type="Texture2D" uid="uid://df03lqqpbuaas" path="res://assets/sprites/monsters/mummy/td_monsters_mummy_l2.png" id="6_onwkv"]
+[ext_resource type="Texture2D" uid="uid://c1atq21c42qor" path="res://assets/sprites/monsters/mummy/td_monsters_mummy_r1.png" id="7_hgex2"]
+[ext_resource type="Texture2D" uid="uid://dgqsit88wwieq" path="res://assets/sprites/monsters/mummy/td_monsters_mummy_r2.png" id="8_rj7kn"]
+[ext_resource type="Texture2D" uid="uid://wxih1u4wyxcx" path="res://assets/sprites/monsters/mummy/td_monsters_mummy_u1.png" id="9_yqe5g"]
+[ext_resource type="Texture2D" uid="uid://b1m83h3slm705" path="res://assets/sprites/monsters/mummy/td_monsters_mummy_u2.png" id="10_feseg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rmqyp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_x7h52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5lttr")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gej8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_onwkv")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_hgex2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rj7kn")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_yqe5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_feseg")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[node name="Mummy" instance=ExtResource("1_xfnvx")]
+script = ExtResource("2_18iec")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_rmqyp")
+animation = &"Up"

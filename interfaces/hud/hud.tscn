@@ -112,22 +112,6 @@ axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 metadata/_edit_group_ = true
 
-[node name="HealthBar" type="TextureProgressBar" parent="."]
-offset_left = 225.0
-offset_top = 790.0
-offset_right = 378.0
-offset_bottom = 827.0
-rotation = -4.71239
-value = 60.0
-fill_mode = 1
-nine_patch_stretch = true
-stretch_margin_left = 3
-stretch_margin_top = 3
-stretch_margin_right = 3
-stretch_margin_bottom = 3
-texture_under = ExtResource("2_8td0o")
-texture_progress = ExtResource("3_xvofm")
-
 [node name="GameLogControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -280,6 +264,22 @@ offset_top = -3.0
 offset_right = 149.0
 offset_bottom = 143.0
 texture = ExtResource("10_mfjwx")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = 225.0
+offset_top = 789.0
+offset_right = 378.0
+offset_bottom = 826.0
+rotation = 1.5708
+value = 60.0
+fill_mode = 1
+nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
+texture_under = ExtResource("2_8td0o")
+texture_progress = ExtResource("3_xvofm")
 
 [node name="StatsBackground" type="NinePatchRect" parent="."]
 anchors_preset = 7

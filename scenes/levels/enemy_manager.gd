@@ -12,6 +12,10 @@ enum ENEMY_TYPE {
 	DEMON,
 	MINOTAUR,
 	SKELETON,
+	ZOMBIE,
+	PEEPER,
+	MUMMY,
+	FLIES,
 }
 
 var loader: Dictionary = {
@@ -38,6 +42,18 @@ var loader: Dictionary = {
 	},
 	ENEMY_TYPE.SKELETON: {
 		"scene": preload("res://scenes/character/monsters/skeleton/skeleton.tscn")
+	},
+	ENEMY_TYPE.ZOMBIE: {
+		"scene": preload("res://scenes/character/monsters/zombie/zombie.tscn")
+	},
+	ENEMY_TYPE.PEEPER: {
+		"scene": preload("res://scenes/character/monsters/peeper/peeper.tscn")
+	},
+	ENEMY_TYPE.MUMMY: {
+		"scene": preload("res://scenes/character/monsters/mummy/mummy.tscn")
+	},
+	ENEMY_TYPE.FLIES: {
+		"scene": preload("res://scenes/character/monsters/Flies/flies.tscn")
 	}
 }
 
@@ -80,8 +96,8 @@ func spawn_enemy(enemy_type: ENEMY_TYPE, spawn_grid: Vector2i) -> void:
 	enemies[enemy.uuid] = enemy
 	await call_deferred("add_child", enemy)
 
+
 func _on_monster_death(_uuid: String, _location_grid: Vector2i):
-	print("poop")
 	deathplayer.volume_db = -7
 	deathplayer.play()
 	

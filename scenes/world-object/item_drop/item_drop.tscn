@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bqftv5dmv4522" path="res://scenes/world-object/world_object.tscn" id="1_8lqvp"]
 [ext_resource type="Script" path="res://scenes/world-object/item_drop/item_drop.gd" id="2_7ebt6"]
-[ext_resource type="Texture2D" uid="uid://71qd84xor8fy" path="res://assets/sprites/items/td_items_potion_red.png" id="3_qxkdg"]
+[ext_resource type="Texture2D" uid="uid://71qd84xor8fy" path="res://assets/sprites/items/Health Potion.png" id="3_qxkdg"]
 
 [sub_resource type="Animation" id="Animation_386hq"]
 resource_name = "Float"
