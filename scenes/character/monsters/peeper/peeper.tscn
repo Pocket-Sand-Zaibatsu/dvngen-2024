@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://5v0s2sxcjaoi"]
+
+[ext_resource type="PackedScene" uid="uid://bk1cg2xypnud7" path="res://scenes/character/monsters/monster.tscn" id="1_qkg33"]
+[ext_resource type="Script" path="res://scenes/character/monsters/peeper/peeper.gd" id="2_quh8h"]
+[ext_resource type="Texture2D" uid="uid://bwf8o5hxrnsyf" path="res://assets/sprites/monsters/beholder/td_monsters_beholder_d1.png" id="3_4ap15"]
+[ext_resource type="Texture2D" uid="uid://bgjn6reqea5yr" path="res://assets/sprites/monsters/beholder/td_monsters_beholder_d2.png" id="4_xc6ee"]
+[ext_resource type="Texture2D" uid="uid://b120hq14gfsvd" path="res://assets/sprites/monsters/beholder/td_monsters_beholder_l1.png" id="5_bqhvr"]
+[ext_resource type="Texture2D" uid="uid://bcgj6yqjo4hd8" path="res://assets/sprites/monsters/beholder/td_monsters_beholder_l2.png" id="6_llbd4"]
+[ext_resource type="Texture2D" uid="uid://deul1mi7mfqn1" path="res://assets/sprites/monsters/beholder/td_monsters_beholder_r1.png" id="7_n4e0g"]
+[ext_resource type="Texture2D" uid="uid://c1rj4wk46erw" path="res://assets/sprites/monsters/beholder/td_monsters_beholder_r2.png" id="8_cgax3"]
+[ext_resource type="Texture2D" uid="uid://y0xskim05ip3" path="res://assets/sprites/monsters/beholder/td_monsters_beholder_u1.png" id="9_42kio"]
+[ext_resource type="Texture2D" uid="uid://1p4st5j3slpi" path="res://assets/sprites/monsters/beholder/td_monsters_beholder_u2.png" id="10_sph0q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yhes0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4ap15")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xc6ee")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_bqhvr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_llbd4")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_n4e0g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cgax3")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_42kio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_sph0q")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[node name="Peeper" instance=ExtResource("1_qkg33")]
+script = ExtResource("2_quh8h")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_yhes0")
+animation = &"Up"

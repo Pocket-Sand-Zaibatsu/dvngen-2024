@@ -1,466 +1,540 @@
 {
-  "td_items_amulet_gold": {
+  "Gold Amulet": {
 	"ItemCategory": "Amulet",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 1,
+	"con_change": 0
   },
-  "td_items_amulet_magic": {
+  "Magic Amulet": {
 	"ItemCategory": "Amulet",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 1,
+	"con_change": 0
   },
-  "td_items_amulet_silver": {
+  "Silver Amulet": {
 	"ItemCategory": "Amulet",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 1,
+	"con_change": 0
   },
-  "td_items_arrow": {
+  "Arrow": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_bandage": {
+  "Bandage": {
+	"ItemCategory": "Consumable",
+	"StackSize": 10,
+	"Description": "",
+	"con_change": 10
+  },
+  "Bolt": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_bolt": {
+  "Black Book": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_book_black": {
+  "Brown Book": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_book_brown": {
+  "Green Book": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_book_green": {
+  "Caltrops": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_caltrops": {
-	"ItemCategory": "",
-	"StackSize": 1,
-	"Description": ""
-  },
-  "td_items_cape_leather": {
+  "Leather Cape": {
 	"ItemCategory": "Cape",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 2,
+	"con_change": 0
   },
-  "td_items_cape_magic": {
+  "Magic Cape": {
 	"ItemCategory": "Cape",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 1,
+	"con_change": 0
   },
-  "td_items_cape_purple": {
+  "Purple Cape": {
 	"ItemCategory": "Cape",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 3,
+	"con_change": 0
   },
-  "td_items_coins_copper": {
+  "Copper Coin": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_coins_gold": {
+  "Gold Coin": {
 	"ItemCategory": "Resource",
 	"StackSize": 99,
-	"Description": "It's money, stupid. Use it to buy goods and services."
+	"Description": "It's money, stupid. Use it to buy goods and services.",
+	"con_change": 0
   },
-  "td_items_coins_silver": {
+  "Silver Coin": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_compass": {
+  "Compass": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_cross": {
+  "Cross": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_crown_evil": {
+  "Evil Crown": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_crown_gold": {
+  "Gold Crown": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_crown_silver": {
+  "Silver Crown": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_crystal_empty": {
+  "Empty Crystal": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_crystal_full": {
+  "Full Crystal": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_darts": {
+  "Darts": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_feather": {
+  "Feather": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_flask_blue": {
+  "Blue Flask": {
+	"ItemCategory": "Consumable",
+	"StackSize": 5,
+	"Description": "",
+	"con_change": 10
+  },
+  "Green Flask": {
 	"ItemCategory": "Consumable",
 	"StackSize": 10,
 	"Description": "",
 	"con_change": 10
   },
-  "td_items_flask_green": {
+  "Health Flask": {
 	"ItemCategory": "Consumable",
-	"StackSize": 10,
+	"StackSize": 5,
 	"Description": "",
-	"con_change": 10
+	"con_change": 25
   },
-  "td_items_flask_red": {
-	"ItemCategory": "Consumable",
-	"StackSize": 10,
+  "Amethyst": {
+	"ItemCategory": "",
+	"StackSize": 1,
 	"Description": "",
-	"con_change": 10
+	"con_change": 0
   },
-  "td_items_gem_amethyst": {
+  "Garnet": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_gem_garnet": {
+  "Jade": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_gem_jade": {
+  "Ruby": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_gem_ruby": {
+  "Sapphire": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_gem_sapphire": {
-	"ItemCategory": "",
-	"StackSize": 1,
-	"Description": ""
-  },
-  "td_items_hat_leather": {
+  "Leather Hat": {
 	"ItemCategory": "Helmet",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 1,
+	"con_change": 0
   },
-  "td_items_hat_magic": {
+  "Magic Hat": {
 	"ItemCategory": "Helmet",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 1,
+	"con_change": 0
   },
-  "td_items_hat_purple": {
+  "Purple Hat": {
 	"ItemCategory": "Helmet",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 1,
+	"con_change": 0
   },
-  "td_items_heart_empty": {
+  "Empty Heart": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_heart_full": {
+  "Full Heart": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_herb_gold": {
+  "Gold Herb": {
 	"ItemCategory": "Consumable",
 	"StackSize": 99,
 	"Description": "",
 	"con_change": 10
   },
-  "td_items_herb_green": {
+  "Green Herb": {
 	"ItemCategory": "Consumable",
 	"StackSize": 99,
 	"Description": "",
 	"con_change": 10
   },
-  "td_items_herb_red": {
+  "Red Herb": {
 	"ItemCategory": "Consumable",
 	"StackSize": 99,
 	"Description": "",
 	"con_change": 10
   },
-  "td_items_key_gold": {
+  "Gold Key": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_key_magic": {
+  "Magic Key": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_key_skeleton": {
+  "Skeleton Key": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_leather_boot": {
+  "Leather Boots": {
 	"ItemCategory": "Boots",
 	"StackSize": 1,
 	"Description": "Boots made from leather and cloth.",
-	"armor_class": 1
+	"armor_class": 2,
+	"con_change": 0
   },
-  "td_items_leather_chest": {
+  "Leather Chest": {
 	"ItemCategory": "Chest",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 2,
+	"con_change": 0
   },
-  "td_items_leather_glove": {
+  "Leather Gloves": {
 	"ItemCategory": "Gloves",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 2,
+	"con_change": 0
   },
-  "td_items_leather_helm": {
+  "Leather Helmet": {
 	"ItemCategory": "Helmet",
 	"StackSize": 1,
 	"Description": "A leather helmet, good for protecting your head.",
-	"armor_class": 1
+	"armor_class": 2,
+	"con_change": 0
   },
-  "td_items_leather_pant": {
+  "Leather Pants": {
 	"ItemCategory": "Pants",
 	"StackSize": 1,
 	"Description": "Leather pants, they make your butt look great!",
-	"armor_class": 1
+	"armor_class": 2,
+	"con_change": 0
   },
-  "td_items_magic_boot": {
+  "Magic Boots": {
 	"ItemCategory": "Boots",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 1,
+	"con_change": 0
   },
-  "td_items_magic_chest": {
+  "Magic Chest": {
 	"ItemCategory": "Chest",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 1,
+	"con_change": 0
   },
-  "td_items_magic_glove": {
+  "Magic Gloves": {
 	"ItemCategory": "Gloves",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 1,
+	"con_change": 0
   },
-  "td_items_magic_helm": {
+  "Magic Helmet": {
 	"ItemCategory": "Helmet",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 1,
+	"con_change": 0
   },
-  "td_items_magic_pant": {
+  "Magic Pants": {
 	"ItemCategory": "Pants",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 1,
+	"con_change": 0
   },
-  "td_items_map": {
+  "Map": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_potion_black": {
+  "Black Potion": {
 	"ItemCategory": "Consumable",
 	"StackSize": 10,
 	"Description": "",
 	"con_change": 10
   },
-  "td_items_potion_blue": {
+  "Blue Potion": {
 	"ItemCategory": "Consumable",
 	"StackSize": 10,
 	"Description": "",
 	"con_change": 10
   },
-  "td_items_potion_green": {
+  "Green Potion": {
 	"ItemCategory": "Consumable",
 	"StackSize": 10,
 	"Description": "",
 	"con_change": 10
   },
-  "td_items_potion_red": {
+  "Health Potion": {
 	"ItemCategory": "Consumable",
 	"StackSize": 10,
 	"Description": "Made from monster blood. It smells like cough syrup.",
-	"con_change": 10
+	"con_change": 15
   },
-  "td_items_potion_yellow": {
+  "Yellow Potion": {
 	"ItemCategory": "Consumable",
 	"StackSize": 10,
 	"Description": "",
 	"con_change": 10
   },
-  "td_items_quiver": {
+  "Quiver": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_ring_gold": {
+  "Gold Ring": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_ring_magic": {
+  "Magic Ring": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_ring_silver": {
+  "Silver Ring": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_rope": {
+  "Rope": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_sack": {
+  "Sack": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_scroll": {
+  "Scroll": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_shield_magic": {
+  "Magic Shield": {
 	"ItemCategory": "Shield",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 1,
+	"con_change": 0
   },
-  "td_items_shield_steel": {
+  "Steel Shield": {
 	"ItemCategory": "Shield",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 2,
+	"con_change": 0
   },
-  "td_items_shield_wood": {
+  "Wood Shield": {
 	"ItemCategory": "Shield",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 1,
+	"con_change": 0
   },
-  "td_items_skull": {
+  "Skull": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_skull_gold": {
+  "Gold Skull": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_steel_boot": {
+  "Steel Boots": {
 	"ItemCategory": "Boots",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 3,
+	"con_change": 0
   },
-  "td_items_steel_chest": {
+  "Steel Chest": {
 	"ItemCategory": "Chest",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 3,
+	"con_change": 0
   },
-  "td_items_steel_glove": {
+  "Steel Gloves": {
 	"ItemCategory": "Gloves",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 3,
+	"con_change": 0
   },
-  "td_items_steel_helm": {
+  "Steel Helmet": {
 	"ItemCategory": "Helmet",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 3,
+	"con_change": 0
   },
-  "td_items_steel_pant": {
+  "Steel Pants": {
 	"ItemCategory": "Pants",
 	"StackSize": 1,
 	"Description": "",
-	"armor_class": 1
+	"armor_class": 3,
+	"con_change": 0
   },
-  "td_items_stone": {
+  "Stone": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_token_copper": {
+  "Copper Token": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_token_gold": {
+  "Gold Token": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_token_silver": {
+  "Silver Token": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_torch1": {
+  "Torch": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
   "td_items_torch2": {
 	"ItemCategory": "",
 	"StackSize": 1,
-	"Description": ""
+	"Description": "",
+	"con_change": 0
   },
-  "td_items_turkey": {
-	"ItemCategory": "",
-	"StackSize": 1,
-	"Description": ""
+  "Turkey": {
+	"ItemCategory": "Consumable",
+	"StackSize": 20,
+	"Description": "",
+	"con_change": 5
   },
-  "td_items_weapon_axe": {
+  "Axe": {
 	"ItemCategory": "Axe",
 	"StackSize": 1,
 	"Description": "",
+	"con_change": 0,
 	"projectile_type": "slash",
 	"damage": [
 	  1,
@@ -468,10 +542,11 @@
 	  0
 	]
   },
-  "td_items_weapon_bow": {
+  "Bow": {
 	"ItemCategory": "Bow",
 	"StackSize": 1,
 	"Description": "",
+	"con_change": 0,
 	"projectile_type": "arrow",
 	"damage": [
 	  1,
@@ -479,10 +554,11 @@
 	  0
 	]
   },
-  "td_items_weapon_club": {
+  "Club": {
 	"ItemCategory": "Club",
 	"StackSize": 1,
 	"Description": "",
+	"con_change": 0,
 	"projectile_type": "bash",
 	"damage": [
 	  1,
@@ -490,10 +566,11 @@
 	  0
 	]
   },
-  "td_items_weapon_crossbow": {
+  "Crossbow": {
 	"ItemCategory": "Crossbow",
 	"StackSize": 1,
 	"Description": "",
+	"con_change": 0,
 	"projectile_type": "arrow",
 	"damage": [
 	  1,
@@ -501,10 +578,11 @@
 	  0
 	]
   },
-  "td_items_weapon_dagger": {
+  "Dagger": {
 	"ItemCategory": "Dagger",
 	"StackSize": 1,
 	"Description": "",
+	"con_change": 0,
 	"projectile_type": "slash",
 	"damage": [
 	  1,
@@ -512,10 +590,11 @@
 	  0
 	]
   },
-  "td_items_weapon_hammer": {
+  "Hammer": {
 	"ItemCategory": "Hammer",
 	"StackSize": 1,
 	"Description": "",
+	"con_change": 0,
 	"projectile_type": "bash",
 	"damage": [
 	  1,
@@ -523,10 +602,11 @@
 	  0
 	]
   },
-  "td_items_weapon_mace": {
+  "Mace": {
 	"ItemCategory": "Mace",
 	"StackSize": 1,
 	"Description": "",
+	"con_change": 0,
 	"projectile_type": "bash",
 	"damage": [
 	  1,
@@ -534,10 +614,11 @@
 	  0
 	]
   },
-  "td_items_weapon_quarterstaff": {
+  "Quarterstaff": {
 	"ItemCategory": "Quarterstaff",
 	"StackSize": 1,
 	"Description": "",
+	"con_change": 0,
 	"projectile_type": "bash",
 	"damage": [
 	  1,
@@ -545,10 +626,11 @@
 	  0
 	]
   },
-  "td_items_weapon_shortsword": {
+  "Shortsword": {
 	"ItemCategory": "Sword",
 	"StackSize": 1,
 	"Description": "",
+	"con_change": 0,
 	"projectile_type": "slash",
 	"damage": [
 	  1,
@@ -556,10 +638,11 @@
 	  0
 	]
   },
-  "td_items_weapon_sling": {
+  "Sling": {
 	"ItemCategory": "Sling",
 	"StackSize": 1,
 	"Description": "",
+	"con_change": 0,
 	"projectile_type": "slash",
 	"damage": [
 	  1,
@@ -567,10 +650,11 @@
 	  0
 	]
   },
-  "td_items_weapon_staff": {
+  "Staff": {
 	"ItemCategory": "Staff",
 	"StackSize": 1,
 	"Description": "",
+	"con_change": 0,
 	"projectile_type": "fireball",
 	"damage": [
 	  1,
@@ -578,11 +662,12 @@
 	  0
 	]
   },
-  "td_items_weapon_sword": {
+  "Sword": {
 	"ItemCategory": "Sword",
 	"StackSize": 1,
 	"attack_bonus": 1,
 	"Description": "",
+	"con_change": 0,
 	"projectile_type": "slash",
 	"damage": [
 	  1,

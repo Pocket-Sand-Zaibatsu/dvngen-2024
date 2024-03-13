@@ -21,6 +21,7 @@ var damage: DicePool
 var attack_bonus: int = 0
 var armor_class: int = 0
 
+
 func set_item_data(new_name: String, new_quantity: int):
 	item_name = new_name
 	item_data = JsonItemData.item_data[item_name]

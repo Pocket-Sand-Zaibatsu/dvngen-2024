@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=3 uid="uid://c316ap01n3jmg"]
+
+[ext_resource type="PackedScene" uid="uid://bk1cg2xypnud7" path="res://scenes/character/monsters/monster.tscn" id="1_7in17"]
+[ext_resource type="Script" path="res://scenes/character/monsters/Flies/flies.gd" id="2_eiunu"]
+[ext_resource type="Texture2D" uid="uid://thxjplvo02fy" path="res://assets/sprites/monsters/flies/td_monsters_flies_d1.png" id="3_02chy"]
+[ext_resource type="Texture2D" uid="uid://ee3c18mywixq" path="res://assets/sprites/monsters/flies/td_monsters_flies_d2.png" id="4_5qc1j"]
+[ext_resource type="Texture2D" uid="uid://ibpoc2k7s6d7" path="res://assets/sprites/monsters/flies/td_monsters_flies_l1.png" id="5_adyai"]
+[ext_resource type="Texture2D" uid="uid://b85nklei0ptxg" path="res://assets/sprites/monsters/flies/td_monsters_flies_l2.png" id="6_4s6q7"]
+[ext_resource type="Texture2D" uid="uid://xeb53e3dwu37" path="res://assets/sprites/monsters/flies/td_monsters_flies_r1.png" id="7_a4rqj"]
+[ext_resource type="Texture2D" uid="uid://cop2junby2ltq" path="res://assets/sprites/monsters/flies/td_monsters_flies_r2.png" id="8_70qgt"]
+[ext_resource type="Texture2D" uid="uid://cl3y4jpgcweux" path="res://assets/sprites/monsters/flies/td_monsters_flies_u1.png" id="9_hb27y"]
+[ext_resource type="Texture2D" uid="uid://c2y6nf5wlmi87" path="res://assets/sprites/monsters/flies/td_monsters_flies_u2.png" id="10_b3ex4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lt0fm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_02chy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5qc1j")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_adyai")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4s6q7")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_a4rqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_70qgt")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_hb27y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_b3ex4")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[node name="Flies" instance=ExtResource("1_7in17")]
+script = ExtResource("2_eiunu")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_lt0fm")
+animation = &"Up"

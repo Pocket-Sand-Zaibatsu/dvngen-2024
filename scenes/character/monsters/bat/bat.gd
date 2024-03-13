@@ -4,7 +4,7 @@ class_name Bat
 
 func _init():
 	super()
-	log_name = "bat"
+	log_name = "Bat"
 	hit_dice = DicePool.new([Dice.new(2)], 2)
 	unarmed_damage_dice = DicePool.new([Dice.new(2)], 0)
 	stat_block.update_stat_block([4, 10, 15, 2, 1, 14])

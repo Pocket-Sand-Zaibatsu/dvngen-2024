@@ -7,6 +7,7 @@ signal dev_tools_stat_update(stat_field: String, value: int)
 
 @onready var options_scene: PackedScene = preload("res://interfaces/options/options.tscn")
 @onready var HealthBar = get_node("HealthBar")
+@onready var ExpBar = get_node("ExpBar")
 @onready var GameLog: RichTextLabel = get_node("GameLogControl").get_node("GameLog")
 @onready var Minimap: TileMap = get_node("MinimapContainer/MinimapViewportContainer/MinimapViewport/Minimap")
 @onready var MinimapCamera = get_node("MinimapContainer/MinimapViewportContainer/MinimapViewport/MinimapCamera")
@@ -26,7 +27,6 @@ func _ready():
 	$PortraitBackground/Portrait.texture = load ("res://assets/sprites/scaled_portraits/%s.png" % Player.player_class.to_lower()) 
 	get_player_stats()
 	Player.level.exp_increased.connect(get_player_stats)
-	Player.atk_bonus_chaged.connect(get_player_stats)
 	$Inventory.initialize_inventory()
 	$Inventory.initialize_equips()
 
@@ -46,6 +46,7 @@ func _player_health_changed() -> void:
 	HealthBar.value = int(float(Player.current_health * 100) / float(Player.max_health))
 	$DevTools/Health/HBoxContainer/Max.text = str(Player.max_health)
 	$DevTools/Health/HBoxContainer2/Current.text = str(Player.current_health)
+
 
 func reverse_newline_join(input: Array[String]) -> String:
 	var result = ""

@@ -4,7 +4,7 @@ class_name Centaur
 
 func _init():
 	super()
-	log_name = "centaur"
+	log_name = "Centaur"
 	hit_dice = DicePool.new([Dice.new(8)], 6)
 	unarmed_damage_dice = DicePool.new([Dice.new(3)], 0)
 	stat_block.update_stat_block([11, 15, 14, 8, 18, 13])
